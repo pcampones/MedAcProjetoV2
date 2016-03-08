@@ -124,22 +124,7 @@ namespace BOT
             });
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-
-            BackgroundWorker bw = new BackgroundWorker();
-            dll.DoWork();
-            bw.RunWorkerAsync(DataType.Normal);
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            dll.Stop();
-        }
-
+      
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
 

@@ -14,7 +14,10 @@ namespace BOT
 {
     public partial class Form1 : Form
     {
-        PhysiologicParametersDll.PhysiologicParametersDll dll = new PhysiologicParametersDll.PhysiologicParametersDll();
+        PhysiologicParametersDll.PhysiologicParametersDll dll = null;
+        PhysiologicParametersDll.PhysiologicParametersDll dllO = null;
+        PhysiologicParametersDll.PhysiologicParametersDll dllH = null;
+        enum DataType { Normal, Alerts };
 
 
         public Form1()
@@ -24,55 +27,123 @@ namespace BOT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Checked)
+
+            if (dll != null)
             {
-                //MessageBox.Show("Blood Pressure");
-                dll.InitializeWithAlerts(null, Settings.Default.Delay, true, false, false);
+                if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Checked)
+                {
+                    //MessageBox.Show("Blood Pressure");
+                    dll.Initialize(BloodPressure, Settings.Default.Delay, true, false, false);
+                }
+                if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
+                {
+                    dll.Stop();
+                    //MessageBox.Show("Blood Pressure desative");
+                }
             }
-            if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
+            else
             {
-                dll.InitializeWithAlerts(null, Settings.Default.Delay, false, false, false);
-                //MessageBox.Show("Blood Pressure desative");
+                dll = new PhysiologicParametersDll.PhysiologicParametersDll();
             }
-            if (checkedListBox1.SelectedItem.Equals("Oxigen Saturation") && (checkedListBox1.GetItemCheckState(1) == CheckState.Checked))
+            if (dllO != null)
             {
-                dll.InitializeWithAlerts(null, Settings.Default.Delay, false, true, false);
-                //MessageBox.Show("Oxigen Saturation");
+                if (checkedListBox1.SelectedItem.Equals("Oxigen Saturation") && (checkedListBox1.GetItemCheckState(1) == CheckState.Checked))
+                {
+                    dllO.Initialize(OxigenSature, Settings.Default.Delay, false, true, false);
+                    //MessageBox.Show("Oxigen Saturation");
+                }
+                if (checkedListBox1.SelectedItem.Equals("Oxigen Saturation") && checkedListBox1.GetItemCheckState(1) == CheckState.Unchecked)
+                {
+                    dllO.Stop();
+                    //MessageBox.Show("Oxigen Saturation desative");
+                }
+
             }
-            if (checkedListBox1.SelectedItem.Equals("Oxigen Saturation") && checkedListBox1.GetItemCheckState(1) == CheckState.Unchecked)
+            else
             {
-                dll.InitializeWithAlerts(null, Settings.Default.Delay, false, false, false);
-                //MessageBox.Show("Oxigen Saturation desative");
+                dllO = new PhysiologicParametersDll.PhysiologicParametersDll();
             }
-            if (checkedListBox1.SelectedItem.Equals("Heart Rate") && (checkedListBox1.GetItemCheckState(2) == CheckState.Checked))
+            if (dllH != null)
             {
-                dll.InitializeWithAlerts(null, Settings.Default.Delay, false, false, true);
-                //  MessageBox.Show("Heart Rate");
+                if (checkedListBox1.SelectedItem.Equals("Heart Rate") && (checkedListBox1.GetItemCheckState(2) == CheckState.Checked))
+                {
+                    dllH.Initialize(HeartRate, Settings.Default.Delay, false, false, true);
+                    //  MessageBox.Show("Heart Rate");
+                }
+                if (checkedListBox1.SelectedItem.Equals("Heart Rate") && (checkedListBox1.GetItemCheckState(2) == CheckState.Unchecked))
+                {
+                    dllH.Stop();
+                    // MessageBox.Show("Heart Rate desative");
+                }
+
             }
-            if (checkedListBox1.SelectedItem.Equals("Heart Rate") && (checkedListBox1.GetItemCheckState(2) == CheckState.Unchecked))
+            else
             {
-                dll.InitializeWithAlerts(null, Settings.Default.Delay, false, false, false);
-                // MessageBox.Show("Heart Rate desative");
+
+                dllH = new PhysiologicParametersDll.PhysiologicParametersDll();
             }
 
 
+
+        }
+        public void BloodPressure(string str)
+        {
+
+            char[] delimiters = { ';' };
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
+                richTextBox1.Text += palavras[1] + Environment.NewLine;
+            });
+        }
+
+        public void OxigenSature(string str)
+        {
+            char[] delimiters = { ';' };
+            string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+
+                richTextBox2.Text += palavras[1] + Environment.NewLine;
+            });
+        }
+
+        public void HeartRate(string str)
+        {
+            char[] delimiters = { ';' };
+            string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                richTextBox3.Text += palavras[1] + Environment.NewLine;
+            });
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+
+
             BackgroundWorker bw = new BackgroundWorker();
-            PhysiologicParametersDll.PhysiologicParametersDll dll = new PhysiologicParametersDll.PhysiologicParametersDll();
             dll.DoWork();
+            bw.RunWorkerAsync(DataType.Normal);
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dll.Stop();
+        }
 
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
       

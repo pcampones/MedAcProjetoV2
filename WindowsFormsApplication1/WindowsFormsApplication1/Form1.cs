@@ -14,15 +14,17 @@ namespace BOT
 {
     public partial class Form1 : Form
     {
-        PhysiologicParametersDll.PhysiologicParametersDll dll = null;
-        PhysiologicParametersDll.PhysiologicParametersDll dllO = null;
+        PhysiologicParametersDll.PhysiologicParametersDll dll =  null;
+        PhysiologicParametersDll.PhysiologicParametersDll dllC = null;
         PhysiologicParametersDll.PhysiologicParametersDll dllH = null;
+
         enum DataType { Normal, Alerts };
 
 
         public Form1()
         {
             InitializeComponent();
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,64 +34,64 @@ namespace BOT
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
             if (dll != null)
             {
                 if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Checked)
                 {
-                    //MessageBox.Show("Blood Pressure");
                     dll.Initialize(BloodPressure, Settings.Default.Delay, true, false, false);
                 }
                 if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
                 {
-                    dll.Stop();
-                    //MessageBox.Show("Blood Pressure desative");
+                    dll.Initialize(BloodPressure, Settings.Default.Delay, false, false, false);
                 }
             }
             else
             {
                 dll = new PhysiologicParametersDll.PhysiologicParametersDll();
             }
-            if (dllO != null)
+
+
+            if (dllC != null)
             {
+
                 if (checkedListBox1.SelectedItem.Equals("Oxigen Saturation") && (checkedListBox1.GetItemCheckState(1) == CheckState.Checked))
                 {
-                    dllO.Initialize(OxigenSature, Settings.Default.Delay, false, true, false);
-                    //MessageBox.Show("Oxigen Saturation");
+                    dllC.Initialize(OxigenSature, Settings.Default.Delay, false, true, false);
+
                 }
                 if (checkedListBox1.SelectedItem.Equals("Oxigen Saturation") && checkedListBox1.GetItemCheckState(1) == CheckState.Unchecked)
                 {
-                    dllO.Stop();
-                    //MessageBox.Show("Oxigen Saturation desative");
-                }
+                    dllC.Initialize(OxigenSature, Settings.Default.Delay, false, false, false);
 
+                }
             }
             else
             {
-                dllO = new PhysiologicParametersDll.PhysiologicParametersDll();
+                dllC = new PhysiologicParametersDll.PhysiologicParametersDll();
             }
+
+
+
             if (dllH != null)
             {
+
+
                 if (checkedListBox1.SelectedItem.Equals("Heart Rate") && (checkedListBox1.GetItemCheckState(2) == CheckState.Checked))
                 {
                     dllH.Initialize(HeartRate, Settings.Default.Delay, false, false, true);
-                    //  MessageBox.Show("Heart Rate");
+
                 }
                 if (checkedListBox1.SelectedItem.Equals("Heart Rate") && (checkedListBox1.GetItemCheckState(2) == CheckState.Unchecked))
                 {
-                    dllH.Stop();
-                    // MessageBox.Show("Heart Rate desative");
+                    dllH.Initialize(HeartRate, Settings.Default.Delay, false, false, false);
                 }
-
             }
             else
             {
-
                 dllH = new PhysiologicParametersDll.PhysiologicParametersDll();
             }
-
-
+            
+               
 
         }
         public void BloodPressure(string str)
@@ -98,7 +100,7 @@ namespace BOT
             char[] delimiters = { ';' };
             this.BeginInvoke((MethodInvoker)delegate
             {
-                string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
+                 string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
                 richTextBox1.Text += palavras[1] + Environment.NewLine;
             });
         }

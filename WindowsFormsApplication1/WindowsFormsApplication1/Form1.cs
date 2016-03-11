@@ -102,10 +102,14 @@ namespace BOT
         {
 
             char[] delimiters = { ';' };
+            string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
+            List<string> heartRate = new List<string>();
+            heartRate.Add(palavras[1].ToString());
             this.BeginInvoke((MethodInvoker)delegate
             {
-                 string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
-                richTextBox1.Text += palavras[1] + Environment.NewLine;
+                 
+
+                textBox1.Text = heartRate.LastOrDefault() ;
             });
         }
 
@@ -113,25 +117,30 @@ namespace BOT
         {
             char[] delimiters = { ';' };
             string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
+            List<string> heartRate = new List<string>();
+            heartRate.Add(palavras[1].ToString());
             this.BeginInvoke((MethodInvoker)delegate
             {
 
-                richTextBox2.Text += palavras[1] + Environment.NewLine;
+                textBox2.Text = heartRate.LastOrDefault() ;
             });
         }
 
         public void HeartRate(string str)
         {
             char[] delimiters = { ';' };
+            
             string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
+
+            List<string> heartRate = new List<string>();
+            heartRate.Add(palavras[1].ToString());
             this.BeginInvoke((MethodInvoker)delegate
             {
-                richTextBox3.Text += palavras[1] + Environment.NewLine;
+                textBox3.Text = heartRate.LastOrDefault();
             });
         }
 
-      
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

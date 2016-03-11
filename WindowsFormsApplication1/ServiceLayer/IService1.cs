@@ -14,34 +14,26 @@ namespace ServiceLayer
     {
 
         [OperationContract]
-        string GetData(int value);
-
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
+        UtenteWeb GetUtenteBySNS(int sns);
+        
         // TODO: Add your service operations here
     }
 
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
+
     [DataContract]
-    public class CompositeType
+    public class UtenteWeb
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
         [DataMember]
-        public bool BoolValue
+        private DateTime birthdate;
+
+        public DateTime Birthdate
         {
-            get { return boolValue; }
-            set { boolValue = value; }
+            get { return birthdate; }
+            set { birthdate = value; }
         }
 
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
     }
+  
 }

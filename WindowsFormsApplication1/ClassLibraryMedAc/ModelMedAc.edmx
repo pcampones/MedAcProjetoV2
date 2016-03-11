@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelMedAc.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelMedAcStoreContainer">
+    <EntitySet Name="UtenteSet" EntityType="ModelMedAc.Store.UtenteSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ValoresSet" EntityType="ModelMedAc.Store.ValoresSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AlertasSet" EntityType="ModelMedAc.Store.AlertasSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UtenteValores" Association="ModelMedAc.Store.UtenteValores">
+      <End Role="Utente" EntitySet="UtenteSet" />
+      <End Role="Valores" EntitySet="ValoresSet" />
+    </AssociationSet>
+    <AssociationSet Name="ValoresAlertas" Association="ModelMedAc.Store.ValoresAlertas">
+      <End Role="Valores" EntitySet="ValoresSet" />
+      <End Role="Alertas" EntitySet="AlertasSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UtenteSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="int" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Birthdate" Type="datetime" Nullable="false" />
+    <Property Name="BI" Type="int" Nullable="false" />
+    <Property Name="SNS" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="Alergies" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Height" Type="int" Nullable="false" />
+    <Property Name="NexOfKinContat" Type="int" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ValoresSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BloodPressure" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HeartRate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OxygenSaturation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Utente_Id" Type="int" Nullable="false" />
+    <Property Name="Alertas_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AlertasSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="UtenteValores">
+    <End Role="Utente" Type="ModelMedAc.Store.UtenteSet" Multiplicity="1" />
+    <End Role="Valores" Type="ModelMedAc.Store.ValoresSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Valores">
+        <PropertyRef Name="Utente_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ValoresAlertas">
+    <End Role="Valores" Type="ModelMedAc.Store.ValoresSet" Multiplicity="*" />
+    <End Role="Alertas" Type="ModelMedAc.Store.AlertasSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Alertas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Valores">
+        <PropertyRef Name="Alertas_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelMedAc" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelMedAcContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UtenteSet" EntityType="ModelMedAc.Utente" />
+          <EntitySet Name="ValoresSet" EntityType="ModelMedAc.Valores" />
+          <EntitySet Name="AlertasSet" EntityType="ModelMedAc.Alertas" />
+          <AssociationSet Name="UtenteValores" Association="ModelMedAc.UtenteValores">
+            <End Role="Utente" EntitySet="UtenteSet" />
+            <End Role="Valores" EntitySet="ValoresSet" />
+          </AssociationSet>
+          <AssociationSet Name="ValoresAlertas" Association="ModelMedAc.ValoresAlertas">
+            <End Role="Valores" EntitySet="ValoresSet" />
+            <End Role="Alertas" EntitySet="AlertasSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Utente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Surname" Type="String" Nullable="false" />
+          <Property Name="Phone" Type="Int32" Nullable="false" />
+          <Property Name="Mail" Type="String" Nullable="false" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="false" />
+          <Property Name="BI" Type="Int32" Nullable="false" />
+          <Property Name="SNS" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <Property Name="Alergies" Type="String" Nullable="false" />
+          <Property Name="Height" Type="Int32" Nullable="false" />
+          <Property Name="NexOfKinContat" Type="Int32" Nullable="false" />
+          <Property Name="Weight" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Valores" Relationship="ModelMedAc.UtenteValores" FromRole="Utente" ToRole="Valores" />
+        </EntityType>
+        <EntityType Name="Valores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BloodPressure" Type="String" Nullable="false" />
+          <Property Name="HeartRate" Type="String" Nullable="false" />
+          <Property Name="OxygenSaturation" Type="String" Nullable="false" />
+          <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteValores" FromRole="Valores" ToRole="Utente" />
+          <NavigationProperty Name="Alertas" Relationship="ModelMedAc.ValoresAlertas" FromRole="Valores" ToRole="Alertas" />
+        </EntityType>
+        <EntityType Name="Alertas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Valores" Relationship="ModelMedAc.ValoresAlertas" FromRole="Alertas" ToRole="Valores" />
+        </EntityType>
+        <Association Name="UtenteValores">
+          <End Type="ModelMedAc.Utente" Role="Utente" Multiplicity="1" />
+          <End Type="ModelMedAc.Valores" Role="Valores" Multiplicity="*" />
+        </Association>
+        <Association Name="ValoresAlertas">
+          <End Type="ModelMedAc.Valores" Role="Valores" Multiplicity="*" />
+          <End Type="ModelMedAc.Alertas" Role="Alertas" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelMedAcStoreContainer" CdmEntityContainer="ModelMedAcContainer">
+    <EntitySetMapping Name="UtenteSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelMedAc.Utente)">
+        <MappingFragment StoreEntitySet="UtenteSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="BI" ColumnName="BI" />
+          <ScalarProperty Name="SNS" ColumnName="SNS" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Alergies" ColumnName="Alergies" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="NexOfKinContat" ColumnName="NexOfKinContat" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ValoresSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelMedAc.Valores)">
+        <MappingFragment StoreEntitySet="ValoresSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BloodPressure" ColumnName="BloodPressure" />
+          <ScalarProperty Name="HeartRate" ColumnName="HeartRate" />
+          <ScalarProperty Name="OxygenSaturation" ColumnName="OxygenSaturation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlertasSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelMedAc.Alertas)">
+        <MappingFragment StoreEntitySet="AlertasSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UtenteValores" TypeName="ModelMedAc.UtenteValores" StoreEntitySet="ValoresSet">
+      <EndProperty Name="Utente">
+        <ScalarProperty Name="Id" ColumnName="Utente_Id" />
+      </EndProperty>
+      <EndProperty Name="Valores">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ValoresAlertas" TypeName="ModelMedAc.ValoresAlertas" StoreEntitySet="ValoresSet">
+      <EndProperty Name="Alertas">
+        <ScalarProperty Name="Id" ColumnName="Alertas_Id" />
+      </EndProperty>
+      <EndProperty Name="Valores">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

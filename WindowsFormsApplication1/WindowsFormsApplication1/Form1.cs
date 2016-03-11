@@ -40,10 +40,14 @@ namespace BOT
                 {
                     dll.Initialize(BloodPressure, Settings.Default.Delay, true, false, false);
                 }
-                if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
+                else
                 {
                     dll.Initialize(BloodPressure, Settings.Default.Delay, false, false, false);
                 }
+               /* if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
+                {
+                    dll.Initialize(BloodPressure, Settings.Default.Delay, false, false, false);
+                }*/
             }
             else
             {

@@ -67,6 +67,38 @@ namespace ServiceLayer
 
         }
 
-      
+        public bool EditUtente(UtenteWeb utente)
+        {
+            try
+            {
+                Utente result = _acederBd.getUtenteBySNS(utente.Sns);
+
+                result.Name = utente.Name;
+                result.Surname = utente.Surname;
+                result.Phone = utente.Phone;
+                result.Mail = utente.Mail;
+                result.Birthdate = utente.Birthdate;
+                result.BI = utente.Bi;
+                result.SNS = utente.Sns;
+                result.Address = utente.Address;
+                result.Gender = utente.Gender;
+                result.Alergies = utente.Alergies;
+                result.Height = utente.Height;
+                result.NexOfKinContat = utente.NexOfKinContact;
+                result.Weight = utente.Weight;
+                result.Age = utente.Age;
+
+                _acederBd.editUtente(result);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+         
+
+
+        }
     }
 }

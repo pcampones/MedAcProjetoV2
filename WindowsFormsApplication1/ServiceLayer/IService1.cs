@@ -18,8 +18,9 @@ namespace ServiceLayer
 
         [OperationContract]
         void AddUtente(UtenteWeb utente);
-     
-     
+
+        [OperationContract]
+        bool EditUtente(UtenteWeb sns);
         
         // TODO: Add your service operations here
     }

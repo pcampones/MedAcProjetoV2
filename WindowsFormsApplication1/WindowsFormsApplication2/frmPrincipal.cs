@@ -82,14 +82,14 @@ namespace WindowsFormsApplication2
             ut.height = Convert.ToInt32(numericUpDown2.Value);
             ut.nexOfKinContact = Convert.ToInt32(txb_pContato.Text);
             ut.phone = Convert.ToInt32(txb_phone.Text);
-
+            
 
            DialogResult result =  MessageBox.Show("Are you sure you want add the user with the " + txb_nome.Text + " ?", "Information",
                MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 serv.AddUtente(ut);
-                MessageBox.Show("User add sucefully","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("User successfully added", "Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
            
            

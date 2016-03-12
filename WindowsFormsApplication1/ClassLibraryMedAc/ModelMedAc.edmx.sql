@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/12/2016 10:58:18
+-- Date Created: 03/12/2016 15:28:19
 -- Generated from EDMX file: C:\Users\Pedro Camponês\Documents\GitHubVisualStudio\MedAcProjetoV2\WindowsFormsApplication1\ClassLibraryMedAc\ModelMedAc.edmx
 -- --------------------------------------------------
 
@@ -53,7 +53,7 @@ CREATE TABLE [dbo].[UtenteSet] (
     [BI] int  NOT NULL,
     [SNS] int  NOT NULL,
     [Address] nvarchar(max)  NOT NULL,
-    [Gender] bit  NOT NULL,
+    [Gender] nvarchar(max)  NOT NULL,
     [Alergies] nvarchar(max)  NOT NULL,
     [Height] int  NOT NULL,
     [NexOfKinContat] int  NOT NULL,

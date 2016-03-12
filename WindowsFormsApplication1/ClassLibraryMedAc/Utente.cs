@@ -29,7 +29,7 @@ namespace ClassLibraryMedAc
         public int BI { get; set; }
         public int SNS { get; set; }
         public string Address { get; set; }
-        public bool Gender { get; set; }
+        public string Gender { get; set; }
         public string Alergies { get; set; }
         public int Height { get; set; }
         public int NexOfKinContat { get; set; }

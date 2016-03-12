@@ -52,7 +52,9 @@
             this.txb_email = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // splitter1
@@ -175,11 +177,12 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(380, 230);
+            this.label12.Location = new System.Drawing.Point(380, 214);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 13);
             this.label12.TabIndex = 13;
             this.label12.Text = "Weight:";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 
@@ -195,49 +198,51 @@
             this.txb_nome.Location = new System.Drawing.Point(207, 75);
             this.txb_nome.Name = "txb_nome";
             this.txb_nome.Size = new System.Drawing.Size(159, 20);
-            this.txb_nome.TabIndex = 15;
+            this.txb_nome.TabIndex = 1;
             // 
             // txb_sobrenome
             // 
             this.txb_sobrenome.Location = new System.Drawing.Point(439, 74);
             this.txb_sobrenome.Name = "txb_sobrenome";
             this.txb_sobrenome.Size = new System.Drawing.Size(193, 20);
-            this.txb_sobrenome.TabIndex = 16;
+            this.txb_sobrenome.TabIndex = 2;
             // 
             // txb_morada
             // 
             this.txb_morada.Location = new System.Drawing.Point(207, 106);
             this.txb_morada.Name = "txb_morada";
             this.txb_morada.Size = new System.Drawing.Size(159, 20);
-            this.txb_morada.TabIndex = 17;
+            this.txb_morada.TabIndex = 3;
             // 
             // txb_SNS
             // 
             this.txb_SNS.Location = new System.Drawing.Point(207, 141);
+            this.txb_SNS.MaxLength = 9;
             this.txb_SNS.Name = "txb_SNS";
             this.txb_SNS.Size = new System.Drawing.Size(159, 20);
-            this.txb_SNS.TabIndex = 18;
+            this.txb_SNS.TabIndex = 5;
             // 
             // txb_BI
             // 
             this.txb_BI.Location = new System.Drawing.Point(207, 170);
+            this.txb_BI.MaxLength = 9;
             this.txb_BI.Name = "txb_BI";
             this.txb_BI.Size = new System.Drawing.Size(159, 20);
-            this.txb_BI.TabIndex = 19;
+            this.txb_BI.TabIndex = 7;
             // 
             // dtP_Nascimento
             // 
             this.dtP_Nascimento.Location = new System.Drawing.Point(439, 109);
             this.dtP_Nascimento.Name = "dtP_Nascimento";
             this.dtP_Nascimento.Size = new System.Drawing.Size(194, 20);
-            this.dtP_Nascimento.TabIndex = 20;
+            this.dtP_Nascimento.TabIndex = 4;
             // 
             // txb_email
             // 
             this.txb_email.Location = new System.Drawing.Point(439, 145);
             this.txb_email.Name = "txb_email";
             this.txb_email.Size = new System.Drawing.Size(194, 20);
-            this.txb_email.TabIndex = 21;
+            this.txb_email.TabIndex = 6;
             // 
             // label14
             // 
@@ -259,22 +264,45 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // checkBox2
+            // maskedTextBox1
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(466, 290);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(58, 17);
-            this.checkBox2.TabIndex = 24;
-            this.checkBox2.Text = "Inative";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.maskedTextBox1.Location = new System.Drawing.Point(259, 207);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox1.TabIndex = 24;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(439, 184);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(48, 17);
+            this.radioButton1.TabIndex = 25;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Male";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(530, 184);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(59, 17);
+            this.radioButton2.TabIndex = 26;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Female";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 435);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txb_email);
@@ -332,7 +360,9 @@
         private System.Windows.Forms.TextBox txb_email;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
 

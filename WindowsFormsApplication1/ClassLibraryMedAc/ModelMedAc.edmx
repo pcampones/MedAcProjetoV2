@@ -31,7 +31,7 @@
     <Property Name="BI" Type="int" Nullable="false" />
     <Property Name="SNS" Type="int" Nullable="false" />
     <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Alergies" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Height" Type="int" Nullable="false" />
     <Property Name="NexOfKinContat" Type="int" Nullable="false" />
@@ -112,7 +112,7 @@
           <Property Name="BI" Type="Int32" Nullable="false" />
           <Property Name="SNS" Type="Int32" Nullable="false" />
           <Property Name="Address" Type="String" Nullable="false" />
-          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <Property Name="Gender" Type="String" Nullable="false" />
           <Property Name="Alergies" Type="String" Nullable="false" />
           <Property Name="Height" Type="Int32" Nullable="false" />
           <Property Name="NexOfKinContat" Type="Int32" Nullable="false" />

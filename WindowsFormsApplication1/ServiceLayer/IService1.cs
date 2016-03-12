@@ -102,9 +102,9 @@ namespace ServiceLayer
         }
         [DataMember]
 
-        private bool gender;
+        private string gender;
 
-        public bool Gender
+        public string Gender
         {
             get { return gender; }
             set { gender = value; }

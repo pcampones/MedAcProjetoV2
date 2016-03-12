@@ -13,6 +13,7 @@ namespace ServiceLayer
     public class Service1 : IService1
     {
         readonly Class1 _acederBd = new Class1();
+
         public UtenteWeb GetUtenteBySNS(int sns)
         {
             try
@@ -34,6 +35,7 @@ namespace ServiceLayer
                 result.NexOfKinContact = u.NexOfKinContat;
                 result.Weight = u.Weight;
                 result.Age = u.Age;
+                result.Ative = u.Ative;
 
 
                 return result;
@@ -61,6 +63,7 @@ namespace ServiceLayer
             newUtente.NexOfKinContat = utente.NexOfKinContact;
             newUtente.Weight = utente.Weight;
             newUtente.Age = utente.Age;
+            newUtente.Ative = utente.Ative;
 
             _acederBd.addUtente(newUtente);
             
@@ -87,7 +90,7 @@ namespace ServiceLayer
                 result.NexOfKinContat = utente.NexOfKinContact;
                 result.Weight = utente.Weight;
                 result.Age = utente.Age;
-
+                result.Ative = utente.Ative;
                 _acederBd.editUtente(result);
                 return true;
             }
@@ -99,6 +102,47 @@ namespace ServiceLayer
          
 
 
+        }
+
+        public List<UtenteWeb> GetListaUtentes()
+        {
+            try
+            {
+                List<UtenteWeb> listaWebSer = new List<UtenteWeb>();
+                List<Utente> result = _acederBd.getListUtentesAtive();
+
+                if(result != null)
+                {
+                    foreach (Utente item in result)
+                    {
+                        UtenteWeb u = new UtenteWeb();
+                        u.Name = item.Name;
+                        u.Surname = item.Surname;
+                        u.Phone = item.Phone;
+                        u.Mail = item.Mail;
+                        u.Sns = item.SNS;
+                        u.Bi = item.BI;
+                        u.Birthdate = item.Birthdate;
+                        u.Address = item.Address;
+                        u.Gender = item.Gender;
+                        u.Height = item.Height;
+                        u.NexOfKinContact = item.NexOfKinContat;
+                        u.Weight = item.Weight;
+                        u.Age = item.Age;
+                        u.Ative = item.Ative;
+
+                        listaWebSer.Add(u);
+
+                    }
+            
+                }
+                return listaWebSer;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
     }
 }

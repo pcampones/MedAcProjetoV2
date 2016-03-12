@@ -50,6 +50,9 @@
             this.txb_BI = new System.Windows.Forms.TextBox();
             this.dtP_Nascimento = new System.Windows.Forms.DateTimePicker();
             this.txb_email = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // splitter1
@@ -73,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(153, 75);
+            this.label1.Location = new System.Drawing.Point(153, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 2;
@@ -91,7 +94,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(215, 371);
+            this.label3.Location = new System.Drawing.Point(153, 276);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 4;
@@ -118,7 +121,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(156, 186);
+            this.label6.Location = new System.Drawing.Point(153, 173);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(20, 13);
             this.label6.TabIndex = 7;
@@ -154,7 +157,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(509, 393);
+            this.label10.Location = new System.Drawing.Point(153, 311);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 13);
             this.label10.TabIndex = 11;
@@ -163,7 +166,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(556, 371);
+            this.label11.Location = new System.Drawing.Point(153, 239);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 12;
@@ -172,7 +175,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(355, 306);
+            this.label12.Location = new System.Drawing.Point(380, 230);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 13);
             this.label12.TabIndex = 13;
@@ -181,7 +184,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(179, 318);
+            this.label13.Location = new System.Drawing.Point(153, 210);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(100, 13);
             this.label13.TabIndex = 14;
@@ -189,7 +192,7 @@
             // 
             // txb_nome
             // 
-            this.txb_nome.Location = new System.Drawing.Point(198, 75);
+            this.txb_nome.Location = new System.Drawing.Point(207, 75);
             this.txb_nome.Name = "txb_nome";
             this.txb_nome.Size = new System.Drawing.Size(159, 20);
             this.txb_nome.TabIndex = 15;
@@ -205,42 +208,75 @@
             // 
             this.txb_morada.Location = new System.Drawing.Point(207, 106);
             this.txb_morada.Name = "txb_morada";
-            this.txb_morada.Size = new System.Drawing.Size(150, 20);
+            this.txb_morada.Size = new System.Drawing.Size(159, 20);
             this.txb_morada.TabIndex = 17;
             // 
             // txb_SNS
             // 
-            this.txb_SNS.Location = new System.Drawing.Point(192, 141);
+            this.txb_SNS.Location = new System.Drawing.Point(207, 141);
             this.txb_SNS.Name = "txb_SNS";
-            this.txb_SNS.Size = new System.Drawing.Size(165, 20);
+            this.txb_SNS.Size = new System.Drawing.Size(159, 20);
             this.txb_SNS.TabIndex = 18;
             // 
             // txb_BI
             // 
-            this.txb_BI.Location = new System.Drawing.Point(182, 183);
+            this.txb_BI.Location = new System.Drawing.Point(207, 170);
             this.txb_BI.Name = "txb_BI";
-            this.txb_BI.Size = new System.Drawing.Size(177, 20);
+            this.txb_BI.Size = new System.Drawing.Size(159, 20);
             this.txb_BI.TabIndex = 19;
             // 
             // dtP_Nascimento
             // 
-            this.dtP_Nascimento.Location = new System.Drawing.Point(438, 109);
+            this.dtP_Nascimento.Location = new System.Drawing.Point(439, 109);
             this.dtP_Nascimento.Name = "dtP_Nascimento";
             this.dtP_Nascimento.Size = new System.Drawing.Size(194, 20);
             this.dtP_Nascimento.TabIndex = 20;
             // 
             // txb_email
             // 
-            this.txb_email.Location = new System.Drawing.Point(425, 148);
+            this.txb_email.Location = new System.Drawing.Point(439, 145);
             this.txb_email.Name = "txb_email";
-            this.txb_email.Size = new System.Drawing.Size(207, 20);
+            this.txb_email.Size = new System.Drawing.Size(194, 20);
             this.txb_email.TabIndex = 21;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(380, 266);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(37, 13);
+            this.label14.TabIndex = 22;
+            this.label14.Text = "Ative :";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(466, 266);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(50, 17);
+            this.checkBox1.TabIndex = 23;
+            this.checkBox1.Text = "Ative";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(466, 290);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(58, 17);
+            this.checkBox2.TabIndex = 24;
+            this.checkBox2.Text = "Inative";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 435);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.txb_email);
             this.Controls.Add(this.dtP_Nascimento);
             this.Controls.Add(this.txb_BI);
@@ -294,6 +330,9 @@
         private System.Windows.Forms.TextBox txb_BI;
         private System.Windows.Forms.DateTimePicker dtP_Nascimento;
         private System.Windows.Forms.TextBox txb_email;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
 

@@ -66,14 +66,35 @@ namespace ClassLibraryMedAc
                 result.NexOfKinContat = utente.NexOfKinContat;
                 result.Weight = utente.Weight;
                 result.Age = utente.Age;
+                result.Ative = utente.Ative;
 
                 context.SaveChanges();
             }
             catch (Exception)
             {
 
-                throw;
+                return;
             }
+        }
+
+        public List<Utente> getListUtentes()
+        {
+            return context.UtenteSet.ToList();
+        }
+
+        public List<Utente> getListUtentesAtive()
+        {
+            try
+            {
+                var result = context.UtenteSet.Where(i => i.Ative == true).ToList();
+                return result;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+         
         }
     }
 }

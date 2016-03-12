@@ -20,7 +20,11 @@ namespace ServiceLayer
         void AddUtente(UtenteWeb utente);
 
         [OperationContract]
-        bool EditUtente(UtenteWeb sns);
+        bool EditUtente(UtenteWeb utente);
+
+        [OperationContract]
+        List<UtenteWeb> GetListaUtentes();
+
         
         // TODO: Add your service operations here
     }
@@ -150,8 +154,17 @@ namespace ServiceLayer
         }
 
 
-     
+        [DataMember]
+        private bool ative;
+        public bool Ative
+        {
+            get { return ative; }
+            set { ative = value; }
+        }
+
+
+
 
     }
-  
+
 }

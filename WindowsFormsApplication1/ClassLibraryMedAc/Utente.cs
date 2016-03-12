@@ -35,6 +35,7 @@ namespace ClassLibraryMedAc
         public int NexOfKinContat { get; set; }
         public int Weight { get; set; }
         public int Age { get; set; }
+        public bool Ative { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Valores> Valores { get; set; }

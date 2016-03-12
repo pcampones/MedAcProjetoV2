@@ -34,7 +34,7 @@ namespace BOT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //ds
             listBox1.DataSource = serv.GetListaUtentes();
         }
 

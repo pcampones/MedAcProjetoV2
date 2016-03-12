@@ -75,7 +75,14 @@ namespace WindowsFormsApplication2
             ut.bi = Convert.ToInt32(txb_BI.Text);
             ut.gender = gender;
             ut.ative = ative;
-          //  serv.AddUtente(ut);
+            ut.address = txb_morada.Text;
+            ut.birthdate = dtP_Nascimento.Value;
+            ut.alergies = rich_alergies.Text;
+            ut.weight = Convert.ToInt32(numericUpDown1.Value);
+            ut.height = Convert.ToInt32(numericUpDown2.Value);
+            ut.nexOfKinContact = Convert.ToInt32(txb_pContato.Text);
+            ut.phone = Convert.ToInt32(txb_phone.Text);
+
 
            DialogResult result =  MessageBox.Show("Are you sure you want add the user with the " + txb_nome.Text + " ?", "Information",
                MessageBoxButtons.YesNo,MessageBoxIcon.Question);

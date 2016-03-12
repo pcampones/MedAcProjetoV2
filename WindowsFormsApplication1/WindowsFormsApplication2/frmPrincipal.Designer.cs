@@ -202,7 +202,7 @@
             // 
             // txb_nome
             // 
-            this.txb_nome.Location = new System.Drawing.Point(207, 75);
+            this.txb_nome.Location = new System.Drawing.Point(207, 74);
             this.txb_nome.Name = "txb_nome";
             this.txb_nome.Size = new System.Drawing.Size(159, 20);
             this.txb_nome.TabIndex = 1;

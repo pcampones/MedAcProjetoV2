@@ -86,7 +86,9 @@ namespace ClassLibraryMedAc
         {
             try
             {
-                var result = context.UtenteSet.Where(i => i.Ative == true).ToList();
+                var result = context.UtenteSet.Where(i => i.Ative == "Ative").ToList();
+
+
                 return result;
             }
             catch (Exception)

@@ -37,7 +37,7 @@
     <Property Name="NexOfKinContat" Type="int" Nullable="false" />
     <Property Name="Weight" Type="int" Nullable="false" />
     <Property Name="Age" Type="int" Nullable="false" />
-    <Property Name="Ative" Type="bit" Nullable="false" />
+    <Property Name="Ative" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ValoresSet">
     <Key>
@@ -119,7 +119,7 @@
           <Property Name="Weight" Type="Int32" Nullable="false" />
           <Property Name="Age" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Valores" Relationship="ModelMedAc.UtenteValores" FromRole="Utente" ToRole="Valores" />
-          <Property Name="Ative" Type="Boolean" Nullable="false" />
+          <Property Name="Ative" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Valores">
           <Key>

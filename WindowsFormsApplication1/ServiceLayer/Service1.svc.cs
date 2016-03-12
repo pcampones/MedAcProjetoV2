@@ -59,6 +59,7 @@ namespace ServiceLayer
             newUtente.SNS = utente.Sns;
             newUtente.Address = utente.Address;
             newUtente.Alergies = utente.Alergies;
+            newUtente.Gender = utente.Gender;
             newUtente.Height = utente.Height;
             newUtente.NexOfKinContat = utente.NexOfKinContact;
             newUtente.Weight = utente.Weight;
@@ -91,6 +92,7 @@ namespace ServiceLayer
                 result.Weight = utente.Weight;
                 result.Age = utente.Age;
                 result.Ative = utente.Ative;
+      
                 _acederBd.editUtente(result);
                 return true;
             }
@@ -117,7 +119,7 @@ namespace ServiceLayer
                     {
                         UtenteWeb u = new UtenteWeb();
                         u.Name = item.Name;
-                        u.Surname = item.Surname;
+                      /*  u.Surname = item.Surname;
                         u.Phone = item.Phone;
                         u.Mail = item.Mail;
                         u.Sns = item.SNS;
@@ -130,7 +132,7 @@ namespace ServiceLayer
                         u.Weight = item.Weight;
                         u.Age = item.Age;
                         u.Ative = item.Ative;
-
+                        */
                         listaWebSer.Add(u);
 
                     }

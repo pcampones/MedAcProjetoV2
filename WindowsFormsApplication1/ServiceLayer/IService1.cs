@@ -84,7 +84,7 @@ namespace ServiceLayer
             get { return bi; }
             set { bi = value; }
         }
-
+        [DataMember]
         private int sns;
 
         public int Sns
@@ -101,7 +101,6 @@ namespace ServiceLayer
             set { address = value; }
         }
         [DataMember]
-
         private string gender;
 
         public string Gender
@@ -155,8 +154,8 @@ namespace ServiceLayer
 
 
         [DataMember]
-        private bool ative;
-        public bool Ative
+        private string ative;
+        public string Ative
         {
             get { return ative; }
             set { ative = value; }

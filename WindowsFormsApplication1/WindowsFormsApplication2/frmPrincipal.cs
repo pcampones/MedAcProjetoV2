@@ -16,31 +16,33 @@ namespace WindowsFormsApplication2
 
 
         private Service1Client serv;
-        UtenteWeb ut;     
+        UtenteWeb ut;
+        string gender;
+        string ative;
         public frmPrincipal()
         {
             InitializeComponent();
 
             serv = new Service1Client();
-            ut = new UtenteWeb();
+
 
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+     
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
             {
-                ut.ative = true;
+                ative = "Ative";
             }
             else
             {
-                ut.ative = false;
+                ative = "Inative";
 
             }
          
@@ -53,12 +55,37 @@ namespace WindowsFormsApplication2
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            ut.gender = "Male";
+           gender = "Male";
+            
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            ut.gender = "Female";
+            gender = "Female";  
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ut = new UtenteWeb();
+
+            ut.name = txb_nome.Text;
+            ut.surname = txb_sobrenome.Text;
+            ut.sns = Int32.Parse(txb_SNS.Text);
+            ut.mail = txb_email.Text;
+            ut.bi = Convert.ToInt32(txb_BI.Text);
+            ut.gender = gender;
+            ut.ative = ative;
+          //  serv.AddUtente(ut);
+
+           DialogResult result =  MessageBox.Show("Are you sure you want add the user with the " + txb_nome.Text + " ?", "Information",
+               MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                serv.AddUtente(ut);
+                MessageBox.Show("User add sucefully","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+           
+           
         }
     }
 }

@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhysiologicParametersDll;
 using WindowsFormsApplication1.Properties;
+using WindowsFormsApplication1.ServiceReference1;
 
 namespace BOT
 {
     public partial class Form1 : Form
     {
+        private Service1Client serv;
         PhysiologicParametersDll.PhysiologicParametersDll dll =  null;
         PhysiologicParametersDll.PhysiologicParametersDll dllC = null;
         PhysiologicParametersDll.PhysiologicParametersDll dllH = null;
@@ -24,12 +26,16 @@ namespace BOT
         public Form1()
         {
             InitializeComponent();
+            serv = new Service1Client();
+
            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            listBox1.DataSource = serv.GetListaUtentes();
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,6 +149,10 @@ namespace BOT
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

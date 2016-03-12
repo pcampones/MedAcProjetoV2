@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOT", "WindowsFormsApplication1\BOT.csproj", "{9799CBCF-6975-4D30-8CA9-9DC70418DBA1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FC496114-7445-4052-B789-E36420A6A564} = {FC496114-7445-4052-B789-E36420A6A564}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalAlert", "WindowsFormsApplication2\ClinicalAlert.csproj", "{50948FF4-37E0-4AA1-8999-FE64B3225304}"
 	ProjectSection(ProjectDependencies) = postProject

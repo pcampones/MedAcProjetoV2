@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApplication2.ServiceReference1 {
+namespace WindowsFormsApplication1.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
     
@@ -287,37 +287,37 @@ namespace WindowsFormsApplication2.ServiceReference1 {
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUtenteBySNS", ReplyAction="http://tempuri.org/IService1/GetUtenteBySNSResponse")]
-        WindowsFormsApplication2.ServiceReference1.UtenteWeb GetUtenteBySNS(int sns);
+        WindowsFormsApplication1.ServiceReference1.UtenteWeb GetUtenteBySNS(int sns);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUtenteBySNS", ReplyAction="http://tempuri.org/IService1/GetUtenteBySNSResponse")]
-        System.Threading.Tasks.Task<WindowsFormsApplication2.ServiceReference1.UtenteWeb> GetUtenteBySNSAsync(int sns);
+        System.Threading.Tasks.Task<WindowsFormsApplication1.ServiceReference1.UtenteWeb> GetUtenteBySNSAsync(int sns);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddUtente", ReplyAction="http://tempuri.org/IService1/AddUtenteResponse")]
-        void AddUtente(WindowsFormsApplication2.ServiceReference1.UtenteWeb utente);
+        void AddUtente(WindowsFormsApplication1.ServiceReference1.UtenteWeb utente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddUtente", ReplyAction="http://tempuri.org/IService1/AddUtenteResponse")]
-        System.Threading.Tasks.Task AddUtenteAsync(WindowsFormsApplication2.ServiceReference1.UtenteWeb utente);
+        System.Threading.Tasks.Task AddUtenteAsync(WindowsFormsApplication1.ServiceReference1.UtenteWeb utente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EditUtente", ReplyAction="http://tempuri.org/IService1/EditUtenteResponse")]
-        bool EditUtente(WindowsFormsApplication2.ServiceReference1.UtenteWeb utente);
+        bool EditUtente(WindowsFormsApplication1.ServiceReference1.UtenteWeb utente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EditUtente", ReplyAction="http://tempuri.org/IService1/EditUtenteResponse")]
-        System.Threading.Tasks.Task<bool> EditUtenteAsync(WindowsFormsApplication2.ServiceReference1.UtenteWeb utente);
+        System.Threading.Tasks.Task<bool> EditUtenteAsync(WindowsFormsApplication1.ServiceReference1.UtenteWeb utente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetListaUtentes", ReplyAction="http://tempuri.org/IService1/GetListaUtentesResponse")]
-        WindowsFormsApplication2.ServiceReference1.UtenteWeb[] GetListaUtentes();
+        WindowsFormsApplication1.ServiceReference1.UtenteWeb[] GetListaUtentes();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetListaUtentes", ReplyAction="http://tempuri.org/IService1/GetListaUtentesResponse")]
-        System.Threading.Tasks.Task<WindowsFormsApplication2.ServiceReference1.UtenteWeb[]> GetListaUtentesAsync();
+        System.Threading.Tasks.Task<WindowsFormsApplication1.ServiceReference1.UtenteWeb[]> GetListaUtentesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : WindowsFormsApplication2.ServiceReference1.IService1, System.ServiceModel.IClientChannel {
+    public interface IService1Channel : WindowsFormsApplication1.ServiceReference1.IService1, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<WindowsFormsApplication2.ServiceReference1.IService1>, WindowsFormsApplication2.ServiceReference1.IService1 {
+    public partial class Service1Client : System.ServiceModel.ClientBase<WindowsFormsApplication1.ServiceReference1.IService1>, WindowsFormsApplication1.ServiceReference1.IService1 {
         
         public Service1Client() {
         }
@@ -338,35 +338,35 @@ namespace WindowsFormsApplication2.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public WindowsFormsApplication2.ServiceReference1.UtenteWeb GetUtenteBySNS(int sns) {
+        public WindowsFormsApplication1.ServiceReference1.UtenteWeb GetUtenteBySNS(int sns) {
             return base.Channel.GetUtenteBySNS(sns);
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsApplication2.ServiceReference1.UtenteWeb> GetUtenteBySNSAsync(int sns) {
+        public System.Threading.Tasks.Task<WindowsFormsApplication1.ServiceReference1.UtenteWeb> GetUtenteBySNSAsync(int sns) {
             return base.Channel.GetUtenteBySNSAsync(sns);
         }
         
-        public void AddUtente(WindowsFormsApplication2.ServiceReference1.UtenteWeb utente) {
+        public void AddUtente(WindowsFormsApplication1.ServiceReference1.UtenteWeb utente) {
             base.Channel.AddUtente(utente);
         }
         
-        public System.Threading.Tasks.Task AddUtenteAsync(WindowsFormsApplication2.ServiceReference1.UtenteWeb utente) {
+        public System.Threading.Tasks.Task AddUtenteAsync(WindowsFormsApplication1.ServiceReference1.UtenteWeb utente) {
             return base.Channel.AddUtenteAsync(utente);
         }
         
-        public bool EditUtente(WindowsFormsApplication2.ServiceReference1.UtenteWeb utente) {
+        public bool EditUtente(WindowsFormsApplication1.ServiceReference1.UtenteWeb utente) {
             return base.Channel.EditUtente(utente);
         }
         
-        public System.Threading.Tasks.Task<bool> EditUtenteAsync(WindowsFormsApplication2.ServiceReference1.UtenteWeb utente) {
+        public System.Threading.Tasks.Task<bool> EditUtenteAsync(WindowsFormsApplication1.ServiceReference1.UtenteWeb utente) {
             return base.Channel.EditUtenteAsync(utente);
         }
         
-        public WindowsFormsApplication2.ServiceReference1.UtenteWeb[] GetListaUtentes() {
+        public WindowsFormsApplication1.ServiceReference1.UtenteWeb[] GetListaUtentes() {
             return base.Channel.GetListaUtentes();
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsApplication2.ServiceReference1.UtenteWeb[]> GetListaUtentesAsync() {
+        public System.Threading.Tasks.Task<WindowsFormsApplication1.ServiceReference1.UtenteWeb[]> GetListaUtentesAsync() {
             return base.Channel.GetListaUtentesAsync();
         }
     }

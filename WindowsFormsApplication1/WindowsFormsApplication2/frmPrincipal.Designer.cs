@@ -52,9 +52,16 @@
             this.txb_email = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.txb_pContato = new System.Windows.Forms.TextBox();
+            this.txb_phone = new System.Windows.Forms.TextBox();
+            this.rich_alergies = new System.Windows.Forms.RichTextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitter1
@@ -168,7 +175,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(153, 239);
+            this.label11.Location = new System.Drawing.Point(153, 210);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 12;
@@ -177,7 +184,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(380, 214);
+            this.label12.Location = new System.Drawing.Point(380, 215);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 13);
             this.label12.TabIndex = 13;
@@ -187,7 +194,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(153, 210);
+            this.label13.Location = new System.Drawing.Point(153, 252);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(100, 13);
             this.label13.TabIndex = 14;
@@ -247,7 +254,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(380, 266);
+            this.label14.Location = new System.Drawing.Point(380, 254);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(37, 13);
             this.label14.TabIndex = 22;
@@ -256,20 +263,13 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(466, 266);
+            this.checkBox1.Location = new System.Drawing.Point(439, 254);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(50, 17);
             this.checkBox1.TabIndex = 23;
             this.checkBox1.Text = "Ative";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(259, 207);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 24;
             // 
             // radioButton1
             // 
@@ -295,14 +295,65 @@
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
+            // txb_pContato
+            // 
+            this.txb_pContato.Location = new System.Drawing.Point(266, 247);
+            this.txb_pContato.Name = "txb_pContato";
+            this.txb_pContato.Size = new System.Drawing.Size(100, 20);
+            this.txb_pContato.TabIndex = 27;
+            // 
+            // txb_phone
+            // 
+            this.txb_phone.Location = new System.Drawing.Point(207, 273);
+            this.txb_phone.Name = "txb_phone";
+            this.txb_phone.Size = new System.Drawing.Size(159, 20);
+            this.txb_phone.TabIndex = 28;
+            // 
+            // rich_alergies
+            // 
+            this.rich_alergies.Location = new System.Drawing.Point(207, 311);
+            this.rich_alergies.Name = "rich_alergies";
+            this.rich_alergies.Size = new System.Drawing.Size(425, 68);
+            this.rich_alergies.TabIndex = 29;
+            this.rich_alergies.Text = "";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(557, 400);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 30;
+            this.button2.Text = "Save";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(207, 208);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(159, 20);
+            this.numericUpDown1.TabIndex = 31;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(439, 207);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(193, 20);
+            this.numericUpDown2.TabIndex = 32;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 435);
+            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.rich_alergies);
+            this.Controls.Add(this.txb_phone);
+            this.Controls.Add(this.txb_pContato);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txb_email);
@@ -329,6 +380,8 @@
             this.Controls.Add(this.splitter1);
             this.Name = "frmPrincipal";
             this.Text = "Clinical Alert";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,9 +413,14 @@
         private System.Windows.Forms.TextBox txb_email;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.TextBox txb_pContato;
+        private System.Windows.Forms.TextBox txb_phone;
+        private System.Windows.Forms.RichTextBox rich_alergies;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
     }
 }
 

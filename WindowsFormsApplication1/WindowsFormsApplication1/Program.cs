@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace BOT
 {
     static class Program
-    {
+    {//aaaaa
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

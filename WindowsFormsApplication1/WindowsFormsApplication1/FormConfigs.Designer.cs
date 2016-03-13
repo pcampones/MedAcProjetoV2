@@ -113,6 +113,7 @@
             this.bt_default.TabIndex = 13;
             this.bt_default.Text = "Default";
             this.bt_default.UseVisualStyleBackColor = true;
+            this.bt_default.Click += new System.EventHandler(this.bt_default_Click);
             // 
             // bt_ok
             // 
@@ -122,8 +123,9 @@
             this.bt_ok.TabIndex = 14;
             this.bt_ok.Text = "Ok";
             this.bt_ok.UseVisualStyleBackColor = true;
+            this.bt_ok.Click += new System.EventHandler(this.bt_ok_Click);
             // 
-            // FormConfigs
+            // formConfigs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,7 +141,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormConfigs";
+            this.Name = "formConfigs";
             this.Text = "Configurations";
             this.ResumeLayout(false);
             this.PerformLayout();

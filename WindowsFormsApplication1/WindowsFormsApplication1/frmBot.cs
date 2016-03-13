@@ -28,13 +28,16 @@ namespace BOT
             InitializeComponent();
             serv = new Service1Client();
             panelPrincipal.Visible = true;
+            panelMedicalDictionary.Visible = false;
+            panelDataAcquisition.Visible = false;
+            panelMe.Visible = false;
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //ds
-            listBox1.DataSource = serv.GetListaUtentes();
+            //listBox1.DataSource = serv.GetListaUtentes();
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -180,8 +183,8 @@ namespace BOT
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            
-           //aaa
+            WindowsFormsApplication1.formConfigs frm = new WindowsFormsApplication1.formConfigs();
+            frm.Show();
         }
     }
 }

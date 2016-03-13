@@ -69,7 +69,6 @@
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.panelPrincipal.SuspendLayout();
             this.panelMedicalDictionary.SuspendLayout();
             this.panelMe.SuspendLayout();
             this.panelDataAcquisition.SuspendLayout();
@@ -86,6 +85,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelMedicalDictionary);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panelMe);
@@ -161,7 +161,6 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Controls.Add(this.panelMedicalDictionary);
             this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(521, 380);
@@ -173,7 +172,7 @@
             this.panelMedicalDictionary.Controls.Add(this.textBox4);
             this.panelMedicalDictionary.Controls.Add(this.label10);
             this.panelMedicalDictionary.Controls.Add(this.listView1);
-            this.panelMedicalDictionary.Location = new System.Drawing.Point(4, 31);
+            this.panelMedicalDictionary.Location = new System.Drawing.Point(0, 0);
             this.panelMedicalDictionary.Name = "panelMedicalDictionary";
             this.panelMedicalDictionary.Size = new System.Drawing.Size(614, 452);
             this.panelMedicalDictionary.TabIndex = 0;
@@ -436,7 +435,6 @@
             this.toolStrip2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panelPrincipal.ResumeLayout(false);
             this.panelMedicalDictionary.ResumeLayout(false);
             this.panelMedicalDictionary.PerformLayout();
             this.panelMe.ResumeLayout(false);

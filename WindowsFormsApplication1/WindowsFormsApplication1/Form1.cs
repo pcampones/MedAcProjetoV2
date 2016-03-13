@@ -13,7 +13,7 @@ using WindowsFormsApplication1.Properties;
 namespace BOT
 {
     public partial class Form1 : Form
-    {
+    {// aa
         PhysiologicParametersDll.PhysiologicParametersDll dll =  null;
         PhysiologicParametersDll.PhysiologicParametersDll dllC = null;
         PhysiologicParametersDll.PhysiologicParametersDll dllH = null;

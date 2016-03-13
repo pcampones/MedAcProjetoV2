@@ -27,8 +27,7 @@ namespace BOT
         {
             InitializeComponent();
             serv = new Service1Client();
-
-           
+            panelPrincipal.Visible = true;
 
         }
 
@@ -153,6 +152,36 @@ namespace BOT
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            panelDataAcquisition.Visible = false;
+            panelMe.Visible = true;
+            panelPrincipal.Visible = false;
+            panelMedicalDictionary.Visible = false;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            panelDataAcquisition.Visible = true;
+            panelMe.Visible = false;
+            panelPrincipal.Visible = false;
+            panelMedicalDictionary.Visible = false;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            panelMedicalDictionary.Visible = true;
+            panelDataAcquisition.Visible = false;
+            panelMe.Visible = false;
+            panelPrincipal.Visible = false;
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }

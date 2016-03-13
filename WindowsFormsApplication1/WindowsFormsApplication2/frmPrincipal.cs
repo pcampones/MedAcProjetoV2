@@ -86,10 +86,16 @@ namespace WindowsFormsApplication2
 
            DialogResult result =  MessageBox.Show("Are you sure you want add the user with the " + txb_nome.Text + " ?", "Information",
                MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
             if (result == DialogResult.Yes)
             {
                 serv.AddUtente(ut);
                 MessageBox.Show("User successfully added", "Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            else
+            {
+            //    frmPrincipal form = new frmPrincipal();
+                
             }
            
            

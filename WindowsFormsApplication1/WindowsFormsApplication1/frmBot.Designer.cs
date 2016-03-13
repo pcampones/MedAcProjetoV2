@@ -1,6 +1,6 @@
 ﻿namespace BOT
 {
-    partial class Form1
+    partial class BOT
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BOT));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -186,6 +186,7 @@
             this.bt_procurar.TabIndex = 3;
             this.bt_procurar.Text = "Search";
             this.bt_procurar.UseVisualStyleBackColor = true;
+            this.bt_procurar.Click += new System.EventHandler(this.bt_procurar_Click);
             // 
             // textBox4
             // 

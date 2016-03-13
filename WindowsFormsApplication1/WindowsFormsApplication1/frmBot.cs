@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhysiologicParametersDll;
 using WindowsFormsApplication1.Properties;
-using WindowsFormsApplication1.ServiceReference1;
+using WindowsFormsApplication1.ServiceReferenceBOT;
 
 namespace BOT
 {
-    public partial class Form1 : Form
+    public partial class BOT : Form
     {
         private Service1Client serv;
         PhysiologicParametersDll.PhysiologicParametersDll dll =  null;
@@ -23,11 +23,12 @@ namespace BOT
         enum DataType { Normal, Alerts };
 
 
-        public Form1()
+        public BOT()
         {
             InitializeComponent();
             serv = new Service1Client();
             panelPrincipal.Visible = true;
+            
 
         }
 
@@ -176,12 +177,20 @@ namespace BOT
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
             panelPrincipal.Visible = false;
+           
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
+
             
-           //aaa
+
+            //aaa
+        }
+
+        private void bt_procurar_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

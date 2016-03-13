@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class formConfigs : Form
+    public partial class FormCenas : Form
     {
-        public formConfigs()
+        public FormCenas()
         {
             InitializeComponent();
         }
 
-        private void bt_ok_Click(object sender, EventArgs e)
+        private void FormCenas_Load(object sender, EventArgs e)
         {
 
         }

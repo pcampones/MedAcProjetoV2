@@ -1,6 +1,6 @@
 ﻿namespace BOT
 {
-    partial class BOT
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -186,8 +186,7 @@
             this.bt_procurar.TabIndex = 3;
             this.bt_procurar.Text = "Search";
             this.bt_procurar.UseVisualStyleBackColor = true;
-            this.bt_procurar.Click += new System.EventHandler(this.bt_procurar_Click);
-            // 
+
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(53, 43);

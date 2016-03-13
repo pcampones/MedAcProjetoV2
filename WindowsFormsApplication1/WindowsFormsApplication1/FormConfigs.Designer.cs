@@ -113,6 +113,7 @@
             this.bt_default.TabIndex = 13;
             this.bt_default.Text = "Default";
             this.bt_default.UseVisualStyleBackColor = true;
+            this.bt_default.Click += new System.EventHandler(this.bt_default_Click);
             // 
             // bt_ok
             // 

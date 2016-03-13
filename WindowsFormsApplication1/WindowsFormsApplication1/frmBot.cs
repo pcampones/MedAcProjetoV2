@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhysiologicParametersDll;
 using WindowsFormsApplication1.Properties;
-using WindowsFormsApplication1.ServiceReferenceBOT;
+using WindowsFormsApplication1.ServiceReference1;
 
 namespace BOT
 {
-    public partial class BOT : Form
+    public partial class Form1 : Form
     {
         private Service1Client serv;
         PhysiologicParametersDll.PhysiologicParametersDll dll =  null;
@@ -23,19 +23,21 @@ namespace BOT
         enum DataType { Normal, Alerts };
 
 
-        public BOT()
+        public Form1()
         {
             InitializeComponent();
             serv = new Service1Client();
             panelPrincipal.Visible = true;
-            
+            panelMedicalDictionary.Visible = false;
+            panelDataAcquisition.Visible = false;
+            panelMe.Visible = false;
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //ds
-            listBox1.DataSource = serv.GetListaUtentes();
+            //listBox1.DataSource = serv.GetListaUtentes();
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -177,20 +179,12 @@ namespace BOT
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
             panelPrincipal.Visible = false;
-           
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-
-            
-
-            //aaa
-        }
-
-        private void bt_procurar_Click(object sender, EventArgs e)
-        {
-           
+            WindowsFormsApplication1.formConfigs frm = new WindowsFormsApplication1.formConfigs();
+            frm.Show();
         }
     }
 }

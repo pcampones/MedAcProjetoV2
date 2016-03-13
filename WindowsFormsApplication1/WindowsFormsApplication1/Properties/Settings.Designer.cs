@@ -56,5 +56,41 @@ namespace WindowsFormsApplication1.Properties {
                 this["Id"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term=")]
+        public string MedLineUrl {
+            get {
+                return ((string)(this["MedLineUrl"]));
+            }
+            set {
+                this["MedLineUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int Retmax {
+            get {
+                return ((int)(this["Retmax"]));
+            }
+            set {
+                this["Retmax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:61579/Service1.svc")]
+        public string LocalUrl {
+            get {
+                return ((string)(this["LocalUrl"]));
+            }
+            set {
+                this["LocalUrl"] = value;
+            }
+        }
     }
 }

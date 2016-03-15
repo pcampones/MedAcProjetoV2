@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhysiologicParametersDll;
-using WindowsFormsApplication1.Properties;
-using WindowsFormsApplication1.ServiceReference1;
+using BOT.Properties;
+using BOT.ServiceReference1;
 
 namespace BOT
 {
-    public partial class BOT : Form
+    public partial class Form1 : Form
     {
         private Service1Client serv;
         PhysiologicParametersDll.PhysiologicParametersDll dll =  null;
@@ -23,7 +23,7 @@ namespace BOT
         enum DataType { Normal, Alerts };
 
 
-        public BOT()
+        public Form1()
         {
             InitializeComponent();
             serv = new Service1Client();
@@ -183,9 +183,11 @@ namespace BOT
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            WindowsFormsApplication1.formConfigs frm = new WindowsFormsApplication1.formConfigs();
+            formConfigs frm = new formConfigs();
             frm.Show();
         }
+
+
     }
 }
       

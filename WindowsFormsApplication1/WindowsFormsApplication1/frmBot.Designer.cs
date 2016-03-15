@@ -63,6 +63,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -85,10 +86,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panelMedicalDictionary);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
-            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
-            this.splitContainer1.Panel2.Controls.Add(this.panelMe);
             this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
             this.splitContainer1.Size = new System.Drawing.Size(751, 493);
             this.splitContainer1.SplitterDistance = 105;
@@ -144,9 +142,9 @@
             this.panelMedicalDictionary.Controls.Add(this.textBox4);
             this.panelMedicalDictionary.Controls.Add(this.label10);
             this.panelMedicalDictionary.Controls.Add(this.listView1);
-            this.panelMedicalDictionary.Location = new System.Drawing.Point(0, 0);
+            this.panelMedicalDictionary.Location = new System.Drawing.Point(315, 89);
             this.panelMedicalDictionary.Name = "panelMedicalDictionary";
-            this.panelMedicalDictionary.Size = new System.Drawing.Size(614, 452);
+            this.panelMedicalDictionary.Size = new System.Drawing.Size(206, 261);
             this.panelMedicalDictionary.TabIndex = 0;
             // 
             // bt_procurar
@@ -185,7 +183,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton4});
+            this.toolStripButton4,
+            this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(642, 25);
@@ -205,13 +204,15 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.panelPrincipal.Location = new System.Drawing.Point(13, 27);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(521, 380);
+            this.panelPrincipal.Size = new System.Drawing.Size(111, 145);
             this.panelPrincipal.TabIndex = 10;
             // 
             // panelMe
             // 
+            this.panelMe.Controls.Add(this.panelMedicalDictionary);
+            this.panelMe.Controls.Add(this.panelPrincipal);
             this.panelMe.Controls.Add(this.lbl_age);
             this.panelMe.Controls.Add(this.lbl_sns);
             this.panelMe.Controls.Add(this.lbl_surname);
@@ -222,9 +223,9 @@
             this.panelMe.Controls.Add(this.label7);
             this.panelMe.Controls.Add(this.label6);
             this.panelMe.Controls.Add(this.label5);
-            this.panelMe.Location = new System.Drawing.Point(0, 0);
+            this.panelMe.Location = new System.Drawing.Point(249, 20);
             this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(642, 493);
+            this.panelMe.Size = new System.Drawing.Size(124, 308);
             this.panelMe.TabIndex = 24;
             // 
             // lbl_age
@@ -321,6 +322,7 @@
             // 
             this.panelDataAcquisition.Controls.Add(this.listBox1);
             this.panelDataAcquisition.Controls.Add(this.textBox3);
+            this.panelDataAcquisition.Controls.Add(this.panelMe);
             this.panelDataAcquisition.Controls.Add(this.textBox2);
             this.panelDataAcquisition.Controls.Add(this.textBox1);
             this.panelDataAcquisition.Controls.Add(this.label4);
@@ -415,6 +417,13 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 64);
             this.checkedListBox1.TabIndex = 15;
+            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(87, 22);
+            this.toolStripLabel1.Text = "Utente + nome";
             // 
             // Form1
             // 
@@ -481,6 +490,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }
 

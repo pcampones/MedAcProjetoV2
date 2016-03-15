@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace ClinicalAlert
 {
     partial class frmPrincipal
     {
@@ -36,8 +36,21 @@
             this.Alerts = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.Reports = new System.Windows.Forms.ToolStripButton();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panel_Adicionar = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmb_genero = new System.Windows.Forms.ComboBox();
+            this.txb_heigth = new System.Windows.Forms.TextBox();
+            this.txb_sns = new System.Windows.Forms.TextBox();
+            this.txb_email = new System.Windows.Forms.TextBox();
+            this.txb_nextkindofcontact = new System.Windows.Forms.TextBox();
+            this.txb_surname = new System.Windows.Forms.TextBox();
+            this.dtp_utente = new System.Windows.Forms.DateTimePicker();
+            this.txb_weigth = new System.Windows.Forms.TextBox();
+            this.txb_morada = new System.Windows.Forms.TextBox();
+            this.txb_bi = new System.Windows.Forms.TextBox();
+            this.txb_phone = new System.Windows.Forms.TextBox();
+            this.txb_name = new System.Windows.Forms.TextBox();
             this.rtxb_alergies = new System.Windows.Forms.RichTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -54,19 +67,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.txb_name = new System.Windows.Forms.TextBox();
-            this.txb_phone = new System.Windows.Forms.TextBox();
-            this.txb_bi = new System.Windows.Forms.TextBox();
-            this.txb_morada = new System.Windows.Forms.TextBox();
-            this.txb_weigth = new System.Windows.Forms.TextBox();
-            this.dtp_utente = new System.Windows.Forms.DateTimePicker();
-            this.txb_surname = new System.Windows.Forms.TextBox();
-            this.txb_nextkindofcontact = new System.Windows.Forms.TextBox();
-            this.txb_email = new System.Windows.Forms.TextBox();
-            this.txb_sns = new System.Windows.Forms.TextBox();
-            this.txb_heigth = new System.Windows.Forms.TextBox();
-            this.cmb_genero = new System.Windows.Forms.ComboBox();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -99,6 +99,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(50, 50);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Add,
             this.Edit,
@@ -118,8 +119,9 @@
             this.Add.Image = ((System.Drawing.Image)(resources.GetObject("Add.Image")));
             this.Add.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(23, 20);
+            this.Add.Size = new System.Drawing.Size(54, 54);
             this.Add.Text = "Add";
+            this.Add.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // Edit
@@ -128,7 +130,7 @@
             this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
             this.Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(23, 20);
+            this.Edit.Size = new System.Drawing.Size(54, 54);
             this.Edit.Text = "Edit";
             // 
             // Alerts
@@ -137,7 +139,7 @@
             this.Alerts.Image = ((System.Drawing.Image)(resources.GetObject("Alerts.Image")));
             this.Alerts.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Alerts.Name = "Alerts";
-            this.Alerts.Size = new System.Drawing.Size(23, 20);
+            this.Alerts.Size = new System.Drawing.Size(54, 54);
             this.Alerts.Text = "Alerts";
             // 
             // toolStripButton3
@@ -146,7 +148,7 @@
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton3.Size = new System.Drawing.Size(54, 54);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
             // Reports
@@ -155,8 +157,16 @@
             this.Reports.Image = ((System.Drawing.Image)(resources.GetObject("Reports.Image")));
             this.Reports.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Reports.Name = "Reports";
-            this.Reports.Size = new System.Drawing.Size(23, 20);
+            this.Reports.Size = new System.Drawing.Size(54, 54);
             this.Reports.Text = "Reports";
+            // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 32);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(572, 403);
+            this.panelPrincipal.TabIndex = 41;
+            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
             // 
             // panel_Adicionar
             // 
@@ -200,6 +210,94 @@
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Patient";
+            // 
+            // cmb_genero
+            // 
+            this.cmb_genero.FormattingEnabled = true;
+            this.cmb_genero.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cmb_genero.Location = new System.Drawing.Point(343, 231);
+            this.cmb_genero.Name = "cmb_genero";
+            this.cmb_genero.Size = new System.Drawing.Size(197, 21);
+            this.cmb_genero.TabIndex = 40;
+            // 
+            // txb_heigth
+            // 
+            this.txb_heigth.Location = new System.Drawing.Point(339, 277);
+            this.txb_heigth.Name = "txb_heigth";
+            this.txb_heigth.Size = new System.Drawing.Size(201, 20);
+            this.txb_heigth.TabIndex = 39;
+            // 
+            // txb_sns
+            // 
+            this.txb_sns.Location = new System.Drawing.Point(330, 184);
+            this.txb_sns.Name = "txb_sns";
+            this.txb_sns.Size = new System.Drawing.Size(210, 20);
+            this.txb_sns.TabIndex = 37;
+            // 
+            // txb_email
+            // 
+            this.txb_email.Location = new System.Drawing.Point(333, 138);
+            this.txb_email.Name = "txb_email";
+            this.txb_email.Size = new System.Drawing.Size(207, 20);
+            this.txb_email.TabIndex = 36;
+            // 
+            // txb_nextkindofcontact
+            // 
+            this.txb_nextkindofcontact.Location = new System.Drawing.Point(398, 85);
+            this.txb_nextkindofcontact.Name = "txb_nextkindofcontact";
+            this.txb_nextkindofcontact.Size = new System.Drawing.Size(142, 20);
+            this.txb_nextkindofcontact.TabIndex = 35;
+            // 
+            // txb_surname
+            // 
+            this.txb_surname.Location = new System.Drawing.Point(350, 34);
+            this.txb_surname.Name = "txb_surname";
+            this.txb_surname.Size = new System.Drawing.Size(190, 20);
+            this.txb_surname.TabIndex = 34;
+            // 
+            // dtp_utente
+            // 
+            this.dtp_utente.Location = new System.Drawing.Point(75, 138);
+            this.dtp_utente.Name = "dtp_utente";
+            this.dtp_utente.Size = new System.Drawing.Size(172, 20);
+            this.dtp_utente.TabIndex = 33;
+            // 
+            // txb_weigth
+            // 
+            this.txb_weigth.Location = new System.Drawing.Point(67, 277);
+            this.txb_weigth.Name = "txb_weigth";
+            this.txb_weigth.Size = new System.Drawing.Size(180, 20);
+            this.txb_weigth.TabIndex = 32;
+            // 
+            // txb_morada
+            // 
+            this.txb_morada.Location = new System.Drawing.Point(71, 231);
+            this.txb_morada.Name = "txb_morada";
+            this.txb_morada.Size = new System.Drawing.Size(176, 20);
+            this.txb_morada.TabIndex = 31;
+            // 
+            // txb_bi
+            // 
+            this.txb_bi.Location = new System.Drawing.Point(42, 184);
+            this.txb_bi.Name = "txb_bi";
+            this.txb_bi.Size = new System.Drawing.Size(205, 20);
+            this.txb_bi.TabIndex = 30;
+            // 
+            // txb_phone
+            // 
+            this.txb_phone.Location = new System.Drawing.Point(64, 85);
+            this.txb_phone.Name = "txb_phone";
+            this.txb_phone.Size = new System.Drawing.Size(183, 20);
+            this.txb_phone.TabIndex = 29;
+            // 
+            // txb_name
+            // 
+            this.txb_name.Location = new System.Drawing.Point(61, 34);
+            this.txb_name.Name = "txb_name";
+            this.txb_name.Size = new System.Drawing.Size(186, 20);
+            this.txb_name.TabIndex = 28;
             // 
             // rtxb_alergies
             // 
@@ -341,101 +439,6 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(43, 22);
             this.toolStripLabel1.Text = "Alertas";
-            // 
-            // txb_name
-            // 
-            this.txb_name.Location = new System.Drawing.Point(61, 34);
-            this.txb_name.Name = "txb_name";
-            this.txb_name.Size = new System.Drawing.Size(186, 20);
-            this.txb_name.TabIndex = 28;
-            // 
-            // txb_phone
-            // 
-            this.txb_phone.Location = new System.Drawing.Point(64, 85);
-            this.txb_phone.Name = "txb_phone";
-            this.txb_phone.Size = new System.Drawing.Size(183, 20);
-            this.txb_phone.TabIndex = 29;
-            // 
-            // txb_bi
-            // 
-            this.txb_bi.Location = new System.Drawing.Point(42, 184);
-            this.txb_bi.Name = "txb_bi";
-            this.txb_bi.Size = new System.Drawing.Size(205, 20);
-            this.txb_bi.TabIndex = 30;
-            // 
-            // txb_morada
-            // 
-            this.txb_morada.Location = new System.Drawing.Point(71, 231);
-            this.txb_morada.Name = "txb_morada";
-            this.txb_morada.Size = new System.Drawing.Size(176, 20);
-            this.txb_morada.TabIndex = 31;
-            // 
-            // txb_weigth
-            // 
-            this.txb_weigth.Location = new System.Drawing.Point(67, 277);
-            this.txb_weigth.Name = "txb_weigth";
-            this.txb_weigth.Size = new System.Drawing.Size(180, 20);
-            this.txb_weigth.TabIndex = 32;
-            // 
-            // dtp_utente
-            // 
-            this.dtp_utente.Location = new System.Drawing.Point(75, 138);
-            this.dtp_utente.Name = "dtp_utente";
-            this.dtp_utente.Size = new System.Drawing.Size(172, 20);
-            this.dtp_utente.TabIndex = 33;
-            // 
-            // txb_surname
-            // 
-            this.txb_surname.Location = new System.Drawing.Point(350, 34);
-            this.txb_surname.Name = "txb_surname";
-            this.txb_surname.Size = new System.Drawing.Size(190, 20);
-            this.txb_surname.TabIndex = 34;
-            // 
-            // txb_nextkindofcontact
-            // 
-            this.txb_nextkindofcontact.Location = new System.Drawing.Point(398, 85);
-            this.txb_nextkindofcontact.Name = "txb_nextkindofcontact";
-            this.txb_nextkindofcontact.Size = new System.Drawing.Size(142, 20);
-            this.txb_nextkindofcontact.TabIndex = 35;
-            // 
-            // txb_email
-            // 
-            this.txb_email.Location = new System.Drawing.Point(333, 138);
-            this.txb_email.Name = "txb_email";
-            this.txb_email.Size = new System.Drawing.Size(207, 20);
-            this.txb_email.TabIndex = 36;
-            // 
-            // txb_sns
-            // 
-            this.txb_sns.Location = new System.Drawing.Point(330, 184);
-            this.txb_sns.Name = "txb_sns";
-            this.txb_sns.Size = new System.Drawing.Size(210, 20);
-            this.txb_sns.TabIndex = 37;
-            // 
-            // txb_heigth
-            // 
-            this.txb_heigth.Location = new System.Drawing.Point(339, 277);
-            this.txb_heigth.Name = "txb_heigth";
-            this.txb_heigth.Size = new System.Drawing.Size(201, 20);
-            this.txb_heigth.TabIndex = 39;
-            // 
-            // cmb_genero
-            // 
-            this.cmb_genero.FormattingEnabled = true;
-            this.cmb_genero.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cmb_genero.Location = new System.Drawing.Point(343, 231);
-            this.cmb_genero.Name = "cmb_genero";
-            this.cmb_genero.Size = new System.Drawing.Size(197, 21);
-            this.cmb_genero.TabIndex = 40;
-            // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(572, 435);
-            this.panelPrincipal.TabIndex = 41;
             // 
             // frmPrincipal
             // 

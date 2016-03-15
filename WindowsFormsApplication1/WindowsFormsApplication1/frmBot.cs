@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhysiologicParametersDll;
-using WindowsFormsApplication1.Properties;
-using WindowsFormsApplication1.ServiceReference1;
+using BOT.Properties;
+using BOT.ServiceReference1;
 
 namespace BOT
 {
@@ -183,9 +183,11 @@ namespace BOT
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            WindowsFormsApplication1.formConfigs frm = new WindowsFormsApplication1.formConfigs();
+            formConfigs frm = new formConfigs();
             frm.Show();
         }
+
+
     }
 }
       

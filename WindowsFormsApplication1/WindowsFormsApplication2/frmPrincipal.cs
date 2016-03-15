@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApplication2.ServiceReference1;
+using ClinicalAlert.ServiceReference1;
 
-namespace WindowsFormsApplication2
+namespace ClinicalAlert
 {
     public partial class frmPrincipal : Form
     {
@@ -37,19 +37,19 @@ namespace WindowsFormsApplication2
      
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked)
-            {
-                ative = "Ative";
-            }
-            else
-            {
-                ative = "Inative";
+        //private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (checkBox1.Checked)
+        //    {
+        //        ative = "Ative";
+        //    }
+        //    else
+        //    {
+        //        ative = "Inative";
 
-            }
+        //    }
          
-        }
+        //}
 
         private void label12_Click(object sender, EventArgs e)
         {
@@ -108,6 +108,11 @@ namespace WindowsFormsApplication2
         {
             panel_Adicionar.Visible = true;
             panelPrincipal.Visible = false;
+        }
+
+        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

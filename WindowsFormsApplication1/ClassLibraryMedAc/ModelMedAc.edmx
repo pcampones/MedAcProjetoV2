@@ -47,6 +47,7 @@
     <Property Name="BloodPressure" Type="nvarchar(max)" Nullable="false" />
     <Property Name="HeartRate" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OxygenSaturation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataOfRegist" Type="datetime" Nullable="false" />
     <Property Name="Utente_Id" Type="int" Nullable="false" />
     <Property Name="Alertas_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -131,7 +132,7 @@
           <Property Name="OxygenSaturation" Type="String" Nullable="false" />
           <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteValores" FromRole="Valores" ToRole="Utente" />
           <NavigationProperty Name="Alertas" Relationship="ModelMedAc.ValoresAlertas" FromRole="Valores" ToRole="Alertas" />
-          <Property Name="DateofRegist" Type="DateTime" Nullable="false" />
+          <Property Name="DataOfRegist" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="Alertas">
           <Key>
@@ -185,6 +186,7 @@
           <ScalarProperty Name="BloodPressure" ColumnName="BloodPressure" />
           <ScalarProperty Name="HeartRate" ColumnName="HeartRate" />
           <ScalarProperty Name="OxygenSaturation" ColumnName="OxygenSaturation" />
+          <ScalarProperty Name="DataOfRegist" ColumnName="DataOfRegist" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

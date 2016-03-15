@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BOT.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WindowsFormsApplication1.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="Delay" Type="System.Int32" Scope="User">
@@ -8,7 +8,7 @@
     <Setting Name="DLL" Type="PhysiologicParametersDll.PhysiologicParametersDll" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="SNS" Type="System.Int32" Scope="User">
+    <Setting Name="Id" Type="System.Int32" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="MedLineUrl" Type="System.String" Scope="User">

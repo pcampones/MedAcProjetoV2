@@ -119,7 +119,7 @@ namespace ServiceLayer
                     {
                         UtenteWeb u = new UtenteWeb();
                         u.Name = item.Name;
-                      /*  u.Surname = item.Surname;
+                        u.Surname = item.Surname;
                         u.Phone = item.Phone;
                         u.Mail = item.Mail;
                         u.Sns = item.SNS;
@@ -132,7 +132,7 @@ namespace ServiceLayer
                         u.Weight = item.Weight;
                         u.Age = item.Age;
                         u.Ative = item.Ative;
-                        */
+                        
                         listaWebSer.Add(u);
 
                     }
@@ -145,6 +145,11 @@ namespace ServiceLayer
 
                 return null;
             }
+        }
+
+        public void AddValues(int sns, int bloodPressure, int heartRate, int oxygenSatu, DateTime data)
+        {
+          
         }
     }
 }

@@ -64,9 +64,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.tstxb_sns = new System.Windows.Forms.ToolStripTextBox();
-            this.tsBt_sns = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -143,10 +140,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton4,
-            this.toolStripLabel1,
-            this.tstxb_sns,
-            this.tsBt_sns,
-            this.toolStripLabel2});
+            this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(642, 25);
@@ -167,14 +161,12 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(31, 22);
-            this.toolStripLabel1.Text = "SNS:";
+            this.toolStripLabel1.Size = new System.Drawing.Size(87, 22);
+            this.toolStripLabel1.Text = "Utente + nome";
             // 
             // panelDataAcquisition
             // 
-            this.panelDataAcquisition.Controls.Add(this.panelMedicalDictionary);
             this.panelDataAcquisition.Controls.Add(this.listBox1);
-            this.panelDataAcquisition.Controls.Add(this.panelPrincipal);
             this.panelDataAcquisition.Controls.Add(this.textBox3);
             this.panelDataAcquisition.Controls.Add(this.panelMe);
             this.panelDataAcquisition.Controls.Add(this.textBox2);
@@ -196,6 +188,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 277);
             this.listBox1.TabIndex = 23;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
             // 
             // textBox3
             // 
@@ -207,6 +200,8 @@
             // 
             // panelMe
             // 
+            this.panelMe.Controls.Add(this.panelMedicalDictionary);
+            this.panelMe.Controls.Add(this.panelPrincipal);
             this.panelMe.Controls.Add(this.lbl_age);
             this.panelMe.Controls.Add(this.lbl_sns);
             this.panelMe.Controls.Add(this.lbl_surname);
@@ -217,9 +212,9 @@
             this.panelMe.Controls.Add(this.label7);
             this.panelMe.Controls.Add(this.label6);
             this.panelMe.Controls.Add(this.label5);
-            this.panelMe.Location = new System.Drawing.Point(66, 20);
+            this.panelMe.Location = new System.Drawing.Point(249, 20);
             this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(431, 308);
+            this.panelMe.Size = new System.Drawing.Size(124, 308);
             this.panelMe.TabIndex = 24;
             // 
             // panelMedicalDictionary
@@ -228,9 +223,9 @@
             this.panelMedicalDictionary.Controls.Add(this.textBox4);
             this.panelMedicalDictionary.Controls.Add(this.label10);
             this.panelMedicalDictionary.Controls.Add(this.listView1);
-            this.panelMedicalDictionary.Location = new System.Drawing.Point(18, 11);
+            this.panelMedicalDictionary.Location = new System.Drawing.Point(315, 89);
             this.panelMedicalDictionary.Name = "panelMedicalDictionary";
-            this.panelMedicalDictionary.Size = new System.Drawing.Size(489, 349);
+            this.panelMedicalDictionary.Size = new System.Drawing.Size(206, 261);
             this.panelMedicalDictionary.TabIndex = 0;
             // 
             // bt_procurar
@@ -241,7 +236,6 @@
             this.bt_procurar.TabIndex = 3;
             this.bt_procurar.Text = "Search";
             this.bt_procurar.UseVisualStyleBackColor = true;
-            this.bt_procurar.Click += new System.EventHandler(this.bt_procurar_Click);
             // 
             // textBox4
             // 
@@ -269,7 +263,7 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Location = new System.Drawing.Point(26, 23);
+            this.panelPrincipal.Location = new System.Drawing.Point(13, 27);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(111, 145);
             this.panelPrincipal.TabIndex = 10;
@@ -432,28 +426,6 @@
             this.checkedListBox1.TabIndex = 15;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
-            // tstxb_sns
-            // 
-            this.tstxb_sns.Name = "tstxb_sns";
-            this.tstxb_sns.Size = new System.Drawing.Size(100, 25);
-            // 
-            // tsBt_sns
-            // 
-            this.tsBt_sns.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsBt_sns.Image = ((System.Drawing.Image)(resources.GetObject("tsBt_sns.Image")));
-            this.tsBt_sns.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBt_sns.Name = "tsBt_sns";
-            this.tsBt_sns.Size = new System.Drawing.Size(23, 22);
-            this.tsBt_sns.Text = "toolStripButton5";
-            this.tsBt_sns.Click += new System.EventHandler(this.toolStripButton5_Click);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(0, 22);
-            this.toolStripLabel2.Click += new System.EventHandler(this.toolStripLabel2_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,9 +492,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox tstxb_sns;
-        private System.Windows.Forms.ToolStripButton tsBt_sns;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
     }
 }
 

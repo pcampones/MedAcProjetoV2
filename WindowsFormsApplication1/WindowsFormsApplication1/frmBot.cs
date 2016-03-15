@@ -26,20 +26,18 @@ namespace BOT
         public Form1()
         {
             InitializeComponent();
-
             serv = new Service1Client();
-
             panelPrincipal.Visible = true;
             panelMedicalDictionary.Visible = false;
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
-            /// ahahhaha
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //ds
-            //listBox1.DataSource = serv.GetListaUtentes();
+
+            //listBox1.DataSource = serv.GetListaUtentes().Select(i=>i.name);
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,14 +48,14 @@ namespace BOT
                 {
                     dll.Initialize(BloodPressure, Settings.Default.Delay, true, false, false);
                 }
-                else
-                {
-                    dll.Initialize(BloodPressure, Settings.Default.Delay, false, false, false);
-                }
-               /* if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
+              /*  else
                 {
                     dll.Initialize(BloodPressure, Settings.Default.Delay, false, false, false);
                 }*/
+                if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
+                {
+                    dll.Initialize(BloodPressure, Settings.Default.Delay, false, false, false);
+                }
             }
             else
             {
@@ -189,29 +187,12 @@ namespace BOT
             frm.Show();
         }
 
-        private void bt_procurar_Click(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void toolStripLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton5_Click(object sender, EventArgs e)
-        {
-           int sns = Properties.Settings.Default.SNS;
-
-            if (sns != 0)
-            {
-                UtenteWeb u = serv.GetUtenteBySNS(sns);
-                tstxb_sns.Text = "Bem-vindo:" + u.name;
-                }        
-            }        
+         
         }
     }
-
+}
       
     
 

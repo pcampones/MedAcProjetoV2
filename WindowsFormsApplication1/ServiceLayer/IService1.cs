@@ -25,6 +25,9 @@ namespace ServiceLayer
         [OperationContract]
         List<UtenteWeb> GetListaUtentes();
 
+        [OperationContract]
+        void AddValues(int sns, int bloodPressure, int heartRate,int oxygenSatu, DateTime data );
+
         
         // TODO: Add your service operations here
     }
@@ -163,7 +166,13 @@ namespace ServiceLayer
 
 
 
+    } 
+
+    [DataContract]
+    public class ValoresWeb
+    {
+        [DataMember]
+        private int sns;
 
     }
-
 }

@@ -26,6 +26,8 @@ public partial class Valores
 
     public string OxygenSaturation { get; set; }
 
+    public System.DateTime DateofRegist { get; set; }
+
 
 
     public virtual Utente Utente { get; set; }

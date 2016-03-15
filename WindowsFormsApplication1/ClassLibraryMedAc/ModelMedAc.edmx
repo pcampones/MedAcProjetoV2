@@ -131,6 +131,7 @@
           <Property Name="OxygenSaturation" Type="String" Nullable="false" />
           <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteValores" FromRole="Valores" ToRole="Utente" />
           <NavigationProperty Name="Alertas" Relationship="ModelMedAc.ValoresAlertas" FromRole="Valores" ToRole="Alertas" />
+          <Property Name="DateofRegist" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="Alertas">
           <Key>

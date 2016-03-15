@@ -28,11 +28,7 @@ namespace ClassLibraryMedAc
             }
             catch (Exception ex)
             {
-
-
-                return null;
-
-
+               throw ex;
             }
            
         }
@@ -48,9 +44,6 @@ namespace ClassLibraryMedAc
             try
             {
                 Utente result = context.UtenteSet.Where(i => i.SNS == utente.SNS).FirstOrDefault();
-
-                
-              
 
                 result.Name = utente.Name;
                 result.Surname = utente.Surname;

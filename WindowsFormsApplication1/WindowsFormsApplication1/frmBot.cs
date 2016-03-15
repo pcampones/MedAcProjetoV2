@@ -26,7 +26,9 @@ namespace BOT
         public Form1()
         {
             InitializeComponent();
+
             serv = new Service1Client();
+
             panelPrincipal.Visible = true;
             panelMedicalDictionary.Visible = false;
             panelDataAcquisition.Visible = false;
@@ -187,9 +189,29 @@ namespace BOT
             frm.Show();
         }
 
+        private void bt_procurar_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void toolStripLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+           int sns = Properties.Settings.Default.SNS;
+
+            if (sns != 0)
+            {
+                UtenteWeb u = serv.GetUtenteBySNS(sns);
+                tstxb_sns.Text = "Bem-vindo:" + u.name;
+                }        
+            }        
+        }
     }
-}
+
       
     
 

@@ -13,7 +13,7 @@ using WindowsFormsApplication1.ServiceReference1;
 
 namespace BOT
 {
-    public partial class Form1 : Form
+    public partial class BOT : Form
     {
         private Service1Client serv;
         PhysiologicParametersDll.PhysiologicParametersDll dll =  null;
@@ -23,7 +23,7 @@ namespace BOT
         enum DataType { Normal, Alerts };
 
 
-        public Form1()
+        public BOT()
         {
             InitializeComponent();
             serv = new Service1Client();

@@ -30,7 +30,7 @@ namespace ClassLibraryMedAc
             {
 
 
-                return null;
+                throw ex;
 
 
             }
@@ -39,8 +39,17 @@ namespace ClassLibraryMedAc
 
         public void addUtente(Utente utente)
         {
-            context.UtenteSet.Add(utente);
-            context.SaveChanges();
+            try
+            {
+                context.UtenteSet.Add(utente);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
         public void editUtente(Utente utente)

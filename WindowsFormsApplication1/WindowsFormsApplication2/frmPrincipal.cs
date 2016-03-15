@@ -25,6 +25,9 @@ namespace WindowsFormsApplication2
 
             serv = new Service1Client();
 
+            panel_Adicionar.Visible = false;
+            panelPrincipal.Visible = true;
+
 
 
         }
@@ -68,23 +71,23 @@ namespace WindowsFormsApplication2
         {
             ut = new UtenteWeb();
 
-            ut.name = txb_nome.Text;
-            ut.surname = txb_sobrenome.Text;
-            ut.sns = Int32.Parse(txb_SNS.Text);
+            ut.name = txb_name.Text;
+            ut.surname = txb_surname.Text;
+            ut.sns = Int32.Parse(txb_sns.Text);
             ut.mail = txb_email.Text;
-            ut.bi = Convert.ToInt32(txb_BI.Text);
+            ut.bi = Convert.ToInt32(txb_bi.Text);
             ut.gender = gender;
             ut.ative = ative;
             ut.address = txb_morada.Text;
-            ut.birthdate = dtP_Nascimento.Value;
-            ut.alergies = rich_alergies.Text;
-            ut.weight = Convert.ToInt32(numericUpDown1.Value);
-            ut.height = Convert.ToInt32(numericUpDown2.Value);
-            ut.nexOfKinContact = Convert.ToInt32(txb_pContato.Text);
+            ut.birthdate = dtp_utente.Value;
+            ut.alergies = rtxb_alergies.Text;
+            ut.weight = Convert.ToInt32(txb_weigth);
+            ut.height = Convert.ToInt32(txb_heigth);
+            ut.nexOfKinContact = Convert.ToInt32(txb_nextkindofcontact);
             ut.phone = Convert.ToInt32(txb_phone.Text);
             
 
-           DialogResult result =  MessageBox.Show("Are you sure you want add the user with the " + txb_nome.Text + " ?", "Information",
+           DialogResult result =  MessageBox.Show("Are you sure you want add the user with the " + txb_name.Text + " ?", "Information",
                MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
@@ -99,6 +102,12 @@ namespace WindowsFormsApplication2
             }
            
            
+        }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+            panel_Adicionar.Visible = true;
+            panelPrincipal.Visible = false;
         }
     }
 }

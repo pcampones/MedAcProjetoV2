@@ -1,6 +1,6 @@
 ﻿namespace BOT
 {
-    partial class BOT
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BOT));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panelMedicalDictionary = new System.Windows.Forms.Panel();
             this.bt_procurar = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panelMe = new System.Windows.Forms.Panel();
             this.lbl_age = new System.Windows.Forms.Label();
             this.lbl_sns = new System.Windows.Forms.Label();
@@ -68,9 +68,8 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.panelPrincipal.SuspendLayout();
             this.panelMedicalDictionary.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.panelMe.SuspendLayout();
             this.panelDataAcquisition.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +85,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelMedicalDictionary);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panelMe);
@@ -135,8 +135,52 @@
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 20);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.Text = "Medical Dictionary";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // panelMedicalDictionary
+            // 
+            this.panelMedicalDictionary.Controls.Add(this.bt_procurar);
+            this.panelMedicalDictionary.Controls.Add(this.textBox4);
+            this.panelMedicalDictionary.Controls.Add(this.label10);
+            this.panelMedicalDictionary.Controls.Add(this.listView1);
+            this.panelMedicalDictionary.Location = new System.Drawing.Point(0, 0);
+            this.panelMedicalDictionary.Name = "panelMedicalDictionary";
+            this.panelMedicalDictionary.Size = new System.Drawing.Size(614, 452);
+            this.panelMedicalDictionary.TabIndex = 0;
+            // 
+            // bt_procurar
+            // 
+            this.bt_procurar.Location = new System.Drawing.Point(280, 41);
+            this.bt_procurar.Name = "bt_procurar";
+            this.bt_procurar.Size = new System.Drawing.Size(75, 23);
+            this.bt_procurar.TabIndex = 3;
+            this.bt_procurar.Text = "Search";
+            this.bt_procurar.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(53, 43);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(199, 20);
+            this.textBox4.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 41);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Term:";
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(12, 86);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(505, 301);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // toolStrip1
             // 
@@ -161,55 +205,10 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Controls.Add(this.panelMedicalDictionary);
             this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(521, 380);
             this.panelPrincipal.TabIndex = 10;
-            // 
-            // panelMedicalDictionary
-            // 
-            this.panelMedicalDictionary.Controls.Add(this.bt_procurar);
-            this.panelMedicalDictionary.Controls.Add(this.textBox4);
-            this.panelMedicalDictionary.Controls.Add(this.label10);
-            this.panelMedicalDictionary.Controls.Add(this.listView1);
-            this.panelMedicalDictionary.Location = new System.Drawing.Point(4, 31);
-            this.panelMedicalDictionary.Name = "panelMedicalDictionary";
-            this.panelMedicalDictionary.Size = new System.Drawing.Size(614, 452);
-            this.panelMedicalDictionary.TabIndex = 0;
-            // 
-            // bt_procurar
-            // 
-            this.bt_procurar.Location = new System.Drawing.Point(280, 41);
-            this.bt_procurar.Name = "bt_procurar";
-            this.bt_procurar.Size = new System.Drawing.Size(75, 23);
-            this.bt_procurar.TabIndex = 3;
-            this.bt_procurar.Text = "Search";
-            this.bt_procurar.UseVisualStyleBackColor = true;
-
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(53, 43);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(199, 20);
-            this.textBox4.TabIndex = 2;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 41);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Term:";
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(12, 86);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(505, 301);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // panelMe
             // 
@@ -417,13 +416,14 @@
             this.checkedListBox1.Size = new System.Drawing.Size(120, 64);
             this.checkedListBox1.TabIndex = 15;
             // 
-            // BOT
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(756, 497);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "BOT";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Form1";
             this.Text = "BOT";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -434,11 +434,10 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.panelPrincipal.ResumeLayout(false);
             this.panelMedicalDictionary.ResumeLayout(false);
             this.panelMedicalDictionary.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.panelMe.ResumeLayout(false);
             this.panelMe.PerformLayout();
             this.panelDataAcquisition.ResumeLayout(false);

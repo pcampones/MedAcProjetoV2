@@ -173,6 +173,11 @@ namespace ServiceLayer
     {
         [DataMember]
         private int sns;
-
+ 
+        public int SNS
+        {
+            get { return sns; }
+            set { sns = value; }
+        }
     }
 }

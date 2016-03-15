@@ -57,10 +57,6 @@ namespace ClassLibraryMedAc
             try
             {
                 Utente result = context.UtenteSet.Where(i => i.SNS == utente.SNS).FirstOrDefault();
-
-                
-              
-
                 result.Name = utente.Name;
                 result.Surname = utente.Surname;
                 result.Phone = utente.Phone;
@@ -106,6 +102,20 @@ namespace ClassLibraryMedAc
                 return null;
             }
          
+        }
+
+        public void addVallues(Valores valores)
+        {
+            try
+            {
+                context.ValoresSet.Add(valores);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ namespace BOT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BOT());
+            Application.Run(new Form1());
         }
     }
 }

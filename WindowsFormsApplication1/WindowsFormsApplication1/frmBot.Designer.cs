@@ -34,15 +34,19 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.panelDataAcquisition = new System.Windows.Forms.Panel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.panelMe = new System.Windows.Forms.Panel();
             this.panelMedicalDictionary = new System.Windows.Forms.Panel();
             this.bt_procurar = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.panelMe = new System.Windows.Forms.Panel();
             this.lbl_age = new System.Windows.Forms.Label();
             this.lbl_sns = new System.Windows.Forms.Label();
             this.lbl_surname = new System.Windows.Forms.Label();
@@ -53,9 +57,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.panelDataAcquisition = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,16 +64,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            this.panelMedicalDictionary.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.panelMe.SuspendLayout();
             this.panelDataAcquisition.SuspendLayout();
+            this.panelMe.SuspendLayout();
+            this.panelMedicalDictionary.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -136,6 +136,87 @@
             this.toolStripButton3.Text = "Medical Dictionary";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton4,
+            this.toolStripLabel1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(642, 25);
+            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(87, 22);
+            this.toolStripLabel1.Text = "Utente + nome";
+            // 
+            // panelDataAcquisition
+            // 
+            this.panelDataAcquisition.Controls.Add(this.listBox1);
+            this.panelDataAcquisition.Controls.Add(this.textBox3);
+            this.panelDataAcquisition.Controls.Add(this.panelMe);
+            this.panelDataAcquisition.Controls.Add(this.textBox2);
+            this.panelDataAcquisition.Controls.Add(this.textBox1);
+            this.panelDataAcquisition.Controls.Add(this.label4);
+            this.panelDataAcquisition.Controls.Add(this.label3);
+            this.panelDataAcquisition.Controls.Add(this.label2);
+            this.panelDataAcquisition.Controls.Add(this.label1);
+            this.panelDataAcquisition.Controls.Add(this.checkedListBox1);
+            this.panelDataAcquisition.Location = new System.Drawing.Point(6, 27);
+            this.panelDataAcquisition.Name = "panelDataAcquisition";
+            this.panelDataAcquisition.Size = new System.Drawing.Size(625, 443);
+            this.panelDataAcquisition.TabIndex = 1;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(66, 174);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 277);
+            this.listBox1.TabIndex = 23;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(463, 241);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(171, 26);
+            this.textBox3.TabIndex = 22;
+            // 
+            // panelMe
+            // 
+            this.panelMe.Controls.Add(this.panelMedicalDictionary);
+            this.panelMe.Controls.Add(this.panelPrincipal);
+            this.panelMe.Controls.Add(this.lbl_age);
+            this.panelMe.Controls.Add(this.lbl_sns);
+            this.panelMe.Controls.Add(this.lbl_surname);
+            this.panelMe.Controls.Add(this.lbl_birthdate);
+            this.panelMe.Controls.Add(this.lbl_name);
+            this.panelMe.Controls.Add(this.label9);
+            this.panelMe.Controls.Add(this.label8);
+            this.panelMe.Controls.Add(this.label7);
+            this.panelMe.Controls.Add(this.label6);
+            this.panelMe.Controls.Add(this.label5);
+            this.panelMe.Location = new System.Drawing.Point(249, 20);
+            this.panelMe.Name = "panelMe";
+            this.panelMe.Size = new System.Drawing.Size(124, 308);
+            this.panelMe.TabIndex = 24;
+            // 
             // panelMedicalDictionary
             // 
             this.panelMedicalDictionary.Controls.Add(this.bt_procurar);
@@ -180,53 +261,12 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton4,
-            this.toolStripLabel1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(642, 25);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
-            // 
             // panelPrincipal
             // 
             this.panelPrincipal.Location = new System.Drawing.Point(13, 27);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(111, 145);
             this.panelPrincipal.TabIndex = 10;
-            // 
-            // panelMe
-            // 
-            this.panelMe.Controls.Add(this.panelMedicalDictionary);
-            this.panelMe.Controls.Add(this.panelPrincipal);
-            this.panelMe.Controls.Add(this.lbl_age);
-            this.panelMe.Controls.Add(this.lbl_sns);
-            this.panelMe.Controls.Add(this.lbl_surname);
-            this.panelMe.Controls.Add(this.lbl_birthdate);
-            this.panelMe.Controls.Add(this.lbl_name);
-            this.panelMe.Controls.Add(this.label9);
-            this.panelMe.Controls.Add(this.label8);
-            this.panelMe.Controls.Add(this.label7);
-            this.panelMe.Controls.Add(this.label6);
-            this.panelMe.Controls.Add(this.label5);
-            this.panelMe.Location = new System.Drawing.Point(249, 20);
-            this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(124, 308);
-            this.panelMe.TabIndex = 24;
             // 
             // lbl_age
             // 
@@ -318,39 +358,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Name:";
             // 
-            // panelDataAcquisition
-            // 
-            this.panelDataAcquisition.Controls.Add(this.listBox1);
-            this.panelDataAcquisition.Controls.Add(this.textBox3);
-            this.panelDataAcquisition.Controls.Add(this.panelMe);
-            this.panelDataAcquisition.Controls.Add(this.textBox2);
-            this.panelDataAcquisition.Controls.Add(this.textBox1);
-            this.panelDataAcquisition.Controls.Add(this.label4);
-            this.panelDataAcquisition.Controls.Add(this.label3);
-            this.panelDataAcquisition.Controls.Add(this.label2);
-            this.panelDataAcquisition.Controls.Add(this.label1);
-            this.panelDataAcquisition.Controls.Add(this.checkedListBox1);
-            this.panelDataAcquisition.Location = new System.Drawing.Point(6, 27);
-            this.panelDataAcquisition.Name = "panelDataAcquisition";
-            this.panelDataAcquisition.Size = new System.Drawing.Size(625, 443);
-            this.panelDataAcquisition.TabIndex = 1;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(66, 174);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 277);
-            this.listBox1.TabIndex = 23;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(463, 241);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(171, 26);
-            this.textBox3.TabIndex = 22;
-            // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -419,12 +426,6 @@
             this.checkedListBox1.TabIndex = 15;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(87, 22);
-            this.toolStripLabel1.Text = "Utente + nome";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,14 +444,14 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.panelMedicalDictionary.ResumeLayout(false);
-            this.panelMedicalDictionary.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panelMe.ResumeLayout(false);
-            this.panelMe.PerformLayout();
             this.panelDataAcquisition.ResumeLayout(false);
             this.panelDataAcquisition.PerformLayout();
+            this.panelMe.ResumeLayout(false);
+            this.panelMe.PerformLayout();
+            this.panelMedicalDictionary.ResumeLayout(false);
+            this.panelMedicalDictionary.PerformLayout();
             this.ResumeLayout(false);
 
         }

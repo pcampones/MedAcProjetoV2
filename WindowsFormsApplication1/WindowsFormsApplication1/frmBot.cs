@@ -36,8 +36,8 @@ namespace BOT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //ds
-            //listBox1.DataSource = serv.GetListaUtentes();
+
+            //listBox1.DataSource = serv.GetListaUtentes().Select(i=>i.name);
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,14 +48,14 @@ namespace BOT
                 {
                     dll.Initialize(BloodPressure, Settings.Default.Delay, true, false, false);
                 }
-                else
-                {
-                    dll.Initialize(BloodPressure, Settings.Default.Delay, false, false, false);
-                }
-               /* if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
+              /*  else
                 {
                     dll.Initialize(BloodPressure, Settings.Default.Delay, false, false, false);
                 }*/
+                if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
+                {
+                    dll.Initialize(BloodPressure, Settings.Default.Delay, false, false, false);
+                }
             }
             else
             {
@@ -187,7 +187,10 @@ namespace BOT
             frm.Show();
         }
 
-
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+         
+        }
     }
 }
       

@@ -189,6 +189,21 @@ namespace BOT
         {
          
         }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SNS = int.Parse(toolStripTextBox1.Text);
+            UtenteWeb u = serv.GetUtenteBySNS(int.Parse(toolStripTextBox1.Text));
+            if (u != null)
+            {
+              
+                toolStripLabel2.Text = "Bem-Vindo:" + u.name; 
+            }
+            else
+            {
+                MessageBox.Show("Tem de introduzir um SNS válido!", "Erro", MessageBoxButtons.OK);
+            }
+        }
     }
 }
       

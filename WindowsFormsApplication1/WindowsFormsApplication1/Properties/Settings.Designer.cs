@@ -48,12 +48,12 @@ namespace BOT.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public int Id {
+        public int SNS {
             get {
-                return ((int)(this["Id"]));
+                return ((int)(this["SNS"]));
             }
             set {
-                this["Id"] = value;
+                this["SNS"] = value;
             }
         }
         

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/15/2016 12:49:50
+-- Date Created: 03/15/2016 16:57:23
 -- Generated from EDMX file: C:\Users\Pedro Camponês\Documents\GitHubVisualStudio\MedAcProjetoV2\WindowsFormsApplication1\ClassLibraryMedAc\ModelMedAc.edmx
 -- --------------------------------------------------
 
@@ -66,9 +66,9 @@ GO
 -- Creating table 'ValoresSet'
 CREATE TABLE [dbo].[ValoresSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [BloodPressure] nvarchar(max)  NOT NULL,
-    [HeartRate] nvarchar(max)  NOT NULL,
-    [OxygenSaturation] nvarchar(max)  NOT NULL,
+    [BloodPressure] int  NOT NULL,
+    [HeartRate] int  NOT NULL,
+    [OxygenSaturation] int  NOT NULL,
     [DataOfRegist] datetime  NOT NULL,
     [Utente_Id] int  NOT NULL,
     [Alertas_Id] int  NOT NULL

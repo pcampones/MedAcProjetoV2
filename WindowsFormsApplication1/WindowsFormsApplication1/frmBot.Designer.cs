@@ -31,14 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tsbt_me = new System.Windows.Forms.ToolStripButton();
+            this.tsbt_dataAqu = new System.Windows.Forms.ToolStripButton();
+            this.tsbt_medicaldic = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.tSbtConfigs = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.tSBt_confirm = new System.Windows.Forms.ToolStripButton();
+            this.tsLbl_welcome = new System.Windows.Forms.ToolStripLabel();
             this.panelDataAcquisition = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panelMe = new System.Windows.Forms.Panel();
             this.panelMedicalDictionary = new System.Windows.Forms.Panel();
@@ -64,9 +66,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,6 +77,8 @@
             this.panelDataAcquisition.SuspendLayout();
             this.panelMe.SuspendLayout();
             this.panelMedicalDictionary.SuspendLayout();
+            this.panelPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -89,8 +92,11 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
+            this.splitContainer1.Panel2.Controls.Add(this.panelMe);
             this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
+            this.splitContainer1.Panel2.Controls.Add(this.panelMedicalDictionary);
+            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
+            this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Size = new System.Drawing.Size(751, 493);
             this.splitContainer1.SplitterDistance = 105;
             this.splitContainer1.TabIndex = 2;
@@ -99,9 +105,9 @@
             // 
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
+            this.tsbt_me,
+            this.tsbt_dataAqu,
+            this.tsbt_medicaldic});
             this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
@@ -109,60 +115,60 @@
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // toolStripButton1
+            // tsbt_me
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
-            this.toolStripButton1.Text = "Me";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.tsbt_me.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbt_me.Image = ((System.Drawing.Image)(resources.GetObject("tsbt_me.Image")));
+            this.tsbt_me.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbt_me.Name = "tsbt_me";
+            this.tsbt_me.Size = new System.Drawing.Size(23, 20);
+            this.tsbt_me.Text = "Me";
+            this.tsbt_me.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripButton2
+            // tsbt_dataAqu
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 20);
-            this.toolStripButton2.Text = "Data Acquisition";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.tsbt_dataAqu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbt_dataAqu.Image = ((System.Drawing.Image)(resources.GetObject("tsbt_dataAqu.Image")));
+            this.tsbt_dataAqu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbt_dataAqu.Name = "tsbt_dataAqu";
+            this.tsbt_dataAqu.Size = new System.Drawing.Size(23, 20);
+            this.tsbt_dataAqu.Text = "Data Acquisition";
+            this.tsbt_dataAqu.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // toolStripButton3
+            // tsbt_medicaldic
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 20);
-            this.toolStripButton3.Text = "Medical Dictionary";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.tsbt_medicaldic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbt_medicaldic.Image = ((System.Drawing.Image)(resources.GetObject("tsbt_medicaldic.Image")));
+            this.tsbt_medicaldic.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbt_medicaldic.Name = "tsbt_medicaldic";
+            this.tsbt_medicaldic.Size = new System.Drawing.Size(23, 20);
+            this.tsbt_medicaldic.Text = "Medical Dictionary";
+            this.tsbt_medicaldic.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton4,
+            this.tSbtConfigs,
             this.toolStripLabel1,
             this.toolStripTextBox1,
-            this.toolStripButton5,
-            this.toolStripLabel2});
+            this.tSBt_confirm,
+            this.tsLbl_welcome});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(642, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton4
+            // tSbtConfigs
             // 
-            this.toolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            this.tSbtConfigs.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tSbtConfigs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tSbtConfigs.Image = ((System.Drawing.Image)(resources.GetObject("tSbtConfigs.Image")));
+            this.tSbtConfigs.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tSbtConfigs.Name = "tSbtConfigs";
+            this.tSbtConfigs.Size = new System.Drawing.Size(23, 22);
+            this.tSbtConfigs.Text = "Configurations";
+            this.tSbtConfigs.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripLabel1
             // 
@@ -170,11 +176,30 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(31, 22);
             this.toolStripLabel1.Text = "SNS:";
             // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            // 
+            // tSBt_confirm
+            // 
+            this.tSBt_confirm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tSBt_confirm.Image = ((System.Drawing.Image)(resources.GetObject("tSBt_confirm.Image")));
+            this.tSBt_confirm.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tSBt_confirm.Name = "tSBt_confirm";
+            this.tSBt_confirm.Size = new System.Drawing.Size(23, 22);
+            this.tSBt_confirm.Text = "Confirm";
+            this.tSBt_confirm.Click += new System.EventHandler(this.toolStripButton5_Click);
+            // 
+            // tsLbl_welcome
+            // 
+            this.tsLbl_welcome.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsLbl_welcome.Name = "tsLbl_welcome";
+            this.tsLbl_welcome.Size = new System.Drawing.Size(0, 22);
+            // 
             // panelDataAcquisition
             // 
-            this.panelDataAcquisition.Controls.Add(this.listBox1);
             this.panelDataAcquisition.Controls.Add(this.textBox3);
-            this.panelDataAcquisition.Controls.Add(this.panelMe);
             this.panelDataAcquisition.Controls.Add(this.textBox2);
             this.panelDataAcquisition.Controls.Add(this.textBox1);
             this.panelDataAcquisition.Controls.Add(this.label4);
@@ -182,19 +207,10 @@
             this.panelDataAcquisition.Controls.Add(this.label2);
             this.panelDataAcquisition.Controls.Add(this.label1);
             this.panelDataAcquisition.Controls.Add(this.checkedListBox1);
-            this.panelDataAcquisition.Location = new System.Drawing.Point(6, 27);
+            this.panelDataAcquisition.Location = new System.Drawing.Point(0, 0);
             this.panelDataAcquisition.Name = "panelDataAcquisition";
-            this.panelDataAcquisition.Size = new System.Drawing.Size(625, 443);
+            this.panelDataAcquisition.Size = new System.Drawing.Size(630, 459);
             this.panelDataAcquisition.TabIndex = 1;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(66, 174);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 277);
-            this.listBox1.TabIndex = 23;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
             // 
             // textBox3
             // 
@@ -206,8 +222,6 @@
             // 
             // panelMe
             // 
-            this.panelMe.Controls.Add(this.panelMedicalDictionary);
-            this.panelMe.Controls.Add(this.panelPrincipal);
             this.panelMe.Controls.Add(this.lbl_age);
             this.panelMe.Controls.Add(this.lbl_sns);
             this.panelMe.Controls.Add(this.lbl_surname);
@@ -218,9 +232,9 @@
             this.panelMe.Controls.Add(this.label7);
             this.panelMe.Controls.Add(this.label6);
             this.panelMe.Controls.Add(this.label5);
-            this.panelMe.Location = new System.Drawing.Point(249, 20);
+            this.panelMe.Location = new System.Drawing.Point(0, 0);
             this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(124, 308);
+            this.panelMe.Size = new System.Drawing.Size(622, 456);
             this.panelMe.TabIndex = 24;
             // 
             // panelMedicalDictionary
@@ -229,9 +243,9 @@
             this.panelMedicalDictionary.Controls.Add(this.textBox4);
             this.panelMedicalDictionary.Controls.Add(this.label10);
             this.panelMedicalDictionary.Controls.Add(this.listView1);
-            this.panelMedicalDictionary.Location = new System.Drawing.Point(315, 89);
+            this.panelMedicalDictionary.Location = new System.Drawing.Point(0, 0);
             this.panelMedicalDictionary.Name = "panelMedicalDictionary";
-            this.panelMedicalDictionary.Size = new System.Drawing.Size(206, 261);
+            this.panelMedicalDictionary.Size = new System.Drawing.Size(636, 239);
             this.panelMedicalDictionary.TabIndex = 0;
             // 
             // bt_procurar
@@ -269,9 +283,11 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Location = new System.Drawing.Point(13, 27);
+            this.panelPrincipal.Controls.Add(this.pictureBox1);
+            this.panelPrincipal.Controls.Add(this.label11);
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(111, 145);
+            this.panelPrincipal.Size = new System.Drawing.Size(636, 462);
             this.panelPrincipal.TabIndex = 10;
             // 
             // lbl_age
@@ -279,45 +295,40 @@
             this.lbl_age.AutoSize = true;
             this.lbl_age.Location = new System.Drawing.Point(49, 161);
             this.lbl_age.Name = "lbl_age";
-            this.lbl_age.Size = new System.Drawing.Size(41, 13);
+            this.lbl_age.Size = new System.Drawing.Size(0, 13);
             this.lbl_age.TabIndex = 9;
-            this.lbl_age.Text = "label10";
             // 
             // lbl_sns
             // 
             this.lbl_sns.AutoSize = true;
             this.lbl_sns.Location = new System.Drawing.Point(301, 74);
             this.lbl_sns.Name = "lbl_sns";
-            this.lbl_sns.Size = new System.Drawing.Size(41, 13);
+            this.lbl_sns.Size = new System.Drawing.Size(0, 13);
             this.lbl_sns.TabIndex = 8;
-            this.lbl_sns.Text = "label10";
             // 
             // lbl_surname
             // 
             this.lbl_surname.AutoSize = true;
             this.lbl_surname.Location = new System.Drawing.Point(318, 29);
             this.lbl_surname.Name = "lbl_surname";
-            this.lbl_surname.Size = new System.Drawing.Size(41, 13);
+            this.lbl_surname.Size = new System.Drawing.Size(0, 13);
             this.lbl_surname.TabIndex = 7;
-            this.lbl_surname.Text = "label10";
             // 
             // lbl_birthdate
             // 
             this.lbl_birthdate.AutoSize = true;
             this.lbl_birthdate.Location = new System.Drawing.Point(69, 74);
             this.lbl_birthdate.Name = "lbl_birthdate";
-            this.lbl_birthdate.Size = new System.Drawing.Size(41, 13);
+            this.lbl_birthdate.Size = new System.Drawing.Size(0, 13);
             this.lbl_birthdate.TabIndex = 6;
-            this.lbl_birthdate.Text = "label10";
             // 
             // lbl_name
             // 
             this.lbl_name.AutoSize = true;
             this.lbl_name.Location = new System.Drawing.Point(58, 29);
             this.lbl_name.Name = "lbl_name";
-            this.lbl_name.Size = new System.Drawing.Size(49, 13);
+            this.lbl_name.Size = new System.Drawing.Size(0, 13);
             this.lbl_name.TabIndex = 5;
-            this.lbl_name.Text = "lbl_name";
             // 
             // label9
             // 
@@ -432,27 +443,26 @@
             this.checkedListBox1.TabIndex = 15;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
-            // toolStripTextBox1
+            // label11
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.SystemColors.Control;
+            this.label11.Font = new System.Drawing.Font("Segoe Script", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label11.Location = new System.Drawing.Point(224, 34);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(168, 51);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Welcome";
             // 
-            // toolStripButton5
+            // pictureBox1
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "toolStripButton5";
-            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(86, 22);
-            this.toolStripLabel2.Text = "toolStripLabel2";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(159, 120);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(339, 281);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -480,6 +490,9 @@
             this.panelMe.PerformLayout();
             this.panelMedicalDictionary.ResumeLayout(false);
             this.panelMedicalDictionary.PerformLayout();
+            this.panelPrincipal.ResumeLayout(false);
+            this.panelPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -487,10 +500,9 @@
         #endregion
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton tsbt_me;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.Panel panelDataAcquisition;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
@@ -499,7 +511,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton tsbt_dataAqu;
         private System.Windows.Forms.Panel panelMe;
         private System.Windows.Forms.Label lbl_age;
         private System.Windows.Forms.Label lbl_sns;
@@ -511,18 +523,20 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton tsbt_medicaldic;
         private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.Panel panelMedicalDictionary;
         private System.Windows.Forms.Button bt_procurar;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton tSbtConfigs;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripButton tSBt_confirm;
+        private System.Windows.Forms.ToolStripLabel tsLbl_welcome;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label11;
     }
 }
 

@@ -166,7 +166,18 @@ namespace BOT
             panelMe.Visible = true;
             panelPrincipal.Visible = false;
             panelMedicalDictionary.Visible = false;
-         
+
+            if (u == null)
+            {
+                lbl_name.Text = "N.D";
+                lbl_age.Text = "N.D";
+                lbl_birthdate.Text = "N.D";
+                lbl_sns.Text = "N.D";
+                lbl_surname.Text = "N.D";
+            }
+          
+
+
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -239,6 +250,11 @@ namespace BOT
         }
 
         private void panelMe_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void toolStripTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }

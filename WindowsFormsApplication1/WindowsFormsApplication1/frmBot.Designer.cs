@@ -61,6 +61,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -145,6 +150,11 @@
             // 
             // panelMe
             // 
+            this.panelMe.Controls.Add(this.label9);
+            this.panelMe.Controls.Add(this.label8);
+            this.panelMe.Controls.Add(this.label7);
+            this.panelMe.Controls.Add(this.label6);
+            this.panelMe.Controls.Add(this.label5);
             this.panelMe.Controls.Add(this.lbl_surname);
             this.panelMe.Controls.Add(this.lbl_name);
             this.panelMe.Controls.Add(this.lbl_birthdate);
@@ -152,14 +162,14 @@
             this.panelMe.Controls.Add(this.lbl_age);
             this.panelMe.Location = new System.Drawing.Point(9, 60);
             this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(115, 380);
+            this.panelMe.Size = new System.Drawing.Size(188, 194);
             this.panelMe.TabIndex = 24;
             this.panelMe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMe_Paint);
             // 
             // lbl_surname
             // 
             this.lbl_surname.AutoSize = true;
-            this.lbl_surname.Location = new System.Drawing.Point(13, 40);
+            this.lbl_surname.Location = new System.Drawing.Point(66, 70);
             this.lbl_surname.Name = "lbl_surname";
             this.lbl_surname.Size = new System.Drawing.Size(0, 13);
             this.lbl_surname.TabIndex = 7;
@@ -167,7 +177,7 @@
             // lbl_name
             // 
             this.lbl_name.AutoSize = true;
-            this.lbl_name.Location = new System.Drawing.Point(13, 5);
+            this.lbl_name.Location = new System.Drawing.Point(66, 40);
             this.lbl_name.Name = "lbl_name";
             this.lbl_name.Size = new System.Drawing.Size(0, 13);
             this.lbl_name.TabIndex = 5;
@@ -175,7 +185,7 @@
             // lbl_birthdate
             // 
             this.lbl_birthdate.AutoSize = true;
-            this.lbl_birthdate.Location = new System.Drawing.Point(13, 74);
+            this.lbl_birthdate.Location = new System.Drawing.Point(66, 98);
             this.lbl_birthdate.Name = "lbl_birthdate";
             this.lbl_birthdate.Size = new System.Drawing.Size(0, 13);
             this.lbl_birthdate.TabIndex = 6;
@@ -183,7 +193,7 @@
             // lbl_sns
             // 
             this.lbl_sns.AutoSize = true;
-            this.lbl_sns.Location = new System.Drawing.Point(13, 175);
+            this.lbl_sns.Location = new System.Drawing.Point(66, 14);
             this.lbl_sns.Name = "lbl_sns";
             this.lbl_sns.Size = new System.Drawing.Size(0, 13);
             this.lbl_sns.TabIndex = 8;
@@ -191,7 +201,7 @@
             // lbl_age
             // 
             this.lbl_age.AutoSize = true;
-            this.lbl_age.Location = new System.Drawing.Point(13, 114);
+            this.lbl_age.Location = new System.Drawing.Point(66, 124);
             this.lbl_age.Name = "lbl_age";
             this.lbl_age.Size = new System.Drawing.Size(0, 13);
             this.lbl_age.TabIndex = 9;
@@ -275,6 +285,7 @@
             // 
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.toolStripTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBox1_KeyPress);
             this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             // 
             // toolStripButton5
@@ -384,6 +395,52 @@
             this.checkedListBox1.TabIndex = 15;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 14);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "SNS";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Name";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 70);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Surname";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 98);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Birthdate";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 124);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(26, 13);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Age";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,6 +504,11 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
 

@@ -159,6 +159,7 @@ namespace ServiceLayer
                 valores.OxygenSaturation = oxygenSatu;
                 valores.HeartRate = heartRate;
                 valores.DataOfRegist = data;
+               // valores.Alertas =  1;
                 _acederBd.addVallues(valores);
 
             }

@@ -20,8 +20,11 @@ namespace BOT
         PhysiologicParametersDll.PhysiologicParametersDll dllC = null;
         PhysiologicParametersDll.PhysiologicParametersDll dllH = null;
 
+        private UtenteWeb u;
+
         enum DataType { Normal, Alerts };
 
+        private int sns;
 
         public Form1()
         {
@@ -36,8 +39,10 @@ namespace BOT
 
         private void Form1_Load(object sender, EventArgs e)
         {
+             sns = Settings.Default.SNS;
 
-            //listBox1.DataSource = serv.GetListaUtentes().Select(i=>i.name);
+            toolStripTextBox1.Text = sns.ToString();
+            //Settings.Default.SNS = int.Parse( toolStrip1.Text);
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,7 +52,7 @@ namespace BOT
                 if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Checked)
                 {
                     dll.Initialize(BloodPressure, Settings.Default.Delay, true, false, false);
-                   // serv.AddValues(Settings.Default.Id,);
+                    serv.AddValues(Settings.Default.SNS,int.Parse(textBox1.Text),0,0,DateTime.Now);
                 }
             
                 if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
@@ -161,6 +166,7 @@ namespace BOT
             panelMe.Visible = true;
             panelPrincipal.Visible = false;
             panelMedicalDictionary.Visible = false;
+         
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -169,6 +175,8 @@ namespace BOT
             panelMe.Visible = false;
             panelPrincipal.Visible = false;
             panelMedicalDictionary.Visible = false;
+       
+
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -193,16 +201,46 @@ namespace BOT
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.SNS = int.Parse(toolStripTextBox1.Text);
-            UtenteWeb u = serv.GetUtenteBySNS(int.Parse(toolStripTextBox1.Text));
+            Properties.Settings.Default.Save() ;
+            
+             u = serv.GetUtenteBySNS(int.Parse(toolStripTextBox1.Text));
             if (u != null)
             {
               
-                toolStripLabel2.Text = "Bem-Vindo:" + u.name; 
+                toolStripLabel2.Text = "Welcome " + u.name;
+
+                MessageBox.Show("SNS valid!","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                sns = u.sns;
+                lbl_sns.Text = sns.ToString();
+                lbl_name.Text = u.name;
+                lbl_surname.Text = u.surname;
+                lbl_age.Text = u.age.ToString();
+                lbl_birthdate.Text = u.birthdate.ToShortDateString();
+    
+                
+
             }
             else
             {
-                MessageBox.Show("Tem de introduzir um SNS válido!", "Erro", MessageBoxButtons.OK);
+                MessageBox.Show("SNS not valid! Please, try other!", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                lbl_name.Text = "N.D";
+                lbl_age.Text = "N.D";
+                lbl_birthdate.Text = "N.D";
+                lbl_sns.Text = "N.D";
+                lbl_surname.Text = "N.D";
+                
+
             }
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void panelMe_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

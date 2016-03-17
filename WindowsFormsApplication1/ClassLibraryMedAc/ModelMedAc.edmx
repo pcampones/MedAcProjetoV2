@@ -44,9 +44,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="BloodPressure" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="HeartRate" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="OxygenSaturation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BloodPressure" Type="int" Nullable="false" />
+    <Property Name="HeartRate" Type="int" Nullable="false" />
+    <Property Name="OxygenSaturation" Type="int" Nullable="false" />
     <Property Name="DataOfRegist" Type="datetime" Nullable="false" />
     <Property Name="Utente_Id" Type="int" Nullable="false" />
     <Property Name="Alertas_Id" Type="int" Nullable="false" />
@@ -127,9 +127,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BloodPressure" Type="String" Nullable="false" />
-          <Property Name="HeartRate" Type="String" Nullable="false" />
-          <Property Name="OxygenSaturation" Type="String" Nullable="false" />
+          <Property Name="BloodPressure" Type="Int32" Nullable="false" />
+          <Property Name="HeartRate" Type="Int32" Nullable="false" />
+          <Property Name="OxygenSaturation" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteValores" FromRole="Valores" ToRole="Utente" />
           <NavigationProperty Name="Alertas" Relationship="ModelMedAc.ValoresAlertas" FromRole="Valores" ToRole="Alertas" />
           <Property Name="DataOfRegist" Type="DateTime" Nullable="false" />

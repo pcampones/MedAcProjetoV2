@@ -15,9 +15,9 @@ namespace ClassLibraryMedAc
     public partial class Valores
     {
         public int Id { get; set; }
-        public string BloodPressure { get; set; }
-        public string HeartRate { get; set; }
-        public string OxygenSaturation { get; set; }
+        public int BloodPressure { get; set; }
+        public int HeartRate { get; set; }
+        public int OxygenSaturation { get; set; }
         public System.DateTime DataOfRegist { get; set; }
     
         public virtual Utente Utente { get; set; }

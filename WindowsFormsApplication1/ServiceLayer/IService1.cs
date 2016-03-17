@@ -179,5 +179,44 @@ namespace ServiceLayer
             get { return sns; }
             set { sns = value; }
         }
+
+        [DataMember]
+        private int bloodPressure;
+
+        public int BloodPressure
+        {
+            get { return bloodPressure; }
+            set { bloodPressure = value; }
+        }
+
+        [DataMember]
+
+        private int heartRate;
+
+        public int HeartRate
+        {
+            get { return heartRate; }
+            set { heartRate = value; }
+
+        }
+
+        [DataMember]
+        private int oxigenSat;
+
+        public int OxigenSat
+        {
+            get { return oxigenSat; }
+            set { oxigenSat = value; }
+        }
+
+        [DataMember]
+        private DateTime dataOfReposit;
+
+        public DateTime DataOfReposit
+        {
+            get { return dataOfReposit; }
+            set { dataOfReposit = value; }
+        }
+
     }
 }

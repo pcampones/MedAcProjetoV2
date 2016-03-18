@@ -67,6 +67,7 @@ namespace ClinicalAlert
             gender = "Female";  
         }
 
+
         private void button2_Click(object sender, EventArgs e)
         {
             ut = new UtenteWeb();
@@ -85,6 +86,7 @@ namespace ClinicalAlert
             ut.height = Convert.ToInt32(txb_heigth);
             ut.nexOfKinContact = Convert.ToInt32(txb_nextkindofcontact);
             ut.phone = Convert.ToInt32(txb_phone.Text);
+            
             
 
            DialogResult result =  MessageBox.Show("Are you sure you want add the user with the " + txb_name.Text + " ?", "Information",

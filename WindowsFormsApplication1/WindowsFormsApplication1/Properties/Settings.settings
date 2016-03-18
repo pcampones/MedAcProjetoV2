@@ -11,14 +11,14 @@
     <Setting Name="SNS" Type="System.Int32" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="MedLineUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://wsearch.nlm.nih.gov/ws/query?db=healthTopics&amp;term=</Value>
-    </Setting>
     <Setting Name="Retmax" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="LocalUrl" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://localhost:61579/Service1.svc</Value>
+    </Setting>
+    <Setting Name="Medline" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://wsearch.nlm.nih.gov/ws/query?db=healthTopics&amp;term=</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -20,9 +20,9 @@ namespace BOT
             {
                 txb_delaydll.Text = Properties.Settings.Default.Delay.ToString();
             }
-            if (Properties.Settings.Default.MedLineUrl != "")
+            if (Properties.Settings.Default.Medline != "")
             {
-                txb_medline.Text = Properties.Settings.Default.MedLineUrl;
+                txb_medline.Text = Properties.Settings.Default.Medline;
             }
             if (!Properties.Settings.Default.Retmax.Equals(null))
             {
@@ -50,7 +50,7 @@ namespace BOT
             }
             if (txb_medline.Text != "")
             {
-                Properties.Settings.Default.MedLineUrl = txb_medline.Text;
+                Properties.Settings.Default.Medline = txb_medline.Text;
             }
             if (txb_retmax.Text != null)
             {
@@ -68,8 +68,8 @@ namespace BOT
 
         private void bt_default_Click(object sender, EventArgs e)
         {
-            txb_medline.Text = "http://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term";
-            Properties.Settings.Default.MedLineUrl = "http://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term";
+            txb_medline.Text = "https://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term=";
+            Properties.Settings.Default.Medline = "https://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term";
 
             txb_local.Text = "http://localhost:61579/Service1.svc";
             Properties.Settings.Default.LocalUrl = "http://localhost:61579/Service1.svc";

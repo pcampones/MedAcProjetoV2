@@ -166,5 +166,72 @@ namespace ClinicalAlert
         {
 
         }
+
+        private void txb_phone_TextChanged(object sender, EventArgs e)
+        {
+            if(System.Text.RegularExpressions.Regex.IsMatch(txb_name.Text," ^[0-9]"))
+            {
+                txb_name.Text = "";
+            }
+        }
+
+        private void txb_phone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txb_nextkindofcontact_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txb_name.Text, " ^[0-9]"))
+            {
+                txb_nextkindofcontact.Text = "";
+            }
+
+        }
+
+        private void txb_nextkindofcontact_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txb_bi_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txb_name.Text, " ^[0-9]"))
+            {
+                txb_bi.Text = "";
+            }
+        }
+
+        private void txb_bi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txb_sns_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txb_name.Text, " ^[0-9]"))
+            {
+                txb_sns.Text = "";
+            }
+        }
+
+        private void txb_sns_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

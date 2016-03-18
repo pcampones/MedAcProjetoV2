@@ -57,7 +57,7 @@ namespace BOT
                 Properties.Settings.Default.Retmax = int.Parse(txb_retmax.Text);
             }
 
-            DialogResult result = MessageBox.Show("Do you want to save the changes made??", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to save the changes made??", "Confirmation", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {

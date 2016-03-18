@@ -39,14 +39,17 @@
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panel_Adicionar = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmb_genero = new System.Windows.Forms.ComboBox();
-            this.txb_heigth = new System.Windows.Forms.TextBox();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ativeCheckBox = new System.Windows.Forms.CheckBox();
+            this.maleRb = new System.Windows.Forms.RadioButton();
+            this.femaleRb = new System.Windows.Forms.RadioButton();
             this.txb_sns = new System.Windows.Forms.TextBox();
             this.txb_email = new System.Windows.Forms.TextBox();
             this.txb_nextkindofcontact = new System.Windows.Forms.TextBox();
             this.txb_surname = new System.Windows.Forms.TextBox();
             this.dtp_utente = new System.Windows.Forms.DateTimePicker();
-            this.txb_weigth = new System.Windows.Forms.TextBox();
             this.txb_morada = new System.Windows.Forms.TextBox();
             this.txb_bi = new System.Windows.Forms.TextBox();
             this.txb_phone = new System.Windows.Forms.TextBox();
@@ -74,6 +77,8 @@
             this.toolStrip1.SuspendLayout();
             this.panel_Adicionar.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,61 +117,71 @@
             this.toolStrip1.Size = new System.Drawing.Size(137, 435);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // Add
             // 
+            this.Add.AutoSize = false;
+            this.Add.AutoToolTip = false;
             this.Add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.Add.Image = ((System.Drawing.Image)(resources.GetObject("Add.Image")));
             this.Add.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(54, 54);
+            this.Add.Size = new System.Drawing.Size(140, 50);
             this.Add.Text = "Add";
             this.Add.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // Edit
             // 
+            this.Edit.AutoSize = false;
+            this.Edit.AutoToolTip = false;
             this.Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
             this.Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(54, 54);
+            this.Edit.Size = new System.Drawing.Size(140, 50);
             this.Edit.Text = "Edit";
             // 
             // Alerts
             // 
+            this.Alerts.AutoSize = false;
+            this.Alerts.AutoToolTip = false;
             this.Alerts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.Alerts.Image = ((System.Drawing.Image)(resources.GetObject("Alerts.Image")));
             this.Alerts.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Alerts.Name = "Alerts";
-            this.Alerts.Size = new System.Drawing.Size(54, 54);
+            this.Alerts.Size = new System.Drawing.Size(140, 50);
             this.Alerts.Text = "Alerts";
             // 
             // toolStripButton3
             // 
+            this.toolStripButton3.AutoSize = false;
+            this.toolStripButton3.AutoToolTip = false;
             this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(54, 54);
+            this.toolStripButton3.Size = new System.Drawing.Size(140, 50);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
             // Reports
             // 
+            this.Reports.AutoSize = false;
+            this.Reports.AutoToolTip = false;
             this.Reports.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.Reports.Image = ((System.Drawing.Image)(resources.GetObject("Reports.Image")));
             this.Reports.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Reports.Name = "Reports";
-            this.Reports.Size = new System.Drawing.Size(54, 54);
+            this.Reports.Size = new System.Drawing.Size(140, 50);
             this.Reports.Text = "Reports";
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 32);
+            this.panelPrincipal.Location = new System.Drawing.Point(537, 413);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(572, 403);
+            this.panelPrincipal.Size = new System.Drawing.Size(35, 22);
             this.panelPrincipal.TabIndex = 41;
-            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
             // 
             // panel_Adicionar
             // 
@@ -178,14 +193,17 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cmb_genero);
-            this.groupBox1.Controls.Add(this.txb_heigth);
+            this.groupBox1.Controls.Add(this.numericUpDown2);
+            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.ativeCheckBox);
+            this.groupBox1.Controls.Add(this.maleRb);
+            this.groupBox1.Controls.Add(this.femaleRb);
             this.groupBox1.Controls.Add(this.txb_sns);
             this.groupBox1.Controls.Add(this.txb_email);
             this.groupBox1.Controls.Add(this.txb_nextkindofcontact);
             this.groupBox1.Controls.Add(this.txb_surname);
             this.groupBox1.Controls.Add(this.dtp_utente);
-            this.groupBox1.Controls.Add(this.txb_weigth);
             this.groupBox1.Controls.Add(this.txb_morada);
             this.groupBox1.Controls.Add(this.txb_bi);
             this.groupBox1.Controls.Add(this.txb_phone);
@@ -211,106 +229,142 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Patient";
             // 
-            // cmb_genero
+            // numericUpDown2
             // 
-            this.cmb_genero.FormattingEnabled = true;
-            this.cmb_genero.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cmb_genero.Location = new System.Drawing.Point(343, 231);
-            this.cmb_genero.Name = "cmb_genero";
-            this.cmb_genero.Size = new System.Drawing.Size(197, 21);
-            this.cmb_genero.TabIndex = 40;
+            this.numericUpDown2.Location = new System.Drawing.Point(314, 216);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown2.TabIndex = 13;
             // 
-            // txb_heigth
+            // numericUpDown1
             // 
-            this.txb_heigth.Location = new System.Drawing.Point(339, 277);
-            this.txb_heigth.Name = "txb_heigth";
-            this.txb_heigth.Size = new System.Drawing.Size(201, 20);
-            this.txb_heigth.TabIndex = 39;
+            this.numericUpDown1.Location = new System.Drawing.Point(59, 217);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(439, 359);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Regist";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ativeCheckBox
+            // 
+            this.ativeCheckBox.AutoSize = true;
+            this.ativeCheckBox.Location = new System.Drawing.Point(439, 268);
+            this.ativeCheckBox.Name = "ativeCheckBox";
+            this.ativeCheckBox.Size = new System.Drawing.Size(50, 17);
+            this.ativeCheckBox.TabIndex = 15;
+            this.ativeCheckBox.Text = "Ative";
+            this.ativeCheckBox.UseVisualStyleBackColor = true;
+            this.ativeCheckBox.CheckedChanged += new System.EventHandler(this.ativeCheckBox_CheckedChanged);
+            // 
+            // maleRb
+            // 
+            this.maleRb.AutoSize = true;
+            this.maleRb.Location = new System.Drawing.Point(314, 178);
+            this.maleRb.Name = "maleRb";
+            this.maleRb.Size = new System.Drawing.Size(48, 17);
+            this.maleRb.TabIndex = 10;
+            this.maleRb.TabStop = true;
+            this.maleRb.Text = "Male";
+            this.maleRb.UseVisualStyleBackColor = true;
+            this.maleRb.CheckedChanged += new System.EventHandler(this.maleRb_CheckedChanged);
+            // 
+            // femaleRb
+            // 
+            this.femaleRb.AutoSize = true;
+            this.femaleRb.Location = new System.Drawing.Point(385, 177);
+            this.femaleRb.Name = "femaleRb";
+            this.femaleRb.Size = new System.Drawing.Size(59, 17);
+            this.femaleRb.TabIndex = 11;
+            this.femaleRb.TabStop = true;
+            this.femaleRb.Text = "Female";
+            this.femaleRb.UseVisualStyleBackColor = true;
+            this.femaleRb.CheckedChanged += new System.EventHandler(this.femaleRb_CheckedChanged);
             // 
             // txb_sns
             // 
-            this.txb_sns.Location = new System.Drawing.Point(330, 184);
+            this.txb_sns.Location = new System.Drawing.Point(314, 141);
             this.txb_sns.Name = "txb_sns";
-            this.txb_sns.Size = new System.Drawing.Size(210, 20);
-            this.txb_sns.TabIndex = 37;
+            this.txb_sns.Size = new System.Drawing.Size(172, 20);
+            this.txb_sns.TabIndex = 8;
             // 
             // txb_email
             // 
-            this.txb_email.Location = new System.Drawing.Point(333, 138);
+            this.txb_email.Location = new System.Drawing.Point(314, 103);
             this.txb_email.Name = "txb_email";
-            this.txb_email.Size = new System.Drawing.Size(207, 20);
-            this.txb_email.TabIndex = 36;
+            this.txb_email.Size = new System.Drawing.Size(172, 20);
+            this.txb_email.TabIndex = 6;
             // 
             // txb_nextkindofcontact
             // 
-            this.txb_nextkindofcontact.Location = new System.Drawing.Point(398, 85);
+            this.txb_nextkindofcontact.Location = new System.Drawing.Point(362, 69);
             this.txb_nextkindofcontact.Name = "txb_nextkindofcontact";
             this.txb_nextkindofcontact.Size = new System.Drawing.Size(142, 20);
-            this.txb_nextkindofcontact.TabIndex = 35;
+            this.txb_nextkindofcontact.TabIndex = 4;
             // 
             // txb_surname
             // 
-            this.txb_surname.Location = new System.Drawing.Point(350, 34);
+            this.txb_surname.Location = new System.Drawing.Point(314, 27);
             this.txb_surname.Name = "txb_surname";
             this.txb_surname.Size = new System.Drawing.Size(190, 20);
-            this.txb_surname.TabIndex = 34;
+            this.txb_surname.TabIndex = 2;
             // 
             // dtp_utente
             // 
-            this.dtp_utente.Location = new System.Drawing.Point(75, 138);
+            this.dtp_utente.Location = new System.Drawing.Point(61, 104);
             this.dtp_utente.Name = "dtp_utente";
             this.dtp_utente.Size = new System.Drawing.Size(172, 20);
-            this.dtp_utente.TabIndex = 33;
-            // 
-            // txb_weigth
-            // 
-            this.txb_weigth.Location = new System.Drawing.Point(67, 277);
-            this.txb_weigth.Name = "txb_weigth";
-            this.txb_weigth.Size = new System.Drawing.Size(180, 20);
-            this.txb_weigth.TabIndex = 32;
+            this.dtp_utente.TabIndex = 5;
             // 
             // txb_morada
             // 
-            this.txb_morada.Location = new System.Drawing.Point(71, 231);
+            this.txb_morada.Location = new System.Drawing.Point(60, 179);
             this.txb_morada.Name = "txb_morada";
-            this.txb_morada.Size = new System.Drawing.Size(176, 20);
-            this.txb_morada.TabIndex = 31;
+            this.txb_morada.Size = new System.Drawing.Size(173, 20);
+            this.txb_morada.TabIndex = 9;
             // 
             // txb_bi
             // 
-            this.txb_bi.Location = new System.Drawing.Point(42, 184);
+            this.txb_bi.Location = new System.Drawing.Point(60, 141);
             this.txb_bi.Name = "txb_bi";
-            this.txb_bi.Size = new System.Drawing.Size(205, 20);
-            this.txb_bi.TabIndex = 30;
+            this.txb_bi.Size = new System.Drawing.Size(173, 20);
+            this.txb_bi.TabIndex = 7;
             // 
             // txb_phone
             // 
-            this.txb_phone.Location = new System.Drawing.Point(64, 85);
+            this.txb_phone.Location = new System.Drawing.Point(61, 69);
             this.txb_phone.Name = "txb_phone";
-            this.txb_phone.Size = new System.Drawing.Size(183, 20);
-            this.txb_phone.TabIndex = 29;
+            this.txb_phone.Size = new System.Drawing.Size(172, 20);
+            this.txb_phone.TabIndex = 3;
             // 
             // txb_name
             // 
-            this.txb_name.Location = new System.Drawing.Point(61, 34);
+            this.txb_name.Location = new System.Drawing.Point(61, 27);
             this.txb_name.Name = "txb_name";
-            this.txb_name.Size = new System.Drawing.Size(186, 20);
-            this.txb_name.TabIndex = 28;
+            this.txb_name.Size = new System.Drawing.Size(172, 20);
+            this.txb_name.TabIndex = 1;
+            this.txb_name.TextChanged += new System.EventHandler(this.txb_name_TextChanged);
+            this.txb_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_name_KeyPress);
             // 
             // rtxb_alergies
             // 
-            this.rtxb_alergies.Location = new System.Drawing.Point(82, 308);
+            this.rtxb_alergies.Location = new System.Drawing.Point(59, 272);
             this.rtxb_alergies.Name = "rtxb_alergies";
-            this.rtxb_alergies.Size = new System.Drawing.Size(165, 74);
-            this.rtxb_alergies.TabIndex = 27;
+            this.rtxb_alergies.Size = new System.Drawing.Size(359, 110);
+            this.rtxb_alergies.TabIndex = 14;
             this.rtxb_alergies.Text = "";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 274);
+            this.label13.Location = new System.Drawing.Point(6, 219);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(44, 13);
             this.label13.TabIndex = 26;
@@ -319,7 +373,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(291, 85);
+            this.label12.Location = new System.Drawing.Point(247, 69);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(100, 13);
             this.label12.TabIndex = 25;
@@ -328,7 +382,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(291, 277);
+            this.label11.Location = new System.Drawing.Point(247, 219);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 24;
@@ -337,7 +391,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 308);
+            this.label10.Location = new System.Drawing.Point(6, 272);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 13);
             this.label10.TabIndex = 23;
@@ -346,7 +400,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(291, 231);
+            this.label9.Location = new System.Drawing.Point(247, 179);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 13);
             this.label9.TabIndex = 22;
@@ -355,7 +409,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 231);
+            this.label8.Location = new System.Drawing.Point(6, 182);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 13);
             this.label8.TabIndex = 21;
@@ -364,7 +418,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(291, 184);
+            this.label7.Location = new System.Drawing.Point(247, 141);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 20;
@@ -373,7 +427,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 184);
+            this.label6.Location = new System.Drawing.Point(6, 144);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(20, 13);
             this.label6.TabIndex = 19;
@@ -382,7 +436,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 138);
+            this.label5.Location = new System.Drawing.Point(6, 110);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 18;
@@ -391,7 +445,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(291, 138);
+            this.label4.Location = new System.Drawing.Point(247, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 17;
@@ -400,7 +454,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 85);
+            this.label3.Location = new System.Drawing.Point(6, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 16;
@@ -409,7 +463,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(291, 34);
+            this.label2.Location = new System.Drawing.Point(247, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 15;
@@ -418,7 +472,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 34);
+            this.label1.Location = new System.Drawing.Point(6, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 14;
@@ -459,6 +513,8 @@
             this.panel_Adicionar.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
@@ -492,19 +548,22 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmb_genero;
-        private System.Windows.Forms.TextBox txb_heigth;
         private System.Windows.Forms.TextBox txb_sns;
         private System.Windows.Forms.TextBox txb_email;
         private System.Windows.Forms.TextBox txb_nextkindofcontact;
         private System.Windows.Forms.TextBox txb_surname;
         private System.Windows.Forms.DateTimePicker dtp_utente;
-        private System.Windows.Forms.TextBox txb_weigth;
         private System.Windows.Forms.TextBox txb_morada;
         private System.Windows.Forms.TextBox txb_bi;
         private System.Windows.Forms.TextBox txb_phone;
         private System.Windows.Forms.TextBox txb_name;
         private System.Windows.Forms.Panel panelPrincipal;
+        private System.Windows.Forms.RadioButton maleRb;
+        private System.Windows.Forms.RadioButton femaleRb;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox ativeCheckBox;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 

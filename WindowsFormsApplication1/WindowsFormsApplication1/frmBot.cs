@@ -209,6 +209,16 @@ namespace BOT
          
         }
 
+
+        public static string Age(DateTime birthday)
+        {
+            DateTime now = DateTime.Today;
+            int age = now.Year - birthday.Year;
+            if (now < birthday.AddYears(age)) age--;
+
+            return age.ToString();
+        }
+
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.SNS = int.Parse(toolStripTextBox1.Text);
@@ -227,6 +237,7 @@ namespace BOT
                 lbl_surname.Text = u.surname;
                 lbl_age.Text = u.age.ToString();
                 lbl_birthdate.Text = u.birthdate.ToShortDateString();
+                lbl_age.Text = Age(u.birthdate);
     
                 
 
@@ -239,6 +250,7 @@ namespace BOT
                 lbl_birthdate.Text = "N.D";
                 lbl_sns.Text = "N.D";
                 lbl_surname.Text = "N.D";
+                toolStripLabel2.Text = "N.D";
                 
 
             }

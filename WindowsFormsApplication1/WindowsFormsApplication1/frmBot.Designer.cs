@@ -207,9 +207,9 @@
             this.panelDataAcquisition.Controls.Add(this.label2);
             this.panelDataAcquisition.Controls.Add(this.label1);
             this.panelDataAcquisition.Controls.Add(this.checkedListBox1);
-            this.panelDataAcquisition.Location = new System.Drawing.Point(0, 0);
+            this.panelDataAcquisition.Location = new System.Drawing.Point(0, 46);
             this.panelDataAcquisition.Name = "panelDataAcquisition";
-            this.panelDataAcquisition.Size = new System.Drawing.Size(630, 459);
+            this.panelDataAcquisition.Size = new System.Drawing.Size(630, 413);
             this.panelDataAcquisition.TabIndex = 1;
             // 
             // textBox3
@@ -232,9 +232,9 @@
             this.panelMe.Controls.Add(this.label7);
             this.panelMe.Controls.Add(this.label6);
             this.panelMe.Controls.Add(this.label5);
-            this.panelMe.Location = new System.Drawing.Point(0, 0);
+            this.panelMe.Location = new System.Drawing.Point(0, 31);
             this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(622, 456);
+            this.panelMe.Size = new System.Drawing.Size(622, 425);
             this.panelMe.TabIndex = 24;
             // 
             // panelMedicalDictionary
@@ -243,9 +243,9 @@
             this.panelMedicalDictionary.Controls.Add(this.textBox4);
             this.panelMedicalDictionary.Controls.Add(this.label10);
             this.panelMedicalDictionary.Controls.Add(this.listView1);
-            this.panelMedicalDictionary.Location = new System.Drawing.Point(0, 0);
+            this.panelMedicalDictionary.Location = new System.Drawing.Point(0, 49);
             this.panelMedicalDictionary.Name = "panelMedicalDictionary";
-            this.panelMedicalDictionary.Size = new System.Drawing.Size(636, 239);
+            this.panelMedicalDictionary.Size = new System.Drawing.Size(636, 190);
             this.panelMedicalDictionary.TabIndex = 0;
             // 
             // bt_procurar
@@ -285,9 +285,9 @@
             // 
             this.panelPrincipal.Controls.Add(this.pictureBox1);
             this.panelPrincipal.Controls.Add(this.label11);
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 28);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(636, 462);
+            this.panelPrincipal.Size = new System.Drawing.Size(636, 434);
             this.panelPrincipal.TabIndex = 10;
             // 
             // lbl_age

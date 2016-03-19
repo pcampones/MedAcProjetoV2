@@ -291,9 +291,12 @@
             // txb_sns
             // 
             this.txb_sns.Location = new System.Drawing.Point(314, 141);
+            this.txb_sns.MaxLength = 9;
             this.txb_sns.Name = "txb_sns";
             this.txb_sns.Size = new System.Drawing.Size(172, 20);
             this.txb_sns.TabIndex = 8;
+            this.txb_sns.TextChanged += new System.EventHandler(this.txb_sns_TextChanged);
+            this.txb_sns.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_sns_KeyPress);
             // 
             // txb_email
             // 
@@ -308,6 +311,8 @@
             this.txb_nextkindofcontact.Name = "txb_nextkindofcontact";
             this.txb_nextkindofcontact.Size = new System.Drawing.Size(142, 20);
             this.txb_nextkindofcontact.TabIndex = 4;
+            this.txb_nextkindofcontact.TextChanged += new System.EventHandler(this.txb_nextkindofcontact_TextChanged);
+            this.txb_nextkindofcontact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_nextkindofcontact_KeyPress);
             // 
             // txb_surname
             // 
@@ -336,6 +341,8 @@
             this.txb_bi.Name = "txb_bi";
             this.txb_bi.Size = new System.Drawing.Size(173, 20);
             this.txb_bi.TabIndex = 7;
+            this.txb_bi.TextChanged += new System.EventHandler(this.txb_bi_TextChanged);
+            this.txb_bi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_bi_KeyPress);
             // 
             // txb_phone
             // 
@@ -343,6 +350,8 @@
             this.txb_phone.Name = "txb_phone";
             this.txb_phone.Size = new System.Drawing.Size(172, 20);
             this.txb_phone.TabIndex = 3;
+            this.txb_phone.TextChanged += new System.EventHandler(this.txb_phone_TextChanged);
+            this.txb_phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_phone_KeyPress);
             // 
             // txb_name
             // 

@@ -34,15 +34,10 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.panelMe = new System.Windows.Forms.Panel();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.panelMedicalDictionary = new System.Windows.Forms.Panel();
-            this.bt_procurar = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.panelMe = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -73,8 +68,8 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.panelMe.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMedicalDictionary.SuspendLayout();
             this.panelMe.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -92,7 +87,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panelMedicalDictionary);
             this.splitContainer1.Panel2.Controls.Add(this.panelMe);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
@@ -155,15 +149,34 @@
             this.toolStripButton3.ToolTipText = "Medical Dictionary";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // panelMe
+            // 
+            this.panelMe.Controls.Add(this.panelPrincipal);
+            this.panelMe.Controls.Add(this.label9);
+            this.panelMe.Controls.Add(this.label8);
+            this.panelMe.Controls.Add(this.label7);
+            this.panelMe.Controls.Add(this.label6);
+            this.panelMe.Controls.Add(this.label5);
+            this.panelMe.Controls.Add(this.lbl_surname);
+            this.panelMe.Controls.Add(this.lbl_name);
+            this.panelMe.Controls.Add(this.lbl_birthdate);
+            this.panelMe.Controls.Add(this.lbl_sns);
+            this.panelMe.Controls.Add(this.lbl_age);
+            this.panelMe.Location = new System.Drawing.Point(6, 27);
+            this.panelMe.Name = "panelMe";
+            this.panelMe.Size = new System.Drawing.Size(633, 440);
+            this.panelMe.TabIndex = 24;
+            this.panelMe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMe_Paint);
+            // 
             // panelPrincipal
             // 
             this.panelPrincipal.Controls.Add(this.pictureBox1);
             this.panelPrincipal.Controls.Add(this.label11);
             this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(395, 423);
+            this.panelPrincipal.Location = new System.Drawing.Point(167, 0);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(230, 16);
+            this.panelPrincipal.Size = new System.Drawing.Size(584, 326);
             this.panelPrincipal.TabIndex = 10;
             // 
             // pictureBox1
@@ -184,68 +197,6 @@
             this.label11.Size = new System.Drawing.Size(172, 52);
             this.label11.TabIndex = 0;
             this.label11.Text = "Welcome";
-            // 
-            // panelMedicalDictionary
-            // 
-            this.panelMedicalDictionary.Controls.Add(this.bt_procurar);
-            this.panelMedicalDictionary.Controls.Add(this.textBox4);
-            this.panelMedicalDictionary.Controls.Add(this.label10);
-            this.panelMedicalDictionary.Controls.Add(this.listView1);
-            this.panelMedicalDictionary.Location = new System.Drawing.Point(349, 331);
-            this.panelMedicalDictionary.Name = "panelMedicalDictionary";
-            this.panelMedicalDictionary.Size = new System.Drawing.Size(278, 111);
-            this.panelMedicalDictionary.TabIndex = 0;
-            // 
-            // bt_procurar
-            // 
-            this.bt_procurar.Location = new System.Drawing.Point(280, 41);
-            this.bt_procurar.Name = "bt_procurar";
-            this.bt_procurar.Size = new System.Drawing.Size(75, 23);
-            this.bt_procurar.TabIndex = 3;
-            this.bt_procurar.Text = "Search";
-            this.bt_procurar.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(53, 43);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(199, 20);
-            this.textBox4.TabIndex = 2;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 41);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Term:";
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(12, 86);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(505, 301);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // panelMe
-            // 
-            this.panelMe.Controls.Add(this.label9);
-            this.panelMe.Controls.Add(this.label8);
-            this.panelMe.Controls.Add(this.label7);
-            this.panelMe.Controls.Add(this.label6);
-            this.panelMe.Controls.Add(this.label5);
-            this.panelMe.Controls.Add(this.lbl_surname);
-            this.panelMe.Controls.Add(this.lbl_name);
-            this.panelMe.Controls.Add(this.lbl_birthdate);
-            this.panelMe.Controls.Add(this.lbl_sns);
-            this.panelMe.Controls.Add(this.lbl_age);
-            this.panelMe.Location = new System.Drawing.Point(267, 321);
-            this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(372, 146);
-            this.panelMe.TabIndex = 24;
-            this.panelMe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMe_Paint);
             // 
             // label9
             // 
@@ -407,7 +358,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(424, 134);
+            this.textBox2.Location = new System.Drawing.Point(463, 174);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(171, 26);
             this.textBox2.TabIndex = 21;
@@ -415,7 +366,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(424, 198);
+            this.textBox3.Location = new System.Drawing.Point(463, 241);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(171, 26);
             this.textBox3.TabIndex = 22;
@@ -423,7 +374,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(424, 38);
+            this.textBox1.Location = new System.Drawing.Point(463, 111);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(171, 26);
             this.textBox1.TabIndex = 20;
@@ -431,7 +382,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 10);
+            this.label4.Location = new System.Drawing.Point(63, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 19;
@@ -441,7 +392,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(160, 208);
+            this.label3.Location = new System.Drawing.Point(287, 241);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 31);
             this.label3.TabIndex = 18;
@@ -451,7 +402,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(160, 134);
+            this.label2.Location = new System.Drawing.Point(210, 174);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(247, 31);
             this.label2.TabIndex = 17;
@@ -461,7 +412,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(160, 38);
+            this.label1.Location = new System.Drawing.Point(230, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 31);
             this.label1.TabIndex = 16;
@@ -474,7 +425,7 @@
             "Blood Pressure",
             "Oxigen Saturation",
             "Heart Rate"});
-            this.checkedListBox1.Location = new System.Drawing.Point(6, 38);
+            this.checkedListBox1.Location = new System.Drawing.Point(133, 73);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 64);
             this.checkedListBox1.TabIndex = 15;
@@ -498,13 +449,12 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.panelPrincipal.ResumeLayout(false);
-            this.panelPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelMedicalDictionary.ResumeLayout(false);
-            this.panelMedicalDictionary.PerformLayout();
             this.panelMe.ResumeLayout(false);
             this.panelMe.PerformLayout();
+            this.panelPrincipal.ResumeLayout(false);
+            this.panelPrincipal.PerformLayout();
+            this.panelMedicalDictionary.ResumeLayout(false);
+            this.panelMedicalDictionary.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panelDataAcquisition.ResumeLayout(false);
@@ -538,7 +488,7 @@
         private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.Panel panelMedicalDictionary;
         private System.Windows.Forms.Button bt_procurar;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txb_palavra;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ToolStripButton toolStripButton4;

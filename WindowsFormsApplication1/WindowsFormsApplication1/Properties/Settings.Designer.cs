@@ -59,18 +59,6 @@ namespace BOT.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term=")]
-        public string MedLineUrl {
-            get {
-                return ((string)(this["MedLineUrl"]));
-            }
-            set {
-                this["MedLineUrl"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public int Retmax {
             get {
@@ -90,6 +78,18 @@ namespace BOT.Properties {
             }
             set {
                 this["LocalUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term=")]
+        public string Medline {
+            get {
+                return ((string)(this["Medline"]));
+            }
+            set {
+                this["Medline"] = value;
             }
         }
     }

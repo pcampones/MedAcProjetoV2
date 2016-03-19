@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using PhysiologicParametersDll;
 using BOT.Properties;
 using BOT.ServiceReference1;
+using System.Speech.Recognition;
+using System.Xml;
+using System.Web;
+using System.Net;
 
 namespace BOT
 {
@@ -280,8 +284,131 @@ namespace BOT
             }
 
         }
+
+        private void FillListView(List<SearchTerm> results)
+        {
+            foreach (SearchTerm result in results)
+            {
+                ListViewItem item1 = new ListViewItem(result.Rank.ToString());
+                item1.SubItems.Add(result.Title);
+                item1.SubItems.Add(result.OrganizationName);
+
+                String a = "";
+
+                foreach (String altTitle in result.AltTitles)
+                {
+                    a = a + "\t" + altTitle;
     }
+
+                item1.SubItems.Add(a);
+                item1.SubItems.Add(result.FullSummary);
+                listView1.Items.Add(item1);
 }
+        }
+
+        private void bt_procurar_Click(object sender, EventArgs e)
+        {
+            string url = Properties.Settings.Default.Medline;
+            int retmax = Properties.Settings.Default.Retmax;
+            string term = txb_palavra.Text;
+            string urlComp = url + term + "&retmax=" + retmax;
+
+            MessageBox.Show(url);
+            var client = new WebClient();
+            client.DownloadStringAsync(new Uri(urlComp));
+            client.DownloadStringCompleted += Client_DownloadStringCompleted;
+
+        //    serv = new Service1Client();
+
+            
+
+            
+
+            
+
+            //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
+
+            //List<String> options = new List<String>(new String[] { "search" });
+
+            //Choices choicesOptions = new Choices(options.ToArray());
+
+            //GrammarBuilder gb = new GrammarBuilder();
+            //gb.Append(choicesOptions);
+
+            //Grammar g = new Grammar(gb);
+            //g.Name = "services grammar";
+            ////groupBox1.Name = g.Name;
+            //recognizer.LoadGrammar(g);
+
+            //recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
+
+            //recognizer.SetInputToDefaultAudioDevice();
+
+            //recognizer.RecognizeAsync(RecognizeMode.Multiple);     
+            //}
+
+            // void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+            //{
+            //    if (e.Result.Text.Equals("search"))
+            //    {
+            //        listView1.Items.Clear();
+
+            listView1.Columns.Add("Rank", 50, HorizontalAlignment.Left);
+            listView1.Columns.Add("Title", 150, HorizontalAlignment.Left);
+            listView1.Columns.Add("Organization Name", 150, HorizontalAlignment.Left);
+            listView1.Columns.Add("Alternative Names", 150, HorizontalAlignment.Left);
+            listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
+
+
+      
+            }
+
+        private void Client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            string content = e.Result;
+            MessageBox.Show(content);
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(content);
+            doc.Save("temp.xml");
+
+            List<SearchTerm> results = new List<SearchTerm>();
+
+            XmlNodeList documentsNode = doc.SelectNodes("nlmSearchResult/list/document");
+
+            foreach (XmlNode xmlNode in documentsNode)
+            {
+                SearchTerm searchTerm = new SearchTerm();
+                searchTerm.Rank = Convert.ToInt32(xmlNode.SelectSingleNode("./@rank").InnerText);
+                searchTerm.Title = xmlNode.SelectSingleNode("./content[@name='title']").InnerText;
+                searchTerm.OrganizationName = xmlNode.SelectSingleNode("./content[@name='organizationName']").InnerText;
+
+                XmlNodeList altList = xmlNode.SelectNodes("./content[@name='altTitle']");
+
+                foreach (XmlNode alttitle in altList)
+                {
+                    searchTerm.AltTitles.Add(alttitle.InnerText);
+                }
+
+                searchTerm.FullSummary = xmlNode.SelectSingleNode("./content[@name='FullSummary']").InnerText;
+
+                results.Add(searchTerm);
+            }
+            FillListView(results);
+
+        }
+
+        ////private void listView1_DoubleClick(object sender, EventArgs e)
+        ////{
+        ////    String a = listView1.SelectedItems[0].SubItems[4].Text;
+        ////    InfoForm form = new InfoForm(a);
+        ////    form.Show();
+        ////}
+    }
+
+    }
+
       
     
 

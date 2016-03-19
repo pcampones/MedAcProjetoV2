@@ -20,7 +20,7 @@ namespace BOT
     public partial class Form1 : Form
     {
         private Service1Client serv;
-        PhysiologicParametersDll.PhysiologicParametersDll dll =  null;
+        PhysiologicParametersDll.PhysiologicParametersDll dll = null;
         PhysiologicParametersDll.PhysiologicParametersDll dllC = null;
         PhysiologicParametersDll.PhysiologicParametersDll dllH = null;
 
@@ -56,7 +56,7 @@ namespace BOT
                 if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Checked)
                 {
                     dll.Initialize(BloodPressure, Settings.Default.Delay, true, false, false);
-                    serv.AddValues(Settings.Default.SNS,int.Parse(textBox1.Text),0,0,DateTime.Now);
+                    serv.AddValues(Settings.Default.SNS, int.Parse(textBox1.Text), 0, 0, DateTime.Now);
                 }
             
                 if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
@@ -124,7 +124,7 @@ namespace BOT
             {
                  
 
-                textBox1.Text = heartRate.LastOrDefault() ;
+                textBox1.Text = heartRate.LastOrDefault();
             });
         }
 
@@ -137,7 +137,7 @@ namespace BOT
             this.BeginInvoke((MethodInvoker)delegate
             {
 
-                textBox2.Text = heartRate.LastOrDefault() ;
+                textBox2.Text = heartRate.LastOrDefault();
             });
         }
 
@@ -214,19 +214,11 @@ namespace BOT
         }
 
 
-        public static string Age(DateTime birthday)
-        {
-            DateTime now = DateTime.Today;
-            int age = now.Year - birthday.Year;
-            if (now < birthday.AddYears(age)) age--;
-
-            return age.ToString();
-        }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.SNS = int.Parse(toolStripTextBox1.Text);
-            Properties.Settings.Default.Save() ;
+            Properties.Settings.Default.Save();
             
              u = serv.GetUtenteBySNS(int.Parse(toolStripTextBox1.Text));
             if (u != null)
@@ -234,21 +226,21 @@ namespace BOT
               
                 toolStripLabel2.Text = "Welcome " + u.name;
 
-                MessageBox.Show("SNS valid!","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("SNS valid!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 sns = u.sns;
                 lbl_sns.Text = sns.ToString();
                 lbl_name.Text = u.name;
                 lbl_surname.Text = u.surname;
                 lbl_age.Text = u.age.ToString();
                 lbl_birthdate.Text = u.birthdate.ToShortDateString();
-                lbl_age.Text = Age(u.birthdate);
+                lbl_age.Text = u.age.ToString();
     
                 
 
             }
             else
             {
-                MessageBox.Show("SNS not valid! Please, try other!", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("SNS not valid! Please, try other!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 lbl_name.Text = "N.D";
                 lbl_age.Text = "N.D";
                 lbl_birthdate.Text = "N.D";
@@ -273,6 +265,20 @@ namespace BOT
         private void toolStripTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(toolStripTextBox1.Text, "  ^ [0-9]"))
+            {
+                toolStripTextBox1.Text = " ";
+            }
+
         }
 
         private void FillListView(List<SearchTerm> results)
@@ -288,12 +294,12 @@ namespace BOT
                 foreach (String altTitle in result.AltTitles)
                 {
                     a = a + "\t" + altTitle;
-                }
+    }
 
                 item1.SubItems.Add(a);
                 item1.SubItems.Add(result.FullSummary);
                 listView1.Items.Add(item1);
-            }
+}
         }
 
         private void bt_procurar_Click(object sender, EventArgs e)

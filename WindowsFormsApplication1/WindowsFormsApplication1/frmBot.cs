@@ -15,6 +15,8 @@ namespace BOT
 {
     public partial class Form1 : Form
     {
+
+        //dssdskfdn nkekj
         private Service1Client serv;
         PhysiologicParametersDll.PhysiologicParametersDll dll = null;
         PhysiologicParametersDll.PhysiologicParametersDll dllC = null;
@@ -213,6 +215,7 @@ namespace BOT
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
+            //dsdsj n nsd sds
             Properties.Settings.Default.SNS = int.Parse(toolStripTextBox1.Text);
             Properties.Settings.Default.Save();
             
@@ -223,6 +226,7 @@ namespace BOT
                 toolStripLabel2.Text = "Welcome " + u.name;
 
                 MessageBox.Show("SNS valid!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("");
                 sns = u.sns;
                 lbl_sns.Text = sns.ToString();
                 lbl_name.Text = u.name;

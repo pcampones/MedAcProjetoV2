@@ -161,9 +161,9 @@
             this.panelPrincipal.Controls.Add(this.label11);
             this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 41);
+            this.panelPrincipal.Location = new System.Drawing.Point(395, 423);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(625, 398);
+            this.panelPrincipal.Size = new System.Drawing.Size(230, 16);
             this.panelPrincipal.TabIndex = 10;
             // 
             // pictureBox1
@@ -191,9 +191,9 @@
             this.panelMedicalDictionary.Controls.Add(this.textBox4);
             this.panelMedicalDictionary.Controls.Add(this.label10);
             this.panelMedicalDictionary.Controls.Add(this.listView1);
-            this.panelMedicalDictionary.Location = new System.Drawing.Point(0, 30);
+            this.panelMedicalDictionary.Location = new System.Drawing.Point(349, 331);
             this.panelMedicalDictionary.Name = "panelMedicalDictionary";
-            this.panelMedicalDictionary.Size = new System.Drawing.Size(627, 412);
+            this.panelMedicalDictionary.Size = new System.Drawing.Size(278, 111);
             this.panelMedicalDictionary.TabIndex = 0;
             // 
             // bt_procurar
@@ -241,9 +241,9 @@
             this.panelMe.Controls.Add(this.lbl_birthdate);
             this.panelMe.Controls.Add(this.lbl_sns);
             this.panelMe.Controls.Add(this.lbl_age);
-            this.panelMe.Location = new System.Drawing.Point(6, 27);
+            this.panelMe.Location = new System.Drawing.Point(267, 321);
             this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(633, 440);
+            this.panelMe.Size = new System.Drawing.Size(372, 146);
             this.panelMe.TabIndex = 24;
             this.panelMe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMe_Paint);
             // 
@@ -407,7 +407,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(463, 174);
+            this.textBox2.Location = new System.Drawing.Point(424, 134);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(171, 26);
             this.textBox2.TabIndex = 21;
@@ -415,7 +415,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(463, 241);
+            this.textBox3.Location = new System.Drawing.Point(424, 198);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(171, 26);
             this.textBox3.TabIndex = 22;
@@ -423,7 +423,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(463, 111);
+            this.textBox1.Location = new System.Drawing.Point(424, 38);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(171, 26);
             this.textBox1.TabIndex = 20;
@@ -431,7 +431,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 47);
+            this.label4.Location = new System.Drawing.Point(3, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 19;
@@ -441,7 +441,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(287, 241);
+            this.label3.Location = new System.Drawing.Point(160, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 31);
             this.label3.TabIndex = 18;
@@ -451,7 +451,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(210, 174);
+            this.label2.Location = new System.Drawing.Point(160, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(247, 31);
             this.label2.TabIndex = 17;
@@ -461,7 +461,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(230, 111);
+            this.label1.Location = new System.Drawing.Point(160, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 31);
             this.label1.TabIndex = 16;
@@ -474,7 +474,7 @@
             "Blood Pressure",
             "Oxigen Saturation",
             "Heart Rate"});
-            this.checkedListBox1.Location = new System.Drawing.Point(133, 73);
+            this.checkedListBox1.Location = new System.Drawing.Point(6, 38);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 64);
             this.checkedListBox1.TabIndex = 15;

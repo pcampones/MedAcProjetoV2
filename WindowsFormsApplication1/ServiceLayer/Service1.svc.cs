@@ -185,5 +185,17 @@ namespace ServiceLayer
             }
             return listaWeb;
         }
+
+        public AlertasWeb alert(int bloodPressureMin, int bloodPressureMax, int heartRate, int oxigenSat)
+        {
+            AlertasWeb alertas = new AlertasWeb();
+            ValoresWeb valores = new ValoresWeb();
+            if(valores.BloodPressureMin <= bloodPressureMin || valores.HeartRate <= heartRate || valores.OxigenSat <= oxigenSat && valores.OxigenSat >= oxigenSat)
+            {
+                alertas.DataAlerta = valores.DataOfReposit;
+                alertas.Tipo = Convert.ToInt32("C.A");
+            }
+            return null;
+        }
     }
 }

@@ -68,17 +68,11 @@ namespace BOT
 
         private void bt_default_Click(object sender, EventArgs e)
         {
-            txb_medline.Text = "https://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term=";
-            Properties.Settings.Default.Medline = "https://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term";
-
-            txb_local.Text = "http://localhost:61579/Service1.svc";
-            Properties.Settings.Default.LocalUrl = "http://localhost:61579/Service1.svc";
-
-            txb_retmax.Text = 20.ToString();
-            Properties.Settings.Default.Retmax = 20;
-
-            txb_delaydll.Text = 9000.ToString();
-            Properties.Settings.Default.Delay = 9000;
+            txb_medline.Text = Properties.Settings.Default.Medline;
+            txb_local.Text = Properties.Settings.Default.LocalUrl;
+            txb_retmax.Text = Properties.Settings.Default.Retmax.ToString();
+            txb_delaydll.Text = Properties.Settings.Default.Delay.ToString();
+           
         }
     }
 }

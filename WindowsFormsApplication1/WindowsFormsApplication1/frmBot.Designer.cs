@@ -70,8 +70,7 @@
             this.toolStrip2.SuspendLayout();
             this.panelMe.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
-            this.panelMedicalDictionary.SuspendLayout();
-            this.panelMe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panelDataAcquisition.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +86,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panelMedicalDictionary);
+            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panelMe);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
@@ -151,7 +150,6 @@
             // 
             // panelMe
             // 
-            this.panelMe.Controls.Add(this.panelPrincipal);
             this.panelMe.Controls.Add(this.label9);
             this.panelMe.Controls.Add(this.label8);
             this.panelMe.Controls.Add(this.label7);
@@ -162,9 +160,9 @@
             this.panelMe.Controls.Add(this.lbl_birthdate);
             this.panelMe.Controls.Add(this.lbl_sns);
             this.panelMe.Controls.Add(this.lbl_age);
-            this.panelMe.Location = new System.Drawing.Point(6, 27);
+            this.panelMe.Location = new System.Drawing.Point(219, 269);
             this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(633, 440);
+            this.panelMe.Size = new System.Drawing.Size(420, 198);
             this.panelMe.TabIndex = 24;
             this.panelMe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMe_Paint);
             // 
@@ -178,6 +176,7 @@
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(584, 326);
             this.panelPrincipal.TabIndex = 10;
+            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
             // 
             // pictureBox1
             // 
@@ -350,9 +349,9 @@
             this.panelDataAcquisition.Controls.Add(this.label2);
             this.panelDataAcquisition.Controls.Add(this.label1);
             this.panelDataAcquisition.Controls.Add(this.checkedListBox1);
-            this.panelDataAcquisition.Location = new System.Drawing.Point(6, 27);
+            this.panelDataAcquisition.Location = new System.Drawing.Point(277, 283);
             this.panelDataAcquisition.Name = "panelDataAcquisition";
-            this.panelDataAcquisition.Size = new System.Drawing.Size(625, 443);
+            this.panelDataAcquisition.Size = new System.Drawing.Size(354, 187);
             this.panelDataAcquisition.TabIndex = 1;
             // 
             // textBox2
@@ -453,8 +452,7 @@
             this.panelMe.PerformLayout();
             this.panelPrincipal.ResumeLayout(false);
             this.panelPrincipal.PerformLayout();
-            this.panelMedicalDictionary.ResumeLayout(false);
-            this.panelMedicalDictionary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panelDataAcquisition.ResumeLayout(false);

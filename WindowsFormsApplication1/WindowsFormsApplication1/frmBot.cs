@@ -37,7 +37,7 @@ namespace BOT
             InitializeComponent();
             serv = new Service1Client();
             panelPrincipal.Visible = true;
-            panelMedicalDictionary.Visible = false;
+           // panelMedicalDictionary.Visible = false;
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
 
@@ -313,17 +313,12 @@ namespace BOT
             string term = txb_palavra.Text;
             string urlComp = url + term + "&retmax=" + retmax;
 
-            MessageBox.Show(url);
+         //   MessageBox.Show(url);
             var client = new WebClient();
             client.DownloadStringAsync(new Uri(urlComp));
             client.DownloadStringCompleted += Client_DownloadStringCompleted;
-
-        //    serv = new Service1Client();
-
-            
-
-            
-
+           
+        //    serv = new Service1Client
             
 
             //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
@@ -366,7 +361,7 @@ namespace BOT
         private void Client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
             string content = e.Result;
-            MessageBox.Show(content);
+       //     MessageBox.Show(content);
 
             XmlDocument doc = new XmlDocument();
 
@@ -396,6 +391,11 @@ namespace BOT
                 results.Add(searchTerm);
             }
             FillListView(results);
+
+        }
+
+        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
+        {
 
         }
 

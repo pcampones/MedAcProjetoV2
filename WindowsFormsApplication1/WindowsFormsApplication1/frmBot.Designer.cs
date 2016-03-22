@@ -679,8 +679,7 @@
             this.panelPrincipal.ResumeLayout(false);
             this.panelPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-     //       this.panelMedical.ResumeLayout(false);
-    //        this.panelMedical.PerformLayout();
+
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

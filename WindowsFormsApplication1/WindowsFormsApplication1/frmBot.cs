@@ -20,7 +20,7 @@ namespace BOT
     public partial class Form1 : Form
     {
 
-        //dssdskfdn nkekj
+        //dssdskfdn nkekj aaaaa
         private Service1Client serv;
         PhysiologicParametersDll.PhysiologicParametersDll dll = null;
         PhysiologicParametersDll.PhysiologicParametersDll dllC = null;

@@ -35,13 +35,19 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.panelDataAcquisition = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.launchAlertsButton = new System.Windows.Forms.Button();
+            this.stop = new System.Windows.Forms.Button();
+            this.initDLL = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.heartRateLbl = new System.Windows.Forms.Label();
             this.oxigenPressureLbl = new System.Windows.Forms.Label();
             this.bloodPressureMinLbl = new System.Windows.Forms.Label();
+            this.bloodPressureMaxLbl = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,7 +72,7 @@
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+           // this.panelMedical = new System.Windows.Forms.Panel();
             this.listView2 = new System.Windows.Forms.ListView();
             this.bt_searcg = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -77,26 +83,20 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.bloodPressureMaxLbl = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.launchAlertsButton = new System.Windows.Forms.Button();
-            this.stop = new System.Windows.Forms.Button();
-            this.initDLL = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panelDataAcquisition.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panelMe.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
+//            this.panelMedical.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -113,7 +113,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
             this.splitContainer1.Panel2.Controls.Add(this.panelMe);
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
-            this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Size = new System.Drawing.Size(751, 493);
             this.splitContainer1.SplitterDistance = 105;
@@ -178,11 +177,52 @@
             this.panelDataAcquisition.Controls.Add(this.groupBox3);
             this.panelDataAcquisition.Controls.Add(this.groupBox2);
             this.panelDataAcquisition.Controls.Add(this.groupBox1);
+//            this.panelDataAcquisition.Controls.Add(this.panelMedical);
             this.panelDataAcquisition.Location = new System.Drawing.Point(3, 25);
             this.panelDataAcquisition.Name = "panelDataAcquisition";
             this.panelDataAcquisition.Size = new System.Drawing.Size(625, 443);
             this.panelDataAcquisition.TabIndex = 1;
             this.panelDataAcquisition.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDataAcquisition_Paint);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.launchAlertsButton);
+            this.groupBox3.Controls.Add(this.stop);
+            this.groupBox3.Controls.Add(this.initDLL);
+            this.groupBox3.Location = new System.Drawing.Point(15, 332);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(570, 100);
+            this.groupBox3.TabIndex = 47;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Options";
+            // 
+            // launchAlertsButton
+            // 
+            this.launchAlertsButton.Location = new System.Drawing.Point(415, 33);
+            this.launchAlertsButton.Name = "launchAlertsButton";
+            this.launchAlertsButton.Size = new System.Drawing.Size(107, 52);
+            this.launchAlertsButton.TabIndex = 39;
+            this.launchAlertsButton.Text = "Launch Alerts";
+            this.launchAlertsButton.UseVisualStyleBackColor = true;
+            this.launchAlertsButton.Click += new System.EventHandler(this.launchAlertsButton_Click_1);
+            // 
+            // stop
+            // 
+            this.stop.Location = new System.Drawing.Point(214, 33);
+            this.stop.Name = "stop";
+            this.stop.Size = new System.Drawing.Size(107, 52);
+            this.stop.TabIndex = 38;
+            this.stop.Text = "Stop";
+            this.stop.UseVisualStyleBackColor = true;
+            // 
+            // initDLL
+            // 
+            this.initDLL.Location = new System.Drawing.Point(6, 33);
+            this.initDLL.Name = "initDLL";
+            this.initDLL.Size = new System.Drawing.Size(107, 52);
+            this.initDLL.TabIndex = 37;
+            this.initDLL.Text = "Initialize DLL";
+            this.initDLL.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -203,6 +243,15 @@
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Values";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(254, 34);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(10, 13);
+            this.label18.TabIndex = 46;
+            this.label18.Text = "-";
             // 
             // label17
             // 
@@ -257,6 +306,15 @@
             this.bloodPressureMinLbl.Size = new System.Drawing.Size(91, 13);
             this.bloodPressureMinLbl.TabIndex = 39;
             this.bloodPressureMinLbl.Text = "bloodPressureMin";
+            // 
+            // bloodPressureMaxLbl
+            // 
+            this.bloodPressureMaxLbl.AutoSize = true;
+            this.bloodPressureMaxLbl.Location = new System.Drawing.Point(270, 34);
+            this.bloodPressureMaxLbl.Name = "bloodPressureMaxLbl";
+            this.bloodPressureMaxLbl.Size = new System.Drawing.Size(94, 13);
+            this.bloodPressureMaxLbl.TabIndex = 45;
+            this.bloodPressureMaxLbl.Text = "bloodPressureMax";
             // 
             // label14
             // 
@@ -369,9 +427,9 @@
             this.panelMe.Controls.Add(this.lbl_birthdate);
             this.panelMe.Controls.Add(this.lbl_sns);
             this.panelMe.Controls.Add(this.lbl_age);
-            this.panelMe.Location = new System.Drawing.Point(512, 462);
+            this.panelMe.Location = new System.Drawing.Point(3, 28);
             this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(345, 159);
+            this.panelMe.Size = new System.Drawing.Size(622, 437);
             this.panelMe.TabIndex = 24;
             this.panelMe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMe_Paint);
             // 
@@ -414,7 +472,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 14);
+            this.label5.Location = new System.Drawing.Point(6, 14);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label5.Size = new System.Drawing.Size(29, 13);
@@ -491,16 +549,16 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Welcome";
             // 
-            // panel1
+            // panelMedical
             // 
-            this.panel1.Controls.Add(this.listView2);
-            this.panel1.Controls.Add(this.bt_searcg);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Location = new System.Drawing.Point(610, 279);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(21, 192);
-            this.panel1.TabIndex = 3;
+            //this.panelMedical.Controls.Add(this.listView2);
+            //this.panelMedical.Controls.Add(this.bt_searcg);
+            //this.panelMedical.Controls.Add(this.label12);
+            //this.panelMedical.Controls.Add(this.textBox4);
+            //this.panelMedical.Location = new System.Drawing.Point(0, 0);
+            //this.panelMedical.Name = "panelMedical";
+            //this.panelMedical.Size = new System.Drawing.Size(628, 437);
+            //this.panelMedical.TabIndex = 3;
             // 
             // listView2
             // 
@@ -592,64 +650,6 @@
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(0, 22);
             // 
-            // bloodPressureMaxLbl
-            // 
-            this.bloodPressureMaxLbl.AutoSize = true;
-            this.bloodPressureMaxLbl.Location = new System.Drawing.Point(270, 34);
-            this.bloodPressureMaxLbl.Name = "bloodPressureMaxLbl";
-            this.bloodPressureMaxLbl.Size = new System.Drawing.Size(94, 13);
-            this.bloodPressureMaxLbl.TabIndex = 45;
-            this.bloodPressureMaxLbl.Text = "bloodPressureMax";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(254, 34);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(10, 13);
-            this.label18.TabIndex = 46;
-            this.label18.Text = "-";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.launchAlertsButton);
-            this.groupBox3.Controls.Add(this.stop);
-            this.groupBox3.Controls.Add(this.initDLL);
-            this.groupBox3.Location = new System.Drawing.Point(15, 332);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(570, 100);
-            this.groupBox3.TabIndex = 47;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Options";
-            // 
-            // launchAlertsButton
-            // 
-            this.launchAlertsButton.Location = new System.Drawing.Point(415, 33);
-            this.launchAlertsButton.Name = "launchAlertsButton";
-            this.launchAlertsButton.Size = new System.Drawing.Size(107, 52);
-            this.launchAlertsButton.TabIndex = 39;
-            this.launchAlertsButton.Text = "Launch Alerts";
-            this.launchAlertsButton.UseVisualStyleBackColor = true;
-            this.launchAlertsButton.Click += new System.EventHandler(this.launchAlertsButton_Click_1);
-            // 
-            // stop
-            // 
-            this.stop.Location = new System.Drawing.Point(214, 33);
-            this.stop.Name = "stop";
-            this.stop.Size = new System.Drawing.Size(107, 52);
-            this.stop.TabIndex = 38;
-            this.stop.Text = "Stop";
-            this.stop.UseVisualStyleBackColor = true;
-            // 
-            // initDLL
-            // 
-            this.initDLL.Location = new System.Drawing.Point(6, 33);
-            this.initDLL.Name = "initDLL";
-            this.initDLL.Size = new System.Drawing.Size(107, 52);
-            this.initDLL.TabIndex = 37;
-            this.initDLL.Text = "Initialize DLL";
-            this.initDLL.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -669,6 +669,7 @@
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.panelDataAcquisition.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -678,11 +679,10 @@
             this.panelPrincipal.ResumeLayout(false);
             this.panelPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+     //       this.panelMedical.ResumeLayout(false);
+    //        this.panelMedical.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -702,7 +702,7 @@
         private System.Windows.Forms.Label lbl_name;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.Panel panelPrincipal;
-        private System.Windows.Forms.Panel panelMedicalDictionary;
+        private System.Windows.Forms.Panel panelMedical;
         private System.Windows.Forms.Button bt_procurar;
         private System.Windows.Forms.TextBox txb_palavra;
         private System.Windows.Forms.Label label10;
@@ -719,7 +719,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
+    //    private System.Windows.Forms.Panel panelMedical;
         private System.Windows.Forms.Button bt_searcg;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox4;

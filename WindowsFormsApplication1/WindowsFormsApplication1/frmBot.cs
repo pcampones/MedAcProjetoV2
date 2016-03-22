@@ -43,7 +43,7 @@ namespace BOT
             serv = new Service1Client();
             panelPrincipal.Visible = true;
             bw.DoWork += new DoWorkEventHandler(doWork);
-            //panelMedicalDictionary.Visible = false;
+            //panelMedical.Visible = false;
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
 
@@ -60,7 +60,7 @@ namespace BOT
             oxigenPressurecheckBox.Checked = false;
 
             toolStripTextBox1.Text = sns.ToString();
-            //Settings.Default.SNS = int.Parse( toolStrip1.Text);
+    
         }
 
       
@@ -80,7 +80,7 @@ namespace BOT
             panelDataAcquisition.Visible = false;
             panelMe.Visible = true;
             panelPrincipal.Visible = false;
-       //     panelMedicalDictionary.Visible = false;
+       //     panelMedical.Visible = false;
 
             if (u == null)
             {
@@ -100,14 +100,14 @@ namespace BOT
             panelDataAcquisition.Visible = true;
             panelMe.Visible = false;
             panelPrincipal.Visible = false;
-           // panelMedicalDictionary.Visible = false;
+          //  panelMedical.Visible = false;
        
 
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            panelMedicalDictionary.Visible = true;
+           // panelMedical.Visible = true;
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
             panelPrincipal.Visible = false;

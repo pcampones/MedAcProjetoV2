@@ -26,4 +26,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfUtenteWeb" nillable="true" type="tns:ArrayOfUtenteWeb" />
+  <xs:complexType name="ArrayOfValoresWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValoresWeb" nillable="true" type="tns:ValoresWeb" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfValoresWeb" nillable="true" type="tns:ArrayOfValoresWeb" />
+  <xs:complexType name="ValoresWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bloodPressureMax" type="xs:int" />
+      <xs:element minOccurs="0" name="bloodPressureMin" type="xs:int" />
+      <xs:element minOccurs="0" name="dataOfReposit" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="heartRate" type="xs:int" />
+      <xs:element minOccurs="0" name="oxigenSat" type="xs:int" />
+      <xs:element minOccurs="0" name="sns" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValoresWeb" nillable="true" type="tns:ValoresWeb" />
 </xs:schema>

@@ -17,9 +17,10 @@ namespace ClinicalAlert
 
         private Service1Client serv;
         UtenteWeb ut;
+        ValoresWeb val;
         string gender;
         string ative = "Inative";
-
+        int sns;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -33,11 +34,7 @@ namespace ClinicalAlert
             ativeCheckBox.Checked = true;
             panelDiarioValores.Visible = false;
 
-
             List<UtenteWeb> listaUtente = serv.GetListaUtentes().ToList();
-
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             foreach (UtenteWeb item in listaUtente)
             {
@@ -45,10 +42,13 @@ namespace ClinicalAlert
                 linha.SubItems.Add(item.name + " " + item.surname);
                 listView1.Items.Add(linha);
             }
-            
 
-           // listBox_utentes.DisplayMember = "Name";
-   
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+
+            // listBox_utentes.DisplayMember = "Name";
+
         }
 
         private void Add_Click(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace ClinicalAlert
             bool a = false;
             a = verificaCampos();
 
-            if (a== true)
+            if (a == true)
             {
                 ut.name = txb_name.Text;
                 ut.surname = txb_surname.Text;
@@ -114,7 +114,7 @@ namespace ClinicalAlert
             {
                 MessageBox.Show("Campos por preencher");
             }
-         
+
         }
 
         private void ativeCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace ClinicalAlert
             {
                 ative = "Ative";
             }
-            else 
+            else
             {
                 ative = "Inative";
 
@@ -153,17 +153,17 @@ namespace ClinicalAlert
 
         public bool verificaCampos()
         {
-            if (String.IsNullOrEmpty(txb_name.Text) || String.IsNullOrWhiteSpace(txb_name.Text) && 
-                String.IsNullOrEmpty(txb_surname.Text) || String.IsNullOrWhiteSpace(txb_surname.Text) && 
+            if (String.IsNullOrEmpty(txb_name.Text) || String.IsNullOrWhiteSpace(txb_name.Text) &&
+                String.IsNullOrEmpty(txb_surname.Text) || String.IsNullOrWhiteSpace(txb_surname.Text) &&
                 String.IsNullOrEmpty(txb_morada.Text) || String.IsNullOrWhiteSpace(txb_morada.Text) &&
                 String.IsNullOrEmpty(txb_bi.Text) || String.IsNullOrWhiteSpace(txb_bi.Text) &&
-                String.IsNullOrEmpty(txb_email.Text) || String.IsNullOrWhiteSpace(txb_email.Text)&& 
+                String.IsNullOrEmpty(txb_email.Text) || String.IsNullOrWhiteSpace(txb_email.Text) &&
                 String.IsNullOrEmpty(txb_nextkindofcontact.Text) || String.IsNullOrWhiteSpace(txb_nextkindofcontact.Text) &&
-                String.IsNullOrEmpty(txb_sns.Text) || String.IsNullOrWhiteSpace(txb_sns.Text) && 
+                String.IsNullOrEmpty(txb_sns.Text) || String.IsNullOrWhiteSpace(txb_sns.Text) &&
                 String.IsNullOrEmpty(txb_phone.Text) || String.IsNullOrWhiteSpace(txb_phone.Text) &&
-                String.IsNullOrEmpty(numericUpDown1.Value.ToString()) || String.IsNullOrWhiteSpace(numericUpDown1.Value.ToString()) && 
-                String.IsNullOrEmpty(numericUpDown2.Value.ToString()) || String.IsNullOrWhiteSpace(numericUpDown2.Value.ToString()) && 
-                String.IsNullOrEmpty(gender) || String.IsNullOrWhiteSpace(gender) && 
+                String.IsNullOrEmpty(numericUpDown1.Value.ToString()) || String.IsNullOrWhiteSpace(numericUpDown1.Value.ToString()) &&
+                String.IsNullOrEmpty(numericUpDown2.Value.ToString()) || String.IsNullOrWhiteSpace(numericUpDown2.Value.ToString()) &&
+                String.IsNullOrEmpty(gender) || String.IsNullOrWhiteSpace(gender) &&
                 String.IsNullOrEmpty(rtxb_alergies.Text) || String.IsNullOrWhiteSpace(rtxb_alergies.Text))
             {
                 return false;
@@ -172,12 +172,12 @@ namespace ClinicalAlert
             {
                 return true;
             }
-        
+
         }
 
         private void txb_phone_TextChanged(object sender, EventArgs e)
         {
-            if(System.Text.RegularExpressions.Regex.IsMatch(txb_name.Text," ^[0-9]"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(txb_name.Text, " ^[0-9]"))
             {
                 txb_name.Text = "";
             }
@@ -258,13 +258,24 @@ namespace ClinicalAlert
             panel_Adicionar.Visible = false;
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = true;
+
+            List<ValoresWeb> valor = serv.GetValuesbySNS(sns).ToList();
+
+            foreach (ValoresWeb item in valor)
+            {
+                dataGridView1.Rows.Add(item.bloodPressureMax.ToString(), item.bloodPressureMin.ToString()
+                    , item.heartRate.ToString(), item.oxigenSat.ToString(), item.dataOfReposit.ToString());
+                dataGridView1.Sort(this.dataGridView1.Columns[4], ListSortDirection.Ascending);
+            }
+
+            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (button2.Text.Equals("Edit"))
-            {
-                button2.Text = "Save";
+            if (button2.Text.Equals("Save"))
+            {           
                 textBox8.Enabled = false;
                 textBox4.Enabled = false;
                 textBox7.Enabled = false;
@@ -274,16 +285,17 @@ namespace ClinicalAlert
                 textBox2.Enabled = false;
                 dateTimePicker1.Enabled = false;
                 textBox1.Enabled = false;
-
-                    radioButton1.Enabled = false;
-              
-                    radioButton2.Enabled = false;
-                
+                radioButton1.Enabled = false;
+                radioButton2.Enabled = false;
                 numericUpDown4.Enabled = false;
                 numericUpDown3.Enabled = false;
                 richTextBox1.Enabled = false;
-            } else if (button2.Text.Equals("Save"))
+                button2.Text = "Edit";
+                MessageBox.Show("Successfully edited data!", "Confirmation", MessageBoxButtons.OK);
+            }
+            else if (button2.Text.Equals("Edit"))
             {
+                button2.Text = "Save";
                 textBox8.Enabled = true;
                 textBox4.Enabled = true;
                 textBox7.Enabled = true;
@@ -293,21 +305,17 @@ namespace ClinicalAlert
                 textBox2.Enabled = true;
                 dateTimePicker1.Enabled = true;
                 textBox1.Enabled = true;
-
                 radioButton1.Enabled = true;
-
                 radioButton2.Enabled = true;
-
                 numericUpDown4.Enabled = true;
                 numericUpDown3.Enabled = true;
                 richTextBox1.Enabled = true;
-                button2.Text = "Edit";
             }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void listBox_utentes_SelectedIndexChanged(object sender, EventArgs e)
@@ -326,7 +334,7 @@ namespace ClinicalAlert
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            int sns = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index].SubItems[0].Text);
+             sns = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index].SubItems[0].Text);
 
             UtenteWeb u = serv.GetUtenteBySNS(sns);
 

@@ -37,7 +37,7 @@ namespace BOT
             InitializeComponent();
             serv = new Service1Client();
             panelPrincipal.Visible = true;
-            panelMedicalDictionary.Visible = false;
+            //panelMedicalDictionary.Visible = false;
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
 

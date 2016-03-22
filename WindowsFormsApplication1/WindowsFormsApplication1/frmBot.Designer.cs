@@ -63,6 +63,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.bt_searcg = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -70,10 +75,10 @@
             this.toolStrip2.SuspendLayout();
             this.panelMe.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
-            this.panelMedicalDictionary.SuspendLayout();
-            this.panelMe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panelDataAcquisition.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -87,8 +92,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panelMedicalDictionary);
-            this.splitContainer1.Panel2.Controls.Add(this.panelMe);
+            this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
             this.splitContainer1.Size = new System.Drawing.Size(751, 493);
@@ -162,7 +166,7 @@
             this.panelMe.Controls.Add(this.lbl_birthdate);
             this.panelMe.Controls.Add(this.lbl_sns);
             this.panelMe.Controls.Add(this.lbl_age);
-            this.panelMe.Location = new System.Drawing.Point(6, 27);
+            this.panelMe.Location = new System.Drawing.Point(265, 72);
             this.panelMe.Name = "panelMe";
             this.panelMe.Size = new System.Drawing.Size(633, 440);
             this.panelMe.TabIndex = 24;
@@ -174,7 +178,7 @@
             this.panelPrincipal.Controls.Add(this.label11);
             this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 41);
+            this.panelPrincipal.Location = new System.Drawing.Point(184, 98);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(625, 398);
             this.panelPrincipal.TabIndex = 10;
@@ -197,68 +201,6 @@
             this.label11.Size = new System.Drawing.Size(172, 52);
             this.label11.TabIndex = 0;
             this.label11.Text = "Welcome";
-            // 
-            // panelMedicalDictionary
-            // 
-            this.panelMedicalDictionary.Controls.Add(this.bt_procurar);
-//            this.panelMedicalDictionary.Controls.Add(this.textBox4);
-            this.panelMedicalDictionary.Controls.Add(this.label10);
-            this.panelMedicalDictionary.Controls.Add(this.listView1);
-            this.panelMedicalDictionary.Location = new System.Drawing.Point(0, 30);
-            this.panelMedicalDictionary.Name = "panelMedicalDictionary";
-            this.panelMedicalDictionary.Size = new System.Drawing.Size(627, 412);
-            this.panelMedicalDictionary.TabIndex = 0;
-            // 
-            // bt_procurar
-            // 
-            this.bt_procurar.Location = new System.Drawing.Point(280, 41);
-            this.bt_procurar.Name = "bt_procurar";
-            this.bt_procurar.Size = new System.Drawing.Size(75, 23);
-            this.bt_procurar.TabIndex = 3;
-            this.bt_procurar.Text = "Search";
-            this.bt_procurar.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(53, 43);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(199, 20);
-            this.textBox4.TabIndex = 2;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 41);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Term:";
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(12, 86);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(505, 301);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // panelMe
-            // 
-            this.panelMe.Controls.Add(this.label9);
-            this.panelMe.Controls.Add(this.label8);
-            this.panelMe.Controls.Add(this.label7);
-            this.panelMe.Controls.Add(this.label6);
-            this.panelMe.Controls.Add(this.label5);
-            this.panelMe.Controls.Add(this.lbl_surname);
-            this.panelMe.Controls.Add(this.lbl_name);
-            this.panelMe.Controls.Add(this.lbl_birthdate);
-            this.panelMe.Controls.Add(this.lbl_sns);
-            this.panelMe.Controls.Add(this.lbl_age);
-            this.panelMe.Location = new System.Drawing.Point(6, 27);
-            this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(633, 440);
-            this.panelMe.TabIndex = 24;
-            this.panelMe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMe_Paint);
             // 
             // label9
             // 
@@ -404,6 +346,7 @@
             // 
             // panelDataAcquisition
             // 
+            this.panelDataAcquisition.Controls.Add(this.panelMe);
             this.panelDataAcquisition.Controls.Add(this.textBox2);
             this.panelDataAcquisition.Controls.Add(this.textBox3);
             this.panelDataAcquisition.Controls.Add(this.textBox1);
@@ -412,7 +355,7 @@
             this.panelDataAcquisition.Controls.Add(this.label2);
             this.panelDataAcquisition.Controls.Add(this.label1);
             this.panelDataAcquisition.Controls.Add(this.checkedListBox1);
-            this.panelDataAcquisition.Location = new System.Drawing.Point(6, 27);
+            this.panelDataAcquisition.Location = new System.Drawing.Point(197, 145);
             this.panelDataAcquisition.Name = "panelDataAcquisition";
             this.panelDataAcquisition.Size = new System.Drawing.Size(625, 443);
             this.panelDataAcquisition.TabIndex = 1;
@@ -493,6 +436,50 @@
             this.checkedListBox1.TabIndex = 15;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.bt_searcg);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Location = new System.Drawing.Point(15, 67);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(616, 404);
+            this.panel1.TabIndex = 3;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(87, 23);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 0;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(27, 29);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Term:";
+            // 
+            // bt_searcg
+            // 
+            this.bt_searcg.Location = new System.Drawing.Point(206, 19);
+            this.bt_searcg.Name = "bt_searcg";
+            this.bt_searcg.Size = new System.Drawing.Size(75, 23);
+            this.bt_searcg.TabIndex = 2;
+            this.bt_searcg.Text = "Search";
+            this.bt_searcg.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(30, 90);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(547, 314);
+            this.richTextBox1.TabIndex = 3;
+            this.richTextBox1.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,12 +502,13 @@
             this.panelMe.PerformLayout();
             this.panelPrincipal.ResumeLayout(false);
             this.panelPrincipal.PerformLayout();
-            this.panelMedicalDictionary.ResumeLayout(false);
-            this.panelMedicalDictionary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panelDataAcquisition.ResumeLayout(false);
             this.panelDataAcquisition.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -565,6 +553,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button bt_searcg;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
 

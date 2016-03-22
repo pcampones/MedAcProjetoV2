@@ -63,6 +63,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.bt_searcg = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -73,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panelDataAcquisition.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -86,8 +92,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
-            this.splitContainer1.Panel2.Controls.Add(this.panelMe);
+            this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
             this.splitContainer1.Size = new System.Drawing.Size(751, 493);
@@ -150,6 +155,7 @@
             // 
             // panelMe
             // 
+            this.panelMe.Controls.Add(this.panelPrincipal);
             this.panelMe.Controls.Add(this.label9);
             this.panelMe.Controls.Add(this.label8);
             this.panelMe.Controls.Add(this.label7);
@@ -160,9 +166,9 @@
             this.panelMe.Controls.Add(this.lbl_birthdate);
             this.panelMe.Controls.Add(this.lbl_sns);
             this.panelMe.Controls.Add(this.lbl_age);
-            this.panelMe.Location = new System.Drawing.Point(219, 269);
+            this.panelMe.Location = new System.Drawing.Point(265, 72);
             this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(420, 198);
+            this.panelMe.Size = new System.Drawing.Size(633, 440);
             this.panelMe.TabIndex = 24;
             this.panelMe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMe_Paint);
             // 
@@ -172,11 +178,10 @@
             this.panelPrincipal.Controls.Add(this.label11);
             this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(167, 0);
+            this.panelPrincipal.Location = new System.Drawing.Point(184, 98);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(584, 326);
+            this.panelPrincipal.Size = new System.Drawing.Size(625, 398);
             this.panelPrincipal.TabIndex = 10;
-            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
             // 
             // pictureBox1
             // 
@@ -341,6 +346,7 @@
             // 
             // panelDataAcquisition
             // 
+            this.panelDataAcquisition.Controls.Add(this.panelMe);
             this.panelDataAcquisition.Controls.Add(this.textBox2);
             this.panelDataAcquisition.Controls.Add(this.textBox3);
             this.panelDataAcquisition.Controls.Add(this.textBox1);
@@ -349,15 +355,15 @@
             this.panelDataAcquisition.Controls.Add(this.label2);
             this.panelDataAcquisition.Controls.Add(this.label1);
             this.panelDataAcquisition.Controls.Add(this.checkedListBox1);
-            this.panelDataAcquisition.Location = new System.Drawing.Point(277, 283);
+            this.panelDataAcquisition.Location = new System.Drawing.Point(197, 145);
             this.panelDataAcquisition.Name = "panelDataAcquisition";
-            this.panelDataAcquisition.Size = new System.Drawing.Size(354, 187);
+            this.panelDataAcquisition.Size = new System.Drawing.Size(625, 443);
             this.panelDataAcquisition.TabIndex = 1;
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(463, 174);
+            this.textBox2.Location = new System.Drawing.Point(424, 134);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(171, 26);
             this.textBox2.TabIndex = 21;
@@ -365,7 +371,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(463, 241);
+            this.textBox3.Location = new System.Drawing.Point(424, 198);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(171, 26);
             this.textBox3.TabIndex = 22;
@@ -373,7 +379,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(463, 111);
+            this.textBox1.Location = new System.Drawing.Point(424, 38);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(171, 26);
             this.textBox1.TabIndex = 20;
@@ -381,7 +387,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 47);
+            this.label4.Location = new System.Drawing.Point(3, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 19;
@@ -391,7 +397,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(287, 241);
+            this.label3.Location = new System.Drawing.Point(160, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 31);
             this.label3.TabIndex = 18;
@@ -401,7 +407,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(210, 174);
+            this.label2.Location = new System.Drawing.Point(160, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(247, 31);
             this.label2.TabIndex = 17;
@@ -411,7 +417,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(230, 111);
+            this.label1.Location = new System.Drawing.Point(160, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 31);
             this.label1.TabIndex = 16;
@@ -424,11 +430,55 @@
             "Blood Pressure",
             "Oxigen Saturation",
             "Heart Rate"});
-            this.checkedListBox1.Location = new System.Drawing.Point(133, 73);
+            this.checkedListBox1.Location = new System.Drawing.Point(6, 38);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 64);
             this.checkedListBox1.TabIndex = 15;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.bt_searcg);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Location = new System.Drawing.Point(15, 67);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(616, 404);
+            this.panel1.TabIndex = 3;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(87, 23);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 0;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(27, 29);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Term:";
+            // 
+            // bt_searcg
+            // 
+            this.bt_searcg.Location = new System.Drawing.Point(206, 19);
+            this.bt_searcg.Name = "bt_searcg";
+            this.bt_searcg.Size = new System.Drawing.Size(75, 23);
+            this.bt_searcg.TabIndex = 2;
+            this.bt_searcg.Text = "Search";
+            this.bt_searcg.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(30, 90);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(547, 314);
+            this.richTextBox1.TabIndex = 3;
+            this.richTextBox1.Text = "";
             // 
             // Form1
             // 
@@ -457,6 +507,8 @@
             this.toolStrip1.PerformLayout();
             this.panelDataAcquisition.ResumeLayout(false);
             this.panelDataAcquisition.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -501,6 +553,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button bt_searcg;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
 

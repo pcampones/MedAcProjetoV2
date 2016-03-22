@@ -36,6 +36,11 @@
             this.Alerts = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.Reports = new System.Windows.Forms.ToolStripButton();
+            this.panelEdit = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.SNS = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panel_Adicionar = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -75,6 +80,9 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.panelEdit.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panelPrincipal.SuspendLayout();
             this.panel_Adicionar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -94,8 +102,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
-            this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip2);
             this.splitContainer1.Size = new System.Drawing.Size(716, 435);
             this.splitContainer1.SplitterDistance = 137;
@@ -176,19 +184,60 @@
             this.Reports.Size = new System.Drawing.Size(140, 50);
             this.Reports.Text = "Reports";
             // 
+            // panelEdit
+            // 
+            this.panelEdit.Controls.Add(this.groupBox2);
+            this.panelEdit.Location = new System.Drawing.Point(7, 25);
+            this.panelEdit.Name = "panelEdit";
+            this.panelEdit.Size = new System.Drawing.Size(521, 401);
+            this.panelEdit.TabIndex = 42;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.panel_Adicionar);
+            this.groupBox2.Location = new System.Drawing.Point(0, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(562, 398);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Edit Patient";
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.SNS,
+            this.Name});
+            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(117, 365);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // SNS
+            // 
+            this.SNS.Text = "SNS";
+            this.SNS.Width = 53;
+            // 
+            // Name
+            // 
+            this.Name.Text = "Name";
+            // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Location = new System.Drawing.Point(537, 413);
+            this.panelPrincipal.Controls.Add(this.listView1);
+            this.panelPrincipal.Location = new System.Drawing.Point(562, 425);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(35, 22);
+            this.panelPrincipal.Size = new System.Drawing.Size(10, 10);
             this.panelPrincipal.TabIndex = 41;
             // 
             // panel_Adicionar
             // 
             this.panel_Adicionar.Controls.Add(this.groupBox1);
-            this.panel_Adicionar.Location = new System.Drawing.Point(11, 29);
+            this.panel_Adicionar.Location = new System.Drawing.Point(431, 344);
             this.panel_Adicionar.Name = "panel_Adicionar";
-            this.panel_Adicionar.Size = new System.Drawing.Size(552, 394);
+            this.panel_Adicionar.Size = new System.Drawing.Size(125, 60);
             this.panel_Adicionar.TabIndex = 1;
             // 
             // groupBox1
@@ -222,9 +271,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(546, 388);
+            this.groupBox1.Size = new System.Drawing.Size(41, 42);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Patient";
@@ -519,6 +568,9 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panelEdit.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.panelPrincipal.ResumeLayout(false);
             this.panel_Adicionar.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -573,6 +625,11 @@
         private System.Windows.Forms.CheckBox ativeCheckBox;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Panel panelEdit;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader SNS;
+        private System.Windows.Forms.ColumnHeader Name;
     }
 }
 

@@ -19,6 +19,7 @@ namespace ClinicalAlert
         UtenteWeb ut;
         string gender;
         string ative = "Inative";
+
         public frmPrincipal()
         {
             InitializeComponent();
@@ -27,20 +28,46 @@ namespace ClinicalAlert
 
             panel_Adicionar.Visible = false;
             panelPrincipal.Visible = true;
+            panelEdit.Visible = false;
+            panelGraficos.Visible = false;
             ativeCheckBox.Checked = true;
-           
+            panelDiarioValores.Visible = false;
 
+
+            List<UtenteWeb> listaUtente = serv.GetListaUtentes().ToList();
+
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            foreach (UtenteWeb item in listaUtente)
+            {
+                ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
+                linha.SubItems.Add(item.name + " " + item.surname);
+                listView1.Items.Add(linha);
+            }
+            
+
+           // listBox_utentes.DisplayMember = "Name";
+   
         }
-
-
- 
-
-     
 
         private void Add_Click(object sender, EventArgs e)
         {
             panel_Adicionar.Visible = true;
             panelPrincipal.Visible = false;
+            panelEdit.Visible = false;
+            panelGraficos.Visible = false;
+            panelDiarioValores.Visible = false;
+
+        }
+
+        private void Edit_Click(object sender, EventArgs e)
+        {
+            panelEdit.Visible = true;
+            panelPrincipal.Visible = false;
+            panel_Adicionar.Visible = false;
+            panelGraficos.Visible = false;
+            panelDiarioValores.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -148,25 +175,6 @@ namespace ClinicalAlert
         
         }
 
-        private void txb_name_TextChanged(object sender, EventArgs e)
-        {
-
-          
-        }
-
-       private void txb_name_KeyPress(object sender, KeyPressEventArgs e)
-        {
-          /*  if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }*/
-        }
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void txb_phone_TextChanged(object sender, EventArgs e)
         {
             if(System.Text.RegularExpressions.Regex.IsMatch(txb_name.Text," ^[0-9]"))
@@ -234,19 +242,136 @@ namespace ClinicalAlert
             }
         }
 
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            panelEdit.Visible = false;
+            panelPrincipal.Visible = false;
+            panel_Adicionar.Visible = false;
+            panelGraficos.Visible = true;
+            panelDiarioValores.Visible = false;
+        }
+
+        private void diarioValores_Click(object sender, EventArgs e)
+        {
+            panelEdit.Visible = false;
+            panelPrincipal.Visible = false;
+            panel_Adicionar.Visible = false;
+            panelGraficos.Visible = false;
+            panelDiarioValores.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (button2.Text.Equals("Edit"))
+            {
+                button2.Text = "Save";
+                textBox8.Enabled = false;
+                textBox4.Enabled = false;
+                textBox7.Enabled = false;
+                textBox3.Enabled = false;
+                textBox5.Enabled = false;
+                textBox6.Enabled = false;
+                textBox2.Enabled = false;
+                dateTimePicker1.Enabled = false;
+                textBox1.Enabled = false;
+
+                    radioButton1.Enabled = false;
+              
+                    radioButton2.Enabled = false;
+                
+                numericUpDown4.Enabled = false;
+                numericUpDown3.Enabled = false;
+                richTextBox1.Enabled = false;
+            } else if (button2.Text.Equals("Save"))
+            {
+                textBox8.Enabled = true;
+                textBox4.Enabled = true;
+                textBox7.Enabled = true;
+                textBox3.Enabled = true;
+                textBox5.Enabled = true;
+                textBox6.Enabled = true;
+                textBox2.Enabled = true;
+                dateTimePicker1.Enabled = true;
+                textBox1.Enabled = true;
+
+                radioButton1.Enabled = true;
+
+                radioButton2.Enabled = true;
+
+                numericUpDown4.Enabled = true;
+                numericUpDown3.Enabled = true;
+                richTextBox1.Enabled = true;
+                button2.Text = "Edit";
+            }
+        }
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void label15_Click(object sender, EventArgs e)
+        private void listBox_utentes_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label14_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            panelEdit.Visible = false;
+            panelPrincipal.Visible = true;
+            panel_Adicionar.Visible = false;
+            panelGraficos.Visible = false;
+            panelDiarioValores.Visible = false;
+        }
 
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            int sns = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index].SubItems[0].Text);
+
+            UtenteWeb u = serv.GetUtenteBySNS(sns);
+
+            if (u != null)
+            {
+                tsl_nameUtente.Text = "Patient selected:" + " " + u.name;
+
+                textBox8.Text = u.name;
+                textBox8.Enabled = false;
+                textBox4.Text = u.surname;
+                textBox4.Enabled = false;
+                textBox7.Text = u.phone.ToString();
+                textBox7.Enabled = false;
+                textBox3.Text = u.nexOfKinContact.ToString();
+                textBox3.Enabled = false;
+                textBox5.Text = u.address;
+                textBox5.Enabled = false;
+                textBox6.Text = u.bi.ToString();
+                textBox6.Enabled = false;
+                textBox2.Text = u.mail;
+                textBox2.Enabled = false;
+                dateTimePicker1.Text = u.birthdate.ToString();
+                dateTimePicker1.Enabled = false;
+                textBox1.Text = u.sns.ToString();
+                textBox1.Enabled = false;
+
+                if (u.gender == "Male")
+                {
+                    radioButton1.Text = u.gender;
+                    radioButton1.Enabled = false;
+                }
+                else
+                {
+                    radioButton2.Text = u.gender;
+                    radioButton2.Enabled = false;
+                }
+                numericUpDown4.Value = u.weight;
+                numericUpDown4.Enabled = false;
+                numericUpDown3.Value = u.height;
+                numericUpDown3.Enabled = false;
+                richTextBox1.Text = u.alergies;
+                richTextBox1.Enabled = false;
+
+
+            }
         }
     }
 }

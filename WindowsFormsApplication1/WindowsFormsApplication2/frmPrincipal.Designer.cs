@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
@@ -117,6 +117,11 @@
             this.panelDiarioValores = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bloodPressureMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bloodPressureMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.heartRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OxygenSaturation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -124,11 +129,6 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsl_nameUtente = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.bloodPressureMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bloodPressureMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.heartRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OxygenSaturation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -193,6 +193,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(137, 435);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // Add
             // 
@@ -373,16 +374,16 @@
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(7, 20);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(474, 125);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1012,6 +1013,31 @@
             this.dataGridView1.Size = new System.Drawing.Size(522, 271);
             this.dataGridView1.TabIndex = 0;
             // 
+            // bloodPressureMax
+            // 
+            this.bloodPressureMax.HeaderText = "Blood Pressure Max";
+            this.bloodPressureMax.Name = "bloodPressureMax";
+            // 
+            // bloodPressureMin
+            // 
+            this.bloodPressureMin.HeaderText = "Blood Pressure Min";
+            this.bloodPressureMin.Name = "bloodPressureMin";
+            // 
+            // heartRate
+            // 
+            this.heartRate.HeaderText = "Heart Rate";
+            this.heartRate.Name = "heartRate";
+            // 
+            // OxygenSaturation
+            // 
+            this.OxygenSaturation.HeaderText = "Oxygen Saturation";
+            this.OxygenSaturation.Name = "OxygenSaturation";
+            // 
+            // date
+            // 
+            this.date.HeaderText = "Date of Regist";
+            this.date.Name = "date";
+            // 
             // panelPrincipal
             // 
             this.panelPrincipal.Controls.Add(this.listView1);
@@ -1066,31 +1092,6 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // bloodPressureMax
-            // 
-            this.bloodPressureMax.HeaderText = "Blood Pressure Max";
-            this.bloodPressureMax.Name = "bloodPressureMax";
-            // 
-            // bloodPressureMin
-            // 
-            this.bloodPressureMin.HeaderText = "Blood Pressure Min";
-            this.bloodPressureMin.Name = "bloodPressureMin";
-            // 
-            // heartRate
-            // 
-            this.heartRate.HeaderText = "Heart Rate";
-            this.heartRate.Name = "heartRate";
-            // 
-            // OxygenSaturation
-            // 
-            this.OxygenSaturation.HeaderText = "Oxygen Saturation";
-            this.OxygenSaturation.Name = "OxygenSaturation";
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Date of Regist";
-            this.date.Name = "date";
             // 
             // frmPrincipal
             // 

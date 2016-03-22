@@ -101,6 +101,8 @@ namespace BOT
             panelMe.Visible = false;
             panelPrincipal.Visible = false;
           //  panelMedical.Visible = false;
+
+            //sdsd
        
 
         }

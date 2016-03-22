@@ -306,62 +306,6 @@ namespace BOT
 }
         }
 
-        private void bt_procurar_Click(object sender, EventArgs e)
-        {
-            string url = Properties.Settings.Default.Medline;
-            int retmax = Properties.Settings.Default.Retmax;
-            string term = txb_palavra.Text;
-            string urlComp = url + term + "&retmax=" + retmax;
-
-            MessageBox.Show(url);
-            var client = new WebClient();
-            client.DownloadStringAsync(new Uri(urlComp));
-            client.DownloadStringCompleted += Client_DownloadStringCompleted;
-
-        //    serv = new Service1Client();
-
-            
-
-            
-
-            
-
-            //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
-
-            //List<String> options = new List<String>(new String[] { "search" });
-
-            //Choices choicesOptions = new Choices(options.ToArray());
-
-            //GrammarBuilder gb = new GrammarBuilder();
-            //gb.Append(choicesOptions);
-
-            //Grammar g = new Grammar(gb);
-            //g.Name = "services grammar";
-            ////groupBox1.Name = g.Name;
-            //recognizer.LoadGrammar(g);
-
-            //recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
-
-            //recognizer.SetInputToDefaultAudioDevice();
-
-            //recognizer.RecognizeAsync(RecognizeMode.Multiple);     
-            //}
-
-            // void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
-            //{
-            //    if (e.Result.Text.Equals("search"))
-            //    {
-            //        listView1.Items.Clear();
-
-            listView1.Columns.Add("Rank", 50, HorizontalAlignment.Left);
-            listView1.Columns.Add("Title", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Organization Name", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Alternative Names", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
-
-
-      
-            }
 
         private void Client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
@@ -397,6 +341,60 @@ namespace BOT
             }
             FillListView(results);
 
+        }
+
+        private void bt_searcg_Click(object sender, EventArgs e)
+        {
+            string url = Properties.Settings.Default.Medline;
+            int retmax = Properties.Settings.Default.Retmax;
+            string term = txb_palavra.Text;
+            string urlComp = url + term + "&retmax=" + retmax;
+
+            MessageBox.Show(url);
+            var client = new WebClient();
+            client.DownloadStringAsync(new Uri(urlComp));
+            client.DownloadStringCompleted += Client_DownloadStringCompleted;
+
+            //    serv = new Service1Client();
+
+
+
+
+
+
+
+            //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
+
+            //List<String> options = new List<String>(new String[] { "search" });
+
+            //Choices choicesOptions = new Choices(options.ToArray());
+
+            //GrammarBuilder gb = new GrammarBuilder();
+            //gb.Append(choicesOptions);
+
+            //Grammar g = new Grammar(gb);
+            //g.Name = "services grammar";
+            ////groupBox1.Name = g.Name;
+            //recognizer.LoadGrammar(g);
+
+            //recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
+
+            //recognizer.SetInputToDefaultAudioDevice();
+
+            //recognizer.RecognizeAsync(RecognizeMode.Multiple);     
+            //}
+
+            // void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+            //{
+            //    if (e.Result.Text.Equals("search"))
+            //    {
+            //        listView1.Items.Clear();
+
+            listView1.Columns.Add("Rank", 50, HorizontalAlignment.Left);
+            listView1.Columns.Add("Title", 150, HorizontalAlignment.Left);
+            listView1.Columns.Add("Organization Name", 150, HorizontalAlignment.Left);
+            listView1.Columns.Add("Alternative Names", 150, HorizontalAlignment.Left);
+            listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
         }
 
         ////private void listView1_DoubleClick(object sender, EventArgs e)

@@ -67,7 +67,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.bt_searcg = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.listView2 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -438,7 +438,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.listView2);
             this.panel1.Controls.Add(this.bt_searcg);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.textBox4);
@@ -471,14 +471,15 @@
             this.bt_searcg.TabIndex = 2;
             this.bt_searcg.Text = "Search";
             this.bt_searcg.UseVisualStyleBackColor = true;
+            this.bt_searcg.Click += new System.EventHandler(this.bt_searcg_Click);
             // 
-            // richTextBox1
+            // listView2
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(30, 90);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(547, 314);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.listView2.Location = new System.Drawing.Point(30, 78);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(559, 305);
+            this.listView2.TabIndex = 3;
+            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
@@ -554,10 +555,10 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button bt_searcg;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ListView listView2;
     }
 }
 

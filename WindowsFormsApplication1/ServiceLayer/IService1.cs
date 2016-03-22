@@ -26,7 +26,7 @@ namespace ServiceLayer
         List<UtenteWeb> GetListaUtentes();
 
         [OperationContract]
-        void AddValues(int sns, int bloodPressure, int heartRate,int oxygenSatu, DateTime data );
+        void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate,int oxygenSatu, DateTime data );
 
         
         // TODO: Add your service operations here
@@ -181,12 +181,20 @@ namespace ServiceLayer
         }
 
         [DataMember]
-        private int bloodPressure;
+        private int bloodPressureMin;
 
-        public int BloodPressure
+        public int BloodPressureMin
         {
-            get { return bloodPressure; }
-            set { bloodPressure = value; }
+            get { return bloodPressureMin; }
+            set { bloodPressureMin = value; }
+        }
+        [DataMember]
+        private int bloodPressureMax;
+
+        public int BloodPressureMax
+        {
+            get { return bloodPressureMax; }
+            set { bloodPressureMin = value; }
         }
 
         [DataMember]

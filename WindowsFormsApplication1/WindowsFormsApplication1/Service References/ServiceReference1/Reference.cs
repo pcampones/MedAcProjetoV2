@@ -311,10 +311,10 @@ namespace BOT.ServiceReference1 {
         System.Threading.Tasks.Task<BOT.ServiceReference1.UtenteWeb[]> GetListaUtentesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
-        void AddValues(int sns, int bloodPressure, int heartRate, int oxygenSatu, System.DateTime data);
+        void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
-        System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressure, int heartRate, int oxygenSatu, System.DateTime data);
+        System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -376,12 +376,12 @@ namespace BOT.ServiceReference1 {
             return base.Channel.GetListaUtentesAsync();
         }
         
-        public void AddValues(int sns, int bloodPressure, int heartRate, int oxygenSatu, System.DateTime data) {
-            base.Channel.AddValues(sns, bloodPressure, heartRate, oxygenSatu, data);
+        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data) {
+            base.Channel.AddValues(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data);
         }
         
-        public System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressure, int heartRate, int oxygenSatu, System.DateTime data) {
-            return base.Channel.AddValuesAsync(sns, bloodPressure, heartRate, oxygenSatu, data);
+        public System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data) {
+            return base.Channel.AddValuesAsync(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data);
         }
     }
 }

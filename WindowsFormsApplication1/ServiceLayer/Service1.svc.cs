@@ -147,7 +147,7 @@ namespace ServiceLayer
             }
         }
 
-        public void AddValues(int sns, int bloodPressure, int heartRate, int oxygenSatu, DateTime data)
+        public void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate, int oxygenSatu, DateTime data)
         {
             Valores valores = new Valores();
             Utente utente = _acederBd.getUtenteBySNS(sns);
@@ -155,7 +155,8 @@ namespace ServiceLayer
             if (utente != null)
             {
                 valores.Utente = utente;
-                valores.BloodPressure = bloodPressure;
+                valores.BloodPressureMin = bloodPressureMin;
+                valores.BloodPressureMax = bloodPressureMax;
                 valores.OxygenSaturation = oxygenSatu;
                 valores.HeartRate = heartRate;
                 valores.DataOfRegist = data;

@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="ModelMedAc.Valores" Width="1.5" PointX="3.625" PointY="1" />
         <EntityTypeShape EntityType="ModelMedAc.Alertas" Width="1.5" PointX="6" PointY="1.125" />
         <AssociationConnector Association="ModelMedAc.UtenteValores" />
-        <AssociationConnector Association="ModelMedAc.ValoresAlertas" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

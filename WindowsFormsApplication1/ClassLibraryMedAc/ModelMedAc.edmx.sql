@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/15/2016 16:57:23
+-- Date Created: 03/22/2016 13:59:18
 -- Generated from EDMX file: C:\Users\Pedro Camponês\Documents\GitHubVisualStudio\MedAcProjetoV2\WindowsFormsApplication1\ClassLibraryMedAc\ModelMedAc.edmx
 -- --------------------------------------------------
 
@@ -19,9 +19,6 @@ GO
 
 IF OBJECT_ID(N'[dbo].[FK_UtenteValores]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ValoresSet] DROP CONSTRAINT [FK_UtenteValores];
-GO
-IF OBJECT_ID(N'[dbo].[FK_ValoresAlertas]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ValoresSet] DROP CONSTRAINT [FK_ValoresAlertas];
 GO
 
 -- --------------------------------------------------
@@ -66,12 +63,12 @@ GO
 -- Creating table 'ValoresSet'
 CREATE TABLE [dbo].[ValoresSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [BloodPressure] int  NOT NULL,
+    [BloodPressureMin] int  NOT NULL,
     [HeartRate] int  NOT NULL,
     [OxygenSaturation] int  NOT NULL,
     [DataOfRegist] datetime  NOT NULL,
-    [Utente_Id] int  NOT NULL,
-    [Alertas_Id] int  NOT NULL
+    [BloodPressureMax] int  NOT NULL,
+    [Utente_Id] int  NOT NULL
 );
 GO
 
@@ -122,21 +119,6 @@ GO
 CREATE INDEX [IX_FK_UtenteValores]
 ON [dbo].[ValoresSet]
     ([Utente_Id]);
-GO
-
--- Creating foreign key on [Alertas_Id] in table 'ValoresSet'
-ALTER TABLE [dbo].[ValoresSet]
-ADD CONSTRAINT [FK_ValoresAlertas]
-    FOREIGN KEY ([Alertas_Id])
-    REFERENCES [dbo].[AlertasSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ValoresAlertas'
-CREATE INDEX [IX_FK_ValoresAlertas]
-ON [dbo].[ValoresSet]
-    ([Alertas_Id]);
 GO
 
 -- --------------------------------------------------

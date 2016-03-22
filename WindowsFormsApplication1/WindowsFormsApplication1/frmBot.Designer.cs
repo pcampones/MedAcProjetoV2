@@ -34,10 +34,25 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.panelDataAcquisition = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.heartRateLbl = new System.Windows.Forms.Label();
+            this.oxigenPressureLbl = new System.Windows.Forms.Label();
+            this.bloodPressureMinLbl = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bloodPreCheckBox = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.oxigenPressurecheckBox = new System.Windows.Forms.CheckBox();
+            this.heartRateCheckBox = new System.Windows.Forms.CheckBox();
             this.panelMe = new System.Windows.Forms.Panel();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -48,37 +63,40 @@
             this.lbl_birthdate = new System.Windows.Forms.Label();
             this.lbl_sns = new System.Windows.Forms.Label();
             this.lbl_age = new System.Windows.Forms.Label();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.bt_searcg = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.panelDataAcquisition = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.bt_searcg = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.bloodPressureMaxLbl = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.launchAlertsButton = new System.Windows.Forms.Button();
+            this.stop = new System.Windows.Forms.Button();
+            this.initDLL = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.panelDataAcquisition.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panelMe.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            this.panelDataAcquisition.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -92,9 +110,11 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
+            this.splitContainer1.Panel2.Controls.Add(this.panelMe);
+            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
-            this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
             this.splitContainer1.Size = new System.Drawing.Size(751, 493);
             this.splitContainer1.SplitterDistance = 105;
             this.splitContainer1.TabIndex = 2;
@@ -153,9 +173,192 @@
             this.toolStripButton3.ToolTipText = "Medical Dictionary";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // panelDataAcquisition
+            // 
+            this.panelDataAcquisition.Controls.Add(this.groupBox3);
+            this.panelDataAcquisition.Controls.Add(this.groupBox2);
+            this.panelDataAcquisition.Controls.Add(this.groupBox1);
+            this.panelDataAcquisition.Location = new System.Drawing.Point(3, 25);
+            this.panelDataAcquisition.Name = "panelDataAcquisition";
+            this.panelDataAcquisition.Size = new System.Drawing.Size(625, 443);
+            this.panelDataAcquisition.TabIndex = 1;
+            this.panelDataAcquisition.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDataAcquisition_Paint);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.heartRateLbl);
+            this.groupBox2.Controls.Add(this.oxigenPressureLbl);
+            this.groupBox2.Controls.Add(this.bloodPressureMinLbl);
+            this.groupBox2.Controls.Add(this.bloodPressureMaxLbl);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(15, 174);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(570, 130);
+            this.groupBox2.TabIndex = 37;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Values";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(380, 61);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(30, 13);
+            this.label17.TabIndex = 44;
+            this.label17.Text = "Date";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(380, 34);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(30, 13);
+            this.label16.TabIndex = 43;
+            this.label16.Text = "Date";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(380, 94);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(30, 13);
+            this.label15.TabIndex = 42;
+            this.label15.Text = "Date";
+            // 
+            // heartRateLbl
+            // 
+            this.heartRateLbl.AutoSize = true;
+            this.heartRateLbl.Location = new System.Drawing.Point(157, 94);
+            this.heartRateLbl.Name = "heartRateLbl";
+            this.heartRateLbl.Size = new System.Drawing.Size(54, 13);
+            this.heartRateLbl.TabIndex = 41;
+            this.heartRateLbl.Text = "heartRate";
+            // 
+            // oxigenPressureLbl
+            // 
+            this.oxigenPressureLbl.AutoSize = true;
+            this.oxigenPressureLbl.Location = new System.Drawing.Point(157, 61);
+            this.oxigenPressureLbl.Name = "oxigenPressureLbl";
+            this.oxigenPressureLbl.Size = new System.Drawing.Size(79, 13);
+            this.oxigenPressureLbl.TabIndex = 40;
+            this.oxigenPressureLbl.Text = "oxigenPressure";
+            // 
+            // bloodPressureMinLbl
+            // 
+            this.bloodPressureMinLbl.AutoSize = true;
+            this.bloodPressureMinLbl.Location = new System.Drawing.Point(157, 34);
+            this.bloodPressureMinLbl.Name = "bloodPressureMinLbl";
+            this.bloodPressureMinLbl.Size = new System.Drawing.Size(91, 13);
+            this.bloodPressureMinLbl.TabIndex = 39;
+            this.bloodPressureMinLbl.Text = "bloodPressureMin";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(38, 94);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(59, 13);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Heart Rate";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(38, 61);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(84, 13);
+            this.label13.TabIndex = 37;
+            this.label13.Text = "Oxigen Pressure";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(38, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Blood Pressure";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.bloodPreCheckBox);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.oxigenPressurecheckBox);
+            this.groupBox1.Controls.Add(this.heartRateCheckBox);
+            this.groupBox1.Location = new System.Drawing.Point(15, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(227, 110);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Physiologic Parameters";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Oxigen Pressure";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Heart Rate";
+            // 
+            // bloodPreCheckBox
+            // 
+            this.bloodPreCheckBox.AutoSize = true;
+            this.bloodPreCheckBox.Location = new System.Drawing.Point(139, 22);
+            this.bloodPreCheckBox.Name = "bloodPreCheckBox";
+            this.bloodPreCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.bloodPreCheckBox.TabIndex = 20;
+            this.bloodPreCheckBox.UseVisualStyleBackColor = true;
+            this.bloodPreCheckBox.CheckedChanged += new System.EventHandler(this.bloodPreCheckBox_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Blood Pressure";
+            // 
+            // oxigenPressurecheckBox
+            // 
+            this.oxigenPressurecheckBox.AutoSize = true;
+            this.oxigenPressurecheckBox.Location = new System.Drawing.Point(139, 45);
+            this.oxigenPressurecheckBox.Name = "oxigenPressurecheckBox";
+            this.oxigenPressurecheckBox.Size = new System.Drawing.Size(15, 14);
+            this.oxigenPressurecheckBox.TabIndex = 21;
+            this.oxigenPressurecheckBox.UseVisualStyleBackColor = true;
+            this.oxigenPressurecheckBox.CheckedChanged += new System.EventHandler(this.oxigenPressurecheckBox_CheckedChanged);
+            // 
+            // heartRateCheckBox
+            // 
+            this.heartRateCheckBox.AutoSize = true;
+            this.heartRateCheckBox.Location = new System.Drawing.Point(139, 68);
+            this.heartRateCheckBox.Name = "heartRateCheckBox";
+            this.heartRateCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.heartRateCheckBox.TabIndex = 22;
+            this.heartRateCheckBox.UseVisualStyleBackColor = true;
+            this.heartRateCheckBox.CheckedChanged += new System.EventHandler(this.heartRateCheckBox_CheckedChanged);
+            // 
             // panelMe
             // 
-            this.panelMe.Controls.Add(this.panelPrincipal);
             this.panelMe.Controls.Add(this.label9);
             this.panelMe.Controls.Add(this.label8);
             this.panelMe.Controls.Add(this.label7);
@@ -166,41 +369,11 @@
             this.panelMe.Controls.Add(this.lbl_birthdate);
             this.panelMe.Controls.Add(this.lbl_sns);
             this.panelMe.Controls.Add(this.lbl_age);
-            this.panelMe.Location = new System.Drawing.Point(265, 72);
+            this.panelMe.Location = new System.Drawing.Point(512, 462);
             this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(633, 440);
+            this.panelMe.Size = new System.Drawing.Size(345, 159);
             this.panelMe.TabIndex = 24;
             this.panelMe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMe_Paint);
-            // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Controls.Add(this.pictureBox1);
-            this.panelPrincipal.Controls.Add(this.label11);
-            this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(184, 98);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(625, 398);
-            this.panelPrincipal.TabIndex = 10;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(124, 95);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(325, 281);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe Script", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(183, 33);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(172, 52);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Welcome";
             // 
             // label9
             // 
@@ -288,6 +461,81 @@
             this.lbl_age.Size = new System.Drawing.Size(0, 13);
             this.lbl_age.TabIndex = 9;
             // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Controls.Add(this.pictureBox1);
+            this.panelPrincipal.Controls.Add(this.label11);
+            this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelPrincipal.Location = new System.Drawing.Point(578, 309);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(625, 398);
+            this.panelPrincipal.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(124, 95);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(325, 281);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe Script", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(183, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(172, 52);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Welcome";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.listView2);
+            this.panel1.Controls.Add(this.bt_searcg);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Location = new System.Drawing.Point(610, 279);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(21, 192);
+            this.panel1.TabIndex = 3;
+            // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(30, 78);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(559, 305);
+            this.listView2.TabIndex = 3;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            // 
+            // bt_searcg
+            // 
+            this.bt_searcg.Location = new System.Drawing.Point(206, 19);
+            this.bt_searcg.Name = "bt_searcg";
+            this.bt_searcg.Size = new System.Drawing.Size(75, 23);
+            this.bt_searcg.TabIndex = 2;
+            this.bt_searcg.Text = "Search";
+            this.bt_searcg.UseVisualStyleBackColor = true;
+            this.bt_searcg.Click += new System.EventHandler(this.bt_searcg_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(27, 29);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Term:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(87, 23);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 0;
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -344,142 +592,63 @@
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(0, 22);
             // 
-            // panelDataAcquisition
+            // bloodPressureMaxLbl
             // 
-            this.panelDataAcquisition.Controls.Add(this.panelMe);
-            this.panelDataAcquisition.Controls.Add(this.textBox2);
-            this.panelDataAcquisition.Controls.Add(this.textBox3);
-            this.panelDataAcquisition.Controls.Add(this.textBox1);
-            this.panelDataAcquisition.Controls.Add(this.label4);
-            this.panelDataAcquisition.Controls.Add(this.label3);
-            this.panelDataAcquisition.Controls.Add(this.label2);
-            this.panelDataAcquisition.Controls.Add(this.label1);
-            this.panelDataAcquisition.Controls.Add(this.checkedListBox1);
-            this.panelDataAcquisition.Location = new System.Drawing.Point(197, 145);
-            this.panelDataAcquisition.Name = "panelDataAcquisition";
-            this.panelDataAcquisition.Size = new System.Drawing.Size(625, 443);
-            this.panelDataAcquisition.TabIndex = 1;
+            this.bloodPressureMaxLbl.AutoSize = true;
+            this.bloodPressureMaxLbl.Location = new System.Drawing.Point(270, 34);
+            this.bloodPressureMaxLbl.Name = "bloodPressureMaxLbl";
+            this.bloodPressureMaxLbl.Size = new System.Drawing.Size(94, 13);
+            this.bloodPressureMaxLbl.TabIndex = 45;
+            this.bloodPressureMaxLbl.Text = "bloodPressureMax";
             // 
-            // textBox2
+            // label18
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(424, 134);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(171, 26);
-            this.textBox2.TabIndex = 21;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(254, 34);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(10, 13);
+            this.label18.TabIndex = 46;
+            this.label18.Text = "-";
             // 
-            // textBox3
+            // groupBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(424, 198);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(171, 26);
-            this.textBox3.TabIndex = 22;
+            this.groupBox3.Controls.Add(this.launchAlertsButton);
+            this.groupBox3.Controls.Add(this.stop);
+            this.groupBox3.Controls.Add(this.initDLL);
+            this.groupBox3.Location = new System.Drawing.Point(15, 332);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(570, 100);
+            this.groupBox3.TabIndex = 47;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Options";
             // 
-            // textBox1
+            // launchAlertsButton
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(424, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 26);
-            this.textBox1.TabIndex = 20;
+            this.launchAlertsButton.Location = new System.Drawing.Point(415, 33);
+            this.launchAlertsButton.Name = "launchAlertsButton";
+            this.launchAlertsButton.Size = new System.Drawing.Size(107, 52);
+            this.launchAlertsButton.TabIndex = 39;
+            this.launchAlertsButton.Text = "Launch Alerts";
+            this.launchAlertsButton.UseVisualStyleBackColor = true;
+            this.launchAlertsButton.Click += new System.EventHandler(this.launchAlertsButton_Click_1);
             // 
-            // label4
+            // stop
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Choices";
+            this.stop.Location = new System.Drawing.Point(214, 33);
+            this.stop.Name = "stop";
+            this.stop.Size = new System.Drawing.Size(107, 52);
+            this.stop.TabIndex = 38;
+            this.stop.Text = "Stop";
+            this.stop.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // initDLL
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(160, 208);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 31);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Heart Rate";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(160, 134);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(247, 31);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Oxigen Saturation";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(160, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 31);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Blood Pressure";
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Blood Pressure",
-            "Oxigen Saturation",
-            "Heart Rate"});
-            this.checkedListBox1.Location = new System.Drawing.Point(6, 38);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 64);
-            this.checkedListBox1.TabIndex = 15;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.listView2);
-            this.panel1.Controls.Add(this.bt_searcg);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Location = new System.Drawing.Point(15, 67);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(616, 404);
-            this.panel1.TabIndex = 3;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(87, 23);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 0;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(27, 29);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Term:";
-            // 
-            // bt_searcg
-            // 
-            this.bt_searcg.Location = new System.Drawing.Point(206, 19);
-            this.bt_searcg.Name = "bt_searcg";
-            this.bt_searcg.Size = new System.Drawing.Size(75, 23);
-            this.bt_searcg.TabIndex = 2;
-            this.bt_searcg.Text = "Search";
-            this.bt_searcg.UseVisualStyleBackColor = true;
-            this.bt_searcg.Click += new System.EventHandler(this.bt_searcg_Click);
-            // 
-            // listView2
-            // 
-            this.listView2.Location = new System.Drawing.Point(30, 78);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(559, 305);
-            this.listView2.TabIndex = 3;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.initDLL.Location = new System.Drawing.Point(6, 33);
+            this.initDLL.Name = "initDLL";
+            this.initDLL.Size = new System.Drawing.Size(107, 52);
+            this.initDLL.TabIndex = 37;
+            this.initDLL.Text = "Initialize DLL";
+            this.initDLL.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -499,17 +668,21 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.panelDataAcquisition.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panelMe.ResumeLayout(false);
             this.panelMe.PerformLayout();
             this.panelPrincipal.ResumeLayout(false);
             this.panelPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.panelDataAcquisition.ResumeLayout(false);
-            this.panelDataAcquisition.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -520,14 +693,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.Panel panelDataAcquisition;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.Panel panelMe;
         private System.Windows.Forms.Label lbl_age;
@@ -559,6 +724,29 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox bloodPreCheckBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox oxigenPressurecheckBox;
+        private System.Windows.Forms.CheckBox heartRateCheckBox;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label heartRateLbl;
+        private System.Windows.Forms.Label oxigenPressureLbl;
+        private System.Windows.Forms.Label bloodPressureMinLbl;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label bloodPressureMaxLbl;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button launchAlertsButton;
+        private System.Windows.Forms.Button stop;
+        private System.Windows.Forms.Button initDLL;
     }
 }
 

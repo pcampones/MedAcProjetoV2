@@ -20,11 +20,16 @@ namespace BOT
     public partial class Form1 : Form
     {
 
-        //dssdskfdn nkekj aaaaa
+
+
         private Service1Client serv;
         PhysiologicParametersDll.PhysiologicParametersDll dll = null;
-        PhysiologicParametersDll.PhysiologicParametersDll dllC = null;
-        PhysiologicParametersDll.PhysiologicParametersDll dllH = null;
+
+        bool BLOODPRESSSURE = true;
+        bool HEARTRATE = true;
+        bool OXIGENSATURATION = true;
+
+        BackgroundWorker bw = new BackgroundWorker();
 
         private UtenteWeb u;
 
@@ -37,125 +42,29 @@ namespace BOT
             InitializeComponent();
             serv = new Service1Client();
             panelPrincipal.Visible = true;
+            bw.DoWork += new DoWorkEventHandler(doWork);
             //panelMedicalDictionary.Visible = false;
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
 
         }
 
+
+        
         private void Form1_Load(object sender, EventArgs e)
         {
              sns = Settings.Default.SNS;
+
+            bloodPreCheckBox.Checked = false;
+            heartRateCheckBox.Checked = false;
+            oxigenPressurecheckBox.Checked = false;
 
             toolStripTextBox1.Text = sns.ToString();
             //Settings.Default.SNS = int.Parse( toolStrip1.Text);
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (dll != null)
-            {
-                if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Checked)
-                {
-                    dll.Initialize(BloodPressure, Settings.Default.Delay, true, false, false);
-                    serv.AddValues(Settings.Default.SNS, int.Parse(textBox1.Text), 0, 0, DateTime.Now);
-                }
-            
-                if (checkedListBox1.SelectedItem.Equals("Blood Pressure") && checkedListBox1.GetItemCheckState(0) == CheckState.Unchecked)
-                {
-                    dll.Initialize(BloodPressure, Settings.Default.Delay, false, false, false);
-                }
-            }
-            else
-            {
-                dll = new PhysiologicParametersDll.PhysiologicParametersDll();
-            }
+      
 
-
-            if (dllC != null)
-            {
-
-                if (checkedListBox1.SelectedItem.Equals("Oxigen Saturation") && (checkedListBox1.GetItemCheckState(1) == CheckState.Checked))
-                {
-                    dllC.Initialize(OxigenSature, Settings.Default.Delay, false, true, false);
-
-                }
-                if (checkedListBox1.SelectedItem.Equals("Oxigen Saturation") && checkedListBox1.GetItemCheckState(1) == CheckState.Unchecked)
-                {
-                    dllC.Initialize(OxigenSature, Settings.Default.Delay, false, false, false);
-
-                }
-            }
-            else
-            {
-                dllC = new PhysiologicParametersDll.PhysiologicParametersDll();
-            }
-
-
-
-            if (dllH != null)
-            {
-
-
-                if (checkedListBox1.SelectedItem.Equals("Heart Rate") && (checkedListBox1.GetItemCheckState(2) == CheckState.Checked))
-                {
-                    dllH.Initialize(HeartRate, Settings.Default.Delay, false, false, true);
-
-                }
-                if (checkedListBox1.SelectedItem.Equals("Heart Rate") && (checkedListBox1.GetItemCheckState(2) == CheckState.Unchecked))
-                {
-                    dllH.Initialize(HeartRate, Settings.Default.Delay, false, false, false);
-                }
-            }
-            else
-            {
-                dllH = new PhysiologicParametersDll.PhysiologicParametersDll();
-            }
-            
-               
-
-        }
-        public void BloodPressure(string str)
-        {
-
-            char[] delimiters = { ';' };
-            string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
-            List<string> heartRate = new List<string>();
-            heartRate.Add(palavras[1].ToString());
-            this.BeginInvoke((MethodInvoker)delegate
-            {
-                 
-
-                textBox1.Text = heartRate.LastOrDefault();
-            });
-        }
-
-        public void OxigenSature(string str)
-        {
-            char[] delimiters = { ';' };
-            string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
-            List<string> heartRate = new List<string>();
-            heartRate.Add(palavras[1].ToString());
-            this.BeginInvoke((MethodInvoker)delegate
-            {
-
-                textBox2.Text = heartRate.LastOrDefault();
-            });
-        }
-
-        public void HeartRate(string str)
-        {
-            char[] delimiters = { ';' };
-            
-            string[] palavras = str.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
-
-            List<string> heartRate = new List<string>();
-            heartRate.Add(palavras[1].ToString());
-            this.BeginInvoke((MethodInvoker)delegate
-            {
-                textBox3.Text = heartRate.LastOrDefault();
-            });
-        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -171,7 +80,7 @@ namespace BOT
             panelDataAcquisition.Visible = false;
             panelMe.Visible = true;
             panelPrincipal.Visible = false;
-            panelMedicalDictionary.Visible = false;
+       //     panelMedicalDictionary.Visible = false;
 
             if (u == null)
             {
@@ -191,7 +100,7 @@ namespace BOT
             panelDataAcquisition.Visible = true;
             panelMe.Visible = false;
             panelPrincipal.Visible = false;
-            panelMedicalDictionary.Visible = false;
+           // panelMedicalDictionary.Visible = false;
        
 
         }
@@ -397,12 +306,121 @@ namespace BOT
             listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
         }
 
-        ////private void listView1_DoubleClick(object sender, EventArgs e)
-        ////{
-        ////    String a = listView1.SelectedItems[0].SubItems[4].Text;
-        ////    InfoForm form = new InfoForm(a);
-        ////    form.Show();
-        ////}
+        private void panelDataAcquisition_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stop_Click(object sender, EventArgs e)
+        {
+            dll.Stop();
+        }
+
+        private void initDLL_Click(object sender, EventArgs e)
+        {
+            dll = new PhysiologicParametersDll.PhysiologicParametersDll();
+
+            bw.RunWorkerAsync();
+        }
+
+        private void bloodPreCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (bloodPreCheckBox.Checked)
+            {
+                BLOODPRESSSURE = true;
+
+            }
+            else
+            {
+                BLOODPRESSSURE = false;
+            }
+        }
+
+        private void oxigenPressurecheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (oxigenPressurecheckBox.Checked)
+            {
+                OXIGENSATURATION = true;
+            }
+            else
+            {
+                OXIGENSATURATION = false;
+            }
+        }
+
+        private void heartRateCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (heartRateCheckBox.Checked)
+            {
+                HEARTRATE = true;
+            }
+            else
+            {
+                HEARTRATE = false;
+            }
+        }
+
+        private void launchAlertsButton_Click(object sender, EventArgs e)
+        {
+            dll = new PhysiologicParametersDll.PhysiologicParametersDll();
+
+            bw.RunWorkerAsync(DataType.Alerts);
+        }
+        public void NewSensorValueFunction(string str)
+        {
+
+            string[] valor = str.Split(';','-');
+           
+
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                if (valor[0].Equals("BP"))
+                {
+                    bloodPressureMinLbl.Text = valor[2];
+                    bloodPressureMaxLbl.Text = valor[1];
+
+                    label16.Text = valor[3];
+              
+                    serv.AddValues(Settings.Default.SNS,Convert.ToInt32( bloodPressureMinLbl.Text),
+                        Convert.ToInt32(bloodPressureMaxLbl.Text)
+                     , 0, 0, DateTime.Parse(label16.Text));
+                }
+                else if (valor[0].Equals("HR"))
+                {
+                    heartRateLbl.Text = valor[1];
+                    label15.Text = valor[2];
+                    serv.AddValues(Settings.Default.SNS,0,
+                      0, Convert.ToInt32(heartRateLbl.Text), 0, Convert.ToDateTime(label15.Text));
+
+                }
+                else if (valor[0].Equals("SPO2"))
+                {
+                    oxigenPressureLbl.Text = valor[1];
+                    label17.Text = valor[2];
+                    serv.AddValues(Settings.Default.SNS,0,
+                     0, 0, Convert.ToInt32(oxigenPressureLbl.Text), Convert.ToDateTime(label17.Text));
+
+                }
+              
+
+            });
+        }
+        public void doWork(object sender, DoWorkEventArgs e)
+        {
+            dll.Initialize(NewSensorValueFunction, Settings.Default.Delay, BLOODPRESSSURE, OXIGENSATURATION, HEARTRATE);
+
+
+        }
+
+        private void launchAlertsButton_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 
     }

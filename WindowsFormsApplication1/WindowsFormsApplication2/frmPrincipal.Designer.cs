@@ -558,7 +558,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 435);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "frmPrincipal";
+         //   this.Name = "frmPrincipal";
             this.Text = "Clinical Alert";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

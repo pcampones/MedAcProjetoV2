@@ -14,17 +14,8 @@ namespace ClassLibraryMedAc
     
     public partial class Alertas
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Alertas()
-        {
-            this.Valores = new HashSet<Valores>();
-        }
-    
         public int Id { get; set; }
         public string Tipo { get; set; }
         public System.DateTime Data { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Valores> Valores { get; set; }
     }
 }

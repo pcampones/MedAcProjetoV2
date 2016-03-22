@@ -15,12 +15,12 @@ namespace ClassLibraryMedAc
     public partial class Valores
     {
         public int Id { get; set; }
-        public int BloodPressure { get; set; }
+        public int BloodPressureMin { get; set; }
         public int HeartRate { get; set; }
         public int OxygenSaturation { get; set; }
         public System.DateTime DataOfRegist { get; set; }
+        public int BloodPressureMax { get; set; }
     
         public virtual Utente Utente { get; set; }
-        public virtual Alertas Alertas { get; set; }
     }
 }

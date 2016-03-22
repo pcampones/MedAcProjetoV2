@@ -26,6 +26,9 @@ namespace ServiceLayer
         List<UtenteWeb> GetListaUtentes();
 
         [OperationContract]
+        List<ValoresWeb> GetValuesbySNS(int sns);
+
+        [OperationContract]
         void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate,int oxygenSatu, DateTime data );
 
         
@@ -194,7 +197,7 @@ namespace ServiceLayer
         public int BloodPressureMax
         {
             get { return bloodPressureMax; }
-            set { bloodPressureMin = value; }
+            set { bloodPressureMax = value; }
         }
 
         [DataMember]

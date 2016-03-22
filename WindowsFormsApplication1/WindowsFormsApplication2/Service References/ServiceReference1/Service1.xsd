@@ -53,4 +53,35 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetValuesbySNS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetValuesbySNSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetValuesbySNSResult" nillable="true" type="q5:ArrayOfValoresWeb" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddValues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+        <xs:element minOccurs="0" name="bloodPressureMin" type="xs:int" />
+        <xs:element minOccurs="0" name="bloodPressureMax" type="xs:int" />
+        <xs:element minOccurs="0" name="heartRate" type="xs:int" />
+        <xs:element minOccurs="0" name="oxygenSatu" type="xs:int" />
+        <xs:element minOccurs="0" name="data" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddValuesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

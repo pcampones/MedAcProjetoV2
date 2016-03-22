@@ -104,6 +104,21 @@ namespace ClassLibraryMedAc
          
         }
 
+        public List<Valores> getValuesbySNS(int sns)
+        {
+            try
+            {
+                var listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns)).ToList();
+
+                return listaVa;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
         public void addVallues(Valores valores)
         {
             try

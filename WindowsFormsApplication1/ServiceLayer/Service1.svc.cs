@@ -164,8 +164,26 @@ namespace ServiceLayer
                 _acederBd.addVallues(valores);
 
             }
+        }
 
+        public List<ValoresWeb> GetValuesbySNS(int sns)
+        {
 
+            List<Valores> lista = _acederBd.getValuesbySNS(sns);
+            List<ValoresWeb> listaWeb = new List<ValoresWeb>();
+
+            foreach (Valores item in lista)
+            {
+                ValoresWeb valWeb = new ValoresWeb();
+                valWeb.BloodPressureMax  = item.BloodPressureMax;
+                valWeb.BloodPressureMin = item.BloodPressureMin;
+                valWeb.HeartRate = item.HeartRate;
+                valWeb.OxigenSat = item.OxygenSaturation;
+                valWeb.DataOfReposit = item.DataOfRegist;
+
+                listaWeb.Add(valWeb);
+            }
+            return listaWeb;
         }
     }
 }

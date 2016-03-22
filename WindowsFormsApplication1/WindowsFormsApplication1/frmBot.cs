@@ -20,7 +20,7 @@ namespace BOT
     public partial class Form1 : Form
     {
 
-        //dssdskfdn nkekj
+        //dssdskfdn nkekj aaaaa
         private Service1Client serv;
         PhysiologicParametersDll.PhysiologicParametersDll dll = null;
         PhysiologicParametersDll.PhysiologicParametersDll dllC = null;
@@ -306,7 +306,44 @@ namespace BOT
 }
         }
 
-        private void bt_procurar_Click(object sender, EventArgs e)
+
+        private void Client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            string content = e.Result;
+            MessageBox.Show(content);
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(content);
+            doc.Save("temp.xml");
+
+            List<SearchTerm> results = new List<SearchTerm>();
+
+            XmlNodeList documentsNode = doc.SelectNodes("nlmSearchResult/list/document");
+
+            foreach (XmlNode xmlNode in documentsNode)
+            {
+                SearchTerm searchTerm = new SearchTerm();
+                searchTerm.Rank = Convert.ToInt32(xmlNode.SelectSingleNode("./@rank").InnerText);
+                searchTerm.Title = xmlNode.SelectSingleNode("./content[@name='title']").InnerText;
+                searchTerm.OrganizationName = xmlNode.SelectSingleNode("./content[@name='organizationName']").InnerText;
+
+                XmlNodeList altList = xmlNode.SelectNodes("./content[@name='altTitle']");
+
+                foreach (XmlNode alttitle in altList)
+                {
+                    searchTerm.AltTitles.Add(alttitle.InnerText);
+                }
+
+                searchTerm.FullSummary = xmlNode.SelectSingleNode("./content[@name='FullSummary']").InnerText;
+
+                results.Add(searchTerm);
+            }
+            FillListView(results);
+
+        }
+
+        private void bt_searcg_Click(object sender, EventArgs e)
         {
             string url = Properties.Settings.Default.Medline;
             int retmax = Properties.Settings.Default.Retmax;
@@ -318,13 +355,13 @@ namespace BOT
             client.DownloadStringAsync(new Uri(urlComp));
             client.DownloadStringCompleted += Client_DownloadStringCompleted;
 
-        //    serv = new Service1Client();
+            //    serv = new Service1Client();
 
-            
 
-            
 
-            
+
+
+
 
             //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
 
@@ -358,45 +395,6 @@ namespace BOT
             listView1.Columns.Add("Organization Name", 150, HorizontalAlignment.Left);
             listView1.Columns.Add("Alternative Names", 150, HorizontalAlignment.Left);
             listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
-
-
-      
-            }
-
-        private void Client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
-        {
-            string content = e.Result;
-            MessageBox.Show(content);
-
-            XmlDocument doc = new XmlDocument();
-
-            doc.LoadXml(content);
-            doc.Save("temp.xml");
-            //a
-            List<SearchTerm> results = new List<SearchTerm>();
-
-            XmlNodeList documentsNode = doc.SelectNodes("nlmSearchResult/list/document");
-
-            foreach (XmlNode xmlNode in documentsNode)
-            {
-                SearchTerm searchTerm = new SearchTerm();
-                searchTerm.Rank = Convert.ToInt32(xmlNode.SelectSingleNode("./@rank").InnerText);
-                searchTerm.Title = xmlNode.SelectSingleNode("./content[@name='title']").InnerText;
-                searchTerm.OrganizationName = xmlNode.SelectSingleNode("./content[@name='organizationName']").InnerText;
-
-                XmlNodeList altList = xmlNode.SelectNodes("./content[@name='altTitle']");
-
-                foreach (XmlNode alttitle in altList)
-                {
-                    searchTerm.AltTitles.Add(alttitle.InnerText);
-                }
-
-                searchTerm.FullSummary = xmlNode.SelectSingleNode("./content[@name='FullSummary']").InnerText;
-
-                results.Add(searchTerm);
-            }
-            FillListView(results);
-
         }
 
         ////private void listView1_DoubleClick(object sender, EventArgs e)

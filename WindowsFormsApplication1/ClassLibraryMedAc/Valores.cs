@@ -22,5 +22,6 @@ namespace ClassLibraryMedAc
         public int BloodPressureMax { get; set; }
     
         public virtual Utente Utente { get; set; }
+        public virtual Alertas Alertas { get; set; }
     }
 }

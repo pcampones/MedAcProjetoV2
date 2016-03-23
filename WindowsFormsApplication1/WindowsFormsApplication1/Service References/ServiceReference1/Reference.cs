@@ -282,6 +282,131 @@ namespace BOT.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ValoresWeb", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.SerializableAttribute()]
+    public partial class ValoresWeb : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int bloodPressureMaxField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int bloodPressureMinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dataOfRepositField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int heartRateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int oxigenSatField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int snsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int bloodPressureMax {
+            get {
+                return this.bloodPressureMaxField;
+            }
+            set {
+                if ((this.bloodPressureMaxField.Equals(value) != true)) {
+                    this.bloodPressureMaxField = value;
+                    this.RaisePropertyChanged("bloodPressureMax");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int bloodPressureMin {
+            get {
+                return this.bloodPressureMinField;
+            }
+            set {
+                if ((this.bloodPressureMinField.Equals(value) != true)) {
+                    this.bloodPressureMinField = value;
+                    this.RaisePropertyChanged("bloodPressureMin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime dataOfReposit {
+            get {
+                return this.dataOfRepositField;
+            }
+            set {
+                if ((this.dataOfRepositField.Equals(value) != true)) {
+                    this.dataOfRepositField = value;
+                    this.RaisePropertyChanged("dataOfReposit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int heartRate {
+            get {
+                return this.heartRateField;
+            }
+            set {
+                if ((this.heartRateField.Equals(value) != true)) {
+                    this.heartRateField = value;
+                    this.RaisePropertyChanged("heartRate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int oxigenSat {
+            get {
+                return this.oxigenSatField;
+            }
+            set {
+                if ((this.oxigenSatField.Equals(value) != true)) {
+                    this.oxigenSatField = value;
+                    this.RaisePropertyChanged("oxigenSat");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int sns {
+            get {
+                return this.snsField;
+            }
+            set {
+                if ((this.snsField.Equals(value) != true)) {
+                    this.snsField = value;
+                    this.RaisePropertyChanged("sns");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -310,11 +435,17 @@ namespace BOT.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetListaUtentes", ReplyAction="http://tempuri.org/IService1/GetListaUtentesResponse")]
         System.Threading.Tasks.Task<BOT.ServiceReference1.UtenteWeb[]> GetListaUtentesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
-        void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesbySNS", ReplyAction="http://tempuri.org/IService1/GetValuesbySNSResponse")]
+        BOT.ServiceReference1.ValoresWeb[] GetValuesbySNS(int sns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesbySNS", ReplyAction="http://tempuri.org/IService1/GetValuesbySNSResponse")]
+        System.Threading.Tasks.Task<BOT.ServiceReference1.ValoresWeb[]> GetValuesbySNSAsync(int sns);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
-        System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data);
+        void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
+        System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -376,12 +507,20 @@ namespace BOT.ServiceReference1 {
             return base.Channel.GetListaUtentesAsync();
         }
         
-        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data) {
-            base.Channel.AddValues(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data);
+        public BOT.ServiceReference1.ValoresWeb[] GetValuesbySNS(int sns) {
+            return base.Channel.GetValuesbySNS(sns);
         }
         
-        public System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data) {
-            return base.Channel.AddValuesAsync(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data);
+        public System.Threading.Tasks.Task<BOT.ServiceReference1.ValoresWeb[]> GetValuesbySNSAsync(int sns) {
+            return base.Channel.GetValuesbySNSAsync(sns);
+        }
+        
+        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal) {
+            base.Channel.AddValues(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data, tempoTotal);
+        }
+        
+        public System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal) {
+            return base.Channel.AddValuesAsync(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data, tempoTotal);
         }
     }
 }

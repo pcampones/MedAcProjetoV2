@@ -13,6 +13,10 @@
       <End Role="Utente" EntitySet="UtenteSet" />
       <End Role="Valores" EntitySet="ValoresSet" />
     </AssociationSet>
+    <AssociationSet Name="ValoresAlertas" Association="ModelMedAc.Store.ValoresAlertas">
+      <End Role="Valores" EntitySet="ValoresSet" />
+      <End Role="Alertas" EntitySet="AlertasSet" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="UtenteSet">
     <Key>
@@ -46,6 +50,7 @@
     <Property Name="DataOfRegist" Type="datetime" Nullable="false" />
     <Property Name="BloodPressureMax" Type="int" Nullable="false" />
     <Property Name="Utente_Id" Type="int" Nullable="false" />
+    <Property Name="Alertas_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="AlertasSet">
     <Key>
@@ -67,6 +72,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="ValoresAlertas">
+    <End Role="Valores" Type="ModelMedAc.Store.ValoresSet" Multiplicity="*" />
+    <End Role="Alertas" Type="ModelMedAc.Store.AlertasSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Alertas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Valores">
+        <PropertyRef Name="Alertas_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -79,28 +96,32 @@
             <End Role="Utente" EntitySet="UtenteSet" />
             <End Role="Valores" EntitySet="ValoresSet" />
           </AssociationSet>
+          <AssociationSet Name="ValoresAlertas" Association="ModelMedAc.ValoresAlertas">
+            <End Role="Valores" EntitySet="ValoresSet" />
+            <End Role="Alertas" EntitySet="AlertasSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Utente">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Surname" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Phone" Type="Int32" Nullable="false" />
-          <Property Name="Mail" Type="String" Nullable="false" />
-          <Property Name="Birthdate" Type="DateTime" Nullable="false" />
+          <Property Name="Mail" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="BI" Type="Int32" Nullable="false" />
           <Property Name="SNS" Type="Int32" Nullable="false" />
-          <Property Name="Address" Type="String" Nullable="false" />
-          <Property Name="Gender" Type="String" Nullable="false" />
-          <Property Name="Alergies" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Alergies" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Height" Type="Int32" Nullable="false" />
           <Property Name="NexOfKinContat" Type="Int32" Nullable="false" />
           <Property Name="Weight" Type="Int32" Nullable="false" />
           <Property Name="Age" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Valores" Relationship="ModelMedAc.UtenteValores" FromRole="Utente" ToRole="Valores" />
-          <Property Name="Ative" Type="String" Nullable="false" />
+          <Property Name="Ative" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="Valores">
           <Key>
@@ -111,20 +132,26 @@
           <Property Name="HeartRate" Type="Int32" Nullable="false" />
           <Property Name="OxygenSaturation" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteValores" FromRole="Valores" ToRole="Utente" />
-          <Property Name="DataOfRegist" Type="DateTime" Nullable="false" />
+          <Property Name="DataOfRegist" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="BloodPressureMax" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Alertas" Relationship="ModelMedAc.ValoresAlertas" FromRole="Valores" ToRole="Alertas" />
         </EntityType>
         <EntityType Name="Alertas">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Tipo" Type="String" Nullable="false" />
-          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Valores" Relationship="ModelMedAc.ValoresAlertas" FromRole="Alertas" ToRole="Valores" />
         </EntityType>
         <Association Name="UtenteValores">
           <End Type="ModelMedAc.Utente" Role="Utente" Multiplicity="1" />
           <End Type="ModelMedAc.Valores" Role="Valores" Multiplicity="*" />
+        </Association>
+        <Association Name="ValoresAlertas">
+          <End Type="ModelMedAc.Valores" Role="Valores" Multiplicity="*" />
+          <End Type="ModelMedAc.Alertas" Role="Alertas" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -183,6 +210,14 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
+    <AssociationSetMapping Name="ValoresAlertas" TypeName="ModelMedAc.ValoresAlertas" StoreEntitySet="ValoresSet">
+      <EndProperty Name="Alertas">
+        <ScalarProperty Name="Id" ColumnName="Alertas_Id" />
+      </EndProperty>
+      <EndProperty Name="Valores">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -199,6 +234,7 @@
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
         <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

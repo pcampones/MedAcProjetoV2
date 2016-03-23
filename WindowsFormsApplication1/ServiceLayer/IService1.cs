@@ -30,9 +30,10 @@ namespace ServiceLayer
 
         [OperationContract]
         void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate,int oxygenSatu, DateTime data, int tempoTotal);
+        [OperationContract]
+        List<AlertasWeb> GetValuesAlertsbySns(int sns);
 
-      
-        
+
         // TODO: Add your service operations here
     }
 
@@ -237,9 +238,9 @@ namespace ServiceLayer
     public class AlertasWeb
     {
         [DataMember]
-        private int tipo;
+        private string tipo;
 
-        public int Tipo
+        public string Tipo
         {
             get { return tipo; }
             set { tipo = value; }

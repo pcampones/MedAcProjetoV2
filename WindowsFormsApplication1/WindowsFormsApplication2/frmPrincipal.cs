@@ -33,7 +33,11 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             ativeCheckBox.Checked = true;
             panelDiarioValores.Visible = false;
+            listView1.View = View.Details;
+            listView1.FullRowSelect = true;
 
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             List<UtenteWeb> listaUtente = serv.GetListaUtentes().ToList();
 
             foreach (UtenteWeb item in listaUtente)
@@ -41,10 +45,18 @@ namespace ClinicalAlert
                 ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
                 linha.SubItems.Add(item.name + " " + item.surname);
                 listView1.Items.Add(linha);
+    
             }
 
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            foreach (UtenteWeb item in listaUtente)
+            {
+                ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
+                linha.SubItems.Add(item.name + " " + item.surname);
+              
+                listView2.Items.Add(linha);
+            }
+
 
 
             // listBox_utentes.DisplayMember = "Name";
@@ -59,6 +71,7 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = false;
 
+            panelAlerts.Visible = false;
         }
 
         private void Edit_Click(object sender, EventArgs e)
@@ -68,6 +81,7 @@ namespace ClinicalAlert
             panel_Adicionar.Visible = false;
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = false;
+            panelAlerts.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -258,6 +272,7 @@ namespace ClinicalAlert
             panel_Adicionar.Visible = false;
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = true;
+            panelAlerts.Visible = false;
 
             List<ValoresWeb> valor = serv.GetValuesbySNS(sns).ToList();
 
@@ -329,13 +344,14 @@ namespace ClinicalAlert
             panelPrincipal.Visible = true;
             panel_Adicionar.Visible = false;
             panelGraficos.Visible = false;
+            panelAlerts.Visible = false;
             panelDiarioValores.Visible = false;
         }
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
              sns = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index].SubItems[0].Text);
-
+         
             UtenteWeb u = serv.GetUtenteBySNS(sns);
 
             if (u != null)
@@ -383,6 +399,36 @@ namespace ClinicalAlert
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void Alerts_Click(object sender, EventArgs e)
+        {
+            panel_Adicionar.Visible = false;
+            panelPrincipal.Visible = false;
+            panelEdit.Visible = false;
+            panelGraficos.Visible = false;
+            panelDiarioValores.Visible = false;
+            panelAlerts.Visible = true;
+            List<AlertasWeb> valor = serv.GetValuesAlertsbySns(sns).ToList();
+
+            foreach (AlertasWeb item in valor)
+            {
+                dataGridView2.Rows.Add(item.dataAlerta, item.tipo);
+                   
+            }
+
+
+
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sns = Convert.ToInt32(listView1.Items[listView2.FocusedItem.Index].SubItems[0].Text);
+        }
+
+        private void panelAlerts_Paint(object sender, PaintEventArgs e)
         {
 
         }

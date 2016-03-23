@@ -407,6 +407,67 @@ namespace ClinicalAlert.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlertasWeb", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.SerializableAttribute()]
+    public partial class AlertasWeb : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dataAlertaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tipoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime dataAlerta {
+            get {
+                return this.dataAlertaField;
+            }
+            set {
+                if ((this.dataAlertaField.Equals(value) != true)) {
+                    this.dataAlertaField = value;
+                    this.RaisePropertyChanged("dataAlerta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string tipo {
+            get {
+                return this.tipoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tipoField, value) != true)) {
+                    this.tipoField = value;
+                    this.RaisePropertyChanged("tipo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -442,10 +503,16 @@ namespace ClinicalAlert.ServiceReference1 {
         System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetValuesbySNSAsync(int sns);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
-        void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data);
+        void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
-        System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data);
+        System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesAlertsbySns", ReplyAction="http://tempuri.org/IService1/GetValuesAlertsbySnsResponse")]
+        ClinicalAlert.ServiceReference1.AlertasWeb[] GetValuesAlertsbySns(int sns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesAlertsbySns", ReplyAction="http://tempuri.org/IService1/GetValuesAlertsbySnsResponse")]
+        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetValuesAlertsbySnsAsync(int sns);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -515,12 +582,20 @@ namespace ClinicalAlert.ServiceReference1 {
             return base.Channel.GetValuesbySNSAsync(sns);
         }
         
-        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data) {
-            base.Channel.AddValues(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data);
+        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal) {
+            base.Channel.AddValues(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data, tempoTotal);
         }
         
-        public System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data) {
-            return base.Channel.AddValuesAsync(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data);
+        public System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal) {
+            return base.Channel.AddValuesAsync(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data, tempoTotal);
+        }
+        
+        public ClinicalAlert.ServiceReference1.AlertasWeb[] GetValuesAlertsbySns(int sns) {
+            return base.Channel.GetValuesAlertsbySns(sns);
+        }
+        
+        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetValuesAlertsbySnsAsync(int sns) {
+            return base.Channel.GetValuesAlertsbySnsAsync(sns);
         }
     }
 }

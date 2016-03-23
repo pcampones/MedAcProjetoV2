@@ -215,6 +215,32 @@ namespace ServiceLayer
             return listaWeb;
         }
 
+
+        public List<AlertasWeb> GetValuesAlertsbySns(int sns)
+        {
+
+            try
+            {
+                List<Valores> valores = _acederBd.getValuesbySNS(sns);
+                List<AlertasWeb> valor = new List<AlertasWeb>();
+
+                foreach (Valores item in valores)
+                {
+                    AlertasWeb valorWeb = new AlertasWeb();
+
+                    valorWeb.Tipo = item.Alertas.Tipo;
+                    valorWeb.DataAlerta = item.Alertas.Data;
+                    valor.Add(valorWeb);
+                }
+                return valor;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
         //public AlertasWeb alert(int sns,int bloodPressureMin, int bloodPressureMax, int heartRate, int oxigenSat)
         //{
         //    AlertasWeb alertas = new AlertasWeb();

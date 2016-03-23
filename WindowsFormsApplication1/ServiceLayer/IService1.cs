@@ -29,8 +29,9 @@ namespace ServiceLayer
         List<ValoresWeb> GetValuesbySNS(int sns);
 
         [OperationContract]
-        void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate,int oxygenSatu, DateTime data );
+        void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate,int oxygenSatu, DateTime data, int tempoTotal);
 
+      
         
         // TODO: Add your service operations here
     }
@@ -229,5 +230,29 @@ namespace ServiceLayer
             set { dataOfReposit = value; }
         }
 
+    }
+
+    [DataContract]
+
+    public class AlertasWeb
+    {
+        [DataMember]
+        private int tipo;
+
+        public int Tipo
+        {
+            get { return tipo; }
+            set { tipo = value; }
+        }
+
+        [DataMember]
+
+        private DateTime dataAlerta;
+
+        public DateTime DataAlerta
+        {
+            get { return dataAlerta; }
+            set { dataAlerta = value; }
+        }
     }
 }

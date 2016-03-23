@@ -72,17 +72,16 @@
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-           // this.panelMedical = new System.Windows.Forms.Panel();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.bt_searcg = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.bt_searcg = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -95,7 +94,6 @@
             this.panelMe.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-//            this.panelMedical.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,7 +175,6 @@
             this.panelDataAcquisition.Controls.Add(this.groupBox3);
             this.panelDataAcquisition.Controls.Add(this.groupBox2);
             this.panelDataAcquisition.Controls.Add(this.groupBox1);
-//            this.panelDataAcquisition.Controls.Add(this.panelMedical);
             this.panelDataAcquisition.Location = new System.Drawing.Point(3, 25);
             this.panelDataAcquisition.Name = "panelDataAcquisition";
             this.panelDataAcquisition.Size = new System.Drawing.Size(625, 443);
@@ -204,7 +201,7 @@
             this.launchAlertsButton.TabIndex = 39;
             this.launchAlertsButton.Text = "Launch Alerts";
             this.launchAlertsButton.UseVisualStyleBackColor = true;
-            this.launchAlertsButton.Click += new System.EventHandler(this.launchAlertsButton_Click_1);
+            this.launchAlertsButton.Click += new System.EventHandler(this.launchAlertsButton_Click);
             // 
             // stop
             // 
@@ -214,6 +211,7 @@
             this.stop.TabIndex = 38;
             this.stop.Text = "Stop";
             this.stop.UseVisualStyleBackColor = true;
+            this.stop.Click += new System.EventHandler(this.stop_Click);
             // 
             // initDLL
             // 
@@ -223,6 +221,7 @@
             this.initDLL.TabIndex = 37;
             this.initDLL.Text = "Initialize DLL";
             this.initDLL.UseVisualStyleBackColor = true;
+            this.initDLL.Click += new System.EventHandler(this.initDLL_Click);
             // 
             // groupBox2
             // 
@@ -549,51 +548,6 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Welcome";
             // 
-            // panelMedical
-            // 
-            //this.panelMedical.Controls.Add(this.listView2);
-            //this.panelMedical.Controls.Add(this.bt_searcg);
-            //this.panelMedical.Controls.Add(this.label12);
-            //this.panelMedical.Controls.Add(this.textBox4);
-            //this.panelMedical.Location = new System.Drawing.Point(0, 0);
-            //this.panelMedical.Name = "panelMedical";
-            //this.panelMedical.Size = new System.Drawing.Size(628, 437);
-            //this.panelMedical.TabIndex = 3;
-            // 
-            // listView2
-            // 
-            this.listView2.Location = new System.Drawing.Point(30, 78);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(559, 305);
-            this.listView2.TabIndex = 3;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            // 
-            // bt_searcg
-            // 
-            this.bt_searcg.Location = new System.Drawing.Point(206, 19);
-            this.bt_searcg.Name = "bt_searcg";
-            this.bt_searcg.Size = new System.Drawing.Size(75, 23);
-            this.bt_searcg.TabIndex = 2;
-            this.bt_searcg.Text = "Search";
-            this.bt_searcg.UseVisualStyleBackColor = true;
-            this.bt_searcg.Click += new System.EventHandler(this.bt_searcg_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(27, 29);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Term:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(87, 23);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 0;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -650,6 +604,40 @@
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(0, 22);
             // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(30, 78);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(559, 305);
+            this.listView2.TabIndex = 3;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            // 
+            // bt_searcg
+            // 
+            this.bt_searcg.Location = new System.Drawing.Point(206, 19);
+            this.bt_searcg.Name = "bt_searcg";
+            this.bt_searcg.Size = new System.Drawing.Size(75, 23);
+            this.bt_searcg.TabIndex = 2;
+            this.bt_searcg.Text = "Search";
+            this.bt_searcg.UseVisualStyleBackColor = true;
+            this.bt_searcg.Click += new System.EventHandler(this.bt_searcg_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(27, 29);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Term:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(87, 23);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -679,7 +667,6 @@
             this.panelPrincipal.ResumeLayout(false);
             this.panelPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

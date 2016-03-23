@@ -118,6 +118,7 @@ namespace ClassLibraryMedAc
                 return null;
             }
         }
+     
 
         public void addVallues(Valores valores)
         {
@@ -130,6 +131,34 @@ namespace ClassLibraryMedAc
             {
 
                 throw ex;
+            }
+        }
+        public void addValluesAlerts(Alertas valores)
+        {
+            try
+            {
+                context.AlertasSet.Add(valores);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public Alertas getAlertaById(int id)
+        {
+            try
+            {
+                var result = context.AlertasSet.Where(i => i.Id == id).FirstOrDefault();
+                return result;
+
+            }
+            catch (Exception)
+            {
+
+                return null;
             }
         }
     }

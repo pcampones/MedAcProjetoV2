@@ -67,7 +67,7 @@ namespace ServiceLayer
             newUtente.Ative = utente.Ative;
 
             _acederBd.addUtente(newUtente);
-            
+
 
         }
 
@@ -92,7 +92,7 @@ namespace ServiceLayer
                 result.Weight = utente.Weight;
                 result.Age = utente.Age;
                 result.Ative = utente.Ative;
-      
+
                 _acederBd.editUtente(result);
                 return true;
             }
@@ -101,7 +101,7 @@ namespace ServiceLayer
 
                 return false;
             }
-         
+
 
 
         }
@@ -113,7 +113,7 @@ namespace ServiceLayer
                 List<UtenteWeb> listaWebSer = new List<UtenteWeb>();
                 List<Utente> result = _acederBd.getListUtentesAtive();
 
-                if(result != null)
+                if (result != null)
                 {
                     foreach (Utente item in result)
                     {
@@ -132,11 +132,11 @@ namespace ServiceLayer
                         u.Weight = item.Weight;
                         u.Age = item.Age;
                         u.Ative = item.Ative;
-                        
+
                         listaWebSer.Add(u);
 
                     }
-            
+
                 }
                 return listaWebSer;
             }
@@ -147,9 +147,11 @@ namespace ServiceLayer
             }
         }
 
-        public void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate, int oxygenSatu, DateTime data)
+        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, DateTime data, int tempoTotal)
         {
             Valores valores = new Valores();
+
+            Alertas alertas = new Alertas();
             Utente utente = _acederBd.getUtenteBySNS(sns);
 
             if (utente != null)
@@ -160,10 +162,37 @@ namespace ServiceLayer
                 valores.OxygenSaturation = oxygenSatu;
                 valores.HeartRate = heartRate;
                 valores.DataOfRegist = data;
-               // valores.Alertas =  1;
-                _acederBd.addVallues(valores);
+
+
+                if (valores.BloodPressureMin < 60 || valores.HeartRate < 80 ||
+                valores.OxygenSaturation < 30 && valores.OxygenSaturation > 180)
+                {
+                    alertas.Tipo = "Critico Anytime";
+                    alertas.Data = valores.DataOfRegist;
+
+                }
+                else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 && tempoTotal >= 10 ||
+                  valores.HeartRate <= 90 && tempoTotal >= 10)
+                {
+                    alertas.Tipo = "Aviso Continuo";
+                    alertas.Data = valores.DataOfRegist;
+
+                }
+                else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 && tempoTotal >= 60 ||
+               valores.HeartRate <= 90 && tempoTotal >= 60 || 
+               valores.OxygenSaturation >=120 && valores.OxygenSaturation <= 60 && tempoTotal >= 60 )
+                {
+                    alertas.Tipo = "Critico Continuo";
+                    alertas.Data = valores.DataOfRegist;
+
+                }
+
+                _acederBd.addValluesAlerts(alertas);
+                valores.Alertas = alertas;
+               
 
             }
+            _acederBd.addVallues(valores);
         }
 
         public List<ValoresWeb> GetValuesbySNS(int sns)
@@ -175,7 +204,7 @@ namespace ServiceLayer
             foreach (Valores item in lista)
             {
                 ValoresWeb valWeb = new ValoresWeb();
-                valWeb.BloodPressureMax  = item.BloodPressureMax;
+                valWeb.BloodPressureMax = item.BloodPressureMax;
                 valWeb.BloodPressureMin = item.BloodPressureMin;
                 valWeb.HeartRate = item.HeartRate;
                 valWeb.OxigenSat = item.OxygenSaturation;
@@ -185,5 +214,27 @@ namespace ServiceLayer
             }
             return listaWeb;
         }
+
+        //public AlertasWeb alert(int sns,int bloodPressureMin, int bloodPressureMax, int heartRate, int oxigenSat)
+        //{
+        //    AlertasWeb alertas = new AlertasWeb();
+        // //   Valores item = new Valores();
+        //    List<Valores> valores = _acederBd.getValuesbySNS(sns);
+
+        //    foreach (var item in valores)
+
+        //        if (item.BloodPressureMin <= bloodPressureMin || item.HeartRate <= heartRate || item.OxygenSaturation <= oxigenSat && item.OxygenSaturation >= oxigenSat)
+        //        {
+        //            alertas.DataAlerta = item.DataOfRegist;
+        //            alertas.Tipo = Convert.ToInt32("C.A");
+
+        //        }
+
+
+
+        //    return alertas;
+        //}
+
+
     }
 }

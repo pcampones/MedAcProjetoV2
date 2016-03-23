@@ -37,6 +37,9 @@ namespace BOT
 
         private int sns;
 
+        System.Diagnostics.Stopwatch tempoInicio;
+
+        int tempoTotal;
         public Form1()
         {
             InitializeComponent();
@@ -46,6 +49,7 @@ namespace BOT
             //panelMedical.Visible = false;
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
+         
 
         }
 
@@ -321,11 +325,15 @@ namespace BOT
         private void stop_Click(object sender, EventArgs e)
         {
             dll.Stop();
+            tempoInicio.Stop();
+            tempoTotal= tempoInicio.Elapsed.Minutes;
         }
 
         private void initDLL_Click(object sender, EventArgs e)
         {
+            tempoInicio = System.Diagnostics.Stopwatch.StartNew();
             dll = new PhysiologicParametersDll.PhysiologicParametersDll();
+            
 
             bw.RunWorkerAsync();
         }
@@ -390,14 +398,14 @@ namespace BOT
               
                     serv.AddValues(Settings.Default.SNS,Convert.ToInt32( bloodPressureMinLbl.Text),
                         Convert.ToInt32(bloodPressureMaxLbl.Text)
-                     , 0, 0, DateTime.Parse(label16.Text));
+                     , 0, 0, DateTime.Parse(label16.Text), tempoTotal);
                 }
                 else if (valor[0].Equals("HR"))
                 {
                     heartRateLbl.Text = valor[1];
                     label15.Text = valor[2];
                     serv.AddValues(Settings.Default.SNS,0,
-                      0, Convert.ToInt32(heartRateLbl.Text), 0, Convert.ToDateTime(label15.Text));
+                      0, Convert.ToInt32(heartRateLbl.Text), 0, Convert.ToDateTime(label15.Text), tempoTotal);
 
                 }
                 else if (valor[0].Equals("SPO2"))
@@ -405,7 +413,7 @@ namespace BOT
                     oxigenPressureLbl.Text = valor[1];
                     label17.Text = valor[2];
                     serv.AddValues(Settings.Default.SNS,0,
-                     0, 0, Convert.ToInt32(oxigenPressureLbl.Text), Convert.ToDateTime(label17.Text));
+                     0, 0, Convert.ToInt32(oxigenPressureLbl.Text), Convert.ToDateTime(label17.Text),tempoTotal);
 
                 }
               
@@ -419,10 +427,9 @@ namespace BOT
 
         }
 
-        private void launchAlertsButton_Click_1(object sender, EventArgs e)
-        {
+       
 
-        }
+     
     }
 
     }

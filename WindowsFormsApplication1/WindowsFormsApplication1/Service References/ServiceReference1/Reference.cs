@@ -420,6 +420,9 @@ namespace BOT.ServiceReference1 {
         private System.DateTime dataAlertaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool readField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string tipoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -441,6 +444,19 @@ namespace BOT.ServiceReference1 {
                 if ((this.dataAlertaField.Equals(value) != true)) {
                     this.dataAlertaField = value;
                     this.RaisePropertyChanged("dataAlerta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool read {
+            get {
+                return this.readField;
+            }
+            set {
+                if ((this.readField.Equals(value) != true)) {
+                    this.readField = value;
+                    this.RaisePropertyChanged("read");
                 }
             }
         }

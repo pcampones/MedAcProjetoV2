@@ -168,14 +168,14 @@ namespace ServiceLayer
                 valores.OxygenSaturation < 30 && valores.OxygenSaturation > 180)
                 {
                     alertas.Tipo = "Critico Anytime";
-                    alertas.Data = valores.DataOfRegist;
+                  
 
                 }
                 else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 && tempoTotal >= 10 ||
                   valores.HeartRate <= 90 && tempoTotal >= 10)
                 {
                     alertas.Tipo = "Aviso Continuo";
-                    alertas.Data = valores.DataOfRegist;
+                   
 
                 }
                 else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 && tempoTotal >= 60 ||
@@ -183,10 +183,12 @@ namespace ServiceLayer
                valores.OxygenSaturation >=120 && valores.OxygenSaturation <= 60 && tempoTotal >= 60 )
                 {
                     alertas.Tipo = "Critico Continuo";
-                    alertas.Data = valores.DataOfRegist;
+         
 
                 }
 
+                alertas.Data = valores.DataOfRegist;
+                alertas.Read = false;
                 _acederBd.addValluesAlerts(alertas);
                 valores.Alertas = alertas;
                
@@ -230,6 +232,7 @@ namespace ServiceLayer
 
                     valorWeb.Tipo = item.Alertas.Tipo;
                     valorWeb.DataAlerta = item.Alertas.Data;
+                    valorWeb.Read = item.Alertas.Read;
                     valor.Add(valorWeb);
                 }
                 return valor;

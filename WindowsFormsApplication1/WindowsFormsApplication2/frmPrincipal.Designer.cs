@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
@@ -40,6 +40,19 @@
             this.Graficos = new System.Windows.Forms.ToolStripButton();
             this.Reports = new System.Windows.Forms.ToolStripButton();
             this.diarioValores = new System.Windows.Forms.ToolStripButton();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panelAlerts = new System.Windows.Forms.Panel();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.columnSns = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel_Adicionar = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -122,27 +135,20 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsl_nameUtente = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.panelAlerts = new System.Windows.Forms.Panel();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.columnSns = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.ColumnRead = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.panelPrincipal.SuspendLayout();
+            this.panelAlerts.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox7.SuspendLayout();
             this.panel_Adicionar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -159,12 +165,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.panelPrincipal.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            this.panelAlerts.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -282,12 +283,114 @@
             this.diarioValores.Text = "Diario de Valores";
             this.diarioValores.Click += new System.EventHandler(this.diarioValores_Click);
             // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Controls.Add(this.listView1);
+            this.panelPrincipal.Location = new System.Drawing.Point(2, 32);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(570, 398);
+            this.panelPrincipal.TabIndex = 41;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader1});
+            this.listView1.Location = new System.Drawing.Point(15, 14);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(171, 369);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "SNS";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            // 
+            // panelAlerts
+            // 
+            this.panelAlerts.Controls.Add(this.groupBox8);
+            this.panelAlerts.Controls.Add(this.groupBox7);
+            this.panelAlerts.Location = new System.Drawing.Point(5, 34);
+            this.panelAlerts.Name = "panelAlerts";
+            this.panelAlerts.Size = new System.Drawing.Size(562, 398);
+            this.panelAlerts.TabIndex = 2;
+            this.panelAlerts.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAlerts_Paint);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.dataGridView2);
+            this.groupBox8.Location = new System.Drawing.Point(216, 23);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(278, 368);
+            this.groupBox8.TabIndex = 2;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Alerts";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnData,
+            this.ColumnType,
+            this.ColumnRead});
+            this.dataGridView2.Location = new System.Drawing.Point(0, 14);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(270, 345);
+            this.dataGridView2.TabIndex = 1;
+            // 
+            // ColumnData
+            // 
+            this.ColumnData.HeaderText = "Date";
+            this.ColumnData.Name = "ColumnData";
+            // 
+            // ColumnType
+            // 
+            this.ColumnType.HeaderText = "Type";
+            this.ColumnType.Name = "ColumnType";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.listView2);
+            this.groupBox7.Location = new System.Drawing.Point(9, 18);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(201, 370);
+            this.groupBox7.TabIndex = 0;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "List Patients";
+            // 
+            // listView2
+            // 
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnSns,
+            this.columnName});
+            this.listView2.Location = new System.Drawing.Point(11, 22);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(186, 342);
+            this.listView2.TabIndex = 1;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+            // 
+            // columnSns
+            // 
+            this.columnSns.Text = "SNS";
+            // 
+            // columnName
+            // 
+            this.columnName.Text = "Name";
+            // 
             // panel_Adicionar
             // 
             this.panel_Adicionar.Controls.Add(this.groupBox1);
-            this.panel_Adicionar.Location = new System.Drawing.Point(0, 28);
+            this.panel_Adicionar.Location = new System.Drawing.Point(6, 31);
             this.panel_Adicionar.Name = "panel_Adicionar";
-            this.panel_Adicionar.Size = new System.Drawing.Size(572, 405);
+            this.panel_Adicionar.Size = new System.Drawing.Size(566, 402);
             this.panel_Adicionar.TabIndex = 1;
             // 
             // groupBox1
@@ -321,9 +424,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Location = new System.Drawing.Point(23, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(557, 395);
+            this.groupBox1.Size = new System.Drawing.Size(530, 377);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Patient";
@@ -587,9 +690,9 @@
             // panelEdit
             // 
             this.panelEdit.Controls.Add(this.groupBox2);
-            this.panelEdit.Location = new System.Drawing.Point(0, 28);
+            this.panelEdit.Location = new System.Drawing.Point(2, 32);
             this.panelEdit.Name = "panelEdit";
-            this.panelEdit.Size = new System.Drawing.Size(575, 405);
+            this.panelEdit.Size = new System.Drawing.Size(573, 401);
             this.panelEdit.TabIndex = 42;
             // 
             // groupBox2
@@ -878,9 +981,9 @@
             // panelDiarioValores
             // 
             this.panelDiarioValores.Controls.Add(this.groupBox6);
-            this.panelDiarioValores.Location = new System.Drawing.Point(3, 28);
+            this.panelDiarioValores.Location = new System.Drawing.Point(-1, 28);
             this.panelDiarioValores.Name = "panelDiarioValores";
-            this.panelDiarioValores.Size = new System.Drawing.Size(572, 410);
+            this.panelDiarioValores.Size = new System.Drawing.Size(576, 410);
             this.panelDiarioValores.TabIndex = 3;
             // 
             // groupBox6
@@ -1041,48 +1144,19 @@
             // 
             // chart1
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(7, 20);
             this.chart1.Name = "chart1";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart1.Series.Add(series5);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(474, 125);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-            // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Controls.Add(this.listView1);
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 35);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(572, 395);
-            this.panelPrincipal.TabIndex = 41;
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader1});
-            this.listView1.Location = new System.Drawing.Point(15, 14);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(171, 369);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "SNS";
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Name";
             // 
             // toolStrip2
             // 
@@ -1110,77 +1184,10 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // panelAlerts
+            // ColumnRead
             // 
-            this.panelAlerts.Controls.Add(this.groupBox8);
-            this.panelAlerts.Controls.Add(this.groupBox7);
-            this.panelAlerts.Location = new System.Drawing.Point(0, 32);
-            this.panelAlerts.Name = "panelAlerts";
-            this.panelAlerts.Size = new System.Drawing.Size(567, 400);
-            this.panelAlerts.TabIndex = 2;
-            this.panelAlerts.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAlerts_Paint);
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.listView2);
-            this.groupBox7.Location = new System.Drawing.Point(9, 18);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(201, 370);
-            this.groupBox7.TabIndex = 0;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "List Patients";
-            // 
-            // listView2
-            // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnSns,
-            this.columnName});
-            this.listView2.Location = new System.Drawing.Point(11, 22);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(186, 342);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
-            // 
-            // columnSns
-            // 
-            this.columnSns.Text = "SNS";
-            // 
-            // columnName
-            // 
-            this.columnName.Text = "Name";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnData,
-            this.ColumnType});
-            this.dataGridView2.Location = new System.Drawing.Point(0, 14);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(270, 345);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // ColumnData
-            // 
-            this.ColumnData.HeaderText = "Date";
-            this.ColumnData.Name = "ColumnData";
-            // 
-            // ColumnType
-            // 
-            this.ColumnType.HeaderText = "Type";
-            this.ColumnType.Name = "ColumnType";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.dataGridView2);
-            this.groupBox8.Location = new System.Drawing.Point(216, 23);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(278, 368);
-            this.groupBox8.TabIndex = 2;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Alerts";
+            this.ColumnRead.HeaderText = "Read";
+            this.ColumnRead.Name = "ColumnRead";
             // 
             // frmPrincipal
             // 
@@ -1198,6 +1205,11 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panelPrincipal.ResumeLayout(false);
+            this.panelAlerts.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox7.ResumeLayout(false);
             this.panel_Adicionar.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -1218,13 +1230,8 @@
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.panelPrincipal.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.panelAlerts.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1337,6 +1344,7 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnData;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRead;
     }
 }
 

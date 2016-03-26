@@ -415,7 +415,21 @@ namespace ClinicalAlert
 
             foreach (AlertasWeb item in valor)
             {
-                dataGridView2.Rows.Add(item.dataAlerta, item.tipo);
+                if (item.read.ToString().Equals("True"))
+                {
+                     
+                    dataGridView2.Rows.Add(item.dataAlerta,item.dataAlerta,item.read);
+                    //  dataGridView2.Rows.Add(item.dataAlerta, item.tipo);
+                }
+                else if (item.read.ToString().Equals("False"))
+                {
+                    DataGridViewTextBoxColumn data = new DataGridViewTextBoxColumn();
+                    data.DataPropertyName = item.read.ToString();
+                    
+                    dataGridView2.Rows.Add(item.dataAlerta, item.dataAlerta, item.read);
+
+                }
+                
                    
             }
 

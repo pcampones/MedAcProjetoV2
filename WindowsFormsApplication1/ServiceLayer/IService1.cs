@@ -255,5 +255,15 @@ namespace ServiceLayer
             get { return dataAlerta; }
             set { dataAlerta = value; }
         }
+
+        [DataMember]
+
+        private bool read;
+
+        public bool Read
+        {
+            get { return read; }
+            set { read = value; }
+        }
     }
 }

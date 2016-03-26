@@ -420,7 +420,7 @@ namespace ClinicalAlert.ServiceReference1 {
         private System.DateTime dataAlertaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool readField;
+        private string readField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string tipoField;
@@ -449,12 +449,12 @@ namespace ClinicalAlert.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool read {
+        public string read {
             get {
                 return this.readField;
             }
             set {
-                if ((this.readField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.readField, value) != true)) {
                     this.readField = value;
                     this.RaisePropertyChanged("read");
                 }
@@ -529,6 +529,12 @@ namespace ClinicalAlert.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesAlertsbySns", ReplyAction="http://tempuri.org/IService1/GetValuesAlertsbySnsResponse")]
         System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetValuesAlertsbySnsAsync(int sns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertNotRead", ReplyAction="http://tempuri.org/IService1/GetAlertNotReadResponse")]
+        ClinicalAlert.ServiceReference1.AlertasWeb[] GetAlertNotRead(int sns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertNotRead", ReplyAction="http://tempuri.org/IService1/GetAlertNotReadResponse")]
+        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetAlertNotReadAsync(int sns);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -612,6 +618,14 @@ namespace ClinicalAlert.ServiceReference1 {
         
         public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetValuesAlertsbySnsAsync(int sns) {
             return base.Channel.GetValuesAlertsbySnsAsync(sns);
+        }
+        
+        public ClinicalAlert.ServiceReference1.AlertasWeb[] GetAlertNotRead(int sns) {
+            return base.Channel.GetAlertNotRead(sns);
+        }
+        
+        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetAlertNotReadAsync(int sns) {
+            return base.Channel.GetAlertNotReadAsync(sns);
         }
     }
 }

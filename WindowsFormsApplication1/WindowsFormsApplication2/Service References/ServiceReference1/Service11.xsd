@@ -52,7 +52,7 @@
   <xs:complexType name="AlertasWeb">
     <xs:sequence>
       <xs:element minOccurs="0" name="dataAlerta" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="read" type="xs:boolean" />
+      <xs:element minOccurs="0" name="read" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

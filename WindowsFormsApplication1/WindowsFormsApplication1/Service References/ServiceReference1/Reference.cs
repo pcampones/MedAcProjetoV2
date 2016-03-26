@@ -298,16 +298,34 @@ namespace BOT.ServiceReference1 {
         private int bloodPressureMinField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dataAlertaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime dataOfRepositField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int heartRateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nomeUtenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int oxigenSatField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string readAlertaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sUtenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int snsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int snsUtenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tipoAlertaField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -346,6 +364,19 @@ namespace BOT.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime dataAlerta {
+            get {
+                return this.dataAlertaField;
+            }
+            set {
+                if ((this.dataAlertaField.Equals(value) != true)) {
+                    this.dataAlertaField = value;
+                    this.RaisePropertyChanged("dataAlerta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime dataOfReposit {
             get {
                 return this.dataOfRepositField;
@@ -372,6 +403,19 @@ namespace BOT.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nomeUtente {
+            get {
+                return this.nomeUtenteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nomeUtenteField, value) != true)) {
+                    this.nomeUtenteField = value;
+                    this.RaisePropertyChanged("nomeUtente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int oxigenSat {
             get {
                 return this.oxigenSatField;
@@ -385,6 +429,32 @@ namespace BOT.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string readAlerta {
+            get {
+                return this.readAlertaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.readAlertaField, value) != true)) {
+                    this.readAlertaField = value;
+                    this.RaisePropertyChanged("readAlerta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sUtente {
+            get {
+                return this.sUtenteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sUtenteField, value) != true)) {
+                    this.sUtenteField = value;
+                    this.RaisePropertyChanged("sUtente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int sns {
             get {
                 return this.snsField;
@@ -393,6 +463,32 @@ namespace BOT.ServiceReference1 {
                 if ((this.snsField.Equals(value) != true)) {
                     this.snsField = value;
                     this.RaisePropertyChanged("sns");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int snsUtente {
+            get {
+                return this.snsUtenteField;
+            }
+            set {
+                if ((this.snsUtenteField.Equals(value) != true)) {
+                    this.snsUtenteField = value;
+                    this.RaisePropertyChanged("snsUtente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string tipoAlerta {
+            get {
+                return this.tipoAlertaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tipoAlertaField, value) != true)) {
+                    this.tipoAlertaField = value;
+                    this.RaisePropertyChanged("tipoAlerta");
                 }
             }
         }
@@ -420,7 +516,7 @@ namespace BOT.ServiceReference1 {
         private System.DateTime dataAlertaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool readField;
+        private string readField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string tipoField;
@@ -449,12 +545,12 @@ namespace BOT.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool read {
+        public string read {
             get {
                 return this.readField;
             }
             set {
-                if ((this.readField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.readField, value) != true)) {
                     this.readField = value;
                     this.RaisePropertyChanged("read");
                 }
@@ -529,6 +625,12 @@ namespace BOT.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesAlertsbySns", ReplyAction="http://tempuri.org/IService1/GetValuesAlertsbySnsResponse")]
         System.Threading.Tasks.Task<BOT.ServiceReference1.AlertasWeb[]> GetValuesAlertsbySnsAsync(int sns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertNotRead", ReplyAction="http://tempuri.org/IService1/GetAlertNotReadResponse")]
+        BOT.ServiceReference1.ValoresWeb[] GetAlertNotRead(int sns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertNotRead", ReplyAction="http://tempuri.org/IService1/GetAlertNotReadResponse")]
+        System.Threading.Tasks.Task<BOT.ServiceReference1.ValoresWeb[]> GetAlertNotReadAsync(int sns);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -612,6 +714,14 @@ namespace BOT.ServiceReference1 {
         
         public System.Threading.Tasks.Task<BOT.ServiceReference1.AlertasWeb[]> GetValuesAlertsbySnsAsync(int sns) {
             return base.Channel.GetValuesAlertsbySnsAsync(sns);
+        }
+        
+        public BOT.ServiceReference1.ValoresWeb[] GetAlertNotRead(int sns) {
+            return base.Channel.GetAlertNotRead(sns);
+        }
+        
+        public System.Threading.Tasks.Task<BOT.ServiceReference1.ValoresWeb[]> GetAlertNotReadAsync(int sns) {
+            return base.Channel.GetAlertNotReadAsync(sns);
         }
     }
 }

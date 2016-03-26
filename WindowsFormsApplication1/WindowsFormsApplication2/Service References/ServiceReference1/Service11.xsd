@@ -36,10 +36,16 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="bloodPressureMax" type="xs:int" />
       <xs:element minOccurs="0" name="bloodPressureMin" type="xs:int" />
+      <xs:element minOccurs="0" name="dataAlerta" type="xs:dateTime" />
       <xs:element minOccurs="0" name="dataOfReposit" type="xs:dateTime" />
       <xs:element minOccurs="0" name="heartRate" type="xs:int" />
+      <xs:element minOccurs="0" name="nomeUtente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="oxigenSat" type="xs:int" />
+      <xs:element minOccurs="0" name="readAlerta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sUtente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="sns" type="xs:int" />
+      <xs:element minOccurs="0" name="snsUtente" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoAlerta" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ValoresWeb" nillable="true" type="tns:ValoresWeb" />

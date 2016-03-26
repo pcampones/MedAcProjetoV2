@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -188,7 +188,7 @@ namespace ServiceLayer
                 }
 
                 alertas.Data = valores.DataOfRegist;
-                alertas.Read = false;
+                alertas.Read = "Not Read";
                 _acederBd.addValluesAlerts(alertas);
                 valores.Alertas = alertas;
                
@@ -233,14 +233,46 @@ namespace ServiceLayer
                     valorWeb.Tipo = item.Alertas.Tipo;
                     valorWeb.DataAlerta = item.Alertas.Data;
                     valorWeb.Read = item.Alertas.Read;
+                    
                     valor.Add(valorWeb);
                 }
                 return valor;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
+            }
+
+        }
+
+         
+        public List<ValoresWeb> GetAlertNotRead(int sns)
+        {
+
+            try
+            {
+                List<Valores> valores = _acederBd.getAlertaSns(sns);
+                List<ValoresWeb> valor = new List<ValoresWeb>();
+
+                foreach (Valores item in valores)
+                {
+                    ValoresWeb valorWeb = new ValoresWeb();
+                    
+                    valorWeb.TipoAlerta = item.Alertas.Tipo;
+                    valorWeb.DataAlerta = item.Alertas.Data;
+                    valorWeb.ReadAlerta = item.Alertas.Read;
+                    valorWeb.NomeUtente = item.Utente.Name;
+                    valorWeb.SobreUtente = item.Utente.Surname;
+                    valorWeb.SnsUtente = item.Utente.SNS;
+                    valor.Add(valorWeb);
+                }
+                return valor;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
 
         }

@@ -59,7 +59,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Data" Type="datetime" Nullable="false" />
-    <Property Name="Read" Type="bit" Nullable="false" />
+    <Property Name="Read" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="UtenteValores">
     <End Role="Utente" Type="ModelMedAc.Store.UtenteSet" Multiplicity="1" />

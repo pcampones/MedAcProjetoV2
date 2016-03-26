@@ -30,8 +30,12 @@ namespace ServiceLayer
 
         [OperationContract]
         void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate,int oxygenSatu, DateTime data, int tempoTotal);
+
         [OperationContract]
         List<AlertasWeb> GetValuesAlertsbySns(int sns);
+
+        [OperationContract]
+        List<ValoresWeb> GetAlertNotRead(int sns);
 
 
         // TODO: Add your service operations here
@@ -231,6 +235,61 @@ namespace ServiceLayer
             set { dataOfReposit = value; }
         }
 
+        [DataMember]
+        private int snsUtente;
+
+        public int SnsUtente
+        {
+            get { return snsUtente; }
+            set { snsUtente = value; }
+        }
+
+        [DataMember]
+        private string nomeUtente;
+
+        public string NomeUtente
+        {
+            get { return nomeUtente; }
+            set { nomeUtente = value; }
+        }
+
+        [DataMember]
+        private string sUtente;
+
+        public string SobreUtente
+        {
+            get { return sUtente; }
+            set { sUtente = value; }
+        }
+
+        [DataMember]
+        private string tipoAlerta;
+
+        public string TipoAlerta
+        {
+            get { return tipoAlerta; }
+            set { tipoAlerta = value; }
+        }
+
+        [DataMember]
+        private DateTime dataAlerta;
+
+        public DateTime DataAlerta
+        {
+            get { return dataAlerta; }
+            set { dataAlerta = value; }
+        }
+
+        [DataMember]
+        private string readAlerta;
+
+        public string ReadAlerta
+        {
+            get { return readAlerta; }
+            set { readAlerta = value; }
+        }
+
+
     }
 
     [DataContract]
@@ -258,9 +317,9 @@ namespace ServiceLayer
 
         [DataMember]
 
-        private bool read;
+        private string read;
 
-        public bool Read
+        public string Read
         {
             get { return read; }
             set { read = value; }

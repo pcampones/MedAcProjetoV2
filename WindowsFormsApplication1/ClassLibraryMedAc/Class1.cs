@@ -151,7 +151,8 @@ namespace ClassLibraryMedAc
         {
             try
             {
-                List<Valores> result = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns)).ToList();
+                List<Valores> result = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) 
+                && i.Alertas.Read.Equals("Not Read")).ToList();
                 return result;
 
             }

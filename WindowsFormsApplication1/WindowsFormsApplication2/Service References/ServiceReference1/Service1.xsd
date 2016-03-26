@@ -109,7 +109,7 @@
   <xs:element name="GetAlertNotReadResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAlertNotReadResult" nillable="true" type="q7:ArrayOfAlertasWeb" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAlertNotReadResult" nillable="true" type="q7:ArrayOfValoresWeb" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

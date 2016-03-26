@@ -48,15 +48,7 @@ namespace ClinicalAlert
     
             }
 
-
-            foreach (UtenteWeb item in listaUtente)
-            {
-                ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
-                linha.SubItems.Add(item.name + " " + item.surname);
-              
-                listView2.Items.Add(linha);
-            }
-
+ 
 
 
             // listBox_utentes.DisplayMember = "Name";
@@ -278,6 +270,7 @@ namespace ClinicalAlert
 
             foreach (ValoresWeb item in valor)
             {
+                
                 dataGridView1.Rows.Add(item.bloodPressureMax.ToString(), item.bloodPressureMin.ToString()
                     , item.heartRate.ToString(), item.oxigenSat.ToString(), item.dataOfReposit.ToString());
                 dataGridView1.Sort(this.dataGridView1.Columns[4], ListSortDirection.Ascending);
@@ -415,31 +408,46 @@ namespace ClinicalAlert
 
             foreach (AlertasWeb item in valor)
             {
-                if (item.read.ToString().Equals("True"))
+              
+                 if (item.read.Equals("Not Read"))
                 {
-                     
-                    dataGridView2.Rows.Add(item.dataAlerta,item.dataAlerta,item.read);
-                    //  dataGridView2.Rows.Add(item.dataAlerta, item.tipo);
-                }
-                else if (item.read.ToString().Equals("False"))
-                {
-                    DataGridViewTextBoxColumn data = new DataGridViewTextBoxColumn();
-                    data.DataPropertyName = item.read.ToString();
-                    
-                    dataGridView2.Rows.Add(item.dataAlerta, item.dataAlerta, item.read);
+                  dataGridView2.Rows.Add(item.dataAlerta, 
+                      item.tipo, item.read);
 
                 }
                 
                    
             }
 
+            List<ValoresWeb> u = serv.GetAlertNotRead(sns);
+
+            foreach (ValoresWeb item in u)
+            {
+                ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
+                linha.SubItems.Add(item.name + " " + item.surname);
+
+                listView2.Items.Add(linha);
+            }
+            
+
+            /*  List<ValoresWeb> valor2 = serv.GetAlertNotRead (sns).ToList();
 
 
+
+              foreach (ValoresWeb item in valor2)
+              {
+                  ListViewItem linha = new ListViewItem(item..sns.ToString(), 0);
+                  linha.SubItems.Add(item.name + " " + item.surname);
+
+                  listView2.Items.Add(linha);
+              }*/
         }
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            sns = Convert.ToInt32(listView1.Items[listView2.FocusedItem.Index].SubItems[0].Text);
+           sns = Convert.ToInt32(listView2.Items[listView2.FocusedItem.Index].SubItems[0].Text);
+
+
         }
 
         private void panelAlerts_Paint(object sender, PaintEventArgs e)

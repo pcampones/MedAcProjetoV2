@@ -147,11 +147,12 @@ namespace ClassLibraryMedAc
             }
         }
 
-        public Alertas getAlertaById(int id)
+        public List<Valores> getAlertaSns(int sns)
         {
             try
             {
-                var result = context.AlertasSet.Where(i => i.Id == id).FirstOrDefault();
+                List<Valores> result = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) 
+                && i.Alertas.Read.Equals("Not Read")).ToList();
                 return result;
 
             }

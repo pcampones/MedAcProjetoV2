@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -169,14 +169,14 @@ namespace ServiceLayer
                 valores.OxygenSaturation < 30 && valores.OxygenSaturation > 180)
                 {
                     alertas.Tipo = "Critico Anytime";
-                    alertas.Data = valores.DataOfRegist;
+                  
 
                 }
                 else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 && tempoTotal >= 10 ||
                   valores.HeartRate <= 90 && tempoTotal >= 10)
                 {
                     alertas.Tipo = "Aviso Continuo";
-                    alertas.Data = valores.DataOfRegist;
+                   
 
                 }
                 else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 && tempoTotal >= 60 ||
@@ -184,10 +184,12 @@ namespace ServiceLayer
                valores.OxygenSaturation >=120 && valores.OxygenSaturation <= 60 && tempoTotal >= 60 )
                 {
                     alertas.Tipo = "Critico Continuo";
-                    alertas.Data = valores.DataOfRegist;
+         
 
                 }
 
+                alertas.Data = valores.DataOfRegist;
+                alertas.Read = "Not Read";
                 _acederBd.addValluesAlerts(alertas);
                 valores.Alertas = alertas;
                
@@ -216,6 +218,65 @@ namespace ServiceLayer
             return listaWeb;
         }
 
+
+        public List<AlertasWeb> GetValuesAlertsbySns(int sns)
+        {
+
+            try
+            {
+                List<Valores> valores = _acederBd.getValuesbySNS(sns);
+                List<AlertasWeb> valor = new List<AlertasWeb>();
+
+                foreach (Valores item in valores)
+                {
+                    AlertasWeb valorWeb = new AlertasWeb();
+
+                    valorWeb.Tipo = item.Alertas.Tipo;
+                    valorWeb.DataAlerta = item.Alertas.Data;
+                    valorWeb.Read = item.Alertas.Read;
+                    
+                    valor.Add(valorWeb);
+                }
+                return valor;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+         
+        public List<ValoresWeb> GetAlertNotRead(int sns)
+        {
+
+            try
+            {
+                List<Valores> valores = _acederBd.getAlertaSns(sns);
+                List<ValoresWeb> valor = new List<ValoresWeb>();
+
+                foreach (Valores item in valores)
+                {
+                    ValoresWeb valorWeb = new ValoresWeb();
+                    
+                    valorWeb.TipoAlerta = item.Alertas.Tipo;
+                    valorWeb.DataAlerta = item.Alertas.Data;
+                    valorWeb.ReadAlerta = item.Alertas.Read;
+                    valorWeb.NomeUtente = item.Utente.Name;
+                    valorWeb.SobreUtente = item.Utente.Surname;
+                    valorWeb.SnsUtente = item.Utente.SNS;
+                    valor.Add(valorWeb);
+                }
+                return valor;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
         //public AlertasWeb alert(int sns,int bloodPressureMin, int bloodPressureMax, int heartRate, int oxigenSat)
         //{
         //    AlertasWeb alertas = new AlertasWeb();

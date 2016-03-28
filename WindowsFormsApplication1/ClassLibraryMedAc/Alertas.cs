@@ -23,6 +23,7 @@ namespace ClassLibraryMedAc
         public int Id { get; set; }
         public string Tipo { get; set; }
         public System.DateTime Data { get; set; }
+        public string Read { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Valores> Valores { get; set; }

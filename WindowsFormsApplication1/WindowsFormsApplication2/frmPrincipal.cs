@@ -255,6 +255,67 @@ namespace ClinicalAlert
             panel_Adicionar.Visible = false;
             panelGraficos.Visible = true;
             panelDiarioValores.Visible = false;
+
+            chart1.ChartAreas.Clear();
+            chart1.Series.Clear();
+            chart1.Titles.Clear();
+
+            List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
+
+            foreach (ValoresWeb item in valores)
+            {
+                ValoresWeb valoresWeb = new ValoresWeb();
+
+                item.bloodPressureMax = valoresWeb.bloodPressureMax;
+                item.bloodPressureMin = valoresWeb.bloodPressureMin;
+                item.heartRate = valoresWeb.heartRate;
+                item.oxigenSat = valoresWeb.oxigenSat;
+                item.dataOfReposit = valoresWeb.dataOfReposit;
+            }
+
+            //Titulo do gráfico
+            chart1.Titles.Add("Chart Values");
+
+            //Construção da àrea do gráfico
+            chart1.ChartAreas.Add("area");
+
+            DateTime dataMax = DateTime.Now;
+            DateTime dataMin = DateTime.Now.AddDays(-2);
+
+            chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
+            chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
+            chart1.ChartAreas["area"].AxisX.Interval = 1;
+            chart1.ChartAreas["area"].AxisY.Minimum = 0;
+            chart1.ChartAreas["area"].AxisY.Interval = 10;
+
+            chart1.ChartAreas["area"].AxisX.Title = "Date";
+            chart1.ChartAreas["area"].AxisY.Title = "Values";
+
+            chart1.Series.Add("Blood Pressure");
+            chart1.Series.Add("Heart Rate");
+            chart1.Series.Add("Oxygen Saturation");
+
+            //definição da cor de cada série
+            chart1.Series["Blood Pressure"].Color = Color.Red;
+            chart1.Series["Heart Rate"].Color = Color.Blue;
+            chart1.Series["Oxygen Saturation"].Color = Color.Green;
+
+            //Pontos a aparecer no gráfico
+            chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
+            chart1.Series["Heart Rate"].Points.AddXY(dataMax, 10);
+            chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 10);
+
+            chart1.ChartAreas["area"].BackColor = Color.White;
+            chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
+            chart1.ChartAreas["area"].BackGradientStyle =
+            System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+            chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+            chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+            chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
+            chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
+            chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
         }
 
         private void diarioValores_Click(object sender, EventArgs e)
@@ -458,11 +519,19 @@ namespace ClinicalAlert
             chart1.Series.Clear();
             chart1.Titles.Clear();
 
-            List<ValoresWeb> valores = serv.get
+            List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
+
+
+            ValoresWeb valoresWeb = new ValoresWeb();
 
             foreach (ValoresWeb item in valores)
             {
-               
+
+                valoresWeb.bloodPressureMax = item.bloodPressureMax;
+                valoresWeb.bloodPressureMin = item.bloodPressureMin;
+                valoresWeb.heartRate = item.heartRate;
+                valoresWeb.oxigenSat = item.oxigenSat;
+                valoresWeb.dataOfReposit = item.dataOfReposit;
             }
 
             //Titulo do gráfico
@@ -471,43 +540,53 @@ namespace ClinicalAlert
             //Construção da àrea do gráfico
             chart1.ChartAreas.Add("area");
 
-            DateTime dataMax = DateTime.Now;
-            DateTime dataMin = DateTime.Now.AddDays(-7);
+            DateTime dataMin = dtp_begin.Value;
+            DateTime dataMax =  dtp_end.Value;
 
-            chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
-            chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
-            chart1.ChartAreas["area"].AxisX.Interval = 1;
-            chart1.ChartAreas["area"].AxisY.Minimum = 0;
-            chart1.ChartAreas["area"].AxisY.Interval = 10;
+            if (dataMin <= dataMax)
+            {
 
-            chart1.ChartAreas["area"].AxisX.Title = "Date";
-            chart1.ChartAreas["area"].AxisY.Title = "Values";
+                chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
+                chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
+                chart1.ChartAreas["area"].AxisX.Interval = 1;
+                chart1.ChartAreas["area"].AxisY.Minimum = 0;
+                chart1.ChartAreas["area"].AxisY.Interval = 10;
 
-            chart1.Series.Add("Blood Pressure");
-            chart1.Series.Add("Heart Rate");
-            chart1.Series.Add("Oxygen Saturation");
+                chart1.ChartAreas["area"].AxisX.Title = "Date";
+                chart1.ChartAreas["area"].AxisY.Title = "Values";
 
-            //definição da cor de cada série
-            chart1.Series["Blood Pressure"].Color = Color.Red;
-            chart1.Series["Heart Rate"].Color = Color.Blue;
-            chart1.Series["Oxygen Saturation"].Color = Color.Green;
+                chart1.Series.Add("Blood Pressure");
+                chart1.Series.Add("Heart Rate");
+                chart1.Series.Add("Oxygen Saturation");
 
-            //Pontos a aparecer no gráfico
-            chart1.Series["Systolic Blood Pressure"].Points.AddXY(dataMin, 10);
-            chart1.Series["Distolic Blood Pressure"].Points.AddXY(dataMax, 10);
+                //definição da cor de cada série
+                chart1.Series["Blood Pressure"].Color = Color.Red;
+                chart1.Series["Heart Rate"].Color = Color.Blue;
+                chart1.Series["Oxygen Saturation"].Color = Color.Green;
 
-            chart1.ChartAreas["area"].BackColor = Color.White;
-            chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
-            chart1.ChartAreas["area"].BackGradientStyle =
-            System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+                //Pontos a aparecer no gráfico
+                chart1.Series["Blood Pressure"].Points.AddXY(dataMin, valoresWeb.bloodPressureMax , valoresWeb.bloodPressureMin);
+                chart1.Series["Heart Rate"].Points.AddXY(dataMax, valoresWeb.heartRate);
+                chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, valoresWeb.oxigenSat);
 
-            chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
-            chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+                chart1.ChartAreas["area"].BackColor = Color.White;
+                chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
+                chart1.ChartAreas["area"].BackGradientStyle =
+                System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
 
-            chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
-            chart1.Series["Heart Ratee"].IsValueShownAsLabel = true;
-            chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
+                chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+                chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
 
+                chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
+                chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
+                chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
+            }
+            else
+            {
+                MessageBox.Show("The end date can not be bigger than the start date!", "Error", MessageBoxButtons.OK);
+            }
         }
+
+        
     }
 }

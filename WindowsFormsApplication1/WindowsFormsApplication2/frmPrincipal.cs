@@ -406,6 +406,8 @@ namespace ClinicalAlert
             panelAlerts.Visible = true;
             List<AlertasWeb> valor = serv.GetValuesAlertsbySns(sns).ToList();
 
+
+            // ccefeefefe 
             foreach (AlertasWeb item in valor)
             {
               

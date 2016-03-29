@@ -112,10 +112,11 @@ namespace ClassLibraryMedAc
 
                 return listaVa;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                return null;
+                throw ex;
+                    
             }
         }
      

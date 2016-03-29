@@ -173,41 +173,35 @@ namespace ServiceLayer
                 }
                 else
                 {
-                    if (valores.BloodPressureMin < 60 || valores.HeartRate < 80 ||
+                if (valores.BloodPressureMin < 60 || valores.HeartRate < 80 ||
                 valores.OxygenSaturation < 30 && valores.OxygenSaturation > 180)
-                    {
-                        alertas.Tipo = "Critico Anytime";
+                {
+                    alertas.Tipo = "Critico Anytime";
+                  
 
-
-                    }
+                }
                     else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 || valores.HeartRate <= 90 || 
                         valores.OxygenSaturation <= 60 && valores.OxygenSaturation >= 120)
-                    {
+                {
                        /* if (valores.DataOfRegist.AddMinutes(-10))
                         {
-
+                   
                         }*/
                     }
                     {
 
-                    } 
-                   //     && tempoTotal >= 10 ||valores.HeartRate <= 90 && valores.DataOfRegist.Minute >= 10)
-                   // {
-                   //     alertas.Tipo = "Aviso Continuo";
-
-
-                   // }
-                   // else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 && tempoTotal >= 60 ||
-                   //valores.HeartRate <= 90 && tempoTotal >= 60 ||
-                   //valores.OxygenSaturation >= 120 && valores.OxygenSaturation <= 60 && tempoTotal >= 60)
-                   // {
-                   //     alertas.Tipo = "Critico Continuo";
-
+                }
+                else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 && tempoTotal >= 60 ||
+               valores.HeartRate <= 90 && tempoTotal >= 60 || 
+               valores.OxygenSaturation >=120 && valores.OxygenSaturation <= 60 && tempoTotal >= 60 )
+                {
+                    alertas.Tipo = "Critico Continuo";
+         
 
                    // }
 
-                    alertas.Data = valores.DataOfRegist;
-                    alertas.Read = "Not Read";
+                alertas.Data = valores.DataOfRegist;
+                alertas.Read = "Not Read";
                 }
 
 
@@ -269,48 +263,22 @@ namespace ServiceLayer
         }
 
 
-        public List<ValoresWeb> GetAlertsUteNotRead()
-        {
-
-            try
-            {
-                List<Valores> listaBd = _acederBd.getUtenteSnsNotRead();
-                List<ValoresWeb> valores = new List<ValoresWeb>();
-                foreach (Valores item in listaBd)
-                {
-
-                    if (listaBd != null)
-                    {
-                        ValoresWeb v = new ValoresWeb();
-                        v.SnsUtente = item.Utente.SNS;
-                        v.NomeUtente = item.Utente.Name;
-                        v.SobreUtente = item.Utente.Surname;
-                        valores.Add(v);
-                    }
-                }
-                return valores;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }
-
-
         public List<ValoresWeb> GetAlertNotRead(int sns)
         {
 
             try
             {
-                List<Valores> valores = _acederBd.getAlertaSns(sns);
-                List<ValoresWeb> valor = new List<ValoresWeb>();
+
+              
+                    List<Valores> valores = _acederBd.getAlertaSns(sns);
+                    List<ValoresWeb> valor = new List<ValoresWeb>();
+                
+            
 
                 foreach (Valores item in valores)
                 {
                     ValoresWeb valorWeb = new ValoresWeb();
-                    
+
                     valorWeb.TipoAlerta = item.Alertas.Tipo;
                     valorWeb.DataAlerta = item.Alertas.Data;
                     valorWeb.ReadAlerta = item.Alertas.Read;
@@ -328,6 +296,36 @@ namespace ServiceLayer
             }
 
         }
+
+        public List<ValoresWeb> GetRegistofGrahp(int sns)
+        {
+            try
+            {
+                List<ValoresWeb> valores = new List<ValoresWeb>();
+                List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
+
+                foreach (Valores item in listavalores)
+                {
+                    ValoresWeb valor = new ValoresWeb();
+                    valor.BloodPressureMax = item.BloodPressureMax;
+                    valor.BloodPressureMin = item.BloodPressureMin;
+                    valor.HeartRate = item.HeartRate;
+                    valor.OxigenSat = item.OxygenSaturation;
+                    
+                    valores.Add(valor);
+                }
+
+                return valores;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+
         //public AlertasWeb alert(int sns,int bloodPressureMin, int bloodPressureMax, int heartRate, int oxigenSat)
         //{
         //    AlertasWeb alertas = new AlertasWeb();

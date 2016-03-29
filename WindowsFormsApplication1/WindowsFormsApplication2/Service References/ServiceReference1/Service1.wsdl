@@ -55,11 +55,11 @@
   <wsdl:message name="IService1_GetAlertNotRead_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAlertNotReadResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetAlertsUteNotRead_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAlertsUteNotRead" />
+  <wsdl:message name="IService1_GetRegistofGrahp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegistofGrahp" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetAlertsUteNotRead_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAlertsUteNotReadResponse" />
+  <wsdl:message name="IService1_GetRegistofGrahp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegistofGrahpResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetUtenteBySNS">
@@ -94,9 +94,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAlertNotRead" message="tns:IService1_GetAlertNotRead_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAlertNotReadResponse" message="tns:IService1_GetAlertNotRead_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAlertsUteNotRead">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAlertsUteNotRead" message="tns:IService1_GetAlertsUteNotRead_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAlertsUteNotReadResponse" message="tns:IService1_GetAlertsUteNotRead_OutputMessage" />
+    <wsdl:operation name="GetRegistofGrahp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetRegistofGrahp" message="tns:IService1_GetRegistofGrahp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetRegistofGrahpResponse" message="tns:IService1_GetRegistofGrahp_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -173,8 +173,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAlertsUteNotRead">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetAlertsUteNotRead" style="document" />
+    <wsdl:operation name="GetRegistofGrahp">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetRegistofGrahp" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

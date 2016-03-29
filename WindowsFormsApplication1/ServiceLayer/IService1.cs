@@ -37,6 +37,9 @@ namespace ServiceLayer
         [OperationContract]
         List<ValoresWeb> GetAlertNotRead(int sns);
 
+        [OperationContract]
+        List<ValoresWeb> GetRegistofGrahp(int sns);
+
 
         // TODO: Add your service operations here
     }

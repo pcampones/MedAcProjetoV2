@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
@@ -125,6 +125,7 @@
             this.OxygenSaturation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelGraficos = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label28 = new System.Windows.Forms.Label();
@@ -180,15 +181,15 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
-            this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
             this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
-            this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
+            this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
+            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panelDiarioValores);
+            this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
             this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip2);
-            this.splitContainer1.Size = new System.Drawing.Size(716, 435);
-            this.splitContainer1.SplitterDistance = 137;
+            this.splitContainer1.Size = new System.Drawing.Size(755, 435);
+            this.splitContainer1.SplitterDistance = 144;
             this.splitContainer1.TabIndex = 0;
             // 
             // toolStrip1
@@ -205,7 +206,7 @@
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(137, 435);
+            this.toolStrip1.Size = new System.Drawing.Size(144, 435);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -286,9 +287,9 @@
             // panelPrincipal
             // 
             this.panelPrincipal.Controls.Add(this.listView1);
-            this.panelPrincipal.Location = new System.Drawing.Point(8, 35);
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(564, 395);
+            this.panelPrincipal.Size = new System.Drawing.Size(563, 407);
             this.panelPrincipal.TabIndex = 41;
             // 
             // listView1
@@ -316,11 +317,10 @@
             // 
             this.panelAlerts.Controls.Add(this.groupBox8);
             this.panelAlerts.Controls.Add(this.groupBox7);
-            this.panelAlerts.Location = new System.Drawing.Point(5, 34);
+            this.panelAlerts.Location = new System.Drawing.Point(0, 0);
             this.panelAlerts.Name = "panelAlerts";
-            this.panelAlerts.Size = new System.Drawing.Size(562, 398);
+            this.panelAlerts.Size = new System.Drawing.Size(557, 402);
             this.panelAlerts.TabIndex = 2;
-            this.panelAlerts.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAlerts_Paint);
             // 
             // groupBox8
             // 
@@ -393,9 +393,9 @@
             // panel_Adicionar
             // 
             this.panel_Adicionar.Controls.Add(this.groupBox1);
-            this.panel_Adicionar.Location = new System.Drawing.Point(6, 31);
+            this.panel_Adicionar.Location = new System.Drawing.Point(0, 0);
             this.panel_Adicionar.Name = "panel_Adicionar";
-            this.panel_Adicionar.Size = new System.Drawing.Size(566, 402);
+            this.panel_Adicionar.Size = new System.Drawing.Size(557, 405);
             this.panel_Adicionar.TabIndex = 1;
             // 
             // groupBox1
@@ -695,9 +695,9 @@
             // panelEdit
             // 
             this.panelEdit.Controls.Add(this.groupBox2);
-            this.panelEdit.Location = new System.Drawing.Point(2, 32);
+            this.panelEdit.Location = new System.Drawing.Point(12, 28);
             this.panelEdit.Name = "panelEdit";
-            this.panelEdit.Size = new System.Drawing.Size(573, 401);
+            this.panelEdit.Size = new System.Drawing.Size(557, 401);
             this.panelEdit.TabIndex = 42;
             // 
             // groupBox2
@@ -986,9 +986,9 @@
             // panelDiarioValores
             // 
             this.panelDiarioValores.Controls.Add(this.groupBox6);
-            this.panelDiarioValores.Location = new System.Drawing.Point(-1, 28);
+            this.panelDiarioValores.Location = new System.Drawing.Point(0, 0);
             this.panelDiarioValores.Name = "panelDiarioValores";
-            this.panelDiarioValores.Size = new System.Drawing.Size(576, 410);
+            this.panelDiarioValores.Size = new System.Drawing.Size(581, 395);
             this.panelDiarioValores.TabIndex = 3;
             // 
             // groupBox6
@@ -1042,13 +1042,24 @@
             // 
             // panelGraficos
             // 
+            this.panelGraficos.Controls.Add(this.button3);
             this.panelGraficos.Controls.Add(this.groupBox5);
             this.panelGraficos.Controls.Add(this.groupBox4);
             this.panelGraficos.Controls.Add(this.groupBox3);
             this.panelGraficos.Location = new System.Drawing.Point(3, 28);
             this.panelGraficos.Name = "panelGraficos";
-            this.panelGraficos.Size = new System.Drawing.Size(504, 411);
+            this.panelGraficos.Size = new System.Drawing.Size(566, 411);
             this.panelGraficos.TabIndex = 56;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(30, 378);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox5
             // 
@@ -1058,7 +1069,7 @@
             this.groupBox5.Controls.Add(this.label27);
             this.groupBox5.Location = new System.Drawing.Point(23, 273);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(495, 100);
+            this.groupBox5.Size = new System.Drawing.Size(536, 100);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Date Selected";
@@ -1102,7 +1113,7 @@
             this.groupBox4.Controls.Add(this.checkBox2);
             this.groupBox4.Location = new System.Drawing.Point(23, 164);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(495, 100);
+            this.groupBox4.Size = new System.Drawing.Size(536, 100);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Physiologic Parameters";
@@ -1120,7 +1131,7 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(7, 66);
+            this.checkBox3.Location = new System.Drawing.Point(26, 64);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(78, 17);
             this.checkBox3.TabIndex = 1;
@@ -1130,7 +1141,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(7, 20);
+            this.checkBox2.Location = new System.Drawing.Point(26, 19);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(97, 17);
             this.checkBox2.TabIndex = 0;
@@ -1142,23 +1153,23 @@
             this.groupBox3.Controls.Add(this.chart1);
             this.groupBox3.Location = new System.Drawing.Point(23, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(495, 152);
+            this.groupBox3.Size = new System.Drawing.Size(536, 152);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chart Area";
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(7, 20);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(474, 125);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1170,7 +1181,7 @@
             this.toolStripButton1});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(575, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(607, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -1193,7 +1204,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 435);
+            this.ClientSize = new System.Drawing.Size(755, 435);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmPrincipal";
             this.Text = "Clinical Alert";
@@ -1345,6 +1356,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnData;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRead;
+        private System.Windows.Forms.Button button3;
     }
 }
 

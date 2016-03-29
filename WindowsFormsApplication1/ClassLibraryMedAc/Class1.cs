@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -153,6 +153,21 @@ namespace ClassLibraryMedAc
             {
                 List<Valores> result = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) 
                 && i.Alertas.Read.Equals("Not Read")).ToList();
+                return result;
+
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
+        public List<Valores> getUtenteSnsNotRead()
+        {
+            try
+            {
+                List<Valores> result = context.ValoresSet.Where(i=>i.Alertas.Read.Equals("Not Read")).ToList();
                 return result;
 
             }

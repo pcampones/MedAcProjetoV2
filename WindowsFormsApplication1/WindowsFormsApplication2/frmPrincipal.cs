@@ -45,10 +45,10 @@ namespace ClinicalAlert
                 ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
                 linha.SubItems.Add(item.name + " " + item.surname);
                 listView1.Items.Add(linha);
-    
+
             }
 
- 
+
 
 
             // listBox_utentes.DisplayMember = "Name";
@@ -331,20 +331,20 @@ namespace ClinicalAlert
 
             foreach (ValoresWeb item in valor)
             {
-                
+
                 dataGridView1.Rows.Add(item.bloodPressureMax.ToString(), item.bloodPressureMin.ToString()
                     , item.heartRate.ToString(), item.oxigenSat.ToString(), item.dataOfReposit.ToString());
                 dataGridView1.Sort(this.dataGridView1.Columns[4], ListSortDirection.Ascending);
             }
 
-            
+
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (button2.Text.Equals("Save"))
-            {           
+            {
                 textBox8.Enabled = false;
                 textBox4.Enabled = false;
                 textBox7.Enabled = false;
@@ -404,8 +404,8 @@ namespace ClinicalAlert
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-             sns = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index].SubItems[0].Text);
-         
+            sns = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index].SubItems[0].Text);
+
             UtenteWeb u = serv.GetUtenteBySNS(sns);
 
             if (u != null)
@@ -469,27 +469,27 @@ namespace ClinicalAlert
 
             foreach (AlertasWeb item in valor)
             {
-              
-                 if (item.read.Equals("Not Read"))
+
+                if (item.read.Equals("Not Read"))
                 {
-                  dataGridView2.Rows.Add(item.dataAlerta, 
-                      item.tipo, item.read);
+                    dataGridView2.Rows.Add(item.dataAlerta,
+                        item.tipo, item.read);
 
                 }
-                
-                   
+
+
             }
 
             List<ValoresWeb> u = serv.GetAlertNotRead(sns).ToList();
 
-          foreach (ValoresWeb item in u)
+            foreach (ValoresWeb item in u)
             {
                 ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
                 linha.SubItems.Add(item.nomeUtente + " " + item.sUtente); // name + surname
 
                 listView2.Items.Add(linha);
             }
-            
+
 
             /*  List<ValoresWeb> valor2 = serv.GetAlertNotRead (sns).ToList();
 
@@ -506,7 +506,7 @@ namespace ClinicalAlert
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-           sns = Convert.ToInt32(listView2.Items[listView2.FocusedItem.Index].SubItems[0].Text);
+            sns = Convert.ToInt32(listView2.Items[listView2.FocusedItem.Index].SubItems[0].Text);
 
 
         }
@@ -532,7 +532,7 @@ namespace ClinicalAlert
                 valoresWeb.heartRate = item.heartRate;
                 valoresWeb.oxigenSat = item.oxigenSat;
                 valoresWeb.dataOfReposit = item.dataOfReposit;
-        }
+            }
 
             //Titulo do gráfico
             chart1.Titles.Add("Chart Values");
@@ -541,13 +541,14 @@ namespace ClinicalAlert
             chart1.ChartAreas.Add("area");
 
             DateTime dataMin = dtp_begin.Value;
-            DateTime dataMax =  dtp_end.Value;
+            DateTime dataMax = dtp_end.Value;
 
             if (dataMin <= dataMax)
-        {
+            {
+
+            }
+
 
         }
-
-        
     }
 }

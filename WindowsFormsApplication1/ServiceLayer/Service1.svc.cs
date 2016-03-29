@@ -169,46 +169,46 @@ namespace ServiceLayer
                 {
                     alertas.Tipo = null;
                     alertas.Read = null;
-                    
+
                 }
                 else
                 {
-                if (valores.BloodPressureMin < 60 || valores.HeartRate < 80 ||
-                valores.OxygenSaturation < 30 && valores.OxygenSaturation > 180)
-                {
-                    alertas.Tipo = "Critico Anytime";
-                  
-
-                }
-                    else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 || valores.HeartRate <= 90 || 
-                        valores.OxygenSaturation <= 60 && valores.OxygenSaturation >= 120)
-                {
-                       /* if (valores.DataOfRegist.AddMinutes(-10))
-                        {
-                   
-                        }*/
-                    }
+                    if (valores.BloodPressureMin < 60 || valores.HeartRate < 80 ||
+                    valores.OxygenSaturation < 30 && valores.OxygenSaturation > 180)
                     {
+                        alertas.Tipo = "Critico Anytime";
+
+
+                    }
+                    else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 || valores.HeartRate <= 90 ||
+                        valores.OxygenSaturation <= 60 && valores.OxygenSaturation >= 120)
+                    {
+                        /* if (valores.DataOfRegist.AddMinutes(-10))
+                         {
+
+                         }else if*/
+                    }
+                    
+                    
+                    /*else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 && tempoTotal >= 60 ||
+               valores.HeartRate <= 90 && tempoTotal >= 60 ||
+               valores.OxygenSaturation >= 120 && valores.OxygenSaturation <= 60 && tempoTotal >= 60)
+                    {
+                        alertas.Tipo = "Critico Continuo";
+
+
+                        // }
+
+                      
+                    }*/
+
+                    alertas.Data = valores.DataOfRegist;
+                    alertas.Read = "Not Read";
+                    _acederBd.addValluesAlerts(alertas);
+                    valores.Alertas = alertas;
+
 
                 }
-                else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 && tempoTotal >= 60 ||
-               valores.HeartRate <= 90 && tempoTotal >= 60 || 
-               valores.OxygenSaturation >=120 && valores.OxygenSaturation <= 60 && tempoTotal >= 60 )
-                {
-                    alertas.Tipo = "Critico Continuo";
-         
-
-                   // }
-
-                alertas.Data = valores.DataOfRegist;
-                alertas.Read = "Not Read";
-                }
-
-
-                _acederBd.addValluesAlerts(alertas);
-                valores.Alertas = alertas;
-               
-
             }
             _acederBd.addVallues(valores);
         }

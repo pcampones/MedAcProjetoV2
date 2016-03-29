@@ -148,7 +148,7 @@ namespace ServiceLayer
             }
         }
 
-        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, DateTime data, int tempoTotal)
+        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, DateTime data)
         {
             Valores valores = new Valores();
 
@@ -167,14 +167,16 @@ namespace ServiceLayer
 
                 if (valores.BloodPressureMin >= 90 && valores.BloodPressureMax <= 180 || valores.HeartRate >= 90 || valores.OxygenSaturation >= 60 && valores.OxygenSaturation <= 120)
                 {
-                    alertas.Tipo = null;
-                    alertas.Read = null;
+                    alertas.Tipo = "Gama Normal";
+
+                    alertas.Data = valores.DataOfRegist;
+                    alertas.Read = "Read";
 
                 }
                 else
                 {
-                    if (valores.BloodPressureMin < 60 || valores.HeartRate < 80 ||
-                    valores.OxygenSaturation < 30 && valores.OxygenSaturation > 180)
+                    if (valores.BloodPressureMin < 60 && valores.HeartRate < 80 &&
+                    valores.OxygenSaturation < 30 || valores.OxygenSaturation > 180)
                     {
                         alertas.Tipo = "Critico Anytime";
 
@@ -183,32 +185,42 @@ namespace ServiceLayer
                     else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 || valores.HeartRate <= 90 ||
                         valores.OxygenSaturation <= 60 && valores.OxygenSaturation >= 120)
                     {
-                        /* if (valores.DataOfRegist.AddMinutes(-10))
-                         {
 
-                         }else if*/
+                        List<DateTime> datas = new List<DateTime>();
+                        datas.Add(valores.DataOfRegist);
+
+                        datas.Sort((ps1, ps2) => DateTime.Compare(ps1.Date, ps2.Date));
+
+                        DateTime dataInicio = datas.FirstOrDefault();
+                        DateTime dataFim = datas.LastOrDefault();
+                        var dif = (dataFim - dataInicio).Minutes;
+                        if (dif >= 10)
+                        {
+                            alertas.Tipo = "Critico Continuo";
+                        }
+                        else if(dif >= 30)
+                        {
+                            alertas.Tipo = "Critico Intermitente";
+                        }
+                       /* else if(dif >= 10  )
+                        {
+
+                        }*/
+                        //if (datas.First().Minute.Equ)
+                        //{
+
+                        //}
                     }
-                    
-                    
-                    /*else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 && tempoTotal >= 60 ||
-               valores.HeartRate <= 90 && tempoTotal >= 60 ||
-               valores.OxygenSaturation >= 120 && valores.OxygenSaturation <= 60 && tempoTotal >= 60)
-                    {
-                        alertas.Tipo = "Critico Continuo";
 
-
-                        // }
-
-                      
-                    }*/
 
                     alertas.Data = valores.DataOfRegist;
                     alertas.Read = "Not Read";
-                    _acederBd.addValluesAlerts(alertas);
-                    valores.Alertas = alertas;
+
 
 
                 }
+                _acederBd.addValluesAlerts(alertas);
+                valores.Alertas = alertas;
             }
             _acederBd.addVallues(valores);
         }

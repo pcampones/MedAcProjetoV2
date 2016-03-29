@@ -29,7 +29,7 @@ namespace ServiceLayer
         List<ValoresWeb> GetValuesbySNS(int sns);
 
         [OperationContract]
-        void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate,int oxygenSatu, DateTime data, int tempoTotal);
+        void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate,int oxygenSatu, DateTime data);
 
         [OperationContract]
         List<AlertasWeb> GetValuesAlertsbySns(int sns);

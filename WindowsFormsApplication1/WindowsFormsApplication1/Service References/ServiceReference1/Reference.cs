@@ -615,10 +615,10 @@ namespace BOT.ServiceReference1 {
         System.Threading.Tasks.Task<BOT.ServiceReference1.ValoresWeb[]> GetValuesbySNSAsync(int sns);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
-        void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal);
+        void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
-        System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal);
+        System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesAlertsbySns", ReplyAction="http://tempuri.org/IService1/GetValuesAlertsbySnsResponse")]
         BOT.ServiceReference1.AlertasWeb[] GetValuesAlertsbySns(int sns);
@@ -631,6 +631,12 @@ namespace BOT.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertNotRead", ReplyAction="http://tempuri.org/IService1/GetAlertNotReadResponse")]
         System.Threading.Tasks.Task<BOT.ServiceReference1.ValoresWeb[]> GetAlertNotReadAsync(int sns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetRegistofGrahp", ReplyAction="http://tempuri.org/IService1/GetRegistofGrahpResponse")]
+        BOT.ServiceReference1.ValoresWeb[] GetRegistofGrahp(int sns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetRegistofGrahp", ReplyAction="http://tempuri.org/IService1/GetRegistofGrahpResponse")]
+        System.Threading.Tasks.Task<BOT.ServiceReference1.ValoresWeb[]> GetRegistofGrahpAsync(int sns);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -700,12 +706,12 @@ namespace BOT.ServiceReference1 {
             return base.Channel.GetValuesbySNSAsync(sns);
         }
         
-        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal) {
-            base.Channel.AddValues(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data, tempoTotal);
+        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data) {
+            base.Channel.AddValues(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data);
         }
         
-        public System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal) {
-            return base.Channel.AddValuesAsync(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data, tempoTotal);
+        public System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data) {
+            return base.Channel.AddValuesAsync(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data);
         }
         
         public BOT.ServiceReference1.AlertasWeb[] GetValuesAlertsbySns(int sns) {
@@ -722,6 +728,14 @@ namespace BOT.ServiceReference1 {
         
         public System.Threading.Tasks.Task<BOT.ServiceReference1.ValoresWeb[]> GetAlertNotReadAsync(int sns) {
             return base.Channel.GetAlertNotReadAsync(sns);
+        }
+        
+        public BOT.ServiceReference1.ValoresWeb[] GetRegistofGrahp(int sns) {
+            return base.Channel.GetRegistofGrahp(sns);
+        }
+        
+        public System.Threading.Tasks.Task<BOT.ServiceReference1.ValoresWeb[]> GetRegistofGrahpAsync(int sns) {
+            return base.Channel.GetRegistofGrahpAsync(sns);
         }
     }
 }

@@ -615,10 +615,10 @@ namespace ClinicalAlert.ServiceReference1 {
         System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetValuesbySNSAsync(int sns);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
-        void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal);
+        void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
-        System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal);
+        System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesAlertsbySns", ReplyAction="http://tempuri.org/IService1/GetValuesAlertsbySnsResponse")]
         ClinicalAlert.ServiceReference1.AlertasWeb[] GetValuesAlertsbySns(int sns);
@@ -706,12 +706,12 @@ namespace ClinicalAlert.ServiceReference1 {
             return base.Channel.GetValuesbySNSAsync(sns);
         }
         
-        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal) {
-            base.Channel.AddValues(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data, tempoTotal);
+        public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data) {
+            base.Channel.AddValues(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data);
         }
         
-        public System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data, int tempoTotal) {
-            return base.Channel.AddValuesAsync(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data, tempoTotal);
+        public System.Threading.Tasks.Task AddValuesAsync(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, System.DateTime data) {
+            return base.Channel.AddValuesAsync(sns, bloodPressureMin, bloodPressureMax, heartRate, oxygenSatu, data);
         }
         
         public ClinicalAlert.ServiceReference1.AlertasWeb[] GetValuesAlertsbySns(int sns) {

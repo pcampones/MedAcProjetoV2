@@ -419,17 +419,17 @@ namespace ClinicalAlert
                    
             }
 
-            List<ValoresWeb> u = serv.GetAlertNotRead(sns);
+          /*  List<ValoresWeb> u = serv.GetAlertsUteNotRead().ToList();
 
-            foreach (ValoresWeb item in u)
+          foreach (ValoresWeb item in u)
             {
-                ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
-                linha.SubItems.Add(item.name + " " + item.surname);
+                ListViewItem linha = new ListViewItem(item.snsUtente.ToString(), 0);
+                linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
 
                 listView2.Items.Add(linha);
             }
             
-
+            */
             /*  List<ValoresWeb> valor2 = serv.GetAlertNotRead (sns).ToList();
 
 
@@ -451,6 +451,11 @@ namespace ClinicalAlert
         }
 
         private void panelAlerts_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }

@@ -246,7 +246,37 @@ namespace ServiceLayer
 
         }
 
-         
+
+        public List<ValoresWeb> GetAlertsUteNotRead()
+        {
+
+            try
+            {
+                List<Valores> listaBd = _acederBd.getUtenteSnsNotRead();
+                List<ValoresWeb> valores = new List<ValoresWeb>();
+                foreach (Valores item in listaBd)
+                {
+
+                    if (listaBd != null)
+                    {
+                        ValoresWeb v = new ValoresWeb();
+                        v.SnsUtente = item.Utente.SNS;
+                        v.NomeUtente = item.Utente.Name;
+                        v.SobreUtente = item.Utente.Surname;
+                        valores.Add(v);
+                    }
+                }
+                return valores;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+
         public List<ValoresWeb> GetAlertNotRead(int sns)
         {
 

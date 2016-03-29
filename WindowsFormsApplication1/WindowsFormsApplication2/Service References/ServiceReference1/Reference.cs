@@ -631,6 +631,12 @@ namespace ClinicalAlert.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertNotRead", ReplyAction="http://tempuri.org/IService1/GetAlertNotReadResponse")]
         System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetAlertNotReadAsync(int sns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertsUteNotRead", ReplyAction="http://tempuri.org/IService1/GetAlertsUteNotReadResponse")]
+        ClinicalAlert.ServiceReference1.ValoresWeb[] GetAlertsUteNotRead();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertsUteNotRead", ReplyAction="http://tempuri.org/IService1/GetAlertsUteNotReadResponse")]
+        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetAlertsUteNotReadAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -722,6 +728,14 @@ namespace ClinicalAlert.ServiceReference1 {
         
         public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetAlertNotReadAsync(int sns) {
             return base.Channel.GetAlertNotReadAsync(sns);
+        }
+        
+        public ClinicalAlert.ServiceReference1.ValoresWeb[] GetAlertsUteNotRead() {
+            return base.Channel.GetAlertsUteNotRead();
+        }
+        
+        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetAlertsUteNotReadAsync() {
+            return base.Channel.GetAlertsUteNotReadAsync();
         }
     }
 }

@@ -187,6 +187,13 @@ namespace ServiceLayer
                         valores.OxygenSaturation <= 60 && valores.OxygenSaturation >= 120)
                     {
                         //problema
+                        // ao criar uma nova lista, ele vai me estando
+                        //adicionar sempre a data, e nunca vai buscar 
+                        //as outras datas referentes aos valores
+                        //que estao fora dos parametros normais
+                        //Sera que e preciso fazer um metodo 
+                        //atraves do linq para retornar as outras datas referentes aquele utente
+
                         List<DateTime> datas = new List<DateTime>();
                       
                         //

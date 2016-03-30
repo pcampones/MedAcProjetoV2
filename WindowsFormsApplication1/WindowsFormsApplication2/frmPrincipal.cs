@@ -538,7 +538,7 @@ namespace ClinicalAlert
             //Titulo do gráfico
             chart1.Titles.Add("Chart Values");
 
-            //Construção da àrea do gráfico
+            //Construção da àrea do gráficosss
             chart1.ChartAreas.Add("area");
 
             DateTime dataMin = dtp_begin.Value;
@@ -546,7 +546,54 @@ namespace ClinicalAlert
 
             if (dataMin <= dataMax)
             {
+                chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
+                chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
+                chart1.ChartAreas["area"].AxisX.Interval = 1;
+                chart1.ChartAreas["area"].AxisY.Minimum = 0;
+                chart1.ChartAreas["area"].AxisY.Interval = 10;
 
+                chart1.ChartAreas["area"].AxisX.Title = "Date";
+                chart1.ChartAreas["area"].AxisY.Title = "Values";
+
+                chart1.Series.Add("Blood Pressure");
+                chart1.Series.Add("Heart Rate");
+                chart1.Series.Add("Oxygen Saturation");
+
+                //definição da cor de cada série
+                chart1.Series["Blood Pressure"].Color = Color.Red;
+                chart1.Series["Heart Rate"].Color = Color.Blue;
+                chart1.Series["Oxygen Saturation"].Color = Color.Green;
+
+                //Pontos a aparecer no gráfico
+                if (chb_blood.Checked)
+                {
+                chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
+                chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
+
+                }
+                else
+                {
+                    chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
+                    chart1.Series["Blood Pressure"].IsValueShownAsLabel = false;
+                }
+
+                chart1.Series["Heart Rate"].Points.AddXY(dataMax, 10);
+                chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 10);
+
+                chart1.ChartAreas["area"].BackColor = Color.White;
+                chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
+                chart1.ChartAreas["area"].BackGradientStyle =
+                System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+                chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+                chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+                chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
+                chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
+            }
+            else
+            {
+                MessageBox.Show("The start date can not be bigher than the end date", "Confirmation", MessageBoxButtons.OK);
             }
 
 

@@ -132,9 +132,9 @@
             this.dtp_begin = new System.Windows.Forms.DateTimePicker();
             this.label27 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chb_oxygen = new System.Windows.Forms.CheckBox();
+            this.chb_heart = new System.Windows.Forms.CheckBox();
+            this.chb_blood = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -182,11 +182,11 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
+            this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
             this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panelDiarioValores);
             this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
-            this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip2);
             this.splitContainer1.Size = new System.Drawing.Size(755, 435);
             this.splitContainer1.SplitterDistance = 144;
@@ -287,9 +287,9 @@
             // panel_Adicionar
             // 
             this.panel_Adicionar.Controls.Add(this.groupBox1);
-            this.panel_Adicionar.Location = new System.Drawing.Point(427, 213);
+            this.panel_Adicionar.Location = new System.Drawing.Point(517, 259);
             this.panel_Adicionar.Name = "panel_Adicionar";
-            this.panel_Adicionar.Size = new System.Drawing.Size(130, 192);
+            this.panel_Adicionar.Size = new System.Drawing.Size(40, 146);
             this.panel_Adicionar.TabIndex = 1;
             // 
             // groupBox1
@@ -590,9 +590,9 @@
             // 
             this.panelAlerts.Controls.Add(this.groupBox8);
             this.panelAlerts.Controls.Add(this.groupBox7);
-            this.panelAlerts.Location = new System.Drawing.Point(-1, 31);
+            this.panelAlerts.Location = new System.Drawing.Point(404, 335);
             this.panelAlerts.Name = "panelAlerts";
-            this.panelAlerts.Size = new System.Drawing.Size(558, 371);
+            this.panelAlerts.Size = new System.Drawing.Size(153, 67);
             this.panelAlerts.TabIndex = 2;
             // 
             // groupBox8
@@ -635,9 +635,9 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.listView2);
-            this.groupBox7.Location = new System.Drawing.Point(9, 18);
+            this.groupBox7.Location = new System.Drawing.Point(174, 139);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(201, 370);
+            this.groupBox7.Size = new System.Drawing.Size(36, 249);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "List Patients";
@@ -666,9 +666,9 @@
             // panelPrincipal
             // 
             this.panelPrincipal.Controls.Add(this.listView1);
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 28);
+            this.panelPrincipal.Location = new System.Drawing.Point(540, 298);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(581, 401);
+            this.panelPrincipal.Size = new System.Drawing.Size(41, 131);
             this.panelPrincipal.TabIndex = 41;
             // 
             // listView1
@@ -1046,9 +1046,9 @@
             this.panelGraficos.Controls.Add(this.groupBox5);
             this.panelGraficos.Controls.Add(this.groupBox4);
             this.panelGraficos.Controls.Add(this.groupBox3);
-            this.panelGraficos.Location = new System.Drawing.Point(267, 320);
+            this.panelGraficos.Location = new System.Drawing.Point(3, 28);
             this.panelGraficos.Name = "panelGraficos";
-            this.panelGraficos.Size = new System.Drawing.Size(328, 119);
+            this.panelGraficos.Size = new System.Drawing.Size(587, 407);
             this.panelGraficos.TabIndex = 56;
             // 
             // button3
@@ -1108,9 +1108,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.checkBox4);
-            this.groupBox4.Controls.Add(this.checkBox3);
-            this.groupBox4.Controls.Add(this.checkBox2);
+            this.groupBox4.Controls.Add(this.chb_oxygen);
+            this.groupBox4.Controls.Add(this.chb_heart);
+            this.groupBox4.Controls.Add(this.chb_blood);
             this.groupBox4.Location = new System.Drawing.Point(23, 164);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(536, 100);
@@ -1118,40 +1118,40 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Physiologic Parameters";
             // 
-            // checkBox4
+            // chb_oxygen
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(144, 19);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(113, 17);
-            this.checkBox4.TabIndex = 2;
-            this.checkBox4.Text = "Oxygen Saturation";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chb_oxygen.AutoSize = true;
+            this.chb_oxygen.Location = new System.Drawing.Point(144, 19);
+            this.chb_oxygen.Name = "chb_oxygen";
+            this.chb_oxygen.Size = new System.Drawing.Size(113, 17);
+            this.chb_oxygen.TabIndex = 2;
+            this.chb_oxygen.Text = "Oxygen Saturation";
+            this.chb_oxygen.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chb_heart
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(26, 64);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(78, 17);
-            this.checkBox3.TabIndex = 1;
-            this.checkBox3.Text = "Heart Rate";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chb_heart.AutoSize = true;
+            this.chb_heart.Location = new System.Drawing.Point(26, 64);
+            this.chb_heart.Name = "chb_heart";
+            this.chb_heart.Size = new System.Drawing.Size(78, 17);
+            this.chb_heart.TabIndex = 1;
+            this.chb_heart.Text = "Heart Rate";
+            this.chb_heart.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chb_blood
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(26, 19);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(97, 17);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.Text = "Blood Pressure";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chb_blood.AutoSize = true;
+            this.chb_blood.Location = new System.Drawing.Point(26, 19);
+            this.chb_blood.Name = "chb_blood";
+            this.chb_blood.Size = new System.Drawing.Size(97, 17);
+            this.chb_blood.TabIndex = 0;
+            this.chb_blood.Text = "Blood Pressure";
+            this.chb_blood.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.chart1);
-            this.groupBox3.Location = new System.Drawing.Point(23, 4);
+            this.groupBox3.Location = new System.Drawing.Point(12, 11);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(536, 152);
             this.groupBox3.TabIndex = 0;
@@ -1328,9 +1328,9 @@
         private System.Windows.Forms.DateTimePicker dtp_begin;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox chb_oxygen;
+        private System.Windows.Forms.CheckBox chb_heart;
+        private System.Windows.Forms.CheckBox chb_blood;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Panel panelDiarioValores;

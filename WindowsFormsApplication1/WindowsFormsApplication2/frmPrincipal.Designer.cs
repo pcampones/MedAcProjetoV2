@@ -590,9 +590,9 @@
             // 
             this.panelAlerts.Controls.Add(this.groupBox8);
             this.panelAlerts.Controls.Add(this.groupBox7);
-            this.panelAlerts.Location = new System.Drawing.Point(370, 213);
+            this.panelAlerts.Location = new System.Drawing.Point(-1, 31);
             this.panelAlerts.Name = "panelAlerts";
-            this.panelAlerts.Size = new System.Drawing.Size(187, 189);
+            this.panelAlerts.Size = new System.Drawing.Size(558, 371);
             this.panelAlerts.TabIndex = 2;
             // 
             // groupBox8
@@ -666,9 +666,9 @@
             // panelPrincipal
             // 
             this.panelPrincipal.Controls.Add(this.listView1);
-            this.panelPrincipal.Location = new System.Drawing.Point(6, 32);
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 28);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(575, 397);
+            this.panelPrincipal.Size = new System.Drawing.Size(581, 401);
             this.panelPrincipal.TabIndex = 41;
             // 
             // listView1
@@ -1046,9 +1046,9 @@
             this.panelGraficos.Controls.Add(this.groupBox5);
             this.panelGraficos.Controls.Add(this.groupBox4);
             this.panelGraficos.Controls.Add(this.groupBox3);
-            this.panelGraficos.Location = new System.Drawing.Point(3, 28);
+            this.panelGraficos.Location = new System.Drawing.Point(267, 320);
             this.panelGraficos.Name = "panelGraficos";
-            this.panelGraficos.Size = new System.Drawing.Size(592, 411);
+            this.panelGraficos.Size = new System.Drawing.Size(328, 119);
             this.panelGraficos.TabIndex = 56;
             // 
             // button3

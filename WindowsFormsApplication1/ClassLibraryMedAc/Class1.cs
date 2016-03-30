@@ -178,5 +178,12 @@ namespace ClassLibraryMedAc
                 return null;
             }
         }
+
+/*        public List<DateTime> addDatas(DateTime data)
+        {
+            List<DateTime> datas = context.ValoresSet.
+                Where(i=>i.DataOfRegist.);
+            return datas;
+        }*/
     }
 }

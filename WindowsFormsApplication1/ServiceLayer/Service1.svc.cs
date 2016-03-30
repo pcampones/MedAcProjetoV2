@@ -14,7 +14,8 @@ namespace ServiceLayer
     public class Service1 : IService1
     {
         readonly Class1 _acederBd = new Class1();
-
+   
+      
         public UtenteWeb GetUtenteBySNS(int sns)
         {
             try
@@ -151,7 +152,7 @@ namespace ServiceLayer
         public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, DateTime data)
         {
             Valores valores = new Valores();
-
+  
             Alertas alertas = new Alertas();
             Utente utente = _acederBd.getUtenteBySNS(sns);
 
@@ -185,31 +186,52 @@ namespace ServiceLayer
                     else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 || valores.HeartRate <= 90 ||
                         valores.OxygenSaturation <= 60 && valores.OxygenSaturation >= 120)
                     {
+                        //problema
+                        // ao criar uma nova lista, ele vai me estando
+                        //adicionar sempre a data, e nunca vai buscar 
+                        //as outras datas referentes aos valores
+                        //que estao fora dos parametros normais
+                        //Sera que e preciso fazer um metodo 
+                        //atraves do linq para retornar as outras datas referentes aquele utente
 
                         List<DateTime> datas = new List<DateTime>();
-                        datas.Add(valores.DataOfRegist);
-
+                      
+                        //
+                         datas.Add(valores.DataOfRegist);
+                        
                         datas.Sort((ps1, ps2) => DateTime.Compare(ps1.Date, ps2.Date));
 
                         DateTime dataInicio = datas.FirstOrDefault();
                         DateTime dataFim = datas.LastOrDefault();
+                        int somaTempo = 0;
+                        /*foreach (DateTime item in datas)
+                        {
+                            somaTempo += item.Minute;
+                        }*/
                         var dif = (dataFim - dataInicio).Minutes;
-                        if (dif >= 10)
+                        somaTempo += dif;
+                       
+                        if (dif >= 0 && dif <10)
+                        {
+                            alertas.Tipo = " ";
+                        }
+                        else if(dif >= 10 && dif <30)
+                        {
+                            alertas.Tipo = "Aviso Continuo";
+                        }
+                        else if( dif >= 30)
                         {
                             alertas.Tipo = "Critico Continuo";
                         }
-                        else if(dif >= 30)
+                        else if (dif == 30 && somaTempo >= 10)
                         {
-                            alertas.Tipo = "Critico Intermitente";
+                            alertas.Tipo = "Aviso Interminente";
                         }
-                       /* else if(dif >= 10  )
+                        else if (dif == 60 && somaTempo>= 30)
                         {
-
-                        }*/
-                        //if (datas.First().Minute.Equ)
-                        //{
-
-                        //}
+                            alertas.Tipo = "Critico Interminente";
+                        }
+                      
                     }
 
 

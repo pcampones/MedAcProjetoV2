@@ -197,7 +197,7 @@ namespace ServiceLayer
                         List<DateTime> datas = new List<DateTime>();
                       
                         //
-                         datas.Add(valores.DataOfRegist);
+                        datas.Add(valores.DataOfRegist);
                         
                         datas.Sort((ps1, ps2) => DateTime.Compare(ps1.Date, ps2.Date));
 

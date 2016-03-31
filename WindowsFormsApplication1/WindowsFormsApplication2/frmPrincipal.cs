@@ -21,6 +21,7 @@ namespace ClinicalAlert
         string gender;
         string ative = "Inative";
         int sns;
+
         public frmPrincipal()
         {
             InitializeComponent();
@@ -522,7 +523,6 @@ namespace ClinicalAlert
 
             List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
 
-
             ValoresWeb valoresWeb = new ValoresWeb();
 
             foreach (ValoresWeb item in valores)
@@ -559,6 +559,10 @@ namespace ClinicalAlert
                 chart1.Series.Add("Heart Rate");
                 chart1.Series.Add("Oxygen Saturation");
 
+                lsb_tipos.Items.Add("Bars");
+                lsb_tipos.Items.Add("Collumns");
+                lsb_tipos.Items.Add("Lines");
+
                 //definição da cor de cada série
                 chart1.Series["Blood Pressure"].Color = Color.Red;
                 chart1.Series["Heart Rate"].Color = Color.Blue;
@@ -567,13 +571,15 @@ namespace ClinicalAlert
                 //Pontos a aparecer no gráfico
                 if (chb_blood.Checked)
                 {
-                chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
-                chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
+                    chart1.Series["Blood Pressure"].Points.AddXY(dataMin, valoresWeb.bloodPressureMax);
+                    chart1.Series["Blood Pressure"].Points.AddXY(dataMax, valoresWeb.bloodPressureMin);
+
+
+                    chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
 
                 }
                 else
                 {
-                    chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
                     chart1.Series["Blood Pressure"].IsValueShownAsLabel = false;
                 }
 

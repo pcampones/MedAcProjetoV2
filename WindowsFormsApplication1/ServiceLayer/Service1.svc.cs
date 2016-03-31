@@ -186,6 +186,7 @@ namespace ServiceLayer
                     else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 || valores.HeartRate <= 90 ||
                         valores.OxygenSaturation <= 60 && valores.OxygenSaturation >= 120)
                     {
+                        //
                         //problema
                         // ao criar uma nova lista, ele vai me estando
                         //adicionar sempre a data, e nunca vai buscar 

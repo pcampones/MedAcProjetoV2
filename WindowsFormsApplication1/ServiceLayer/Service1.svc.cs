@@ -188,7 +188,7 @@ namespace ServiceLayer
                     {
                         //
                         //problema
-                        // ao criar uma nova lista, ele vai me estando
+                        // ao criar uma nova lista, ele vai me estar
                         //adicionar sempre a data, e nunca vai buscar 
                         //as outras datas referentes aos valores
                         //que estao fora dos parametros normais
@@ -198,7 +198,7 @@ namespace ServiceLayer
                         List<DateTime> datas = new List<DateTime>();
                       
                         //
-                         datas.Add(valores.DataOfRegist);
+                        datas.Add(valores.DataOfRegist);
                         
                         datas.Sort((ps1, ps2) => DateTime.Compare(ps1.Date, ps2.Date));
 

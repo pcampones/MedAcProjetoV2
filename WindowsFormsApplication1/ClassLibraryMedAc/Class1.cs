@@ -28,11 +28,7 @@ namespace ClassLibraryMedAc
             }
             catch (Exception ex)
             {
-
-
                 throw ex;
-
-
             }
            
         }
@@ -98,7 +94,6 @@ namespace ClassLibraryMedAc
             }
             catch (Exception)
             {
-
                 return null;
             }
          

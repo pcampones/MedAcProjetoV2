@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
@@ -85,6 +85,7 @@
             this.dtp_begin = new System.Windows.Forms.DateTimePicker();
             this.label27 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lsb_parameters = new System.Windows.Forms.CheckedListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelAlerts = new System.Windows.Forms.Panel();
@@ -139,7 +140,6 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsl_nameUtente = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.lsb_parameters = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -290,7 +290,7 @@
             this.panel_Adicionar.Controls.Add(this.groupBox1);
             this.panel_Adicionar.Location = new System.Drawing.Point(0, 0);
             this.panel_Adicionar.Name = "panel_Adicionar";
-            this.panel_Adicionar.Size = new System.Drawing.Size(40, 146);
+            this.panel_Adicionar.Size = new System.Drawing.Size(51, 76);
             this.panel_Adicionar.TabIndex = 1;
             // 
             // groupBox1
@@ -590,9 +590,9 @@
             // panelPrincipal
             // 
             this.panelPrincipal.Controls.Add(this.listView1);
-            this.panelPrincipal.Location = new System.Drawing.Point(6, 42);
+            this.panelPrincipal.Location = new System.Drawing.Point(385, 280);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(566, 390);
+            this.panelPrincipal.Size = new System.Drawing.Size(187, 152);
             this.panelPrincipal.TabIndex = 41;
             // 
             // listView1
@@ -641,6 +641,10 @@
             // lsb_tipos
             // 
             this.lsb_tipos.FormattingEnabled = true;
+            this.lsb_tipos.Items.AddRange(new object[] {
+            "Bars",
+            "Lines",
+            "Collumns"});
             this.lsb_tipos.Location = new System.Drawing.Point(15, 22);
             this.lsb_tipos.Name = "lsb_tipos";
             this.lsb_tipos.Size = new System.Drawing.Size(142, 147);
@@ -712,6 +716,19 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Physiologic Parameters";
             // 
+            // lsb_parameters
+            // 
+            this.lsb_parameters.FormattingEnabled = true;
+            this.lsb_parameters.Items.AddRange(new object[] {
+            "Blood Pressure",
+            "Oxygen Saturation",
+            "Heart Rate"});
+            this.lsb_parameters.Location = new System.Drawing.Point(7, 22);
+            this.lsb_parameters.Name = "lsb_parameters";
+            this.lsb_parameters.Size = new System.Drawing.Size(339, 64);
+            this.lsb_parameters.TabIndex = 0;
+            this.lsb_parameters.SelectedIndexChanged += new System.EventHandler(this.lsb_parameters_SelectedIndexChanged);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.chart1);
@@ -724,16 +741,16 @@
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(7, 20);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(474, 125);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1188,15 +1205,6 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // lsb_parameters
-            // 
-            this.lsb_parameters.FormattingEnabled = true;
-            this.lsb_parameters.Location = new System.Drawing.Point(7, 22);
-            this.lsb_parameters.Name = "lsb_parameters";
-            this.lsb_parameters.Size = new System.Drawing.Size(339, 64);
-            this.lsb_parameters.TabIndex = 0;
-            this.lsb_parameters.SelectedIndexChanged += new System.EventHandler(this.lsb_parameters_SelectedIndexChanged);
             // 
             // frmPrincipal
             // 

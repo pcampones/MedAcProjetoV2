@@ -82,6 +82,9 @@
             this.bt_searcg = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -95,6 +98,8 @@
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -110,7 +115,6 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
             this.splitContainer1.Panel2.Controls.Add(this.panelMe);
-            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Size = new System.Drawing.Size(751, 493);
             this.splitContainer1.SplitterDistance = 105;
@@ -172,12 +176,14 @@
             // 
             // panelDataAcquisition
             // 
+            this.panelDataAcquisition.Controls.Add(this.panel1);
             this.panelDataAcquisition.Controls.Add(this.groupBox3);
             this.panelDataAcquisition.Controls.Add(this.groupBox2);
+            this.panelDataAcquisition.Controls.Add(this.panelPrincipal);
             this.panelDataAcquisition.Controls.Add(this.groupBox1);
-            this.panelDataAcquisition.Location = new System.Drawing.Point(3, 25);
+            this.panelDataAcquisition.Location = new System.Drawing.Point(9, 28);
             this.panelDataAcquisition.Name = "panelDataAcquisition";
-            this.panelDataAcquisition.Size = new System.Drawing.Size(625, 443);
+            this.panelDataAcquisition.Size = new System.Drawing.Size(619, 440);
             this.panelDataAcquisition.TabIndex = 1;
             this.panelDataAcquisition.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDataAcquisition_Paint);
             // 
@@ -524,7 +530,7 @@
             this.panelPrincipal.Controls.Add(this.label11);
             this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(578, 309);
+            this.panelPrincipal.Location = new System.Drawing.Point(285, 152);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(625, 398);
             this.panelPrincipal.TabIndex = 10;
@@ -638,6 +644,32 @@
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(0, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(630, 461);
+            this.panel1.TabIndex = 48;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(23, 136);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(23, 35);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 13);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "label19";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -669,6 +701,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -733,6 +768,9 @@
         private System.Windows.Forms.Button launchAlertsButton;
         private System.Windows.Forms.Button stop;
         private System.Windows.Forms.Button initDLL;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

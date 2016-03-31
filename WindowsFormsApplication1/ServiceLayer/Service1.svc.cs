@@ -188,7 +188,7 @@ namespace ServiceLayer
                     {
                         //
                         //problema
-                        // ao criar uma nova lista, ele vai me estando
+                        // ao criar uma nova lista, ele vai me estar
                         //adicionar sempre a data, e nunca vai buscar 
                         //as outras datas referentes aos valores
                         //que estao fora dos parametros normais

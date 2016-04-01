@@ -161,12 +161,12 @@ namespace ServiceLayer
                 valores.Type = type;
                 valores.Value = value;
                 valores.DataOfRegist = data;
-                VerificaAlerta(valores.Utente,valores);
+                VerificaAlerta(valores.Utente, valores);
 
 
             }
 
-             _acederBd.addVallues(valores);
+            _acederBd.addVallues(valores);
         }
 
         public List<ValoresWeb> GetValuesbySNS(int sns)
@@ -179,328 +179,367 @@ namespace ServiceLayer
             //Utente utente = _acederBd.getUtenteBySNS(sns);
             Alertas alertas = new Alertas();
             AlertasWeb alertasWeb = new AlertasWeb();
-            DateTime data = DateTime.Now.AddMinutes(-10);
+            DateTime data = DateTime.Now;
             //List<Valores> valores = _acederBd.getValuesbySNS(sns);
             //List<DateTime> datasSPO2 = 
             //if (utente != null)
             //{
-                if (valores != null)
+            if (valores != null)
+            {
+                // foreach (Valores item in valores)
+                // {
+                switch (valores.Type)
                 {
-                   // foreach (Valores item in valores)
-                   // {
-                        switch (valores.Type)
+                    case "SPO2":
+
+
+                        if (Convert.ToInt32(valores.Value) < 30 || Convert.ToInt32(valores.Value) > 180)
                         {
-                            case "SPO2":
-
-
-                                if (Convert.ToInt32(valores.Value) < 30 || Convert.ToInt32(valores.Value) > 180)
-                                {
-                                    alertas.Read = "Not Read";
-                                    alertas.Tipo = "AnyTime";
-                                    alertas.Data = DateTime.Now;
-                                    alertas.Utente = utente;
-
-                                }
-                                else
-                                {
-                                    return null;
-                                }
-
-                                break;
-                            case "HR":
-
-                                if (Convert.ToInt32(valores.Value) < 80)
-                                {
-                                    alertas.Read = "Not Read";
-                                    alertas.Tipo = "AnyTime";
-                                    alertas.Data = DateTime.Now;
-                                   alertas.Utente = utente;
-
-                                }
-                                else if (Convert.ToInt32(valores.Value) <= 90)
-                                {
-                                    alertas.Read = "Not Read";
-                                    alertas.Tipo = "Warning Continuo";
-                                    alertas.Data = DateTime.Now;
-                                  alertas.Utente = utente;
-
-                                }
-                                else 
-                                {
-                                    return null;
-                                }
-
-                                break;
-                            case "BP":
-                                break;
+                            alertas.Read = "Not Read";
+                            alertas.Tipo = "AnyTime";
+                            alertas.Data = DateTime.Now;
+                            alertas.Utente = utente;
 
                         }
+                        else
+                        {
+                            return null;
+                        }
+
+                        break;
+                    case "HR":
+
+                        List<Valores> datasSPO2 = _acederBd.getDataSPO2(valores.Type).ToList();
 
 
-                        /* if (item.Type.Equals("SPO2") < )
-                         {
+                        List<DateTime> datas = new List<DateTime>();
 
-                         }
-                         else if (item.Type.Equals("SPO2") && Convert.ToInt32(item.Value) <90 && 
-                             Convert.ToInt32(item.Value) > 180)
-                         {
-                             alertas.Read = "Not Read";
-                             alertas.Tipo = "Warning Continuo";
-                             alertas.Data = DateTime.Now;
-                         }
-                         else if ()
-                         {
+                        int re = 0;
+                        foreach (Valores item in datasSPO2)
+                        {
+                            // item.DataOfRegist = valores.DataOfRegist;
+                            //datasSPO2.Add(item);
+                            datas.Add(item.DataOfRegist);
+                        }
 
-                         }*/
-                        alertasWeb.Tipo = alertas.Tipo;
-                        alertasWeb.Read = alertas.Read;
-                        alertasWeb.DataAlerta = alertas.Data;
-                        alertasWeb.SnsUtente = alertas.Utente.SNS ;
+                        DateTime dataFinaL = datas.LastOrDefault();
+                        
+                            re = (data - dataFinaL).Minutes;
 
-                    }
+                        int soma = 0;
 
-                    _acederBd.addValluesAlerts(alertas);
+                        
+                       
 
-                    return alertasWeb;
+
+                        if (Convert.ToInt32(valores.Value) < 80)
+                        {
+                            alertas.Read = "Not Read";
+                            alertas.Tipo = "AnyTime";
+                            alertas.Data = DateTime.Now;
+                            alertas.Utente = utente;
+
+                        }
+                        else if (Convert.ToInt32(valores.Value) <= 90 && re >= 10)
+                        {
+                            alertas.Read = "Not Read";
+                            alertas.Tipo = "Warning Continuo";
+                            alertas.Data = DateTime.Now;
+                            alertas.Utente = utente;
+
+                        }
+                        else if (Convert.ToInt32(valores.Value) <= 90 && re >= 60)
+                        {
+                            alertas.Read = "Not Read";
+                            alertas.Tipo = "Critico Continuo";
+                            alertas.Data = DateTime.Now;
+                            alertas.Utente = utente;
+
+                        }
+                        else if (Convert.ToInt32(valores.Value) <= 90 && re == 30)
+                        {
+                            alertas.Read = "Not Read";
+                            alertas.Tipo = "Critico Continuo";
+                            alertas.Data = DateTime.Now;
+                            alertas.Utente = utente;
+
+                        }
+                        else
+                        {
+                            return null;
+                        }
+
+                        break;
+                    case "BP":
+                        break;
+
                 }
-           
-        
-           
+
+
+                /* if (item.Type.Equals("SPO2") < )
+                 {
+
+                 }
+                 else if (item.Type.Equals("SPO2") && Convert.ToInt32(item.Value) <90 && 
+                     Convert.ToInt32(item.Value) > 180)
+                 {
+                     alertas.Read = "Not Read";
+                     alertas.Tipo = "Warning Continuo";
+                     alertas.Data = DateTime.Now;
+                 }
+                 else if ()
+                 {
+
+                 }*/
+                alertasWeb.Tipo = alertas.Tipo;
+                alertasWeb.Read = alertas.Read;
+                alertasWeb.DataAlerta = alertas.Data;
+                alertasWeb.SnsUtente = alertas.Utente.SNS;
+
+            }
+
+            _acederBd.addValluesAlerts(alertas);
+
+            return alertasWeb;
         }
 
-        //public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, DateTime data)
-        //{
-        //    Valores valores = new Valores();
-
-        //    Alertas alertas = new Alertas();
-        //    Utente utente = _acederBd.getUtenteBySNS(sns);
-
-        //    if (utente != null)
-        //    {
-        //        valores.Utente = utente;
-        //        valores.BloodPressureMin = bloodPressureMin;
-        //        valores.BloodPressureMax = bloodPressureMax;
-        //        valores.OxygenSaturation = oxygenSatu;
-        //        valores.HeartRate = heartRate;
-        //        valores.DataOfRegist = data;
 
 
-        //        if (valores.BloodPressureMin >= 90 && valores.BloodPressureMax <= 180 || valores.HeartRate >= 90 || valores.OxygenSaturation >= 60 && valores.OxygenSaturation <= 120)
-        //        {
-        //            alertas.Tipo = "Gama Normal";
+    }
 
-        //            alertas.Data = valores.DataOfRegist;
-        //            alertas.Read = "Read";
+    //public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, DateTime data)
+    //{
+    //    Valores valores = new Valores();
 
-        //        }
-        //        else
-        //        {
-        //            if (valores.BloodPressureMin < 60 && valores.HeartRate < 80 &&
-        //            valores.OxygenSaturation < 30 || valores.OxygenSaturation > 180)
-        //            {
-        //                alertas.Tipo = "Critico Anytime";
+    //    Alertas alertas = new Alertas();
+    //    Utente utente = _acederBd.getUtenteBySNS(sns);
 
-
-        //            }
-        //            else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 || valores.HeartRate <= 90 ||
-        //                valores.OxygenSaturation <= 60 && valores.OxygenSaturation >= 120)
-        //            {
-        //                //
-        //                //problema
-        //                // ao criar uma nova lista, ele vai me estar
-        //                //adicionar sempre a data, e nunca vai buscar 
-        //                //as outras datas referentes aos valores
-        //                //que estao fora dos parametros normais
-        //                //Sera que e preciso fazer um metodo 
-        //                //atraves do linq para retornar as outras datas referentes aquele utente
-
-        //                List<DateTime> datas = new List<DateTime>();
-
-        //                //
-        //                datas.Add(valores.DataOfRegist);
-
-        //                datas.Sort((ps1, ps2) => DateTime.Compare(ps1.Date, ps2.Date));
-
-        //                DateTime dataInicio = datas.FirstOrDefault();
-        //                DateTime dataFim = datas.LastOrDefault();
-        //                int somaTempo = 0;
-        //                /*foreach (DateTime item in datas)
-        //                {
-        //                    somaTempo += item.Minute;
-        //                }*/
-        //                var dif = (dataFim - dataInicio).Minutes;
-        //                somaTempo += dif;
-
-        //                if (dif >= 0 && dif <10)
-        //                {
-        //                    alertas.Tipo = " ";
-        //                }
-        //                else if(dif >= 10 && dif <30)
-        //                {
-        //                    alertas.Tipo = "Aviso Continuo";
-        //                }
-        //                else if( dif >= 30)
-        //                {
-        //                    alertas.Tipo = "Critico Continuo";
-        //                }
-        //                else if (dif == 30 && somaTempo >= 10)
-        //                {
-        //                    alertas.Tipo = "Aviso Interminente";
-        //                }
-        //                else if (dif == 60 && somaTempo>= 30)
-        //                {
-        //                    alertas.Tipo = "Critico Interminente";
-        //                }
+    //    if (utente != null)
+    //    {
+    //        valores.Utente = utente;
+    //        valores.BloodPressureMin = bloodPressureMin;
+    //        valores.BloodPressureMax = bloodPressureMax;
+    //        valores.OxygenSaturation = oxygenSatu;
+    //        valores.HeartRate = heartRate;
+    //        valores.DataOfRegist = data;
 
 
+    //        if (valores.BloodPressureMin >= 90 && valores.BloodPressureMax <= 180 || valores.HeartRate >= 90 || valores.OxygenSaturation >= 60 && valores.OxygenSaturation <= 120)
+    //        {
+    //            alertas.Tipo = "Gama Normal";
+
+    //            alertas.Data = valores.DataOfRegist;
+    //            alertas.Read = "Read";
+
+    //        }
+    //        else
+    //        {
+    //            if (valores.BloodPressureMin < 60 && valores.HeartRate < 80 &&
+    //            valores.OxygenSaturation < 30 || valores.OxygenSaturation > 180)
+    //            {
+    //                alertas.Tipo = "Critico Anytime";
 
 
-        //            alertas.Data = valores.DataOfRegist;
-        //            alertas.Read = "Not Read";
+    //            }
+    //            else if (valores.BloodPressureMin <= 90 && valores.BloodPressureMax >= 180 || valores.HeartRate <= 90 ||
+    //                valores.OxygenSaturation <= 60 && valores.OxygenSaturation >= 120)
+    //            {
+    //                //
+    //                //problema
+    //                // ao criar uma nova lista, ele vai me estar
+    //                //adicionar sempre a data, e nunca vai buscar 
+    //                //as outras datas referentes aos valores
+    //                //que estao fora dos parametros normais
+    //                //Sera que e preciso fazer um metodo 
+    //                //atraves do linq para retornar as outras datas referentes aquele utente
 
+    //                List<DateTime> datas = new List<DateTime>();
 
+    //                //
+    //                datas.Add(valores.DataOfRegist);
 
-        //        }
-        //        _acederBd.addValluesAlerts(alertas);
-        //        valores.Alertas = alertas;
-        //    }
-        //    _acederBd.addVallues(valores);
-        //}
+    //                datas.Sort((ps1, ps2) => DateTime.Compare(ps1.Date, ps2.Date));
 
-        //public List<ValoresWeb> GetValuesbySNS(int sns)
-        //{
+    //                DateTime dataInicio = datas.FirstOrDefault();
+    //                DateTime dataFim = datas.LastOrDefault();
+    //                int somaTempo = 0;
+    //                /*foreach (DateTime item in datas)
+    //                {
+    //                    somaTempo += item.Minute;
+    //                }*/
+    //                var dif = (dataFim - dataInicio).Minutes;
+    //                somaTempo += dif;
 
-        //    List<Valores> lista = _acederBd.getValuesbySNS(sns);
-        //    List<ValoresWeb> listaWeb = new List<ValoresWeb>();
-
-        //    foreach (Valores item in lista)
-        //    {
-        //        ValoresWeb valWeb = new ValoresWeb();
-        //        valWeb.BloodPressureMax = item.BloodPressureMax;
-        //        valWeb.BloodPressureMin = item.BloodPressureMin;
-        //        valWeb.HeartRate = item.HeartRate;
-        //        valWeb.OxigenSat = item.OxygenSaturation;
-        //        valWeb.DataOfReposit = item.DataOfRegist;
-
-        //        listaWeb.Add(valWeb);
-        //    }
-        //    return listaWeb;
-        //}
-
-
-        //public List<AlertasWeb> GetValuesAlertsbySns(int sns)
-        //{
-
-        //    try
-        //    {
-        //        List<Valores> valores = _acederBd.getValuesbySNS(sns);
-        //        List<AlertasWeb> valor = new List<AlertasWeb>();
-
-        //        foreach (Valores item in valores)
-        //        {
-        //            AlertasWeb valorWeb = new AlertasWeb();
-
-        //            valorWeb.Tipo = item.Alertas.Tipo;
-        //            valorWeb.DataAlerta = item.Alertas.Data;
-        //            valorWeb.Read = item.Alertas.Read;
-
-        //            valor.Add(valorWeb);
-        //        }
-        //        return valor;
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw ex;
-        //    }
+    //                if (dif >= 0 && dif <10)
+    //                {
+    //                    alertas.Tipo = " ";
+    //                }
+    //                else if(dif >= 10 && dif <30)
+    //                {
+    //                    alertas.Tipo = "Aviso Continuo";
+    //                }
+    //                else if( dif >= 30)
+    //                {
+    //                    alertas.Tipo = "Critico Continuo";
+    //                }
+    //                else if (dif == 30 && somaTempo >= 10)
+    //                {
+    //                    alertas.Tipo = "Aviso Interminente";
+    //                }
+    //                else if (dif == 60 && somaTempo>= 30)
+    //                {
+    //                    alertas.Tipo = "Critico Interminente";
+    //                }
 
 
 
 
-        //public List<ValoresWeb> GetAlertNotRead(int sns)
-        //{
-
-        //    try
-        //    {
-
-
-        //            List<Valores> valores = _acederBd.getAlertaSns(sns);
-        //            List<ValoresWeb> valor = new List<ValoresWeb>();
+    //            alertas.Data = valores.DataOfRegist;
+    //            alertas.Read = "Not Read";
 
 
 
-        //        foreach (Valores item in valores)
-        //        {
-        //            ValoresWeb valorWeb = new ValoresWeb();
+    //        }
+    //        _acederBd.addValluesAlerts(alertas);
+    //        valores.Alertas = alertas;
+    //    }
+    //    _acederBd.addVallues(valores);
+    //}
 
-        //            valorWeb.TipoAlerta = item.Alertas.Tipo;
-        //            valorWeb.DataAlerta = item.Alertas.Data;
-        //            valorWeb.ReadAlerta = item.Alertas.Read;
-        //            valorWeb.NomeUtente = item.Utente.Name;
-        //            valorWeb.SobreUtente = item.Utente.Surname;
-        //            valorWeb.SnsUtente = item.Utente.SNS;
-        //            valor.Add(valorWeb);
-        //        }
-        //        return valor;
-        //    }
-        //    catch (Exception ex)
-        //    {
+    //public List<ValoresWeb> GetValuesbySNS(int sns)
+    //{
 
-        //        throw ex;
-        //    }
+    //    List<Valores> lista = _acederBd.getValuesbySNS(sns);
+    //    List<ValoresWeb> listaWeb = new List<ValoresWeb>();
 
-        //}
+    //    foreach (Valores item in lista)
+    //    {
+    //        ValoresWeb valWeb = new ValoresWeb();
+    //        valWeb.BloodPressureMax = item.BloodPressureMax;
+    //        valWeb.BloodPressureMin = item.BloodPressureMin;
+    //        valWeb.HeartRate = item.HeartRate;
+    //        valWeb.OxigenSat = item.OxygenSaturation;
+    //        valWeb.DataOfReposit = item.DataOfRegist;
 
-        //public List<ValoresWeb> GetRegistofGrahp(int sns)
-        //{
-        //    try
-        //    {
-        //        List<ValoresWeb> valores = new List<ValoresWeb>();
-        //        List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
-
-        //        foreach (Valores item in listavalores)
-        //        {
-        //            ValoresWeb valor = new ValoresWeb();
-        //            valor.BloodPressureMax = item.BloodPressureMax;
-        //            valor.BloodPressureMin = item.BloodPressureMin;
-        //            valor.HeartRate = item.HeartRate;
-        //            valor.OxigenSat = item.OxygenSaturation;
-
-        //            valores.Add(valor);
-        //        }
-
-        //        return valores;
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw ex;
-        //    }
-        //}
+    //        listaWeb.Add(valWeb);
+    //    }
+    //    return listaWeb;
+    //}
 
 
+    //public List<AlertasWeb> GetValuesAlertsbySns(int sns)
+    //{
 
-        //public AlertasWeb alert(int sns,int bloodPressureMin, int bloodPressureMax, int heartRate, int oxigenSat)
-        //{
-        //    AlertasWeb alertas = new AlertasWeb();
-        // //   Valores item = new Valores();
-        //    List<Valores> valores = _acederBd.getValuesbySNS(sns);
+    //    try
+    //    {
+    //        List<Valores> valores = _acederBd.getValuesbySNS(sns);
+    //        List<AlertasWeb> valor = new List<AlertasWeb>();
 
-        //    foreach (var item in valores)
+    //        foreach (Valores item in valores)
+    //        {
+    //            AlertasWeb valorWeb = new AlertasWeb();
 
-        //        if (item.BloodPressureMin <= bloodPressureMin || item.HeartRate <= heartRate || item.OxygenSaturation <= oxigenSat && item.OxygenSaturation >= oxigenSat)
-        //        {
-        //            alertas.DataAlerta = item.DataOfRegist;
-        //            alertas.Tipo = Convert.ToInt32("C.A");
+    //            valorWeb.Tipo = item.Alertas.Tipo;
+    //            valorWeb.DataAlerta = item.Alertas.Data;
+    //            valorWeb.Read = item.Alertas.Read;
 
-        //        }
+    //            valor.Add(valorWeb);
+    //        }
+    //        return valor;
+    //    }
+    //    catch (Exception ex)
+    //    {
+
+    //        throw ex;
+    //    }
 
 
 
-        //    return alertas;
-        //}
+
+    //public List<ValoresWeb> GetAlertNotRead(int sns)
+    //{
+
+    //    try
+    //    {
 
 
-        //}
-    
+    //            List<Valores> valores = _acederBd.getAlertaSns(sns);
+    //            List<ValoresWeb> valor = new List<ValoresWeb>();
+
+
+
+    //        foreach (Valores item in valores)
+    //        {
+    //            ValoresWeb valorWeb = new ValoresWeb();
+
+    //            valorWeb.TipoAlerta = item.Alertas.Tipo;
+    //            valorWeb.DataAlerta = item.Alertas.Data;
+    //            valorWeb.ReadAlerta = item.Alertas.Read;
+    //            valorWeb.NomeUtente = item.Utente.Name;
+    //            valorWeb.SobreUtente = item.Utente.Surname;
+    //            valorWeb.SnsUtente = item.Utente.SNS;
+    //            valor.Add(valorWeb);
+    //        }
+    //        return valor;
+    //    }
+    //    catch (Exception ex)
+    //    {
+
+    //        throw ex;
+    //    }
+
+    //}
+
+    //public List<ValoresWeb> GetRegistofGrahp(int sns)
+    //{
+    //    try
+    //    {
+    //        List<ValoresWeb> valores = new List<ValoresWeb>();
+    //        List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
+
+    //        foreach (Valores item in listavalores)
+    //        {
+    //            ValoresWeb valor = new ValoresWeb();
+    //            valor.BloodPressureMax = item.BloodPressureMax;
+    //            valor.BloodPressureMin = item.BloodPressureMin;
+    //            valor.HeartRate = item.HeartRate;
+    //            valor.OxigenSat = item.OxygenSaturation;
+
+    //            valores.Add(valor);
+    //        }
+
+    //        return valores;
+    //    }
+    //    catch (Exception ex)
+    //    {
+
+    //        throw ex;
+    //    }
+    //}
+
+
+
+    //public AlertasWeb alert(int sns,int bloodPressureMin, int bloodPressureMax, int heartRate, int oxigenSat)
+    //{
+    //    AlertasWeb alertas = new AlertasWeb();
+    // //   Valores item = new Valores();
+    //    List<Valores> valores = _acederBd.getValuesbySNS(sns);
+
+    //    foreach (var item in valores)
+
+    //        if (item.BloodPressureMin <= bloodPressureMin || item.HeartRate <= heartRate || item.OxygenSaturation <= oxigenSat && item.OxygenSaturation >= oxigenSat)
+    //        {
+    //            alertas.DataAlerta = item.DataOfRegist;
+    //            alertas.Tipo = Convert.ToInt32("C.A");
+
+    //        }
+
+
+
+    //    return alertas;
+    //}
+
+
+    //}
+
 }

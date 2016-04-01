@@ -17,7 +17,7 @@ namespace ClassLibraryMedAc
         public int Id { get; set; }
         public string Type { get; set; }
         public string Value { get; set; }
-        public System.DateTimeOffset DataOfRegist { get; set; }
+        public System.DateTime DataOfRegist { get; set; }
     
         public virtual Utente Utente { get; set; }
     }

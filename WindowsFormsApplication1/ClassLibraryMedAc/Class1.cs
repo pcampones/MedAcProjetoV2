@@ -143,6 +143,12 @@ namespace ClassLibraryMedAc
             }
         }
 
+        public List<Valores> getDataSPO2(string tipo)
+        {
+            List<Valores> datas = context.ValoresSet.Where(i => i.Type == "HR").ToList();
+            return datas;
+        }
+
         //public List<Valores> getAlertaSns(int sns)
         //{
         //    try

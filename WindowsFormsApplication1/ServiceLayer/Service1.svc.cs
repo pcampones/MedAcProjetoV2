@@ -14,8 +14,8 @@ namespace ServiceLayer
     public class Service1 : IService1
     {
         readonly Class1 _acederBd = new Class1();
-   
-      
+
+
         public UtenteWeb GetUtenteBySNS(int sns)
         {
             try
@@ -149,10 +149,129 @@ namespace ServiceLayer
             }
         }
 
+        public void AddValues(int sns, string type, string value, DateTime data)
+        {
+            Valores valores = new Valores();
+            Utente utente = _acederBd.getUtenteBySNS(sns);
+
+
+            if (utente != null)
+            {
+                valores.Utente = utente;
+                valores.Type = type;
+                valores.Value = value;
+                valores.DataOfRegist = data;
+                VerificaAlerta(valores.Utente,valores);
+
+
+            }
+
+             _acederBd.addVallues(valores);
+        }
+
+        public List<ValoresWeb> GetValuesbySNS(int sns)
+        {
+            throw new NotImplementedException();
+        }
+
+        public AlertasWeb VerificaAlerta(Utente utente, Valores valores)
+        {
+            //Utente utente = _acederBd.getUtenteBySNS(sns);
+            Alertas alertas = new Alertas();
+            AlertasWeb alertasWeb = new AlertasWeb();
+            DateTime data = DateTime.Now.AddMinutes(-10);
+            //List<Valores> valores = _acederBd.getValuesbySNS(sns);
+            //List<DateTime> datasSPO2 = 
+            //if (utente != null)
+            //{
+                if (valores != null)
+                {
+                   // foreach (Valores item in valores)
+                   // {
+                        switch (valores.Type)
+                        {
+                            case "SPO2":
+
+
+                                if (Convert.ToInt32(valores.Value) < 30 || Convert.ToInt32(valores.Value) > 180)
+                                {
+                                    alertas.Read = "Not Read";
+                                    alertas.Tipo = "AnyTime";
+                                    alertas.Data = DateTime.Now;
+                                    alertas.Utente = utente;
+
+                                }
+                                else
+                                {
+                                    return null;
+                                }
+
+                                break;
+                            case "HR":
+
+                                if (Convert.ToInt32(valores.Value) < 80)
+                                {
+                                    alertas.Read = "Not Read";
+                                    alertas.Tipo = "AnyTime";
+                                    alertas.Data = DateTime.Now;
+                                   alertas.Utente = utente;
+
+                                }
+                                else if (Convert.ToInt32(valores.Value) <= 90)
+                                {
+                                    alertas.Read = "Not Read";
+                                    alertas.Tipo = "Warning Continuo";
+                                    alertas.Data = DateTime.Now;
+                                  alertas.Utente = utente;
+
+                                }
+                                else 
+                                {
+                                    return null;
+                                }
+
+                                break;
+                            case "BP":
+                                break;
+
+                        }
+
+
+                        /* if (item.Type.Equals("SPO2") < )
+                         {
+
+                         }
+                         else if (item.Type.Equals("SPO2") && Convert.ToInt32(item.Value) <90 && 
+                             Convert.ToInt32(item.Value) > 180)
+                         {
+                             alertas.Read = "Not Read";
+                             alertas.Tipo = "Warning Continuo";
+                             alertas.Data = DateTime.Now;
+                         }
+                         else if ()
+                         {
+
+                         }*/
+                        alertasWeb.Tipo = alertas.Tipo;
+                        alertasWeb.Read = alertas.Read;
+                        alertasWeb.DataAlerta = alertas.Data;
+                        alertasWeb.SnsUtente = alertas.Utente.SNS ;
+
+                    }
+
+                    _acederBd.addValluesAlerts(alertas);
+
+                    return alertasWeb;
+                }
+           
+        
+           
+        }
+
         //public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, DateTime data)
         //{
         //    Valores valores = new Valores();
-  
+
         //    Alertas alertas = new Alertas();
         //    Utente utente = _acederBd.getUtenteBySNS(sns);
 
@@ -196,10 +315,10 @@ namespace ServiceLayer
         //                //atraves do linq para retornar as outras datas referentes aquele utente
 
         //                List<DateTime> datas = new List<DateTime>();
-                      
+
         //                //
         //                datas.Add(valores.DataOfRegist);
-                        
+
         //                datas.Sort((ps1, ps2) => DateTime.Compare(ps1.Date, ps2.Date));
 
         //                DateTime dataInicio = datas.FirstOrDefault();
@@ -211,7 +330,7 @@ namespace ServiceLayer
         //                }*/
         //                var dif = (dataFim - dataInicio).Minutes;
         //                somaTempo += dif;
-                       
+
         //                if (dif >= 0 && dif <10)
         //                {
         //                    alertas.Tipo = " ";
@@ -232,8 +351,8 @@ namespace ServiceLayer
         //                {
         //                    alertas.Tipo = "Critico Interminente";
         //                }
-                      
-                  
+
+
 
 
         //            alertas.Data = valores.DataOfRegist;
@@ -284,7 +403,7 @@ namespace ServiceLayer
         //            valorWeb.Tipo = item.Alertas.Tipo;
         //            valorWeb.DataAlerta = item.Alertas.Data;
         //            valorWeb.Read = item.Alertas.Read;
-                    
+
         //            valor.Add(valorWeb);
         //        }
         //        return valor;
@@ -295,7 +414,7 @@ namespace ServiceLayer
         //        throw ex;
         //    }
 
-        
+
 
 
         //public List<ValoresWeb> GetAlertNotRead(int sns)
@@ -304,11 +423,11 @@ namespace ServiceLayer
         //    try
         //    {
 
-              
+
         //            List<Valores> valores = _acederBd.getAlertaSns(sns);
         //            List<ValoresWeb> valor = new List<ValoresWeb>();
-                
-            
+
+
 
         //        foreach (Valores item in valores)
         //        {
@@ -346,7 +465,7 @@ namespace ServiceLayer
         //            valor.BloodPressureMin = item.BloodPressureMin;
         //            valor.HeartRate = item.HeartRate;
         //            valor.OxigenSat = item.OxygenSaturation;
-                    
+
         //            valores.Add(valor);
         //        }
 
@@ -382,6 +501,6 @@ namespace ServiceLayer
         //}
 
 
-    //}
-}
+        //}
+    
 }

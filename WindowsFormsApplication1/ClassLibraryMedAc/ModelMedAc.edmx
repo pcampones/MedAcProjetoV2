@@ -44,11 +44,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="BloodPressureMin" Type="int" Nullable="false" />
-    <Property Name="HeartRate" Type="int" Nullable="false" />
-    <Property Name="OxygenSaturation" Type="int" Nullable="false" />
-    <Property Name="DataOfRegist" Type="datetime" Nullable="false" />
-    <Property Name="BloodPressureMax" Type="int" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataOfRegist" Type="datetimeoffset" Nullable="false" />
     <Property Name="Utente_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="AlertasSet">
@@ -130,12 +128,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BloodPressureMin" Type="Int32" Nullable="false" />
-          <Property Name="HeartRate" Type="Int32" Nullable="false" />
-          <Property Name="OxygenSaturation" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" />
           <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteValores" FromRole="Valores" ToRole="Utente" />
-          <Property Name="DataOfRegist" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="BloodPressureMax" Type="Int32" Nullable="false" />
+          <Property Name="DataOfRegist" Type="DateTimeOffset" Nullable="false" />
         </EntityType>
         <EntityType Name="Alertas">
           <Key>
@@ -187,11 +183,9 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModelMedAc.Valores)">
         <MappingFragment StoreEntitySet="ValoresSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="BloodPressureMin" ColumnName="BloodPressureMin" />
-          <ScalarProperty Name="HeartRate" ColumnName="HeartRate" />
-          <ScalarProperty Name="OxygenSaturation" ColumnName="OxygenSaturation" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
           <ScalarProperty Name="DataOfRegist" ColumnName="DataOfRegist" />
-          <ScalarProperty Name="BloodPressureMax" ColumnName="BloodPressureMax" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

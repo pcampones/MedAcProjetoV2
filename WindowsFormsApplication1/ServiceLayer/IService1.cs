@@ -28,8 +28,11 @@ namespace ServiceLayer
         //[OperationContract]
         //List<ValoresWeb> GetValuesbySNS(int sns);
 
-        //[OperationContract]
-        //void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate,int oxygenSatu, DateTime data);
+        [OperationContract]
+        void AddValues(int sns, string type, string value , DateTime data);
+
+        [OperationContract]
+        List<ValoresWeb> GetValuesbySNS(int sns);
 
         //[OperationContract]
         //List<AlertasWeb> GetValuesAlertsbySns(int sns);
@@ -193,42 +196,22 @@ namespace ServiceLayer
         }
 
         [DataMember]
-        private int bloodPressureMin;
+        private string type;
 
-        public int BloodPressureMin
+        public string Type
         {
-            get { return bloodPressureMin; }
-            set { bloodPressureMin = value; }
+            get { return type; }
+            set { type = value; }
         }
         [DataMember]
-        private int bloodPressureMax;
+        private string valueR ;
 
-        public int BloodPressureMax
+        public string Value
         {
-            get { return bloodPressureMax; }
-            set { bloodPressureMax = value; }
+            get { return valueR; }
+            set { valueR = value; }
         }
-
-        [DataMember]
-
-        private int heartRate;
-
-        public int HeartRate
-        {
-            get { return heartRate; }
-            set { heartRate = value; }
-
-        }
-
-        [DataMember]
-        private int oxigenSat;
-
-        public int OxigenSat
-        {
-            get { return oxigenSat; }
-            set { oxigenSat = value; }
-        }
-
+        
         [DataMember]
         private DateTime dataOfReposit;
 
@@ -264,35 +247,7 @@ namespace ServiceLayer
             get { return sUtente; }
             set { sUtente = value; }
         }
-
-        [DataMember]
-        private string tipoAlerta;
-
-        public string TipoAlerta
-        {
-            get { return tipoAlerta; }
-            set { tipoAlerta = value; }
-        }
-
-        [DataMember]
-        private DateTime dataAlerta;
-
-        public DateTime DataAlerta
-        {
-            get { return dataAlerta; }
-            set { dataAlerta = value; }
-        }
-
-        [DataMember]
-        private string readAlerta;
-
-        public string ReadAlerta
-        {
-            get { return readAlerta; }
-            set { readAlerta = value; }
-        }
-
-
+        
     }
 
     [DataContract]
@@ -329,6 +284,15 @@ namespace ServiceLayer
 
 
         }
-      
+        [DataMember]
+        private int snsUtente;
+
+        public int SnsUtente
+        {
+            get { return snsUtente; }
+            set { snsUtente = value; }
+        }
+
+
     }
 }

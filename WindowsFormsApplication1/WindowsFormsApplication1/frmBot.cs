@@ -384,39 +384,42 @@ namespace BOT
         public void NewSensorValueFunction(string str)
         {
 
-            string[] valor = str.Split(';','-');
+            string[] valor = str.Split(';');
            
 
-            this.BeginInvoke((MethodInvoker)delegate
+            this.BeginInvoke((MethodInvoker)delegate    
             {
                 if (valor[0].Equals("BP"))
                 {
-                    bloodPressureMinLbl.Text = valor[2];
+             
                     bloodPressureMaxLbl.Text = valor[1];
 
-                    label16.Text = valor[3];
-              
-                    serv.AddValues(Settings.Default.SNS,Convert.ToInt32( bloodPressureMinLbl.Text),
-                        Convert.ToInt32(bloodPressureMaxLbl.Text)
-                     , 0, 0, DateTime.Parse(label16.Text));
+                    label16.Text = valor[2];
+                    
+                    serv.AddValues(Settings.Default.SNS, valor[0],bloodPressureMaxLbl.Text,
+                     DateTime.Parse(label16.Text));
                 }
                 else if (valor[0].Equals("HR"))
                 {
                     heartRateLbl.Text = valor[1];
                     label15.Text = valor[2];
-                    serv.AddValues(Settings.Default.SNS,0,
-                      0, Convert.ToInt32(heartRateLbl.Text), 0, Convert.ToDateTime(label15.Text));
 
+
+                    serv.AddValues(Settings.Default.SNS, valor[0], heartRateLbl.Text,
+                        DateTime.Parse(label15.Text));
                 }
                 else if (valor[0].Equals("SPO2"))
                 {
                     oxigenPressureLbl.Text = valor[1];
                     label17.Text = valor[2];
-                    serv.AddValues(Settings.Default.SNS,0,
-                     0, 0, Convert.ToInt32(oxigenPressureLbl.Text), Convert.ToDateTime(label17.Text));
+
+                
+                    
+                    serv.AddValues(Settings.Default.SNS,valor[0], oxigenPressureLbl.Text,
+                        DateTime.Parse(label17.Text));
 
                 }
-              
+
 
             });
         }

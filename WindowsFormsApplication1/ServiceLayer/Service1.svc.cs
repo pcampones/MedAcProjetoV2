@@ -173,6 +173,8 @@ namespace ServiceLayer
                     alertas.Data = valores.DataOfRegist;
                     alertas.Read = "Read";
 
+                    // nfdndfndfn efn nfv 
+
                 }
                 else
                 {

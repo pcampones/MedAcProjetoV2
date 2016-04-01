@@ -24,6 +24,8 @@ public partial class Utente
 
         this.Valores = new HashSet<Valores>();
 
+        this.Alertas = new HashSet<Alertas>();
+
     }
 
 
@@ -64,6 +66,10 @@ public partial class Utente
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<Valores> Valores { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Alertas> Alertas { get; set; }
 
 }
 

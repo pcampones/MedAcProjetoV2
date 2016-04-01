@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/31/2016 18:57:24
+-- Date Created: 04/01/2016 12:01:29
 -- Generated from EDMX file: C:\Users\Pedro Vieira\Source\Repos\MedAcProjetoV2\WindowsFormsApplication1\ClassLibraryMedAc\ModelMedAc.edmx
 -- --------------------------------------------------
 
@@ -71,8 +71,7 @@ CREATE TABLE [dbo].[ValoresSet] (
     [OxygenSaturation] int  NOT NULL,
     [DataOfRegist] datetime  NOT NULL,
     [BloodPressureMax] int  NOT NULL,
-    [Utente_Id] int  NOT NULL,
-    [Alertas_Id] int  NOT NULL
+    [Utente_Id] int  NOT NULL
 );
 GO
 
@@ -81,7 +80,8 @@ CREATE TABLE [dbo].[AlertasSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Tipo] nvarchar(max)  NOT NULL,
     [Data] datetime  NOT NULL,
-    [Read] nvarchar(max)  NOT NULL
+    [Read] nvarchar(max)  NOT NULL,
+    [Utente_Id] int  NOT NULL
 );
 GO
 
@@ -126,19 +126,19 @@ ON [dbo].[ValoresSet]
     ([Utente_Id]);
 GO
 
--- Creating foreign key on [Alertas_Id] in table 'ValoresSet'
-ALTER TABLE [dbo].[ValoresSet]
-ADD CONSTRAINT [FK_ValoresAlertas]
-    FOREIGN KEY ([Alertas_Id])
-    REFERENCES [dbo].[AlertasSet]
+-- Creating foreign key on [Utente_Id] in table 'AlertasSet'
+ALTER TABLE [dbo].[AlertasSet]
+ADD CONSTRAINT [FK_UtenteAlertas]
+    FOREIGN KEY ([Utente_Id])
+    REFERENCES [dbo].[UtenteSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ValoresAlertas'
-CREATE INDEX [IX_FK_ValoresAlertas]
-ON [dbo].[ValoresSet]
-    ([Alertas_Id]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_UtenteAlertas'
+CREATE INDEX [IX_FK_UtenteAlertas]
+ON [dbo].[AlertasSet]
+    ([Utente_Id]);
 GO
 
 -- --------------------------------------------------

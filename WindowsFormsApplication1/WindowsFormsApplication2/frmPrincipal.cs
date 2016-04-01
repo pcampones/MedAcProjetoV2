@@ -595,7 +595,7 @@ namespace ClinicalAlert
         {
             if (lsb_tipos.Equals("Bars"))
             {
-                //definição do tipo de gráfico
+                //definição do tipo de gráficosss
                 chart1.Series["Blood Pressure"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
                 chart1.Series["Oxygen Saturation"].ChartType =

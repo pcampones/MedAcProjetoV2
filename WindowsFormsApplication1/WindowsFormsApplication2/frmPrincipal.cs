@@ -535,7 +535,7 @@ namespace ClinicalAlert
 
             if (dataMin <= dataMax)
             {
-                List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
+               List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
 
                 foreach (ValoresWeb item in valores)
                 {

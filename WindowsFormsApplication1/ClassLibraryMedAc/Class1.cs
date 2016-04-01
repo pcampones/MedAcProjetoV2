@@ -143,36 +143,36 @@ namespace ClassLibraryMedAc
             }
         }
 
-        public List<Valores> getAlertaSns(int sns)
-        {
-            try
-            {
-                List<Valores> result = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) 
-                && i.Alertas.Read.Equals("Not Read")).ToList();
-                return result;
+        //public List<Valores> getAlertaSns(int sns)
+        //{
+        //    try
+        //    {
+        //        List<Valores> result = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) 
+        //        && i.Alertas.Read.Equals("Not Read")).ToList();
+        //        return result;
 
-            }
-            catch (Exception)
-            {
+        //    }
+        //    catch (Exception)
+        //    {
 
-                return null;
-            }
-        }
+        //        return null;
+        //    }
+        //}
 
-        public List<Valores> getUtenteSnsNotRead()
-        {
-            try
-            {
-                List<Valores> result = context.ValoresSet.Where(i=>i.Alertas.Read.Equals("Not Read")).ToList();
-                return result;
+        //public List<Valores> getUtenteSnsNotRead()
+        //{
+        //    try
+        //    {
+        //        List<Valores> result = context.ValoresSet.Where(i=>i.Alertas.Read.Equals("Not Read")).ToList();
+        //        return result;
 
-            }
-            catch (Exception)
-            {
+        //    }
+        //    catch (Exception)
+        //    {
 
-                return null;
-            }
-        }
+        //        return null;
+        //    }
+        //}
 
 /*        public List<DateTime> addDatas(DateTime data)
         {

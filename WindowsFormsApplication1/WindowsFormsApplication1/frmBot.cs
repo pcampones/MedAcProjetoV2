@@ -47,6 +47,7 @@ namespace BOT
             //panelMedical.Visible = false;
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
+            panel1.Visible = false;
          
 
         }
@@ -82,6 +83,8 @@ namespace BOT
             panelDataAcquisition.Visible = false;
             panelMe.Visible = true;
             panelPrincipal.Visible = false;
+            panel1.Visible = false;
+
        //     panelMedical.Visible = false;
 
             if (u == null)
@@ -102,7 +105,7 @@ namespace BOT
             panelDataAcquisition.Visible = true;
             panelMe.Visible = false;
             panelPrincipal.Visible = false;
-          //  panelMedical.Visible = false;
+            panel1.Visible = false;
 
             //sdsd
        
@@ -111,7 +114,7 @@ namespace BOT
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-           // panelMedical.Visible = true;
+           panel1.Visible = true;
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
             panelPrincipal.Visible = false;
@@ -256,59 +259,59 @@ namespace BOT
 
         }
 
-        private void bt_searcg_Click(object sender, EventArgs e)
-        {
-            string url = Properties.Settings.Default.Medline;
-            int retmax = Properties.Settings.Default.Retmax;
-            string term = txb_palavra.Text;
-            string urlComp = url + term + "&retmax=" + retmax;
+        //private void bt_searcg_Click(object sender, EventArgs e)
+        //{
+        //    string url = Properties.Settings.Default.Medline;
+        //    int retmax = Properties.Settings.Default.Retmax;
+        //    string term = txb_palavra.Text;
+        //    string urlComp = url + term + "&retmax=" + retmax;
 
-            MessageBox.Show(url);
-            var client = new WebClient();
-            client.DownloadStringAsync(new Uri(urlComp));
-            client.DownloadStringCompleted += Client_DownloadStringCompleted;
+        //    MessageBox.Show(url);
+        //    var client = new WebClient();
+        //    client.DownloadStringAsync(new Uri(urlComp));
+        //    client.DownloadStringCompleted += Client_DownloadStringCompleted;
 
-            //    serv = new Service1Client();
-
-
+        //    //    serv = new Service1Client();
 
 
 
 
 
-            //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
 
-            //List<String> options = new List<String>(new String[] { "search" });
 
-            //Choices choicesOptions = new Choices(options.ToArray());
+        //    //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
 
-            //GrammarBuilder gb = new GrammarBuilder();
-            //gb.Append(choicesOptions);
+        //    //List<String> options = new List<String>(new String[] { "search" });
 
-            //Grammar g = new Grammar(gb);
-            //g.Name = "services grammar";
-            ////groupBox1.Name = g.Name;
-            //recognizer.LoadGrammar(g);
+        //    //Choices choicesOptions = new Choices(options.ToArray());
 
-            //recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
+        //    //GrammarBuilder gb = new GrammarBuilder();
+        //    //gb.Append(choicesOptions);
 
-            //recognizer.SetInputToDefaultAudioDevice();
+        //    //Grammar g = new Grammar(gb);
+        //    //g.Name = "services grammar";
+        //    ////groupBox1.Name = g.Name;
+        //    //recognizer.LoadGrammar(g);
 
-            //recognizer.RecognizeAsync(RecognizeMode.Multiple);     
-            //}
+        //    //recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
 
-            // void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
-            //{
-            //    if (e.Result.Text.Equals("search"))
-            //    {
-            //        listView1.Items.Clear();
+        //    //recognizer.SetInputToDefaultAudioDevice();
 
-            listView1.Columns.Add("Rank", 50, HorizontalAlignment.Left);
-            listView1.Columns.Add("Title", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Organization Name", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Alternative Names", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
-        }
+        //    //recognizer.RecognizeAsync(RecognizeMode.Multiple);     
+        //    //}
+
+        //    // void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        //    //{
+        //    //    if (e.Result.Text.Equals("search"))
+        //    //    {
+        //    //        listView1.Items.Clear();
+
+        //    listView1.Columns.Add("Rank", 50, HorizontalAlignment.Left);
+        //    listView1.Columns.Add("Title", 150, HorizontalAlignment.Left);
+        //    listView1.Columns.Add("Organization Name", 150, HorizontalAlignment.Left);
+        //    listView1.Columns.Add("Alternative Names", 150, HorizontalAlignment.Left);
+        //    listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
+        //}
 
         private void panelDataAcquisition_Paint(object sender, PaintEventArgs e)
         {
@@ -424,9 +427,61 @@ namespace BOT
 
         }
 
-       
+        private void bt_search_Click(object sender, EventArgs e)
+        {
+            string url = Properties.Settings.Default.Medline;
+            int retmax = Properties.Settings.Default.Retmax;
+            string term = txb_palavra.Text;
+            string urlComp = url + term + "&retmax=" + retmax;
 
-     
+            MessageBox.Show(url);
+            var client = new WebClient();
+            client.DownloadStringAsync(new Uri(urlComp));
+            client.DownloadStringCompleted += Client_DownloadStringCompleted;
+
+            //    serv = new Service1Client();
+
+
+
+
+
+
+
+            //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
+
+            //List<String> options = new List<String>(new String[] { "search" });
+
+            //Choices choicesOptions = new Choices(options.ToArray());
+
+            //GrammarBuilder gb = new GrammarBuilder();
+            //gb.Append(choicesOptions);
+
+            //Grammar g = new Grammar(gb);
+            //g.Name = "services grammar";
+            ////groupBox1.Name = g.Name;
+            //recognizer.LoadGrammar(g);
+
+            //recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
+
+            //recognizer.SetInputToDefaultAudioDevice();
+
+            //recognizer.RecognizeAsync(RecognizeMode.Multiple);     
+            //}
+
+            // void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+            //{
+            //    if (e.Result.Text.Equals("search"))
+            //    {
+            //        listView1.Items.Clear();
+
+            //dataGridView1.NewRowIndexo();
+
+            //dataGridView1.Columns.Add("Rank", 50, HorizontalAlignment.Left);
+            listView1.Columns.Add("Title", 150, HorizontalAlignment.Left);
+            listView1.Columns.Add("Organization Name", 150, HorizontalAlignment.Left);
+            listView1.Columns.Add("Alternative Names", 150, HorizontalAlignment.Left);
+            listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
+        }
     }
 
     }

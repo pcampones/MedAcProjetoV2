@@ -34,8 +34,6 @@ public partial class Valores
 
     public virtual Utente Utente { get; set; }
 
-    public virtual Alertas Alertas { get; set; }
-
 }
 
 }

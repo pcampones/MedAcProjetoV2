@@ -13,8 +13,8 @@
       <End Role="Utente" EntitySet="UtenteSet" />
       <End Role="Valores" EntitySet="ValoresSet" />
     </AssociationSet>
-    <AssociationSet Name="ValoresAlertas" Association="ModelMedAc.Store.ValoresAlertas">
-      <End Role="Valores" EntitySet="ValoresSet" />
+    <AssociationSet Name="UtenteAlertas" Association="ModelMedAc.Store.UtenteAlertas">
+      <End Role="Utente" EntitySet="UtenteSet" />
       <End Role="Alertas" EntitySet="AlertasSet" />
     </AssociationSet>
   </EntityContainer>
@@ -50,7 +50,6 @@
     <Property Name="DataOfRegist" Type="datetime" Nullable="false" />
     <Property Name="BloodPressureMax" Type="int" Nullable="false" />
     <Property Name="Utente_Id" Type="int" Nullable="false" />
-    <Property Name="Alertas_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="AlertasSet">
     <Key>
@@ -60,6 +59,7 @@
     <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Data" Type="datetime" Nullable="false" />
     <Property Name="Read" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Utente_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="UtenteValores">
     <End Role="Utente" Type="ModelMedAc.Store.UtenteSet" Multiplicity="1" />
@@ -73,15 +73,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="ValoresAlertas">
-    <End Role="Valores" Type="ModelMedAc.Store.ValoresSet" Multiplicity="*" />
-    <End Role="Alertas" Type="ModelMedAc.Store.AlertasSet" Multiplicity="1" />
+  <Association Name="UtenteAlertas">
+    <End Role="Utente" Type="ModelMedAc.Store.UtenteSet" Multiplicity="1" />
+    <End Role="Alertas" Type="ModelMedAc.Store.AlertasSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Alertas">
+      <Principal Role="Utente">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Valores">
-        <PropertyRef Name="Alertas_Id" />
+      <Dependent Role="Alertas">
+        <PropertyRef Name="Utente_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -97,8 +97,8 @@
             <End Role="Utente" EntitySet="UtenteSet" />
             <End Role="Valores" EntitySet="ValoresSet" />
           </AssociationSet>
-          <AssociationSet Name="ValoresAlertas" Association="ModelMedAc.ValoresAlertas">
-            <End Role="Valores" EntitySet="ValoresSet" />
+          <AssociationSet Name="UtenteAlertas" Association="ModelMedAc.UtenteAlertas">
+            <End Role="Utente" EntitySet="UtenteSet" />
             <End Role="Alertas" EntitySet="AlertasSet" />
           </AssociationSet>
         </EntityContainer>
@@ -123,6 +123,7 @@
           <Property Name="Age" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Valores" Relationship="ModelMedAc.UtenteValores" FromRole="Utente" ToRole="Valores" />
           <Property Name="Ative" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Alertas" Relationship="ModelMedAc.UtenteAlertas" FromRole="Utente" ToRole="Alertas" />
         </EntityType>
         <EntityType Name="Valores">
           <Key>
@@ -135,7 +136,6 @@
           <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteValores" FromRole="Valores" ToRole="Utente" />
           <Property Name="DataOfRegist" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="BloodPressureMax" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Alertas" Relationship="ModelMedAc.ValoresAlertas" FromRole="Valores" ToRole="Alertas" />
         </EntityType>
         <EntityType Name="Alertas">
           <Key>
@@ -144,16 +144,16 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Tipo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Valores" Relationship="ModelMedAc.ValoresAlertas" FromRole="Alertas" ToRole="Valores" />
           <Property Name="Read" Type="String" Nullable="false" />
+          <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteAlertas" FromRole="Alertas" ToRole="Utente" />
         </EntityType>
         <Association Name="UtenteValores">
           <End Type="ModelMedAc.Utente" Role="Utente" Multiplicity="1" />
           <End Type="ModelMedAc.Valores" Role="Valores" Multiplicity="*" />
         </Association>
-        <Association Name="ValoresAlertas">
-          <End Type="ModelMedAc.Valores" Role="Valores" Multiplicity="*" />
-          <End Type="ModelMedAc.Alertas" Role="Alertas" Multiplicity="1" />
+        <Association Name="UtenteAlertas">
+          <End Type="ModelMedAc.Utente" Role="Utente" Multiplicity="1" />
+          <End Type="ModelMedAc.Alertas" Role="Alertas" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -213,11 +213,11 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ValoresAlertas" TypeName="ModelMedAc.ValoresAlertas" StoreEntitySet="ValoresSet">
-      <EndProperty Name="Alertas">
-        <ScalarProperty Name="Id" ColumnName="Alertas_Id" />
+    <AssociationSetMapping Name="UtenteAlertas" TypeName="ModelMedAc.UtenteAlertas" StoreEntitySet="AlertasSet">
+      <EndProperty Name="Utente">
+        <ScalarProperty Name="Id" ColumnName="Utente_Id" />
       </EndProperty>
-      <EndProperty Name="Valores">
+      <EndProperty Name="Alertas">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>

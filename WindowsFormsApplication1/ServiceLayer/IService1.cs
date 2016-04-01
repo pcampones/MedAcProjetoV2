@@ -25,20 +25,20 @@ namespace ServiceLayer
         [OperationContract]
         List<UtenteWeb> GetListaUtentes();
 
-        [OperationContract]
-        List<ValoresWeb> GetValuesbySNS(int sns);
+        //[OperationContract]
+        //List<ValoresWeb> GetValuesbySNS(int sns);
 
-        [OperationContract]
-        void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate,int oxygenSatu, DateTime data);
+        //[OperationContract]
+        //void AddValues(int sns, int bloodPressureMin,int bloodPressureMax, int heartRate,int oxygenSatu, DateTime data);
 
-        [OperationContract]
-        List<AlertasWeb> GetValuesAlertsbySns(int sns);
+        //[OperationContract]
+        //List<AlertasWeb> GetValuesAlertsbySns(int sns);
 
-        [OperationContract]
-        List<ValoresWeb> GetAlertNotRead(int sns);
+        //[OperationContract]
+        //List<ValoresWeb> GetAlertNotRead(int sns);
 
-        [OperationContract]
-        List<ValoresWeb> GetRegistofGrahp(int sns);
+        //[OperationContract]
+        //List<ValoresWeb> GetRegistofGrahp(int sns);
 
 
         // TODO: Add your service operations here

@@ -339,7 +339,7 @@ namespace ServiceLayer
 
                 /* if (item.Type.Equals("SPO2") < )
                  {
-
+                 plfldffdddf
                  }
                  else if (item.Type.Equals("SPO2") && Convert.ToInt32(item.Value) <90 && 
                      Convert.ToInt32(item.Value) > 180)

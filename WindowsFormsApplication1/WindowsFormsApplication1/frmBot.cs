@@ -14,6 +14,7 @@ using System.Speech.Recognition;
 using System.Xml;
 using System.Web;
 using System.Net;
+using System.IO;
 
 namespace BOT
 {
@@ -30,6 +31,7 @@ namespace BOT
         bool OXIGENSATURATION = true;
 
         BackgroundWorker bw = new BackgroundWorker();
+        List<SearchTerm> listSearchTerm = new List<SearchTerm>();
 
         private UtenteWeb u;
 
@@ -48,25 +50,25 @@ namespace BOT
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
             panel1.Visible = false;
-         
+
 
         }
 
 
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
-             sns = Settings.Default.SNS;
+            sns = Settings.Default.SNS;
 
             bloodPreCheckBox.Checked = false;
             heartRateCheckBox.Checked = false;
             oxigenPressurecheckBox.Checked = false;
 
             toolStripTextBox1.Text = sns.ToString();
-    
+
         }
 
-      
+
 
 
         private void label2_Click(object sender, EventArgs e)
@@ -85,7 +87,7 @@ namespace BOT
             panelPrincipal.Visible = false;
             panel1.Visible = false;
 
-       //     panelMedical.Visible = false;
+            //     panelMedical.Visible = false;
 
             if (u == null)
             {
@@ -95,7 +97,7 @@ namespace BOT
                 lbl_sns.Text = "N.D";
                 lbl_surname.Text = "N.D";
             }
-          
+
 
 
         }
@@ -108,13 +110,13 @@ namespace BOT
             panel1.Visible = false;
 
             //sdsd
-       
+
 
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-           panel1.Visible = true;
+            panel1.Visible = true;
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
             panelPrincipal.Visible = false;
@@ -128,7 +130,7 @@ namespace BOT
 
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-         
+
         }
 
 
@@ -138,11 +140,11 @@ namespace BOT
             //dsdsj n nsd sds
             Properties.Settings.Default.SNS = int.Parse(toolStripTextBox1.Text);
             Properties.Settings.Default.Save();
-            
-             u = serv.GetUtenteBySNS(int.Parse(toolStripTextBox1.Text));
+
+            u = serv.GetUtenteBySNS(int.Parse(toolStripTextBox1.Text));
             if (u != null)
             {
-              
+
                 toolStripLabel2.Text = "Welcome " + u.name;
 
                 MessageBox.Show("SNS valid!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -154,8 +156,8 @@ namespace BOT
                 lbl_age.Text = u.age.ToString();
                 lbl_birthdate.Text = u.birthdate.ToShortDateString();
                 lbl_age.Text = u.age.ToString();
-    
-                
+
+
 
             }
             else
@@ -167,14 +169,14 @@ namespace BOT
                 lbl_sns.Text = "N.D";
                 lbl_surname.Text = "N.D";
                 toolStripLabel2.Text = "N.D";
-                
+
 
             }
         }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void panelMe_Paint(object sender, PaintEventArgs e)
@@ -207,19 +209,18 @@ namespace BOT
             {
                 ListViewItem item1 = new ListViewItem(result.Rank.ToString());
                 item1.SubItems.Add(result.Title);
-                item1.SubItems.Add(result.OrganizationName);
 
                 String a = "";
 
                 foreach (String altTitle in result.AltTitles)
                 {
                     a = a + "\t" + altTitle;
-    }
+                }
 
                 item1.SubItems.Add(a);
                 item1.SubItems.Add(result.FullSummary);
-                listView1.Items.Add(item1);
-}
+                //dataGridView1.Rows.Add(item1.ToString());
+            }
         }
 
 
@@ -259,26 +260,7 @@ namespace BOT
 
         }
 
-        //private void bt_searcg_Click(object sender, EventArgs e)
-        //{
-        //    string url = Properties.Settings.Default.Medline;
-        //    int retmax = Properties.Settings.Default.Retmax;
-        //    string term = txb_palavra.Text;
-        //    string urlComp = url + term + "&retmax=" + retmax;
-
-        //    MessageBox.Show(url);
-        //    var client = new WebClient();
-        //    client.DownloadStringAsync(new Uri(urlComp));
-        //    client.DownloadStringCompleted += Client_DownloadStringCompleted;
-
-        //    //    serv = new Service1Client();
-
-
-
-
-
-
-
+        // CODIGO RECONHECIMENTO
         //    //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
 
         //    //List<String> options = new List<String>(new String[] { "search" });
@@ -326,14 +308,14 @@ namespace BOT
         private void stop_Click(object sender, EventArgs e)
         {
             dll.Stop();
-       
+
         }
 
         private void initDLL_Click(object sender, EventArgs e)
         {
-           
+
             dll = new PhysiologicParametersDll.PhysiologicParametersDll();
-            
+
 
             bw.RunWorkerAsync();
         }
@@ -384,8 +366,8 @@ namespace BOT
         public void NewSensorValueFunction(string str)
         {
 
-            string[] valor = str.Split(';','-');
-           
+            string[] valor = str.Split(';', '-');
+
 
             this.BeginInvoke((MethodInvoker)delegate
             {
@@ -395,8 +377,8 @@ namespace BOT
                     bloodPressureMaxLbl.Text = valor[1];
 
                     label16.Text = valor[3];
-              
-                    serv.AddValues(Settings.Default.SNS,Convert.ToInt32( bloodPressureMinLbl.Text),
+
+                    serv.AddValues(Settings.Default.SNS, Convert.ToInt32(bloodPressureMinLbl.Text),
                         Convert.ToInt32(bloodPressureMaxLbl.Text)
                      , 0, 0, DateTime.Parse(label16.Text));
                 }
@@ -404,7 +386,7 @@ namespace BOT
                 {
                     heartRateLbl.Text = valor[1];
                     label15.Text = valor[2];
-                    serv.AddValues(Settings.Default.SNS,0,
+                    serv.AddValues(Settings.Default.SNS, 0,
                       0, Convert.ToInt32(heartRateLbl.Text), 0, Convert.ToDateTime(label15.Text));
 
                 }
@@ -412,11 +394,11 @@ namespace BOT
                 {
                     oxigenPressureLbl.Text = valor[1];
                     label17.Text = valor[2];
-                    serv.AddValues(Settings.Default.SNS,0,
+                    serv.AddValues(Settings.Default.SNS, 0,
                      0, 0, Convert.ToInt32(oxigenPressureLbl.Text), Convert.ToDateTime(label17.Text));
 
                 }
-              
+
 
             });
         }
@@ -429,9 +411,10 @@ namespace BOT
 
         private void bt_search_Click(object sender, EventArgs e)
         {
+            string conteudo;
             string url = Properties.Settings.Default.Medline;
             int retmax = Properties.Settings.Default.Retmax;
-            string term = txb_palavra.Text;
+            string term = txb_search.Text;
             string urlComp = url + term + "&retmax=" + retmax;
 
             MessageBox.Show(url);
@@ -439,13 +422,61 @@ namespace BOT
             client.DownloadStringAsync(new Uri(urlComp));
             client.DownloadStringCompleted += Client_DownloadStringCompleted;
 
+            HttpWebRequest request = WebRequest.Create(urlComp) as HttpWebRequest;
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            {
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                conteudo = reader.ReadToEnd();
+
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(conteudo);
+                string refRank = "";
+                XmlNodeList r = doc.SelectNodes("//document/@rank");
+                SearchTerm d = null;
+
+                foreach (XmlNode nodeR in r)
+                {
+                    List<string> listAt = new List<string>();
+                    refRank = nodeR.InnerText;
+                    XmlNodeList t = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='title']");
+                    XmlNodeList o = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='organizationName']");
+                    XmlNodeList s = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='FullSummary']");
+                    XmlNodeList at = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='altTitle']");
+
+
+                    // falta altTitle criar uma lista para os alternative titles
+                    foreach (XmlNode nodeT in t)
+                    {
+                        foreach (XmlNode nodeO in o)
+                        {
+                            foreach (XmlNode nodeS in s)
+                            {
+                                foreach (XmlNode nodeAt in at)
+                                {
+                                    listAt.Add(nodeAt.InnerText);
+                                }
+                                d = new SearchTerm(int.Parse(nodeR.InnerText), nodeT.InnerText, nodeO.InnerText, listAt, nodeS.InnerText);
+                                listSearchTerm.Add(d);
+                                break;
+                            }
+                            break;
+                        }
+                    }
+                }
+
+                foreach (SearchTerm item in listSearchTerm)
+                {
+                    // ListViewItem linha = new ListViewItem(item.Rank.ToString(), 0);
+                    // linha.SubItems.Add(item.Title);
+                    //// linha.SubItems.Add(item.OrganizationName);
+                    // //listView1.Items.Add(linha);
+                    dataGridView1.Rows.Add(item.Rank, item.Title);
+                }
+
+            }
+
+
             //    serv = new Service1Client();
-
-
-
-
-
-
 
             //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
 
@@ -474,17 +505,32 @@ namespace BOT
             //    {
             //        listView1.Items.Clear();
 
-            //dataGridView1.NewRowIndexo();
+
+            //    listView1.Columns.Add("Title", 150, HorizontalAlignment.Left);
+            //listView1.Columns.Add("Organization Name", 150, HorizontalAlignment.Left);
+            //listView1.Columns.Add("Alternative Names", 150, HorizontalAlignment.Left);
+            //listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
+
 
             //dataGridView1.Columns.Add("Rank", 50, HorizontalAlignment.Left);
-            listView1.Columns.Add("Title", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Organization Name", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Alternative Names", 150, HorizontalAlignment.Left);
-            listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
+            //dataGridView1.
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Rank"].Value.ToString()); 
+
+            foreach (DataGridViewRow item in dataGridView1.SelectedRows)
+            {
+                txb_title.Text = item.Cells[1].Value.ToString();
+
+            }
+
+
         }
     }
 
-    }
+}
 
       
     

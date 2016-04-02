@@ -209,16 +209,16 @@ namespace ServiceLayer
                         break;
                     case "HR":
 
-                        List<Valores> datasSPO2 = _acederBd.getDataSPO2(valores.Type).ToList();
+                        List<Valores> datasHR = _acederBd.getDataSPO2(valores.Type).ToList();
 
 
                         List<DateTime> datas = new List<DateTime>();
-
+                        datasHR.Add(valores);
+                        //datas.Add(valores.DataOfRegist);
                         int re = 0;
-                        foreach (Valores item in datasSPO2)
+                        foreach (Valores item in datasHR)
                         {
-                            // item.DataOfRegist = valores.DataOfRegist;
-                            //datasSPO2.Add(item);
+                           
                             datas.Add(item.DataOfRegist);
                         }
 
@@ -228,11 +228,49 @@ namespace ServiceLayer
 
                         int soma = 0;
 
-                        
-                       
+                        foreach (var item in datas)
+                        {
+                            soma += item.Minute;
+                        }
+
+                        if (Convert.ToInt32(valores.Value) <= 90)
+                        {
+                            if (re >= 10)
+                            {
+                                if (soma == 30)
+                                {
+
+                                    alertas.Read = "Not Read";
+                                    alertas.Tipo = "Aviso Intermitente";
+                                    alertas.Data = DateTime.Now;
+                                    alertas.Utente = utente;
+                                }
+                                alertas.Read = "Not Read";
+                                alertas.Tipo = "Aviso Continuo";
+                                alertas.Data = DateTime.Now;
+                                alertas.Utente = utente;
 
 
-                        if (Convert.ToInt32(valores.Value) < 80)
+                            }
+                            else if (re >= 60)
+                            {
+                                if (soma == 120)
+                                {
+                                    alertas.Read = "Not Read";
+                                    alertas.Tipo = "Critico Intermitente";
+                                    alertas.Data = DateTime.Now;
+                                    alertas.Utente = utente;
+
+                                }
+                                alertas.Read = "Not Read";
+                                alertas.Tipo = "Critico Continuo";
+                                alertas.Data = DateTime.Now;
+                                alertas.Utente = utente;
+
+                            }
+
+                        }
+                        else if (Convert.ToInt32(valores.Value) < 80)
                         {
                             alertas.Read = "Not Read";
                             alertas.Tipo = "AnyTime";
@@ -240,8 +278,22 @@ namespace ServiceLayer
                             alertas.Utente = utente;
 
                         }
-                        else if (Convert.ToInt32(valores.Value) <= 90 && re >= 10)
+                        else
                         {
+                            return null;
+                        }
+
+                        /*if (Convert.ToInt32(valores.Value) < 80)
+                        {
+                            alertas.Read = "Not Read";
+                            alertas.Tipo = "AnyTime";
+                            alertas.Data = DateTime.Now;
+                            alertas.Utente = utente;
+
+                        }
+                        else if (Convert.ToInt32(valores.Value) <= 90 )
+                            if(re >= 10)
+                           {
                             alertas.Read = "Not Read";
                             alertas.Tipo = "Warning Continuo";
                             alertas.Data = DateTime.Now;
@@ -256,18 +308,27 @@ namespace ServiceLayer
                             alertas.Utente = utente;
 
                         }
-                        else if (Convert.ToInt32(valores.Value) <= 90 && re == 30)
+                        else if (Convert.ToInt32(valores.Value) <= 90 
+                            && re == 30 && soma >= 10)
                         {
                             alertas.Read = "Not Read";
-                            alertas.Tipo = "Critico Continuo";
+                            alertas.Tipo = "Aviso Intermitente";
                             alertas.Data = DateTime.Now;
                             alertas.Utente = utente;
 
                         }
+                        else if (Convert.ToInt32(valores.Value) <= 90 && re == 120 && soma >= 60)
+                        {
+
+                            alertas.Read = "Not Read";
+                            alertas.Tipo = "Critico Intermitente";
+                            alertas.Data = DateTime.Now;
+                            alertas.Utente = utente;
+                        }
                         else
                         {
                             return null;
-                        }
+                        }*/
 
                         break;
                     case "BP":

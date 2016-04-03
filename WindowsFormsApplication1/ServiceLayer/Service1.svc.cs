@@ -341,6 +341,9 @@ namespace ServiceLayer
                  {
                  plfldffdddf
                  }
+
+
+                888
                  else if (item.Type.Equals("SPO2") && Convert.ToInt32(item.Value) <90 && 
                      Convert.ToInt32(item.Value) > 180)
                  {

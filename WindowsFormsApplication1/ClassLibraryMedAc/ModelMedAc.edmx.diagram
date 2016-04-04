@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="7dd8d71aade04dca8910f53e71d7c467" Name="Diagram1" >
         <EntityTypeShape EntityType="ModelMedAc.Utente" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelMedAc.Valores" Width="1.75" PointX="6.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMedAc.Valores" Width="1.75" PointX="6.125" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelMedAc.Alertas" Width="1.5" PointX="0.5" PointY="1" />
         <AssociationConnector Association="ModelMedAc.UtenteValores" />
         <AssociationConnector Association="ModelMedAc.UtenteAlertas" />

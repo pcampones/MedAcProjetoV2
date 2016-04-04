@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/01/2016 12:01:29
--- Generated from EDMX file: C:\Users\Pedro Vieira\Source\Repos\MedAcProjetoV2\WindowsFormsApplication1\ClassLibraryMedAc\ModelMedAc.edmx
+-- Date Created: 04/01/2016 18:09:18
+-- Generated from EDMX file: C:\Users\Pedro Camponês\Documents\GitHubVisualStudio\MedAcProjetoV2\WindowsFormsApplication1\ClassLibraryMedAc\ModelMedAc.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -20,8 +20,8 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_UtenteValores]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ValoresSet] DROP CONSTRAINT [FK_UtenteValores];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ValoresAlertas]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ValoresSet] DROP CONSTRAINT [FK_ValoresAlertas];
+IF OBJECT_ID(N'[dbo].[FK_UtenteAlertas]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AlertasSet] DROP CONSTRAINT [FK_UtenteAlertas];
 GO
 
 -- --------------------------------------------------
@@ -66,11 +66,9 @@ GO
 -- Creating table 'ValoresSet'
 CREATE TABLE [dbo].[ValoresSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [BloodPressureMin] int  NOT NULL,
-    [HeartRate] int  NOT NULL,
-    [OxygenSaturation] int  NOT NULL,
+    [Type] nvarchar(max)  NOT NULL,
+    [Value] nvarchar(max)  NOT NULL,
     [DataOfRegist] datetime  NOT NULL,
-    [BloodPressureMax] int  NOT NULL,
     [Utente_Id] int  NOT NULL
 );
 GO

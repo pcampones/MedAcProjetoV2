@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
@@ -189,8 +189,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.panelDiarioValores);
             this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip2);
-            this.splitContainer1.Size = new System.Drawing.Size(755, 435);
-            this.splitContainer1.SplitterDistance = 144;
+            this.splitContainer1.Size = new System.Drawing.Size(788, 521);
+            this.splitContainer1.SplitterDistance = 150;
             this.splitContainer1.TabIndex = 0;
             // 
             // toolStrip1
@@ -207,7 +207,7 @@
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(144, 435);
+            this.toolStrip1.Size = new System.Drawing.Size(150, 521);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -625,7 +625,7 @@
             this.panelGraficos.Controls.Add(this.groupBox3);
             this.panelGraficos.Location = new System.Drawing.Point(3, 39);
             this.panelGraficos.Name = "panelGraficos";
-            this.panelGraficos.Size = new System.Drawing.Size(587, 396);
+            this.panelGraficos.Size = new System.Drawing.Size(587, 436);
             this.panelGraficos.TabIndex = 56;
             // 
             // groupBox9
@@ -641,10 +641,6 @@
             // lsb_tipos
             // 
             this.lsb_tipos.FormattingEnabled = true;
-            this.lsb_tipos.Items.AddRange(new object[] {
-            "Bars",
-            "Lines",
-            "Collumns"});
             this.lsb_tipos.Location = new System.Drawing.Point(15, 22);
             this.lsb_tipos.Name = "lsb_tipos";
             this.lsb_tipos.Size = new System.Drawing.Size(142, 147);
@@ -653,7 +649,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(30, 378);
+            this.button3.Location = new System.Drawing.Point(23, 410);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 3;
@@ -667,7 +663,7 @@
             this.groupBox5.Controls.Add(this.label28);
             this.groupBox5.Controls.Add(this.dtp_begin);
             this.groupBox5.Controls.Add(this.label27);
-            this.groupBox5.Location = new System.Drawing.Point(23, 273);
+            this.groupBox5.Location = new System.Drawing.Point(23, 314);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(359, 100);
             this.groupBox5.TabIndex = 2;
@@ -709,7 +705,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.lsb_parameters);
-            this.groupBox4.Location = new System.Drawing.Point(23, 164);
+            this.groupBox4.Location = new System.Drawing.Point(20, 208);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(359, 100);
             this.groupBox4.TabIndex = 1;
@@ -720,9 +716,7 @@
             // 
             this.lsb_parameters.FormattingEnabled = true;
             this.lsb_parameters.Items.AddRange(new object[] {
-            "Blood Pressure",
-            "Oxygen Saturation",
-            "Heart Rate"});
+            "checkedListBox"});
             this.lsb_parameters.Location = new System.Drawing.Point(7, 22);
             this.lsb_parameters.Name = "lsb_parameters";
             this.lsb_parameters.Size = new System.Drawing.Size(339, 64);
@@ -734,23 +728,23 @@
             this.groupBox3.Controls.Add(this.chart1);
             this.groupBox3.Location = new System.Drawing.Point(12, 11);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(536, 152);
+            this.groupBox3.Size = new System.Drawing.Size(536, 178);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chart Area";
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(7, 20);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(474, 125);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1187,7 +1181,7 @@
             this.toolStripButton1});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(607, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(634, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -1210,7 +1204,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 435);
+            this.ClientSize = new System.Drawing.Size(788, 521);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmPrincipal";
             this.Text = "Clinical Alert";

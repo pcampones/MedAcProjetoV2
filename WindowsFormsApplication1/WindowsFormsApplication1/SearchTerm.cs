@@ -9,14 +9,24 @@ namespace BOT
     class SearchTerm
     {
         private int rank;
-        private String title;
-        private String organizationName;
-        private List<String> altTitles;
-        private String fullSummary;
+        private string title;
+        private string organizationName;
+        private List<string> altTitles;
+        private string fullSummary;
 
         public SearchTerm()
         {
             altTitles = new List<String>();
+
+        }
+
+        public SearchTerm(int rank, string title, string organizationName, List<string> altTitles, string fullSummary)
+        {
+            this.altTitles = new List<String>();
+            this.rank = rank;
+            this.title = title;
+            this.organizationName = organizationName;
+            this.fullSummary = fullSummary;
         }
 
         public int Rank

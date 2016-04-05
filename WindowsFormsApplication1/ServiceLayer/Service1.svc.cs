@@ -171,7 +171,18 @@ namespace ServiceLayer
 
         public List<ValoresWeb> GetValuesbySNS(int sns)
         {
-            throw new NotImplementedException();
+            List<Valores> lista = _acederBd.getValuesbySNS(sns);
+            List<ValoresWeb> listaWeb = new List<ValoresWeb>();
+
+            foreach (Valores item in lista)
+            {
+                ValoresWeb valWeb = new ValoresWeb();
+                valWeb.Value = item.Value;
+                valWeb.DataOfReposit = item.DataOfRegist;
+
+                listaWeb.Add(valWeb);
+            }
+            return listaWeb;
         }
 
         public AlertasWeb VerificaAlerta(Utente utente, Valores valores)
@@ -367,8 +378,30 @@ namespace ServiceLayer
             return alertasWeb;
         }
 
+        public List<ValoresWeb> GetRegistofGrahp(int sns)
+        {
+            try
+            {
+                List<ValoresWeb> valores = new List<ValoresWeb>();
+                List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
+                foreach (Valores item in listavalores)
+                {
+                    ValoresWeb va = new ValoresWeb();
+                    va.Value = item.Value;
+                    va.Type = item.Type;
+                    va.DataOfReposit = item.DataOfRegist;
 
+                    valores.Add(va);
+                }
 
+                return null;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 
     //public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, DateTime data)
@@ -559,20 +592,13 @@ namespace ServiceLayer
     //    try
     //    {
     //        List<ValoresWeb> valores = new List<ValoresWeb>();
-    //        List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
-
+    //        List<Valores> listavalores = new List<Valores>();
     //        foreach (Valores item in listavalores)
     //        {
-    //            ValoresWeb valor = new ValoresWeb();
-    //            valor.BloodPressureMax = item.BloodPressureMax;
-    //            valor.BloodPressureMin = item.BloodPressureMin;
-    //            valor.HeartRate = item.HeartRate;
-    //            valor.OxigenSat = item.OxygenSaturation;
-
-    //            valores.Add(valor);
+               
     //        }
 
-    //        return valores;
+    //        return null;
     //    }
     //    catch (Exception ex)
     //    {

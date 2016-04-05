@@ -35,9 +35,10 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txb_alternative = new System.Windows.Forms.TextBox();
+            this.txb_organization = new System.Windows.Forms.TextBox();
+            this.txb_title = new System.Windows.Forms.TextBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -45,9 +46,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.bt_clear = new System.Windows.Forms.Button();
             this.bt_search = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txb_search = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panelDataAcquisition = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.launchAlertsButton = new System.Windows.Forms.Button();
@@ -96,8 +96,11 @@
             this.bt_searcg = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.Rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AlternativeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullSummary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -190,9 +193,10 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.txb_alternative);
+            this.panel1.Controls.Add(this.txb_organization);
+            this.panel1.Controls.Add(this.txb_title);
             this.panel1.Controls.Add(this.webBrowser1);
             this.panel1.Controls.Add(this.label23);
             this.panel1.Controls.Add(this.label22);
@@ -200,34 +204,48 @@
             this.panel1.Controls.Add(this.label20);
             this.panel1.Controls.Add(this.bt_clear);
             this.panel1.Controls.Add(this.bt_search);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txb_search);
             this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(630, 430);
             this.panel1.TabIndex = 48;
             // 
-            // textBox5
+            // dataGridView1
             // 
-            this.textBox5.Location = new System.Drawing.Point(364, 188);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(249, 20);
-            this.textBox5.TabIndex = 12;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rank,
+            this.title,
+            this.AlternativeTitle,
+            this.FullSummary,
+            this.OrganizationName});
+            this.dataGridView1.Location = new System.Drawing.Point(9, 93);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 321);
+            this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
-            // textBox3
+            // txb_alternative
             // 
-            this.textBox3.Location = new System.Drawing.Point(350, 144);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(263, 20);
-            this.textBox3.TabIndex = 11;
+            this.txb_alternative.Location = new System.Drawing.Point(364, 188);
+            this.txb_alternative.Name = "txb_alternative";
+            this.txb_alternative.Size = new System.Drawing.Size(249, 20);
+            this.txb_alternative.TabIndex = 12;
             // 
-            // textBox2
+            // txb_organization
             // 
-            this.textBox2.Location = new System.Drawing.Point(311, 98);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(302, 20);
-            this.textBox2.TabIndex = 10;
+            this.txb_organization.Location = new System.Drawing.Point(350, 144);
+            this.txb_organization.Name = "txb_organization";
+            this.txb_organization.Size = new System.Drawing.Size(263, 20);
+            this.txb_organization.TabIndex = 11;
+            // 
+            // txb_title
+            // 
+            this.txb_title.Location = new System.Drawing.Point(311, 98);
+            this.txb_title.Name = "txb_title";
+            this.txb_title.Size = new System.Drawing.Size(302, 20);
+            this.txb_title.TabIndex = 10;
             // 
             // webBrowser1
             // 
@@ -281,6 +299,7 @@
             this.bt_clear.TabIndex = 4;
             this.bt_clear.Text = "Clear";
             this.bt_clear.UseVisualStyleBackColor = true;
+            this.bt_clear.Click += new System.EventHandler(this.bt_clear_Click);
             // 
             // bt_search
             // 
@@ -292,12 +311,12 @@
             this.bt_search.UseVisualStyleBackColor = true;
             this.bt_search.Click += new System.EventHandler(this.bt_search_Click);
             // 
-            // textBox1
+            // txb_search
             // 
-            this.textBox1.Location = new System.Drawing.Point(61, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(226, 20);
-            this.textBox1.TabIndex = 2;
+            this.txb_search.Location = new System.Drawing.Point(61, 46);
+            this.txb_search.Name = "txb_search";
+            this.txb_search.Size = new System.Drawing.Size(226, 20);
+            this.txb_search.TabIndex = 2;
             // 
             // label19
             // 
@@ -307,17 +326,6 @@
             this.label19.Size = new System.Drawing.Size(34, 13);
             this.label19.TabIndex = 1;
             this.label19.Text = "Term:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Rank,
-            this.Title});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 101);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(236, 335);
-            this.dataGridView1.TabIndex = 0;
             // 
             // panelDataAcquisition
             // 
@@ -787,15 +795,30 @@
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 0;
             // 
-            // Rank
+            // rank
             // 
-            this.Rank.HeaderText = "Rank";
-            this.Rank.Name = "Rank";
+            this.rank.HeaderText = "Rank";
+            this.rank.Name = "rank";
             // 
-            // Title
+            // title
             // 
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
+            this.title.HeaderText = "Title";
+            this.title.Name = "title";
+            // 
+            // AlternativeTitle
+            // 
+            this.AlternativeTitle.HeaderText = "Alternative Title";
+            this.AlternativeTitle.Name = "AlternativeTitle";
+            // 
+            // FullSummary
+            // 
+            this.FullSummary.HeaderText = "Full Summary";
+            this.FullSummary.Name = "FullSummary";
+            // 
+            // OrganizationName
+            // 
+            this.OrganizationName.HeaderText = "Organizarion Name";
+            this.OrganizationName.Name = "OrganizationName";
             // 
             // Form1
             // 
@@ -897,20 +920,23 @@
         private System.Windows.Forms.Button initDLL;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button bt_clear;
         private System.Windows.Forms.Button bt_search;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txb_search;
+        private System.Windows.Forms.TextBox txb_alternative;
+        private System.Windows.Forms.TextBox txb_organization;
+        private System.Windows.Forms.TextBox txb_title;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rank;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rank;
+        private System.Windows.Forms.DataGridViewTextBoxColumn title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AlternativeTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullSummary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationName;
     }
 }
 

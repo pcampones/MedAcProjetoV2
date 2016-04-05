@@ -474,13 +474,8 @@ namespace BOT
 
                 foreach (SearchTerm item in listSearchTerm)
                 {
-                    // ListViewItem linha = new ListViewItem(item.Rank.ToString(), 0);
-                    // linha.SubItems.Add(item.Title);
-                    //// linha.SubItems.Add(item.OrganizationName);
-                    // //listView1.Items.Add(linha);
-                    dataGridView1.Rows.Add(item.Rank, item.Title);
-
-                   
+             
+                    dataGridView1.Rows.Add(item.Rank, item.Title, item.AltTitles, item.FullSummary, item.OrganizationName);         
                 }
 
             }
@@ -526,37 +521,26 @@ namespace BOT
             //dataGridView1.aaa
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Rank"].Value.ToString());
-
-            //DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-
-            //int row = dataGridView1.CurrentRow.Index;
-
-            //txb_title.Text = dataGridView1[1, row].Value.ToString();
-
-            // txb_title.Text = row.Cells["title", ].Value.ToString();
-            
-                foreach (DataGridViewRow item in dataGridView1.SelectedRows)
-                {
-                    txb_title.Text = item.Cells["title"].Value.ToString();
-                    //txb_alternative.Text = item.
-                    //string title = item.Cells[1].Value.ToString();
-
-                    //txb_title.Text = title;
-                }
-            
-
-            // int index = e.RowIndex;// get the Row Index
-            //DataGridViewRow selectedRow = dataGridView1.Rows[index];
-
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {          
             int x = dataGridView1.CurrentCell.RowIndex;
 
             txb_title.Text = dataGridView1[1, x].Value.ToString();
-           
+            txb_alternative.Text = dataGridView1[2, x].Value.ToString();
+            webBrowser1.DocumentText = dataGridView1[3, x].Value.ToString();
+            txb_organization.Text = dataGridView1[4, x].Value.ToString();
 
+        }
 
+        private void bt_clear_Click(object sender, EventArgs e)
+        {
+            txb_search.Clear();   
+            txb_title.Clear();
+            txb_organization.Clear();
+            txb_alternative.Clear();
+            webBrowser1.Navigate("about:blank");
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
         }
     }
 

@@ -35,6 +35,7 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txb_alternative = new System.Windows.Forms.TextBox();
             this.txb_organization = new System.Windows.Forms.TextBox();
             this.txb_title = new System.Windows.Forms.TextBox();
@@ -95,15 +96,18 @@
             this.bt_searcg = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AlternativeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullSummary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelDataAcquisition.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -112,7 +116,6 @@
             this.groupBox1.SuspendLayout();
             this.panelMe.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -208,6 +211,21 @@
             this.panel1.Size = new System.Drawing.Size(630, 430);
             this.panel1.TabIndex = 48;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rank,
+            this.title,
+            this.AlternativeTitle,
+            this.FullSummary,
+            this.OrganizationName});
+            this.dataGridView1.Location = new System.Drawing.Point(9, 93);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 321);
+            this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            // 
             // txb_alternative
             // 
             this.txb_alternative.Location = new System.Drawing.Point(364, 188);
@@ -281,6 +299,7 @@
             this.bt_clear.TabIndex = 4;
             this.bt_clear.Text = "Clear";
             this.bt_clear.UseVisualStyleBackColor = true;
+            this.bt_clear.Click += new System.EventHandler(this.bt_clear_Click);
             // 
             // bt_search
             // 
@@ -776,17 +795,6 @@
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 0;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rank,
-            this.title});
-            this.dataGridView1.Location = new System.Drawing.Point(9, 93);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 13;
-            // 
             // rank
             // 
             this.rank.HeaderText = "Rank";
@@ -796,6 +804,21 @@
             // 
             this.title.HeaderText = "Title";
             this.title.Name = "title";
+            // 
+            // AlternativeTitle
+            // 
+            this.AlternativeTitle.HeaderText = "Alternative Title";
+            this.AlternativeTitle.Name = "AlternativeTitle";
+            // 
+            // FullSummary
+            // 
+            this.FullSummary.HeaderText = "Full Summary";
+            this.FullSummary.Name = "FullSummary";
+            // 
+            // OrganizationName
+            // 
+            this.OrganizationName.HeaderText = "Organizarion Name";
+            this.OrganizationName.Name = "OrganizationName";
             // 
             // Form1
             // 
@@ -817,6 +840,7 @@
             this.toolStrip2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelDataAcquisition.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -830,7 +854,6 @@
             this.panelMe.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -908,9 +931,12 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn rank;
         private System.Windows.Forms.DataGridViewTextBoxColumn title;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AlternativeTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullSummary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationName;
     }
 }
 

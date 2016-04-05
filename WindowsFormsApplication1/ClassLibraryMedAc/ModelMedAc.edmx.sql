@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/05/2016 10:57:05
--- Generated from EDMX file: C:\Users\Pedro Vieira\Source\Repos\MedAcProjetoV2\WindowsFormsApplication1\ClassLibraryMedAc\ModelMedAc.edmx
+-- Date Created: 04/05/2016 12:02:24
+-- Generated from EDMX file: C:\Users\Pedro Camponês\Documents\GitHubVisualStudio\MedAcProjetoV2\WindowsFormsApplication1\ClassLibraryMedAc\ModelMedAc.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -79,6 +79,7 @@ CREATE TABLE [dbo].[AlertasSet] (
     [Tipo] nvarchar(max)  NOT NULL,
     [Data] datetime  NOT NULL,
     [Read] nvarchar(max)  NOT NULL,
+    [Parametro] nvarchar(max)  NOT NULL,
     [Utente_Id] int  NOT NULL
 );
 GO

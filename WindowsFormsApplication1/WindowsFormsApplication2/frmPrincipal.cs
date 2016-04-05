@@ -257,8 +257,8 @@ namespace ClinicalAlert
             chart1.ChartAreas.Clear();
             chart1.Series.Clear();
             chart1.Titles.Clear();
-
-            List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
+            
+        /*    List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
 
             foreach (ValoresWeb item in valores)
             {
@@ -313,8 +313,7 @@ namespace ClinicalAlert
 
             chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
             chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
-            chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
-        }
+            chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;-*/        }
 
         private void diarioValores_Click(object sender, EventArgs e)
         {
@@ -324,7 +323,7 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = true;
             panelAlerts.Visible = false;
-
+            /*
             List<ValoresWeb> valor = serv.GetValuesbySNS(sns).ToList();
 
             foreach (ValoresWeb item in valor)
@@ -336,7 +335,7 @@ namespace ClinicalAlert
             }
 
 
-
+            */
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -457,7 +456,7 @@ namespace ClinicalAlert
         }
 
         private void Alerts_Click(object sender, EventArgs e)
-        {
+        {/*
             panel_Adicionar.Visible = false;
             panelPrincipal.Visible = false;
             panelEdit.Visible = false;
@@ -488,7 +487,7 @@ namespace ClinicalAlert
 
                 listView2.Items.Add(linha);
             }
-
+            */
 
             /*  List<ValoresWeb> valor2 = serv.GetAlertNotRead (sns).ToList();
 
@@ -535,7 +534,7 @@ namespace ClinicalAlert
 
             DateTime dataMin = dtp_begin.Value;
             DateTime dataMax = dtp_end.Value;
-
+            /*
             if (dataMin <= dataMax)
             {
                List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
@@ -629,6 +628,7 @@ namespace ClinicalAlert
             {
                 if (lsb_parameters.SelectedItem.Equals("Blood Pressure") && (lsb_parameters.GetItemCheckState(0) == CheckState.Checked))
                 {
+                  
                     chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.bloodPressureMax);
                     chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.bloodPressureMin);
                 }
@@ -654,7 +654,8 @@ namespace ClinicalAlert
                 {
                     chart1.Series["Oxygen Saturation"].Points.Clear();
                 }
-            }
+            }*/
         }
     }
+
 }

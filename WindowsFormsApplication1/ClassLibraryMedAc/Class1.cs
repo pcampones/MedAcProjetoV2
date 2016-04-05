@@ -99,11 +99,11 @@ namespace ClassLibraryMedAc
          
         }
 
-        public List<Valores> getValuesbySNS(int sns)
+        public List<Valores> getValuesbySNS(int sns, DateTime dataMax, DateTime dataMin)
         {
             try
             {
-                var listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns)).ToList();
+                var listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) && i.DataOfRegist < dataMax && i.DataOfRegist > dataMin).ToList();
 
                 return listaVa;
             }

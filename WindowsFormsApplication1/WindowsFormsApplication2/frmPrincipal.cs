@@ -520,6 +520,9 @@ namespace ClinicalAlert
 
             //Titulo do gráfico
             chart1.Titles.Add("Chart Values");
+            chart1.Series.Add("Blood Pressure");
+            chart1.Series.Add("Heart Rate");
+            chart1.Series.Add("Oxygen Saturation");
 
             //Construção da àrea do gráfico
             chart1.ChartAreas.Add("area");
@@ -557,10 +560,7 @@ namespace ClinicalAlert
                 chart1.ChartAreas["area"].AxisX.Title = "Date";
                 chart1.ChartAreas["area"].AxisY.Title = "Values";
 
-                chart1.Series.Add("Blood Pressure");
-                chart1.Series.Add("Heart Rate");
-                chart1.Series.Add("Oxygen Saturation");
-
+               
                 //definição da cor de cada série
                 chart1.Series["Blood Pressure"].Color = Color.Red;
                 chart1.Series["Heart Rate"].Color = Color.Blue;

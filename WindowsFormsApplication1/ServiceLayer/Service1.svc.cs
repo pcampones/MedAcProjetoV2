@@ -210,7 +210,7 @@ namespace ServiceLayer
                     case "HR":
 
                         List<Valores> datasHR = _acederBd.getDataSPO2(valores.Type).ToList();
-
+                        
 
                         List<DateTime> datas = new List<DateTime>();
                         datasHR.Add(valores);

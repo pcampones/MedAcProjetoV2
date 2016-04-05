@@ -378,24 +378,32 @@ namespace BOT
 
                     label16.Text = valor[3];
 
-                    serv.AddValues(Settings.Default.SNS, Convert.ToInt32(bloodPressureMinLbl.Text),
-                        Convert.ToInt32(bloodPressureMaxLbl.Text)
-                     , 0, 0, DateTime.Parse(label16.Text));
+                    serv.AddValues(Settings.Default.SNS, "BP", bloodPressureMaxLbl.Text , DateTime.Parse(label16.Text));
+
+                    //serv.AddValues(Settings.Default.SNS, Convert.ToInt32(bloodPressureMinLbl.Text),
+                    //    Convert.ToInt32(bloodPressureMaxLbl.Text)
+                    // , 0, 0, DateTime.Parse(label16.Text));
                 }
                 else if (valor[0].Equals("HR"))
                 {
                     heartRateLbl.Text = valor[1];
                     label15.Text = valor[2];
-                    serv.AddValues(Settings.Default.SNS, 0,
-                      0, Convert.ToInt32(heartRateLbl.Text), 0, Convert.ToDateTime(label15.Text));
+
+                    serv.AddValues(Settings.Default.SNS, "HR", heartRateLbl.Text, DateTime.Parse(label15.Text));
+
+                    //serv.AddValues(Settings.Default.SNS, 0,
+                    //  0, Convert.ToInt32(heartRateLbl.Text), 0, Convert.ToDateTime(label15.Text));
 
                 }
                 else if (valor[0].Equals("SPO2"))
                 {
                     oxigenPressureLbl.Text = valor[1];
                     label17.Text = valor[2];
-                    serv.AddValues(Settings.Default.SNS, 0,
-                     0, 0, Convert.ToInt32(oxigenPressureLbl.Text), Convert.ToDateTime(label17.Text));
+
+                    serv.AddValues(Settings.Default.SNS, "SPO2", oxigenPressureLbl.Text, Convert.ToDateTime(label17.Text));
+
+                    //serv.AddValues(Settings.Default.SNS, 0,
+                    // 0, 0, Convert.ToInt32(oxigenPressureLbl.Text), Convert.ToDateTime(label17.Text));
 
                 }
 
@@ -471,6 +479,8 @@ namespace BOT
                     //// linha.SubItems.Add(item.OrganizationName);
                     // //listView1.Items.Add(linha);
                     dataGridView1.Rows.Add(item.Rank, item.Title);
+
+                   
                 }
 
             }
@@ -513,18 +523,38 @@ namespace BOT
 
 
             //dataGridView1.Columns.Add("Rank", 50, HorizontalAlignment.Left);
-            //dataGridView1.
+            //dataGridView1.aaa
         }
 
-        private void dataGridView1_SelectionChanged(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Rank"].Value.ToString()); 
+            //int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Rank"].Value.ToString());
 
-            foreach (DataGridViewRow item in dataGridView1.SelectedRows)
-            {
-                txb_title.Text = item.Cells[1].Value.ToString();
+            //DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
 
-            }
+            //int row = dataGridView1.CurrentRow.Index;
+
+            //txb_title.Text = dataGridView1[1, row].Value.ToString();
+
+            // txb_title.Text = row.Cells["title", ].Value.ToString();
+            
+                foreach (DataGridViewRow item in dataGridView1.SelectedRows)
+                {
+                    txb_title.Text = item.Cells["title"].Value.ToString();
+                    //txb_alternative.Text = item.
+                    //string title = item.Cells[1].Value.ToString();
+
+                    //txb_title.Text = title;
+                }
+            
+
+            // int index = e.RowIndex;// get the Row Index
+            //DataGridViewRow selectedRow = dataGridView1.Rows[index];
+
+            int x = dataGridView1.CurrentCell.RowIndex;
+
+            txb_title.Text = dataGridView1[1, x].Value.ToString();
+           
 
 
         }

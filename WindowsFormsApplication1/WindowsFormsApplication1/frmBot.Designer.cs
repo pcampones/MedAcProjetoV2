@@ -47,9 +47,6 @@
             this.bt_search = new System.Windows.Forms.Button();
             this.txb_search = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDataAcquisition = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.launchAlertsButton = new System.Windows.Forms.Button();
@@ -98,13 +95,15 @@
             this.bt_searcg = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelDataAcquisition.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -113,6 +112,7 @@
             this.groupBox1.SuspendLayout();
             this.panelMe.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -190,6 +190,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.txb_alternative);
             this.panel1.Controls.Add(this.txb_organization);
             this.panel1.Controls.Add(this.txb_title);
@@ -202,7 +203,6 @@
             this.panel1.Controls.Add(this.bt_search);
             this.panel1.Controls.Add(this.txb_search);
             this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(630, 430);
@@ -307,28 +307,6 @@
             this.label19.Size = new System.Drawing.Size(34, 13);
             this.label19.TabIndex = 1;
             this.label19.Text = "Term:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Rank,
-            this.Title});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 101);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(236, 335);
-            this.dataGridView1.TabIndex = 0;
-          //  this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Rank
-            // 
-            this.Rank.HeaderText = "Rank";
-            this.Rank.Name = "Rank";
-            // 
-            // Title
-            // 
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
             // 
             // panelDataAcquisition
             // 
@@ -798,6 +776,27 @@
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 0;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rank,
+            this.title});
+            this.dataGridView1.Location = new System.Drawing.Point(9, 93);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 13;
+            // 
+            // rank
+            // 
+            this.rank.HeaderText = "Rank";
+            this.rank.Name = "rank";
+            // 
+            // title
+            // 
+            this.title.HeaderText = "Title";
+            this.title.Name = "title";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -818,7 +817,6 @@
             this.toolStrip2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelDataAcquisition.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -832,6 +830,7 @@
             this.panelMe.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -898,7 +897,6 @@
         private System.Windows.Forms.Button initDLL;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button bt_clear;
         private System.Windows.Forms.Button bt_search;
         private System.Windows.Forms.TextBox txb_search;
@@ -910,8 +908,9 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rank;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rank;
+        private System.Windows.Forms.DataGridViewTextBoxColumn title;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

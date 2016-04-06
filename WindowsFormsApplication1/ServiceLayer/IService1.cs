@@ -26,7 +26,7 @@ namespace ServiceLayer
         List<UtenteWeb> GetListaUtentes();
 
         [OperationContract]
-        List<ValoresWeb> GetValuesbySNS(int sns);
+        List<ValoresWeb> GetReportsbySNSandDate(int sns, DateTime startDate, DateTime endDate);
 
         [OperationContract]
         void AddValues(int sns, string type, string value, DateTime data);

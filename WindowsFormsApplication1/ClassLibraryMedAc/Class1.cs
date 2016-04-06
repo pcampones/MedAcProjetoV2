@@ -114,6 +114,42 @@ namespace ClassLibraryMedAc
                     
             }
         }
+
+        public List<Valores> getReportsbySNSandDate(int sns, DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                List<Valores> listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) && i.DataOfRegist > startDate && i.DataOfRegist <= endDate).ToList();
+
+                //HR
+                List<Valores> valoreHR = listaVa.Where(i => i.Type == "HR").ToList();
+                double mediaHR = valoreHR.Select(i => int.Parse(i.Value)).Average();
+                int maxHR = valoreHR.Select(i => int.Parse(i.Value)).Max();
+                int minHR = valoreHR.Select(i => int.Parse(i.Value)).Min();
+
+                //SPO2
+                List<Valores> valoresSPO2 = listaVa.Where(i => i.Type == "SPO2").ToList();
+                double mediaSPO2 = valoresSPO2.Select(i => int.Parse(i.Value)).Average();
+                int maxSPO2 = valoresSPO2.Select(i => int.Parse(i.Value)).Max();
+                int minSPO2 = valoresSPO2.Select(i => int.Parse(i.Value)).Min();
+
+                //BP
+                List<Valores> valoresBP = listaVa.Where(i => i.Type == "BP").ToList();
+                double mediaBP = valoresBP.Select(i => int.Parse(i.Value)).Average();
+                int maxBP = valoresBP.Select(i => int.Parse(i.Value)).Max();
+                int minBP = valoresBP.Select(i => int.Parse(i.Value)).Min();
+
+
+
+                return listaVa;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+
+            }
+        }
      
         public void addVallues(Valores valores)
         {

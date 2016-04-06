@@ -36,6 +36,11 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AlternativeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullSummary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txb_alternative = new System.Windows.Forms.TextBox();
             this.txb_organization = new System.Windows.Forms.TextBox();
             this.txb_title = new System.Windows.Forms.TextBox();
@@ -96,11 +101,6 @@
             this.bt_searcg = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AlternativeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullSummary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -129,8 +129,8 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
+            this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.panelMe);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Size = new System.Drawing.Size(751, 493);
@@ -225,6 +225,31 @@
             this.dataGridView1.Size = new System.Drawing.Size(240, 321);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            // 
+            // rank
+            // 
+            this.rank.HeaderText = "Rank";
+            this.rank.Name = "rank";
+            // 
+            // title
+            // 
+            this.title.HeaderText = "Title";
+            this.title.Name = "title";
+            // 
+            // AlternativeTitle
+            // 
+            this.AlternativeTitle.HeaderText = "Alternative Title";
+            this.AlternativeTitle.Name = "AlternativeTitle";
+            // 
+            // FullSummary
+            // 
+            this.FullSummary.HeaderText = "Full Summary";
+            this.FullSummary.Name = "FullSummary";
+            // 
+            // OrganizationName
+            // 
+            this.OrganizationName.HeaderText = "Organizarion Name";
+            this.OrganizationName.Name = "OrganizationName";
             // 
             // txb_alternative
             // 
@@ -333,9 +358,9 @@
             this.panelDataAcquisition.Controls.Add(this.groupBox2);
             this.panelDataAcquisition.Controls.Add(this.panelPrincipal);
             this.panelDataAcquisition.Controls.Add(this.groupBox1);
-            this.panelDataAcquisition.Location = new System.Drawing.Point(9, 28);
+            this.panelDataAcquisition.Location = new System.Drawing.Point(0, 0);
             this.panelDataAcquisition.Name = "panelDataAcquisition";
-            this.panelDataAcquisition.Size = new System.Drawing.Size(619, 440);
+            this.panelDataAcquisition.Size = new System.Drawing.Size(568, 391);
             this.panelDataAcquisition.TabIndex = 1;
             this.panelDataAcquisition.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDataAcquisition_Paint);
             // 
@@ -506,9 +531,9 @@
             this.panelPrincipal.Controls.Add(this.label11);
             this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(285, 152);
+            this.panelPrincipal.Location = new System.Drawing.Point(574, 365);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(625, 398);
+            this.panelPrincipal.Size = new System.Drawing.Size(336, 185);
             this.panelPrincipal.TabIndex = 10;
             // 
             // pictureBox1
@@ -794,31 +819,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 0;
-            // 
-            // rank
-            // 
-            this.rank.HeaderText = "Rank";
-            this.rank.Name = "rank";
-            // 
-            // title
-            // 
-            this.title.HeaderText = "Title";
-            this.title.Name = "title";
-            // 
-            // AlternativeTitle
-            // 
-            this.AlternativeTitle.HeaderText = "Alternative Title";
-            this.AlternativeTitle.Name = "AlternativeTitle";
-            // 
-            // FullSummary
-            // 
-            this.FullSummary.HeaderText = "Full Summary";
-            this.FullSummary.Name = "FullSummary";
-            // 
-            // OrganizationName
-            // 
-            this.OrganizationName.HeaderText = "Organizarion Name";
-            this.OrganizationName.Name = "OrganizationName";
             // 
             // Form1
             // 

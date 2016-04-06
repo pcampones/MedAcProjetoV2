@@ -412,8 +412,9 @@ namespace BOT
         }
         public void doWork(object sender, DoWorkEventArgs e)
         {
-            dll.Initialize(NewSensorValueFunction, Settings.Default.Delay, BLOODPRESSSURE, OXIGENSATURATION, HEARTRATE);
+             dll.Initialize(NewSensorValueFunction, Settings.Default.Delay, BLOODPRESSSURE, OXIGENSATURATION, HEARTRATE);
 
+            // dll.InitializeWithAlerts(NewSensorValueFunction, Settings.Default.Delay, BLOODPRESSSURE, OXIGENSATURATION, HEARTRATE);
 
         }
 

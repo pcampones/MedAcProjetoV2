@@ -162,27 +162,55 @@ namespace ServiceLayer
                 valores.Value = value;
                 valores.DataOfRegist = data;
                 VerificaAlerta(valores.Utente, valores);
-
-
             }
-
             _acederBd.addVallues(valores);
         }
 
-        public List<ValoresWeb> GetValuesbySNS(int sns)
+        public List<ValoresWeb> GetReports (int sns)
         {
-            List<Valores> lista = _acederBd.getValuesbySNS(sns);
-            List<ValoresWeb> listaWeb = new List<ValoresWeb>();
-
-            foreach (Valores item in lista)
+            try
             {
-                ValoresWeb valWeb = new ValoresWeb();
-                valWeb.Value = item.Value;
-                valWeb.DataOfReposit = item.DataOfRegist;
+                List<ValoresWeb> valores = new List<ValoresWeb>();
+                List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
 
-                listaWeb.Add(valWeb);
+                foreach (Valores item in listavalores)
+                {
+                    ValoresWeb va = new ValoresWeb();
+                    va.Value = item.Value;
+                    va.Type = item.Type;
+                    va.DataOfReposit = item.DataOfRegist;
+
+                    valores.Add(va);
+                }
+
+                return null;
             }
-            return listaWeb;
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<ValoresWeb> GetValuesbySNSandDate(int sns, DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                List<ValoresWeb> valores = new List<ValoresWeb>();
+                List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
+
+                foreach (Valores item in listavalores)
+                {
+                    
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public AlertasWeb VerificaAlerta(Utente utente, Valores valores)

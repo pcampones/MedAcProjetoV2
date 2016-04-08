@@ -185,6 +185,27 @@ namespace ServiceLayer
             return listaWeb;
         }
 
+
+        public List<EstatisticasWeb> GetReportsHRbySNS(int sns, DateTime startDate, DateTime endDate, string type)
+        {
+            List<EstatisticasWeb> lista = _acederBd.getReportsHRbySNS(sns, startDate, endDate, type);
+            List<EstatisticasWeb> listaWeb = new List<EstatisticasWeb>();
+
+            foreach (EstatisticasWeb item in lista)
+            {
+                EstatisticasWeb esWeb = new EstatisticasWeb();
+                esWeb.ValorMax = item.ValorMax;
+                esWeb.ValorMin = item.ValorMin;
+                esWeb.ValorMed = item.ValorMed;
+                esWeb.StartDate = item.StartDate;
+                esWeb.EndDate = item.EndDate;
+                esWeb.Tipo = item.Tipo;
+
+                listaWeb.Add(esWeb);
+            }
+            return listaWeb;
+        }
+
         public AlertasWeb VerificaAlerta(Utente utente, Valores valores)
         {
             //Utente utente = _acederBd.getUtenteBySNS(sns);
@@ -587,6 +608,7 @@ namespace ServiceLayer
     //    }
 
     //}
+
 
     //public List<ValoresWeb> GetRegistofGrahp(int sns)
     //{

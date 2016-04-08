@@ -45,6 +45,9 @@ namespace ServiceLayer
         List<ValoresWeb> GetRegistofGrahp(int sns, DateTime dataMax, DateTime dataMin);
 
 
+        [OperationContract]
+        List<AlertasWeb> GetAlertsNotRead(int sns, DateTime startBegin, DateTime startEnd);
+
         // TODO: Add your service operations here
     }
 
@@ -291,6 +294,15 @@ namespace ServiceLayer
         {
             get { return tipo; }
             set { tipo = value; }
+        }
+
+        [DataMember]
+        private string parametro;
+
+        public string Parametro
+        {
+            get { return parametro; }
+            set { parametro = value; }
         }
 
         [DataMember]

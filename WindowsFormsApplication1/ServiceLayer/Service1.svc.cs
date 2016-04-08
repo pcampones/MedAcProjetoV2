@@ -400,6 +400,34 @@ namespace ServiceLayer
             return alertasWeb;
         }
 
+        public List<AlertasWeb> GetAlertsNotRead(int sns, DateTime startBegin, DateTime startEnd)
+        {
+            try
+            {
+                List<Alertas> lista = _acederBd.getAlertaSns(sns,startBegin,startEnd);
+                List < AlertasWeb > listaWeb = new List<AlertasWeb>();
+
+                foreach  (Alertas item in lista)
+                {
+                    AlertasWeb alerW = new AlertasWeb();
+
+                    alerW.DataAlerta = item.Data;
+                    alerW.Read = item.Read;
+                    alerW.SnsUtente = item.Utente.SNS;
+                    alerW.Tipo = item.Tipo;
+                    alerW.Parametro = item.Parametro;
+                    listaWeb.Add(alerW);
+                }
+
+                return listaWeb;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public List<ValoresWeb> GetRegistofGrahp(int sns, DateTime dataMax, DateTime dataMin)
         {
             try

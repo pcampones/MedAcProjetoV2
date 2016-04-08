@@ -253,42 +253,24 @@ namespace ClassLibraryMedAc
 
 
 
-        //public List<Valores> getAlertaSns(int sns)
-        //{
-        //    try
-        //    {
-        //        List<Valores> result = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) 
-        //        && i.Alertas.Read.Equals("Not Read")).ToList();
-        //        return result;
+        public List<Alertas> getAlertaSns(int sns, DateTime startBegin, DateTime endBegin)
+        {
+            try
+            {
+                List<Alertas> result = context.AlertasSet.Where(i => i.Utente.SNS.Equals(sns)
+                && i.Read.Equals("Not Read") && i.Data >= startBegin 
+                && i.Data <= endBegin).ToList();
 
-        //    }
-        //    catch (Exception)
-        //    {
+                return result;
 
-        //        return null;
-        //    }
-        //}
+            }
+            catch (Exception ex)
+            {
 
-        //public List<Valores> getUtenteSnsNotRead()
-        //{
-        //    try
-        //    {
-        //        List<Valores> result = context.ValoresSet.Where(i=>i.Alertas.Read.Equals("Not Read")).ToList();
-        //        return result;
+                throw ex;
+            }
+        }
 
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return null;
-        //    }
-        //}
-
-        /*        public List<DateTime> addDatas(DateTime data)
-                {
-                    List<DateTime> datas = context.ValoresSet.
-                        Where(i=>i.DataOfRegist.);
-                    return datas;
-                }*/
+       
     }
 }

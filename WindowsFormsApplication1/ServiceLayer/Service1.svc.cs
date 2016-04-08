@@ -169,9 +169,9 @@ namespace ServiceLayer
             _acederBd.addVallues(valores);
         }
 
-        public List<ValoresWeb> GetValuesbySNS(int sns)
+        public List<ValoresWeb> GetValuesbySNS(int sns, DateTime dataMax, DateTime dataMin)
         {
-            List<Valores> lista = _acederBd.getValuesbySNS(sns);
+            List<Valores> lista = _acederBd.getValuesbySNS(sns, dataMax, dataMin);
             List<ValoresWeb> listaWeb = new List<ValoresWeb>();
 
             foreach (Valores item in lista)
@@ -378,12 +378,12 @@ namespace ServiceLayer
             return alertasWeb;
         }
 
-        public List<ValoresWeb> GetRegistofGrahp(int sns)
+        public List<ValoresWeb> GetRegistofGrahp(int sns, DateTime dataMax, DateTime dataMin)
         {
             try
             {
                 List<ValoresWeb> valores = new List<ValoresWeb>();
-                List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
+                List<Valores> listavalores = _acederBd.getGraphsSNS(sns, dataMax, dataMin);
                 foreach (Valores item in listavalores)
                 {
                     ValoresWeb va = new ValoresWeb();
@@ -394,7 +394,7 @@ namespace ServiceLayer
                     valores.Add(va);
                 }
 
-                return null;
+                return valores;
             }
             catch (Exception ex)
             {

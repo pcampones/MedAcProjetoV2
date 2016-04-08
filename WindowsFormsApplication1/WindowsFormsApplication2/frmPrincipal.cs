@@ -636,7 +636,7 @@ namespace ClinicalAlert
 
         private void lsb_tipos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cb_bars.Checked == true)
+        /*    if (cb_bars.Checked == true)
             {
                 //definição do tipo de gráficosss
                 chart1.Series["Blood Pressure"].ChartType =
@@ -663,12 +663,12 @@ namespace ClinicalAlert
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
                 chart1.Series["Heart Rate"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            }
+            }*/
         }
 
         private void lsb_parameters_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dtp_begin.Value = dataMin;
+           /* dtp_begin.Value = dataMin;
             dtp_end.Value = dataMax;
 
             if (dataMax < dataMin)
@@ -714,9 +714,9 @@ namespace ClinicalAlert
                     }
                 }
             }
-            
+         */   
         }
-
+        
         private void button4_Click(object sender, EventArgs e)
         {
             DateTime dataFIm = dtp_end_relatorios.Value;

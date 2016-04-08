@@ -140,6 +140,23 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsl_nameUtente = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.panel_relatorios = new System.Windows.Forms.Panel();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.dtp_end_relatorios = new System.Windows.Forms.DateTimePicker();
+            this.dtp_start_relatorios = new System.Windows.Forms.DateTimePicker();
+            this.button4 = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.PhysiologicParameter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValueMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValueMean = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -168,6 +185,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.toolStrip2.SuspendLayout();
+            this.panel_relatorios.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -182,8 +203,10 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
+            this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
+            this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
+            this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
             this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
             this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
             this.splitContainer1.Panel2.Controls.Add(this.panelDiarioValores);
@@ -203,7 +226,8 @@
             this.Alerts,
             this.Graficos,
             this.Reports,
-            this.diarioValores});
+            this.diarioValores,
+            this.toolStripButton2});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -1200,6 +1224,147 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(54, 54);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // panel_relatorios
+            // 
+            this.panel_relatorios.Controls.Add(this.dataGridView3);
+            this.panel_relatorios.Controls.Add(this.button4);
+            this.panel_relatorios.Controls.Add(this.groupBox11);
+            this.panel_relatorios.Controls.Add(this.groupBox10);
+            this.panel_relatorios.Location = new System.Drawing.Point(0, 31);
+            this.panel_relatorios.Name = "panel_relatorios";
+            this.panel_relatorios.Size = new System.Drawing.Size(628, 401);
+            this.panel_relatorios.TabIndex = 5;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Blood Pressure\t",
+            "Heart Rate",
+            "Oxygen Saturation"});
+            this.checkedListBox1.Location = new System.Drawing.Point(17, 19);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(175, 64);
+            this.checkedListBox1.TabIndex = 0;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.checkedListBox1);
+            this.groupBox10.Location = new System.Drawing.Point(23, 31);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(213, 99);
+            this.groupBox10.TabIndex = 1;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Physiologic Parameters";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.dtp_start_relatorios);
+            this.groupBox11.Controls.Add(this.dtp_end_relatorios);
+            this.groupBox11.Controls.Add(this.label30);
+            this.groupBox11.Controls.Add(this.label29);
+            this.groupBox11.Location = new System.Drawing.Point(262, 31);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(343, 100);
+            this.groupBox11.TabIndex = 2;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Date ";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(11, 19);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(32, 13);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "Start:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(14, 59);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(29, 13);
+            this.label30.TabIndex = 1;
+            this.label30.Text = "End:";
+            // 
+            // dtp_end_relatorios
+            // 
+            this.dtp_end_relatorios.Location = new System.Drawing.Point(53, 59);
+            this.dtp_end_relatorios.Name = "dtp_end_relatorios";
+            this.dtp_end_relatorios.Size = new System.Drawing.Size(232, 20);
+            this.dtp_end_relatorios.TabIndex = 2;
+            // 
+            // dtp_start_relatorios
+            // 
+            this.dtp_start_relatorios.Location = new System.Drawing.Point(53, 18);
+            this.dtp_start_relatorios.Name = "dtp_start_relatorios";
+            this.dtp_start_relatorios.Size = new System.Drawing.Size(232, 20);
+            this.dtp_start_relatorios.TabIndex = 3;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(23, 357);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PhysiologicParameter,
+            this.startDate,
+            this.endDate,
+            this.valueMin,
+            this.ValueMax,
+            this.ValueMean});
+            this.dataGridView3.Location = new System.Drawing.Point(23, 169);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(582, 150);
+            this.dataGridView3.TabIndex = 4;
+            // 
+            // PhysiologicParameter
+            // 
+            this.PhysiologicParameter.HeaderText = "Physiologic Parameter";
+            this.PhysiologicParameter.Name = "PhysiologicParameter";
+            // 
+            // startDate
+            // 
+            this.startDate.HeaderText = "Start Date";
+            this.startDate.Name = "startDate";
+            // 
+            // endDate
+            // 
+            this.endDate.HeaderText = "End Date";
+            this.endDate.Name = "endDate";
+            // 
+            // valueMin
+            // 
+            this.valueMin.HeaderText = "Value Min";
+            this.valueMin.Name = "valueMin";
+            // 
+            // ValueMax
+            // 
+            this.ValueMax.HeaderText = "Value Max";
+            this.ValueMax.Name = "ValueMax";
+            // 
+            // ValueMean
+            // 
+            this.ValueMean.HeaderText = "Value Mean";
+            this.ValueMean.Name = "ValueMean";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1243,6 +1408,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.panel_relatorios.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1357,6 +1527,23 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.ListBox lsb_tipos;
         private System.Windows.Forms.CheckedListBox lsb_parameters;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.Panel panel_relatorios;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.DateTimePicker dtp_start_relatorios;
+        private System.Windows.Forms.DateTimePicker dtp_end_relatorios;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhysiologicParameter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueMin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValueMax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValueMean;
     }
 }
 

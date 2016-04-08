@@ -114,7 +114,23 @@ namespace ClassLibraryMedAc
                     
             }
         }
-     
+
+        public List<Valores> getGraphsSNS(int sns, DateTime dataMax, DateTime dataMin)
+        {
+            try
+            {
+                var listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) && dataMin <= i.DataOfRegist && dataMax >= i.DataOfRegist ).ToList();
+
+                return listaVa;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+
+            }
+        }
+
         public void addVallues(Valores valores)
         {
             try

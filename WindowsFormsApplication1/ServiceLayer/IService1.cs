@@ -26,7 +26,7 @@ namespace ServiceLayer
         List<UtenteWeb> GetListaUtentes();
 
         [OperationContract]
-        List<ValoresWeb> GetValuesbySNS(int sns);
+        List<ValoresWeb> GetValuesbySNS(int sns, DateTime dataMax, DateTime dataMin);
 
         [OperationContract]
         void AddValues(int sns, string type, string value, DateTime data);
@@ -38,7 +38,7 @@ namespace ServiceLayer
         //List<ValoresWeb> GetAlertNotRead(int sns);
 
         [OperationContract]
-        List<ValoresWeb> GetRegistofGrahp(int sns);
+        List<ValoresWeb> GetRegistofGrahp(int sns, DateTime dataMax, DateTime dataMin);
 
 
         // TODO: Add your service operations here

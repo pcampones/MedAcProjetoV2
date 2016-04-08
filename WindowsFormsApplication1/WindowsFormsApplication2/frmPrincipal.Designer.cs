@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
@@ -40,20 +40,6 @@
             this.Graficos = new System.Windows.Forms.ToolStripButton();
             this.Reports = new System.Windows.Forms.ToolStripButton();
             this.diarioValores = new System.Windows.Forms.ToolStripButton();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panelAlerts = new System.Windows.Forms.Panel();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnRead = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.columnSns = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel_Adicionar = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -85,6 +71,41 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panelGraficos = new System.Windows.Forms.Panel();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.lsb_tipos = new System.Windows.Forms.ListBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dtp_end = new System.Windows.Forms.DateTimePicker();
+            this.label28 = new System.Windows.Forms.Label();
+            this.dtp_begin = new System.Windows.Forms.DateTimePicker();
+            this.label27 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lsb_parameters = new System.Windows.Forms.CheckedListBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panelAlerts = new System.Windows.Forms.Panel();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRead = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.columnSns = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panelDiarioValores = new System.Windows.Forms.Panel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bloodPressureMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bloodPressureMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.heartRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OxygenSaturation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEdit = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -116,79 +137,37 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.panelGraficos = new System.Windows.Forms.Panel();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.lsb_tipos = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dtp_end = new System.Windows.Forms.DateTimePicker();
-            this.label28 = new System.Windows.Forms.Label();
-            this.dtp_begin = new System.Windows.Forms.DateTimePicker();
-            this.label27 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lsb_parameters = new System.Windows.Forms.CheckedListBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panelDiarioValores = new System.Windows.Forms.Panel();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bloodPressureMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bloodPressureMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.heartRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OxygenSaturation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsl_nameUtente = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.panel_relatorios = new System.Windows.Forms.Panel();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.dtp_end_relatorios = new System.Windows.Forms.DateTimePicker();
-            this.dtp_start_relatorios = new System.Windows.Forms.DateTimePicker();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.PhysiologicParameter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValueMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValueMean = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.panelPrincipal.SuspendLayout();
-            this.panelAlerts.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.groupBox7.SuspendLayout();
             this.panel_Adicionar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.panelEdit.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            this.panelPrincipal.SuspendLayout();
             this.panelGraficos.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panelAlerts.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox7.SuspendLayout();
             this.panelDiarioValores.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panelEdit.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.toolStrip2.SuspendLayout();
-            this.panel_relatorios.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -204,9 +183,11 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
-            this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
+            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
+            this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
             this.splitContainer1.Panel2.Controls.Add(this.panelDiarioValores);
+            this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip2);
             this.splitContainer1.Size = new System.Drawing.Size(788, 521);
             this.splitContainer1.SplitterDistance = 150;
@@ -222,8 +203,7 @@
             this.Alerts,
             this.Graficos,
             this.Reports,
-            this.diarioValores,
-            this.toolStripButton2});
+            this.diarioValores});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -305,118 +285,12 @@
             this.diarioValores.Text = "Diario de Valores";
             this.diarioValores.Click += new System.EventHandler(this.diarioValores_Click);
             // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Controls.Add(this.listView1);
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 42);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(481, 433);
-            this.panelPrincipal.TabIndex = 41;
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader1});
-            this.listView1.Location = new System.Drawing.Point(15, 14);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(171, 369);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "SNS";
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Name";
-            // 
-            // panelAlerts
-            // 
-            this.panelAlerts.Controls.Add(this.groupBox8);
-            this.panelAlerts.Controls.Add(this.groupBox7);
-            this.panelAlerts.Location = new System.Drawing.Point(0, 42);
-            this.panelAlerts.Name = "panelAlerts";
-            this.panelAlerts.Size = new System.Drawing.Size(481, 388);
-            this.panelAlerts.TabIndex = 2;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.dataGridView2);
-            this.groupBox8.Location = new System.Drawing.Point(216, 23);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(278, 368);
-            this.groupBox8.TabIndex = 2;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Alerts";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnData,
-            this.ColumnType,
-            this.ColumnRead});
-            this.dataGridView2.Location = new System.Drawing.Point(0, 14);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(270, 345);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // ColumnData
-            // 
-            this.ColumnData.HeaderText = "Date";
-            this.ColumnData.Name = "ColumnData";
-            // 
-            // ColumnType
-            // 
-            this.ColumnType.HeaderText = "Type";
-            this.ColumnType.Name = "ColumnType";
-            // 
-            // ColumnRead
-            // 
-            this.ColumnRead.HeaderText = "Read";
-            this.ColumnRead.Name = "ColumnRead";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.listView2);
-            this.groupBox7.Location = new System.Drawing.Point(15, 27);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(195, 371);
-            this.groupBox7.TabIndex = 0;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "List Patients";
-            // 
-            // listView2
-            // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnSns,
-            this.columnName});
-            this.listView2.Location = new System.Drawing.Point(0, 26);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(186, 342);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
-            // 
-            // columnSns
-            // 
-            this.columnSns.Text = "SNS";
-            // 
-            // columnName
-            // 
-            this.columnName.Text = "Name";
-            // 
             // panel_Adicionar
             // 
             this.panel_Adicionar.Controls.Add(this.groupBox1);
-            this.panel_Adicionar.Location = new System.Drawing.Point(0, 39);
+            this.panel_Adicionar.Location = new System.Drawing.Point(0, 0);
             this.panel_Adicionar.Name = "panel_Adicionar";
-            this.panel_Adicionar.Size = new System.Drawing.Size(478, 445);
+            this.panel_Adicionar.Size = new System.Drawing.Size(51, 76);
             this.panel_Adicionar.TabIndex = 1;
             // 
             // groupBox1
@@ -1012,9 +886,9 @@
             // panelEdit
             // 
             this.panelEdit.Controls.Add(this.groupBox2);
-            this.panelEdit.Location = new System.Drawing.Point(-1, 39);
+            this.panelEdit.Location = new System.Drawing.Point(361, 200);
             this.panelEdit.Name = "panelEdit";
-            this.panelEdit.Size = new System.Drawing.Size(570, 390);
+            this.panelEdit.Size = new System.Drawing.Size(208, 229);
             this.panelEdit.TabIndex = 42;
             // 
             // groupBox2
@@ -1300,196 +1174,6 @@
             this.label26.TabIndex = 41;
             this.label26.Text = "Name:";
             // 
-            // panelGraficos
-            // 
-            this.panelGraficos.Controls.Add(this.groupBox9);
-            this.panelGraficos.Controls.Add(this.button3);
-            this.panelGraficos.Controls.Add(this.groupBox5);
-            this.panelGraficos.Controls.Add(this.groupBox4);
-            this.panelGraficos.Controls.Add(this.groupBox3);
-            this.panelGraficos.Location = new System.Drawing.Point(3, 39);
-            this.panelGraficos.Name = "panelGraficos";
-            this.panelGraficos.Size = new System.Drawing.Size(587, 436);
-            this.panelGraficos.TabIndex = 56;
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.lsb_tipos);
-            this.groupBox9.Location = new System.Drawing.Point(391, 190);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(172, 183);
-            this.groupBox9.TabIndex = 4;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Type of Graph";
-            // 
-            // lsb_tipos
-            // 
-            this.lsb_tipos.FormattingEnabled = true;
-            this.lsb_tipos.Location = new System.Drawing.Point(15, 22);
-            this.lsb_tipos.Name = "lsb_tipos";
-            this.lsb_tipos.Size = new System.Drawing.Size(142, 147);
-            this.lsb_tipos.TabIndex = 0;
-            this.lsb_tipos.SelectedIndexChanged += new System.EventHandler(this.lsb_tipos_SelectedIndexChanged);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(23, 410);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.dtp_end);
-            this.groupBox5.Controls.Add(this.label28);
-            this.groupBox5.Controls.Add(this.dtp_begin);
-            this.groupBox5.Controls.Add(this.label27);
-            this.groupBox5.Location = new System.Drawing.Point(23, 314);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(359, 100);
-            this.groupBox5.TabIndex = 2;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Date Selected";
-            // 
-            // dtp_end
-            // 
-            this.dtp_end.Location = new System.Drawing.Point(113, 57);
-            this.dtp_end.Name = "dtp_end";
-            this.dtp_end.Size = new System.Drawing.Size(210, 20);
-            this.dtp_end.TabIndex = 3;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(50, 65);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(29, 13);
-            this.label28.TabIndex = 2;
-            this.label28.Text = "End:";
-            // 
-            // dtp_begin
-            // 
-            this.dtp_begin.Location = new System.Drawing.Point(113, 25);
-            this.dtp_begin.Name = "dtp_begin";
-            this.dtp_begin.Size = new System.Drawing.Size(210, 20);
-            this.dtp_begin.TabIndex = 1;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(49, 28);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(37, 13);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "Begin:";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.lsb_parameters);
-            this.groupBox4.Location = new System.Drawing.Point(20, 208);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(359, 100);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Physiologic Parameters";
-            // 
-            // lsb_parameters
-            // 
-            this.lsb_parameters.FormattingEnabled = true;
-            this.lsb_parameters.Items.AddRange(new object[] {
-            "checkedListBox"});
-            this.lsb_parameters.Location = new System.Drawing.Point(7, 22);
-            this.lsb_parameters.Name = "lsb_parameters";
-            this.lsb_parameters.Size = new System.Drawing.Size(339, 64);
-            this.lsb_parameters.TabIndex = 0;
-            this.lsb_parameters.SelectedIndexChanged += new System.EventHandler(this.lsb_parameters_SelectedIndexChanged);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.chart1);
-            this.groupBox3.Location = new System.Drawing.Point(12, 11);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(536, 178);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Chart Area";
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(7, 20);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(474, 125);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
-            // 
-            // panelDiarioValores
-            // 
-            this.panelDiarioValores.Controls.Add(this.groupBox6);
-            this.panelDiarioValores.Location = new System.Drawing.Point(358, 197);
-            this.panelDiarioValores.Name = "panelDiarioValores";
-            this.panelDiarioValores.Size = new System.Drawing.Size(223, 198);
-            this.panelDiarioValores.TabIndex = 3;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.dataGridView1);
-            this.groupBox6.Location = new System.Drawing.Point(3, 31);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(563, 380);
-            this.groupBox6.TabIndex = 2;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Daily Values";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.bloodPressureMax,
-            this.bloodPressureMin,
-            this.heartRate,
-            this.OxygenSaturation,
-            this.date});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 30);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(554, 265);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // bloodPressureMax
-            // 
-            this.bloodPressureMax.HeaderText = "Blood Pressure Max";
-            this.bloodPressureMax.Name = "bloodPressureMax";
-            // 
-            // bloodPressureMin
-            // 
-            this.bloodPressureMin.HeaderText = "Blood Pressure Min";
-            this.bloodPressureMin.Name = "bloodPressureMin";
-            // 
-            // heartRate
-            // 
-            this.heartRate.HeaderText = "Heart Rate";
-            this.heartRate.Name = "heartRate";
-            // 
-            // OxygenSaturation
-            // 
-            this.OxygenSaturation.HeaderText = "Oxygen Saturation";
-            this.OxygenSaturation.Name = "OxygenSaturation";
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Date of Regist";
-            this.date.Name = "date";
-            // 
             // toolStrip2
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1516,147 +1200,6 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // panel_relatorios
-            // 
-            this.panel_relatorios.Controls.Add(this.dataGridView3);
-            this.panel_relatorios.Controls.Add(this.button4);
-            this.panel_relatorios.Controls.Add(this.groupBox11);
-            this.panel_relatorios.Controls.Add(this.groupBox10);
-            this.panel_relatorios.Location = new System.Drawing.Point(0, 31);
-            this.panel_relatorios.Name = "panel_relatorios";
-            this.panel_relatorios.Size = new System.Drawing.Size(628, 401);
-            this.panel_relatorios.TabIndex = 5;
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Blood Pressure\t",
-            "Heart Rate",
-            "Oxygen Saturation"});
-            this.checkedListBox1.Location = new System.Drawing.Point(17, 19);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(175, 64);
-            this.checkedListBox1.TabIndex = 0;
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.checkedListBox1);
-            this.groupBox10.Location = new System.Drawing.Point(23, 31);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(213, 99);
-            this.groupBox10.TabIndex = 1;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Physiologic Parameters";
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.dtp_start_relatorios);
-            this.groupBox11.Controls.Add(this.dtp_end_relatorios);
-            this.groupBox11.Controls.Add(this.label30);
-            this.groupBox11.Controls.Add(this.label29);
-            this.groupBox11.Location = new System.Drawing.Point(262, 31);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(343, 100);
-            this.groupBox11.TabIndex = 2;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Date ";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(11, 19);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(32, 13);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "Start:";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(14, 59);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(29, 13);
-            this.label30.TabIndex = 1;
-            this.label30.Text = "End:";
-            // 
-            // dtp_end_relatorios
-            // 
-            this.dtp_end_relatorios.Location = new System.Drawing.Point(53, 59);
-            this.dtp_end_relatorios.Name = "dtp_end_relatorios";
-            this.dtp_end_relatorios.Size = new System.Drawing.Size(232, 20);
-            this.dtp_end_relatorios.TabIndex = 2;
-            // 
-            // dtp_start_relatorios
-            // 
-            this.dtp_start_relatorios.Location = new System.Drawing.Point(53, 18);
-            this.dtp_start_relatorios.Name = "dtp_start_relatorios";
-            this.dtp_start_relatorios.Size = new System.Drawing.Size(232, 20);
-            this.dtp_start_relatorios.TabIndex = 3;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(23, 357);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PhysiologicParameter,
-            this.startDate,
-            this.endDate,
-            this.valueMin,
-            this.ValueMax,
-            this.ValueMean});
-            this.dataGridView3.Location = new System.Drawing.Point(23, 169);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(582, 150);
-            this.dataGridView3.TabIndex = 4;
-            // 
-            // PhysiologicParameter
-            // 
-            this.PhysiologicParameter.HeaderText = "Physiologic Parameter";
-            this.PhysiologicParameter.Name = "PhysiologicParameter";
-            // 
-            // startDate
-            // 
-            this.startDate.HeaderText = "Start Date";
-            this.startDate.Name = "startDate";
-            // 
-            // endDate
-            // 
-            this.endDate.HeaderText = "End Date";
-            this.endDate.Name = "endDate";
-            // 
-            // valueMin
-            // 
-            this.valueMin.HeaderText = "Value Min";
-            this.valueMin.Name = "valueMin";
-            // 
-            // ValueMax
-            // 
-            this.ValueMax.HeaderText = "Value Max";
-            this.ValueMax.Name = "ValueMax";
-            // 
-            // ValueMean
-            // 
-            this.ValueMean.HeaderText = "Value Mean";
-            this.ValueMean.Name = "ValueMean";
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1673,21 +1216,12 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panelPrincipal.ResumeLayout(false);
-            this.panelAlerts.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.groupBox7.ResumeLayout(false);
             this.panel_Adicionar.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.panelEdit.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            this.panelPrincipal.ResumeLayout(false);
             this.panelGraficos.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -1695,16 +1229,20 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panelAlerts.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox7.ResumeLayout(false);
             this.panelDiarioValores.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panelEdit.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.panel_relatorios.ResumeLayout(false);
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1819,23 +1357,6 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.ListBox lsb_tipos;
         private System.Windows.Forms.CheckedListBox lsb_parameters;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.Panel panel_relatorios;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.DateTimePicker dtp_start_relatorios;
-        private System.Windows.Forms.DateTimePicker dtp_end_relatorios;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhysiologicParameter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn endDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueMin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValueMax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValueMean;
     }
 }
 

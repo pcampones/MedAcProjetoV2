@@ -26,7 +26,7 @@ namespace ServiceLayer
         List<UtenteWeb> GetListaUtentes();
 
         [OperationContract]
-        List<ValoresWeb> GetValuesbySNS(int sns, DateTime dataMax, DateTime dataMin);
+        List<ValoresWeb> GetValuesbySNS(int sns);
 
         [OperationContract]
         void AddValues(int sns, string type, string value, DateTime data);
@@ -38,7 +38,7 @@ namespace ServiceLayer
         //List<ValoresWeb> GetAlertNotRead(int sns);
 
         [OperationContract]
-        List<ValoresWeb> GetRegistofGrahp(int sns, DateTime dataMax, DateTime dataMin);
+        List<ValoresWeb> GetRegistofGrahp(int sns);
 
 
         // TODO: Add your service operations here
@@ -281,15 +281,6 @@ namespace ServiceLayer
 
 
         }
-        [DataMember]
-        private string parametro;
-
-        public string Paramentro
-        {
-            get { return parametro; }
-            set { parametro = value; }
-        }
-
         [DataMember]
         private int snsUtente;
 

@@ -169,9 +169,9 @@ namespace ServiceLayer
             _acederBd.addVallues(valores);
         }
 
-        public List<ValoresWeb> GetValuesbySNS(int sns, DateTime dataMax, DateTime dataMin)
+        public List<ValoresWeb> GetValuesbySNS(int sns)
         {
-            List<Valores> lista = _acederBd.getValuesbySNS(sns, dataMax, dataMin);
+            List<Valores> lista = _acederBd.getValuesbySNS(sns);
             List<ValoresWeb> listaWeb = new List<ValoresWeb>();
 
             foreach (Valores item in lista)
@@ -210,7 +210,6 @@ namespace ServiceLayer
                             alertas.Tipo = "AnyTime";
                             alertas.Data = DateTime.Now;
                             alertas.Utente = utente;
-                            alertas.Parametro = valores.Type;
 
                         }
                         else
@@ -256,13 +255,11 @@ namespace ServiceLayer
                                     alertas.Tipo = "Aviso Intermitente";
                                     alertas.Data = DateTime.Now;
                                     alertas.Utente = utente;
-                                    alertas.Parametro = valores.Type;
                                 }
                                 alertas.Read = "Not Read";
                                 alertas.Tipo = "Aviso Continuo";
                                 alertas.Data = DateTime.Now;
                                 alertas.Utente = utente;
-                                alertas.Parametro = valores.Type;
 
 
                             }
@@ -274,14 +271,12 @@ namespace ServiceLayer
                                     alertas.Tipo = "Critico Intermitente";
                                     alertas.Data = DateTime.Now;
                                     alertas.Utente = utente;
-                                    alertas.Parametro = valores.Type;
 
                                 }
                                 alertas.Read = "Not Read";
                                 alertas.Tipo = "Critico Continuo";
                                 alertas.Data = DateTime.Now;
                                 alertas.Utente = utente;
-                                alertas.Parametro = valores.Type;
 
                             }
 
@@ -292,7 +287,6 @@ namespace ServiceLayer
                             alertas.Tipo = "AnyTime";
                             alertas.Data = DateTime.Now;
                             alertas.Utente = utente;
-                            alertas.Parametro = valores.Type;
 
                         }
                         else
@@ -372,8 +366,6 @@ namespace ServiceLayer
                  {
 
                  }*/
-
-                alertasWeb.Paramentro = alertas.Parametro;
                 alertasWeb.Tipo = alertas.Tipo;
                 alertasWeb.Read = alertas.Read;
                 alertasWeb.DataAlerta = alertas.Data;
@@ -386,23 +378,23 @@ namespace ServiceLayer
             return alertasWeb;
         }
 
-        public List<ValoresWeb> GetRegistofGrahp(int sns, DateTime dataMax, DateTime dataMin)
+        public List<ValoresWeb> GetRegistofGrahp(int sns)
         {
             try
             {
                 List<ValoresWeb> valores = new List<ValoresWeb>();
-                List<Valores> listavalores = _acederBd.getValuesbySNS(sns, dataMax, dataMin);
+                List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
                 foreach (Valores item in listavalores)
                 {
                     ValoresWeb va = new ValoresWeb();
                     va.Value = item.Value;
                     va.Type = item.Type;
                     va.DataOfReposit = item.DataOfRegist;
-                    
+
                     valores.Add(va);
                 }
 
-                return valores;
+                return null;
             }
             catch (Exception ex)
             {

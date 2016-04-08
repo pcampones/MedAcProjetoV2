@@ -554,7 +554,7 @@ namespace ClinicalAlert
         private void button3_Click(object sender, EventArgs e)
         {
 
-            chart1.ChartAreas.Clear();
+          /*  chart1.ChartAreas.Clear();
             chart1.Series.Clear();
             chart1.Titles.Clear();
 
@@ -567,30 +567,35 @@ namespace ClinicalAlert
             //Construção da àrea do gráfico
             chart1.ChartAreas.Add("area");
 
-          /*  lsb_parameters.Items.Clear();
+            lsb_parameters.Items.Clear();
             lsb_parameters.ClearSelected();
             lsb_tipos.Items.Clear();
             lsb_tipos.ClearSelected();
-            */
+
 
             DateTime dataMin = dtp_begin.Value;
             DateTime dataMax = dtp_end.Value;
             
             if (dataMin <= dataMax)
             {
-               List<ValoresWeb> valores = serv.GetRegistofGrahp(sns,dataMax,dataMin).ToList();
-                ValoresWeb valoresWeb = new ValoresWeb();
+               List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
 
                 foreach (ValoresWeb item in valores)
                 {
-                   valoresWeb.type = item.type;
-                    valoresWeb.valueR = item.valueR;
-                    valoresWeb.dataOfReposit = item.dataOfReposit;
-         
-                }
+                    ValoresWeb valoresWeb = new ValoresWeb();
+                    item.type = valoresWeb.type;
+                    item.valueR = valoresWeb.valueR;
+                    item.dataOfReposit = item.dataOfReposit;
+                /*    item.bloodPressureMax = valoresWeb.bloodPressureMax;
+                    item.bloodPressureMin = valoresWeb.bloodPressureMin;
+                    item.heartRate = valoresWeb.heartRate;
+                    item.oxigenSat = valoresWeb.oxigenSat;
+                    item.dataOfReposit = valoresWeb.dataOfReposit;
+                    */
+            /*    }
 
-                chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate() ;
-                chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
+                chart1.ChartAreas["area"].AxisX.Minimum = dataMin.Day;
+                chart1.ChartAreas["area"].AxisX.Maximum = dataMax.Day;
                 chart1.ChartAreas["area"].AxisX.Interval = 1;
                 chart1.ChartAreas["area"].AxisY.Minimum = 0;
                 chart1.ChartAreas["area"].AxisY.Interval = 10;
@@ -604,21 +609,10 @@ namespace ClinicalAlert
                 chart1.Series["Heart Rate"].Color = Color.Blue;
                 chart1.Series["Oxygen Saturation"].Color = Color.Green;
 
-                //Pontos a aparecer no gráfico        
-                if (valoresWeb.type == "BP")
-                {
-
-                    chart1.Series["Blood Pressure"].Points.AddXY(valoresWeb.dataOfReposit,valoresWeb.valueR);
-                }
-                if (valoresWeb.type == "HR")
-                {
-                    chart1.Series["Heart Rate"].Points.AddXY(valoresWeb.dataOfReposit, valoresWeb.valueR);
-                }
-                if (valoresWeb.type == "SPO2")
-                {
-                    chart1.Series["Oxygen Saturation"].Points.AddXY(valoresWeb.dataOfReposit, valoresWeb.valueR);
-
-                }
+                //Pontos a aparecer no gráfico         
+                chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);   
+                chart1.Series["Heart Rate"].Points.AddXY(dataMax, 10);
+                chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 10);
 
                 chart1.ChartAreas["area"].BackColor = Color.White;
                 chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
@@ -636,7 +630,7 @@ namespace ClinicalAlert
             {
                 MessageBox.Show("The start date can not be bigher than the end date", "Confirmation", MessageBoxButtons.OK);
             }
-            
+            */
 
         }
 
@@ -674,12 +668,12 @@ namespace ClinicalAlert
 
         private void lsb_parameters_SelectedIndexChanged(object sender, EventArgs e)
         {
-             dataMin = dtp_begin.Value;
-            dataMax = dtp_end.Value;
+            dtp_begin.Value = dataMin;
+            dtp_end.Value = dataMax;
 
-            if (dataMin <= dataMax)
+            if (dataMax < dataMin)
             {
-                List<ValoresWeb> regGraficos = serv.GetRegistofGrahp(sns,dataMax,dataMin).ToList();
+                List<ValoresWeb> regGraficos = serv.GetRegistofGrahp(sns).ToList();
 
                 foreach (ValoresWeb item in regGraficos)
                 {

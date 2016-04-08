@@ -26,22 +26,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfUtenteWeb" nillable="true" type="tns:ArrayOfUtenteWeb" />
-  <xs:complexType name="ArrayOfValoresWeb">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValoresWeb" nillable="true" type="tns:ValoresWeb" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfValoresWeb" nillable="true" type="tns:ArrayOfValoresWeb" />
-  <xs:complexType name="ValoresWeb">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="dataOfReposit" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="nomeUtente" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="sUtente" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="sns" type="xs:int" />
-      <xs:element minOccurs="0" name="snsUtente" type="xs:int" />
-      <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="valueR" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ValoresWeb" nillable="true" type="tns:ValoresWeb" />
 </xs:schema>

@@ -53,22 +53,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetReports">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="sns" type="xs:int" />
-        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetReportsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetReportsResult" nillable="true" type="q5:ArrayOfValoresWeb" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="AddValues">
     <xs:complexType>
       <xs:sequence>
@@ -84,19 +68,17 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetRegistofGrahp">
+  <xs:element name="GetValuesbySNS">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="sns" type="xs:int" />
-        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetRegistofGrahpResponse">
+  <xs:element name="GetValuesbySNSResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetRegistofGrahpResult" nillable="true" type="q6:ArrayOfValoresWeb" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetValuesbySNSResult" nillable="true" type="q5:ArrayOfValoresWeb" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

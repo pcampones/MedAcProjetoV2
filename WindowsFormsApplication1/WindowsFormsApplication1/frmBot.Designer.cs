@@ -129,8 +129,8 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
+            this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.panelMe);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Size = new System.Drawing.Size(751, 493);
@@ -358,9 +358,9 @@
             this.panelDataAcquisition.Controls.Add(this.groupBox2);
             this.panelDataAcquisition.Controls.Add(this.panelPrincipal);
             this.panelDataAcquisition.Controls.Add(this.groupBox1);
-            this.panelDataAcquisition.Location = new System.Drawing.Point(9, 28);
+            this.panelDataAcquisition.Location = new System.Drawing.Point(0, 0);
             this.panelDataAcquisition.Name = "panelDataAcquisition";
-            this.panelDataAcquisition.Size = new System.Drawing.Size(619, 440);
+            this.panelDataAcquisition.Size = new System.Drawing.Size(568, 391);
             this.panelDataAcquisition.TabIndex = 1;
             this.panelDataAcquisition.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDataAcquisition_Paint);
             // 
@@ -531,9 +531,9 @@
             this.panelPrincipal.Controls.Add(this.label11);
             this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(285, 152);
+            this.panelPrincipal.Location = new System.Drawing.Point(574, 365);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(625, 398);
+            this.panelPrincipal.Size = new System.Drawing.Size(336, 185);
             this.panelPrincipal.TabIndex = 10;
             // 
             // pictureBox1

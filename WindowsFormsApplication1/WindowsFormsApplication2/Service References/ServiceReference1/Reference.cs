@@ -451,11 +451,11 @@ namespace ClinicalAlert.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetListaUtentes", ReplyAction="http://tempuri.org/IService1/GetListaUtentesResponse")]
         System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.UtenteWeb[]> GetListaUtentesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesbySNS", ReplyAction="http://tempuri.org/IService1/GetValuesbySNSResponse")]
-        ClinicalAlert.ServiceReference1.ValoresWeb[] GetValuesbySNS(int sns, System.DateTime dataMax, System.DateTime dataMin);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetReports", ReplyAction="http://tempuri.org/IService1/GetReportsResponse")]
+        ClinicalAlert.ServiceReference1.ValoresWeb[] GetReports(int sns, System.DateTime startDate, System.DateTime endDate);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesbySNS", ReplyAction="http://tempuri.org/IService1/GetValuesbySNSResponse")]
-        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetValuesbySNSAsync(int sns, System.DateTime dataMax, System.DateTime dataMin);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetReports", ReplyAction="http://tempuri.org/IService1/GetReportsResponse")]
+        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetReportsAsync(int sns, System.DateTime startDate, System.DateTime endDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
         void AddValues(int sns, string type, string value, System.DateTime data);
@@ -464,10 +464,10 @@ namespace ClinicalAlert.ServiceReference1 {
         System.Threading.Tasks.Task AddValuesAsync(int sns, string type, string value, System.DateTime data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetRegistofGrahp", ReplyAction="http://tempuri.org/IService1/GetRegistofGrahpResponse")]
-        ClinicalAlert.ServiceReference1.ValoresWeb[] GetRegistofGrahp(int sns, System.DateTime dataMax, System.DateTime dataMin);
+        ClinicalAlert.ServiceReference1.ValoresWeb[] GetRegistofGrahp(int sns, System.DateTime startDate, System.DateTime endDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetRegistofGrahp", ReplyAction="http://tempuri.org/IService1/GetRegistofGrahpResponse")]
-        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetRegistofGrahpAsync(int sns, System.DateTime dataMax, System.DateTime dataMin);
+        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetRegistofGrahpAsync(int sns, System.DateTime startDate, System.DateTime endDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -529,12 +529,12 @@ namespace ClinicalAlert.ServiceReference1 {
             return base.Channel.GetListaUtentesAsync();
         }
         
-        public ClinicalAlert.ServiceReference1.ValoresWeb[] GetValuesbySNS(int sns, System.DateTime dataMax, System.DateTime dataMin) {
-            return base.Channel.GetValuesbySNS(sns, dataMax, dataMin);
+        public ClinicalAlert.ServiceReference1.ValoresWeb[] GetReports(int sns, System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.GetReports(sns, startDate, endDate);
         }
         
-        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetValuesbySNSAsync(int sns, System.DateTime dataMax, System.DateTime dataMin) {
-            return base.Channel.GetValuesbySNSAsync(sns, dataMax, dataMin);
+        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetReportsAsync(int sns, System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.GetReportsAsync(sns, startDate, endDate);
         }
         
         public void AddValues(int sns, string type, string value, System.DateTime data) {
@@ -545,12 +545,12 @@ namespace ClinicalAlert.ServiceReference1 {
             return base.Channel.AddValuesAsync(sns, type, value, data);
         }
         
-        public ClinicalAlert.ServiceReference1.ValoresWeb[] GetRegistofGrahp(int sns, System.DateTime dataMax, System.DateTime dataMin) {
-            return base.Channel.GetRegistofGrahp(sns, dataMax, dataMin);
+        public ClinicalAlert.ServiceReference1.ValoresWeb[] GetRegistofGrahp(int sns, System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.GetRegistofGrahp(sns, startDate, endDate);
         }
         
-        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetRegistofGrahpAsync(int sns, System.DateTime dataMax, System.DateTime dataMin) {
-            return base.Channel.GetRegistofGrahpAsync(sns, dataMax, dataMin);
+        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetRegistofGrahpAsync(int sns, System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.GetRegistofGrahpAsync(sns, startDate, endDate);
         }
     }
 }

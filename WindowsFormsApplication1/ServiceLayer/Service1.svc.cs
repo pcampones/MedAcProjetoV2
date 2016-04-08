@@ -162,27 +162,48 @@ namespace ServiceLayer
                 valores.Value = value;
                 valores.DataOfRegist = data;
                 VerificaAlerta(valores.Utente, valores);
-
-
             }
-
             _acederBd.addVallues(valores);
         }
 
-        public List<ValoresWeb> GetValuesbySNS(int sns, DateTime dataMax, DateTime dataMin)
+        public List<ValoresWeb> GetReports (int sns)
         {
-            List<Valores> lista = _acederBd.getValuesbySNS(sns, dataMax, dataMin);
+            try
+            {
+                List<ValoresWeb> valores = new List<ValoresWeb>();
+                List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
+
+                foreach (Valores item in listavalores)
+                {
+                    ValoresWeb va = new ValoresWeb();
+                    va.Value = item.Value;
+                    va.Type = item.Type;
+                    va.DataOfReposit = item.DataOfRegist;
+
+                    valores.Add(va);
+            }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<ValoresWeb> GetValuesbySNS(int sns)
+        {
+            List<Valores> lista = _acederBd.getValuesbySNS(sns);
             List<ValoresWeb> listaWeb = new List<ValoresWeb>();
 
-            foreach (Valores item in lista)
-            {
-                ValoresWeb valWeb = new ValoresWeb();
-                valWeb.Value = item.Value;
-                valWeb.DataOfReposit = item.DataOfRegist;
-
-                listaWeb.Add(valWeb);
+                return null;
             }
-            return listaWeb;
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public AlertasWeb VerificaAlerta(Utente utente, Valores valores)
@@ -222,7 +243,7 @@ namespace ServiceLayer
                     case "HR":
 
                         List<Valores> datasHR = _acederBd.getDataSPO2(valores.Type).ToList();
-                        
+
 
                         List<DateTime> datas = new List<DateTime>();
                         datasHR.Add(valores);
@@ -398,7 +419,7 @@ namespace ServiceLayer
                     va.Value = item.Value;
                     va.Type = item.Type;
                     va.DataOfReposit = item.DataOfRegist;
-                    
+
                     valores.Add(va);
                 }
 

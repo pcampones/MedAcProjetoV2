@@ -414,6 +414,7 @@ namespace BOT
         {
             dll.Initialize(NewSensorValueFunction, Settings.Default.Delay, BLOODPRESSSURE, OXIGENSATURATION, HEARTRATE);
 
+            // dll.InitializeWithAlerts(NewSensorValueFunction, Settings.Default.Delay, BLOODPRESSSURE, OXIGENSATURATION, HEARTRATE);
 
         }
 

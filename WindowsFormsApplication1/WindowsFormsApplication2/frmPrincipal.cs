@@ -25,12 +25,21 @@ namespace ClinicalAlert
         DateTime dataMax = DateTime.Now;
         DateTime dataMin = DateTime.Now.AddDays(-2);
 
+        List<Estatisticas> reports = new List<Estatisticas>();
+
         public frmPrincipal()
         {
             InitializeComponent();
 
+            // Set the MaximizeBox to false to remove the maximize box.
+            this.MaximizeBox = false;
+
+            // Set the start position of the form to the center of the screen.
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             serv = new Service1Client();
 
+            panel_relatorios.Visible = false;
             panel_Adicionar.Visible = false;
             panelPrincipal.Visible = true;
             panelEdit.Visible = false;
@@ -63,8 +72,9 @@ namespace ClinicalAlert
             panelEdit.Visible = false;
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = false;
-
             panelAlerts.Visible = false;
+            panel_relatorios.Visible = false;
+
         }
 
         private void Edit_Click(object sender, EventArgs e)
@@ -75,6 +85,8 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = false;
             panelAlerts.Visible = false;
+            panel_relatorios.Visible = false;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -256,6 +268,8 @@ namespace ClinicalAlert
             panel_Adicionar.Visible = false;
             panelGraficos.Visible = true;
             panelDiarioValores.Visible = false;
+            panel_relatorios.Visible = false;
+
 
             chart1.ChartAreas.Clear();
             chart1.Series.Clear();
@@ -316,18 +330,18 @@ namespace ClinicalAlert
             chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
             chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
             chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
-            lsb_tipos.Items.Clear();
-            lsb_parameters.Items.Clear();
-            lsb_parameters.ClearSelected();
-            lsb_tipos.ClearSelected();
-            lsb_tipos.ResetText();
-            lsb_parameters.ResetText();
-            lsb_tipos.Items.Add("Collumns");
-            lsb_tipos.Items.Add("Bars");
-            lsb_tipos.Items.Add("Lines");
-            lsb_parameters.Items.Add("Blood Pressure");
-            lsb_parameters.Items.Add("Heart Rate");
-            lsb_parameters.Items.Add("Oxygen Saturation");
+            //lsb_tipos.Items.Clear();
+            //lsb_parameters.Items.Clear();
+            //lsb_parameters.ClearSelected();
+            //lsb_tipos.ClearSelected();
+            //lsb_tipos.ResetText();
+            //lsb_parameters.ResetText();
+            //lsb_tipos.Items.Add("Collumns");
+            //lsb_tipos.Items.Add("Bars");
+            //lsb_tipos.Items.Add("Lines");
+            //lsb_parameters.Items.Add("Blood Pressure");
+            //lsb_parameters.Items.Add("Heart Rate");
+            //lsb_parameters.Items.Add("Oxygen Saturation");
 
 
          
@@ -343,6 +357,8 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = true;
             panelAlerts.Visible = false;
+            panel_relatorios.Visible = false;
+
             /*
             List<ValoresWeb> valor = serv.GetValuesbySNS(sns).ToList();
 
@@ -418,6 +434,8 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             panelAlerts.Visible = false;
             panelDiarioValores.Visible = false;
+            panel_relatorios.Visible = false;
+
         }
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -484,43 +502,45 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = false;
             panelAlerts.Visible = true;
-         /*   List<AlertasWeb> valor = serv.GetValuesAlertsbySns(sns).ToList();
+            panel_relatorios.Visible = false;
 
-            foreach (AlertasWeb item in valor)
-            {
+            /*   List<AlertasWeb> valor = serv.GetValuesAlertsbySns(sns).ToList();
 
-                if (item.read.Equals("Not Read"))
-                {
-                    dataGridView2.Rows.Add(item.dataAlerta,
-                        item.tipo, item.read);
+               foreach (AlertasWeb item in valor)
+               {
 
-                }
+                   if (item.read.Equals("Not Read"))
+                   {
+                       dataGridView2.Rows.Add(item.dataAlerta,
+                           item.tipo, item.read);
 
-
-            }
-
-            List<ValoresWeb> u = serv.GetAlertNotRead(sns).ToList();
-
-            foreach (ValoresWeb item in u)
-            {
-                ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
-                linha.SubItems.Add(item.nomeUtente + " " + item.sUtente); // name + surname
-
-                listView2.Items.Add(linha);
-            }
-            
-
-             List<ValoresWeb> valor2 = serv.GetAlertNotRead (sns).ToList();
+                   }
 
 
+               }
 
-              foreach (ValoresWeb item in valor2)
-              {
-                  ListViewItem linha = new ListViewItem(item..sns.ToString(), 0);
-                  linha.SubItems.Add(item.name + " " + item.surname);
+               List<ValoresWeb> u = serv.GetAlertNotRead(sns).ToList();
 
-                  listView2.Items.Add(linha);
-              }*/
+               foreach (ValoresWeb item in u)
+               {
+                   ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
+                   linha.SubItems.Add(item.nomeUtente + " " + item.sUtente); // name + surname
+
+                   listView2.Items.Add(linha);
+               }
+
+
+                List<ValoresWeb> valor2 = serv.GetAlertNotRead (sns).ToList();
+
+
+
+                 foreach (ValoresWeb item in valor2)
+                 {
+                     ListViewItem linha = new ListViewItem(item..sns.ToString(), 0);
+                     linha.SubItems.Add(item.name + " " + item.surname);
+
+                     listView2.Items.Add(linha);
+                 }*/
         }
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
@@ -622,7 +642,7 @@ namespace ClinicalAlert
 
         private void lsb_tipos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lsb_tipos.SelectedItem.Equals("Bars"))
+            if (cb_bars.Checked == true)
             {
                 //definição do tipo de gráficosss
                 chart1.Series["Blood Pressure"].ChartType =
@@ -632,7 +652,7 @@ namespace ClinicalAlert
                 chart1.Series["Heart Rate"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
             }
-            else if (lsb_tipos.SelectedItem.Equals("Collumns"))
+            if (cb_collumns.Checked == true)
             {
                 chart1.Series["Blood Pressure"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
@@ -640,7 +660,8 @@ namespace ClinicalAlert
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
                 chart1.Series["Heart Rate"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            } else if (lsb_tipos.SelectedItem.Equals("Lines"))
+            }
+            if (cb_lines.Checked == true)
             {
                 chart1.Series["Blood Pressure"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -662,22 +683,17 @@ namespace ClinicalAlert
 
                 foreach (ValoresWeb item in regGraficos)
                 {
-                    if (lsb_parameters.SelectedItem.Equals("Blood Pressure") && (lsb_parameters.GetItemCheckState(0) == CheckState.Checked))
-                    {
-                        if (item.type == "BP")
-                        {
+                    if (cb_bp.Checked == true)
+                    {                  
                             //chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.bloodPressureMax);
-                            chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
-
-
-                        }
+                       chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);               
                     }
-                    if (lsb_parameters.SelectedItem.Equals("Blood Pressure") && (lsb_parameters.GetItemCheckState(0) == CheckState.Unchecked))
+                    if (!cb_bp.Checked == true)
                     {
                         chart1.Series["Blood Pressure"].Points.Clear();
                     }
 
-                    if (lsb_parameters.SelectedItem.Equals("Heart Rate") && (lsb_parameters.GetItemCheckState(1) == CheckState.Checked))
+                    if (cb_hr.Checked == true)
                     {
                         if (item.type == "HR")
                         {
@@ -685,12 +701,12 @@ namespace ClinicalAlert
                         }
 
                     }
-                    if (lsb_parameters.SelectedItem.Equals("Heart Rate") && (lsb_parameters.GetItemCheckState(1) == CheckState.Unchecked))
+                    if (!cb_hr.Checked == true)
                     {
                         chart1.Series["Heart Rate"].Points.Clear();
                     }
 
-                    if (lsb_parameters.SelectedItem.Equals("Oxygen Saturation") && (lsb_parameters.GetItemCheckState(2) == CheckState.Checked))
+                    if (cb_OS.Checked == true)
                     {
                         if (item.type == "SPO2")
                         {
@@ -698,13 +714,41 @@ namespace ClinicalAlert
                             chart1.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
                         }
                     }
-                    if (lsb_parameters.SelectedItem.Equals("Oxygen Saturation") && (lsb_parameters.GetItemCheckState(2) == CheckState.Unchecked))
+                    if (!cb_OS.Checked == true)
                     {
                         chart1.Series["Oxygen Saturation"].Points.Clear();
                     }
                 }
             }
             
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DateTime dataFIm = dtp_end_relatorios.Value;
+            DateTime dataInicio = dtp_start_relatorios.Value;
+
+            //List<ValoresWeb> estat = serv.GetReports(sns, dataFIm, dataInicio);
+
+
+            //foreach (ValoresWeb item in estat)
+            //{
+            //    if (checkBoxOS.Checked == true)
+            //    {
+            //        Estatisticas es = new Estatisticas(item.type, 0, 0, 0, dataInicio, dataFIm);
+            //    }
+            //}
+        }
+
+        private void relatorios_Click(object sender, EventArgs e)
+        {
+            panel_Adicionar.Visible = false;
+            panelPrincipal.Visible = false;
+            panelEdit.Visible = false;
+            panelGraficos.Visible = false;
+            panelDiarioValores.Visible = false;
+            panelAlerts.Visible = false;
+            panel_relatorios.Visible = true;
         }
     }
 

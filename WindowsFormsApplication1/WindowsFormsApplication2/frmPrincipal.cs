@@ -427,6 +427,7 @@ namespace ClinicalAlert
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            //cem
             panelEdit.Visible = false;
             panelPrincipal.Visible = true;
             panel_Adicionar.Visible = false;

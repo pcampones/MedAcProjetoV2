@@ -199,7 +199,12 @@ namespace ServiceLayer
 
                 return null;
             }
-            catch (Exception ex)
+            catch (public List<ValoresWeb> GetRegistofGrahp(int sns, DateTime dataMax, DateTime dataMin)
+        {
+            throw new NotImplementedException();
+        }
+
+        Exception ex)
             {
 
                 throw ex;
@@ -431,7 +436,7 @@ namespace ServiceLayer
                 throw ex;
             }
         }
-    }
+    
 
     //public void AddValues(int sns, int bloodPressureMin, int bloodPressureMax, int heartRate, int oxygenSatu, DateTime data)
     //{
@@ -660,5 +665,6 @@ namespace ServiceLayer
 
 
     //}
+    
 
 }

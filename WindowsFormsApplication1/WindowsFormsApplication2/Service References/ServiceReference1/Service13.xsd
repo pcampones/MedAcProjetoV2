@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ClassLibraryMedAc" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ClassLibraryMedAc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfEstatisticasWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EstatisticasWeb" nillable="true" type="tns:EstatisticasWeb" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEstatisticasWeb" nillable="true" type="tns:ArrayOfEstatisticasWeb" />
+  <xs:complexType name="EstatisticasWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="valorMax" type="xs:int" />
+      <xs:element minOccurs="0" name="valorMed" type="xs:double" />
+      <xs:element minOccurs="0" name="valorMin" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EstatisticasWeb" nillable="true" type="tns:EstatisticasWeb" />
+</xs:schema>

@@ -15,14 +15,9 @@ namespace ClinicalAlert
         private DateTime startDate;
         private DateTime endDate;
 
-        public Estatisticas(string type, int mediaValue, int maxValue, int minValue, DateTime startDate, DateTime endDate)
+        public Estatisticas()
         {
-            this.type = type;
-            this.MediaValue = mediaValue;
-            this.MaxValue = maxValue;
-            this.MinValue = minValue;
-            this.StartDate = startDate;
-            this.EndDate = endDate;
+           
         }
 
         public int MediaValue

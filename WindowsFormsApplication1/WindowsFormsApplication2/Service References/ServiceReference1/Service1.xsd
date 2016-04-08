@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:4115/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServiceLayer" />
+  <xs:import schemaLocation="http://localhost:4115/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ClassLibraryMedAc" />
   <xs:element name="GetUtenteBySNS">
     <xs:complexType>
       <xs:sequence>
@@ -84,6 +85,23 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetReportsHRbySNS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportsHRbySNSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ClassLibraryMedAc" minOccurs="0" name="GetReportsHRbySNSResult" nillable="true" type="q6:ArrayOfEstatisticasWeb" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetRegistofGrahp">
     <xs:complexType>
       <xs:sequence>
@@ -96,7 +114,7 @@
   <xs:element name="GetRegistofGrahpResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetRegistofGrahpResult" nillable="true" type="q6:ArrayOfValoresWeb" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetRegistofGrahpResult" nillable="true" type="q7:ArrayOfValoresWeb" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

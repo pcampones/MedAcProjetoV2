@@ -721,10 +721,19 @@ namespace ClinicalAlert
         {
             DateTime dataFIm = dtp_end_relatorios.Value;
             DateTime dataInicio = dtp_start_relatorios.Value;
+            string tipo = null;
+            List<EstatisticasWeb> estat = serv.GetReportsHRbySNS(sns, dataFIm, dataInicio, tipo).ToList();
+           
+            List<Estatisticas> es = new List<Estatisticas>();
+            Estatisticas esta = new Estatisticas();
+            foreach (EstatisticasWeb item in estat)
+            {
+                esta.MaxValue = item.valorMax;
+              
+               
+            }
 
-            //List<ValoresWeb> estat = serv.GetReports(sns, dataFIm, dataInicio);
-
-
+            
             //foreach (ValoresWeb item in estat)
             //{
             //    if (checkBoxOS.Checked == true)

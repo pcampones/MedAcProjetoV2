@@ -21,8 +21,6 @@ namespace BOT
     public partial class Form1 : Form
     {
 
-
-
         private Service1Client serv;
         PhysiologicParametersDll.PhysiologicParametersDll dll = null;
 

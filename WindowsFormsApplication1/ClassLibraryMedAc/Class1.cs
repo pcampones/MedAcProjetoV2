@@ -168,7 +168,8 @@ namespace ClassLibraryMedAc
         {
             try
             {
-                List<Valores> listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) && i.DataOfRegist >= startDate && i.DataOfRegist <= endDate && i.Type == type).ToList();
+                List<Valores> listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) && i.DataOfRegist >= startDate && 
+                i.DataOfRegist <= endDate && i.Type == type).ToList();
 
                 ////HR                    
                 EstatisticasWeb es = new EstatisticasWeb();
@@ -178,45 +179,56 @@ namespace ClassLibraryMedAc
                 int maxHR = 0;
                 int minHR = 0;
 
-                if (type == "HR")
-                {
-                     mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
-                     maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
-                     minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
 
-                    es.ValorMax = maxHR;
-                    es.ValorMed = mediaHR;
-                    es.ValorMin = minHR;
+                mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
+                maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
+                minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
 
-                    estastisticas.Add(es);
-                    
-                }
-                
-                 else if (type == "SPO2")
-                {
-                    mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
-                    maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
-                    minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
+                es.ValorMax = maxHR;
+                es.ValorMed = mediaHR;
+                es.ValorMin = minHR;
 
-                    es.ValorMax = maxHR;
-                    es.ValorMed = mediaHR;
-                    es.ValorMin = minHR;
+                estastisticas.Add(es);
 
-                    estastisticas.Add(es);
-                } 
-                else if (type == "BP")
-                {
-                    mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
-                    maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
-                    minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
+                /*  if (type == "HR")
+                  {
+                       mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
+                       maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
+                       minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
 
-                    es.ValorMax = maxHR;
-                    es.ValorMed = mediaHR;
-                    es.ValorMin = minHR;
+                      es.ValorMax = maxHR;
+                      es.ValorMed = mediaHR;
+                      es.ValorMin = minHR;
 
-                    estastisticas.Add(es);
-                }
+                      estastisticas.Add(es);
 
+                  }
+
+                   else if (type == "SPO2")
+                  {
+                      mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
+                      maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
+                      minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
+
+                      es.ValorMax = maxHR;
+                      es.ValorMed = mediaHR;
+                      es.ValorMin = minHR;
+
+                      estastisticas.Add(es);
+                  } 
+                  else if (type == "BP")
+                  {
+                      mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
+                      maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
+                      minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
+
+                      es.ValorMax = maxHR;
+                      es.ValorMed = mediaHR;
+                      es.ValorMin = minHR;
+
+                      estastisticas.Add(es);
+                  }
+                  */
 
                 //SPO2
                 //List<Valores> valoresSPO2 = listaVa.Where(i => i.Type == "SPO2").ToList();

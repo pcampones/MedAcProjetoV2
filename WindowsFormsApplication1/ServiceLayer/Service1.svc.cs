@@ -197,9 +197,10 @@ namespace ServiceLayer
                 esWeb.ValorMax = item.ValorMax;
                 esWeb.ValorMin = item.ValorMin;
                 esWeb.ValorMed = item.ValorMed;
-                esWeb.StartDate = item.StartDate;
+              /* esWeb.StartDate = item.StartDate;
                 esWeb.EndDate = item.EndDate;
                 esWeb.Tipo = item.Tipo;
+                */
 
                 listaWeb.Add(esWeb);
             }
@@ -248,26 +249,26 @@ namespace ServiceLayer
                         datasHR.Add(valores);
                         //datas.Add(valores.DataOfRegist);
                         int re = 0;
-                        foreach (Valores item in datasHR)
+                     /*   foreach (Valores item in datasHR)
                         {
                            
                             datas.Add(item.DataOfRegist);
                         }
-
+                        */
                         DateTime dataFinaL = datas.LastOrDefault();
                         
-                            re = (data - dataFinaL).Minutes;
+                       //     re = (data - dataFinaL).Minutes;
 
                         int soma = 0;
 
-                        foreach (var item in datas)
+                        /*foreach (var item in datas)
                         {
                             soma += item.Minute;
                         }
-
+                        */
                         if (Convert.ToInt32(valores.Value) <= 90)
                         {
-                            if (re >= 10)
+                            if (dataFinaL.Equals(data.AddMinutes(-10)))
                             {
                                 if (soma == 30)
                                 {
@@ -571,6 +572,7 @@ namespace ServiceLayer
     //        throw ex;
     //    }
 
+    //cenas 
 
 
 

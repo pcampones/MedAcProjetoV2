@@ -685,7 +685,7 @@ namespace ClinicalAlert
                 {
                     if (cb_bp.Checked == true)
                     {                  
-                            //chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.bloodPressureMax);
+                            //chart1.Series["Blood Pre0ssure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.bloodPressureMax);
                        chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);               
                     }
                     if (!cb_bp.Checked == true)

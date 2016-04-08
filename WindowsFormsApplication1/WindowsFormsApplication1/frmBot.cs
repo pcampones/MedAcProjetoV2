@@ -148,7 +148,6 @@ namespace BOT
                 toolStripLabel2.Text = "Welcome " + u.name;
 
                 MessageBox.Show("SNS valid!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                MessageBox.Show("");
                 sns = u.sns;
                 lbl_sns.Text = sns.ToString();
                 lbl_name.Text = u.name;
@@ -426,7 +425,6 @@ namespace BOT
             string term = txb_search.Text;
             string urlComp = url + term + "&retmax=" + retmax;
 
-            MessageBox.Show(url);
             var client = new WebClient();
             client.DownloadStringAsync(new Uri(urlComp));
             client.DownloadStringCompleted += Client_DownloadStringCompleted;

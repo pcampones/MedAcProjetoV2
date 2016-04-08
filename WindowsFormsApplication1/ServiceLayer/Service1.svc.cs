@@ -391,7 +391,7 @@ namespace ServiceLayer
                 alertasWeb.Tipo = alertas.Tipo;
                 alertasWeb.Read = alertas.Read;
                 alertasWeb.DataAlerta = alertas.Data;
-                alertasWeb.SnsUtente = alertas.Utente.SNS;
+                alertasWeb.SnsUtente = 1;
 
             }
 

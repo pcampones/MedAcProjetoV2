@@ -44,13 +44,18 @@ namespace BOT
         {
             InitializeComponent();
             serv = new Service1Client();
-            panelPrincipal.Visible = true;
+
+            this.MaximizeBox = false;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+          
             bw.DoWork += new DoWorkEventHandler(doWork);
             //panelMedical.Visible = false;
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
             panel1.Visible = false;
-
+            panelPrincipal.Visible = true;
 
         }
 

@@ -57,6 +57,7 @@
     <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Data" Type="datetime" Nullable="false" />
     <Property Name="Read" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Parametro" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Utente_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="UtenteValores">
@@ -142,6 +143,7 @@
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Read" Type="String" Nullable="false" />
           <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteAlertas" FromRole="Alertas" ToRole="Utente" />
+          <Property Name="Parametro" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="UtenteValores">
           <End Type="ModelMedAc.Utente" Role="Utente" Multiplicity="1" />
@@ -196,6 +198,7 @@
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
           <ScalarProperty Name="Data" ColumnName="Data" />
           <ScalarProperty Name="Read" ColumnName="Read" />
+          <ScalarProperty Name="Parametro" ColumnName="Parametro" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

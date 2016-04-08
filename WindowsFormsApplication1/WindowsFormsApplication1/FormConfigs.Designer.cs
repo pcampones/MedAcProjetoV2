@@ -44,7 +44,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 56);
+            this.label1.Location = new System.Drawing.Point(34, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 0;
@@ -53,7 +53,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 93);
+            this.label2.Location = new System.Drawing.Point(34, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 1;
@@ -62,7 +62,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 139);
+            this.label3.Location = new System.Drawing.Point(34, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 2;
@@ -71,7 +71,7 @@
             // labelRetMax
             // 
             this.labelRetMax.AutoSize = true;
-            this.labelRetMax.Location = new System.Drawing.Point(34, 188);
+            this.labelRetMax.Location = new System.Drawing.Point(34, 165);
             this.labelRetMax.Name = "labelRetMax";
             this.labelRetMax.Size = new System.Drawing.Size(125, 13);
             this.labelRetMax.TabIndex = 8;
@@ -79,35 +79,35 @@
             // 
             // txb_local
             // 
-            this.txb_local.Location = new System.Drawing.Point(77, 56);
+            this.txb_local.Location = new System.Drawing.Point(77, 33);
             this.txb_local.Name = "txb_local";
             this.txb_local.Size = new System.Drawing.Size(277, 20);
             this.txb_local.TabIndex = 9;
             // 
             // txb_medline
             // 
-            this.txb_medline.Location = new System.Drawing.Point(88, 93);
+            this.txb_medline.Location = new System.Drawing.Point(87, 70);
             this.txb_medline.Name = "txb_medline";
             this.txb_medline.Size = new System.Drawing.Size(266, 20);
             this.txb_medline.TabIndex = 10;
             // 
             // txb_delaydll
             // 
-            this.txb_delaydll.Location = new System.Drawing.Point(101, 139);
+            this.txb_delaydll.Location = new System.Drawing.Point(101, 116);
             this.txb_delaydll.Name = "txb_delaydll";
             this.txb_delaydll.Size = new System.Drawing.Size(253, 20);
             this.txb_delaydll.TabIndex = 11;
             // 
             // txb_retmax
             // 
-            this.txb_retmax.Location = new System.Drawing.Point(165, 188);
+            this.txb_retmax.Location = new System.Drawing.Point(165, 162);
             this.txb_retmax.Name = "txb_retmax";
             this.txb_retmax.Size = new System.Drawing.Size(189, 20);
             this.txb_retmax.TabIndex = 12;
             // 
             // bt_default
             // 
-            this.bt_default.Location = new System.Drawing.Point(165, 237);
+            this.bt_default.Location = new System.Drawing.Point(37, 208);
             this.bt_default.Name = "bt_default";
             this.bt_default.Size = new System.Drawing.Size(75, 23);
             this.bt_default.TabIndex = 13;
@@ -117,7 +117,7 @@
             // 
             // bt_ok
             // 
-            this.bt_ok.Location = new System.Drawing.Point(272, 237);
+            this.bt_ok.Location = new System.Drawing.Point(155, 208);
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(82, 23);
             this.bt_ok.TabIndex = 14;
@@ -129,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 298);
+            this.ClientSize = new System.Drawing.Size(407, 261);
             this.Controls.Add(this.bt_ok);
             this.Controls.Add(this.bt_default);
             this.Controls.Add(this.txb_retmax);

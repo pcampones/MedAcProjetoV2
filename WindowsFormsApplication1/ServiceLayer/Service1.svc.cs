@@ -181,7 +181,7 @@ namespace ServiceLayer
                     va.DataOfReposit = item.DataOfRegist;
 
                     valores.Add(va);
-                }
+            }
 
                 return null;
             }
@@ -192,17 +192,10 @@ namespace ServiceLayer
             }
         }
 
-        public List<ValoresWeb> GetValuesbySNSandDate(int sns, DateTime startDate, DateTime endDate)
+        public List<ValoresWeb> GetValuesbySNS(int sns)
         {
-            try
-            {
-                List<ValoresWeb> valores = new List<ValoresWeb>();
-                List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
-
-                foreach (Valores item in listavalores)
-                {
-                    
-                }
+            List<Valores> lista = _acederBd.getValuesbySNS(sns);
+            List<ValoresWeb> listaWeb = new List<ValoresWeb>();
 
                 return null;
             }
@@ -238,6 +231,7 @@ namespace ServiceLayer
                             alertas.Tipo = "AnyTime";
                             alertas.Data = DateTime.Now;
                             alertas.Utente = utente;
+                            alertas.Parametro = valores.Type;
 
                         }
                         else
@@ -283,11 +277,13 @@ namespace ServiceLayer
                                     alertas.Tipo = "Aviso Intermitente";
                                     alertas.Data = DateTime.Now;
                                     alertas.Utente = utente;
+                                    alertas.Parametro = valores.Type;
                                 }
                                 alertas.Read = "Not Read";
                                 alertas.Tipo = "Aviso Continuo";
                                 alertas.Data = DateTime.Now;
                                 alertas.Utente = utente;
+                                alertas.Parametro = valores.Type;
 
 
                             }
@@ -299,12 +295,14 @@ namespace ServiceLayer
                                     alertas.Tipo = "Critico Intermitente";
                                     alertas.Data = DateTime.Now;
                                     alertas.Utente = utente;
+                                    alertas.Parametro = valores.Type;
 
                                 }
                                 alertas.Read = "Not Read";
                                 alertas.Tipo = "Critico Continuo";
                                 alertas.Data = DateTime.Now;
                                 alertas.Utente = utente;
+                                alertas.Parametro = valores.Type;
 
                             }
 
@@ -315,6 +313,7 @@ namespace ServiceLayer
                             alertas.Tipo = "AnyTime";
                             alertas.Data = DateTime.Now;
                             alertas.Utente = utente;
+                            alertas.Parametro = valores.Type;
 
                         }
                         else
@@ -394,6 +393,8 @@ namespace ServiceLayer
                  {
 
                  }*/
+
+                alertasWeb.Paramentro = alertas.Parametro;
                 alertasWeb.Tipo = alertas.Tipo;
                 alertasWeb.Read = alertas.Read;
                 alertasWeb.DataAlerta = alertas.Data;
@@ -406,12 +407,12 @@ namespace ServiceLayer
             return alertasWeb;
         }
 
-        public List<ValoresWeb> GetRegistofGrahp(int sns)
+        public List<ValoresWeb> GetRegistofGrahp(int sns, DateTime dataMax, DateTime dataMin)
         {
             try
             {
                 List<ValoresWeb> valores = new List<ValoresWeb>();
-                List<Valores> listavalores = _acederBd.getValuesbySNS(sns);
+                List<Valores> listavalores = _acederBd.getValuesbySNS(sns, dataMax, dataMin);
                 foreach (Valores item in listavalores)
                 {
                     ValoresWeb va = new ValoresWeb();
@@ -422,7 +423,7 @@ namespace ServiceLayer
                     valores.Add(va);
                 }
 
-                return null;
+                return valores;
             }
             catch (Exception ex)
             {

@@ -99,11 +99,11 @@ namespace ClassLibraryMedAc
          
         }
 
-        public List<Valores> getValuesbySNS(int sns)
+        public List<Valores> getValuesbySNS(int sns, DateTime dataMax, DateTime dataMin)
         {
             try
             {
-                var listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns)).ToList();
+                var listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) && i.DataOfRegist < dataMax && i.DataOfRegist > dataMin).ToList();
 
                 return listaVa;
             }
@@ -120,6 +120,8 @@ namespace ClassLibraryMedAc
             try
             {
                 List<Valores> listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) && i.DataOfRegist > startDate && i.DataOfRegist <= endDate).ToList();
+
+
 
                 //HR
                 List<Valores> valoreHR = listaVa.Where(i => i.Type == "HR").ToList();
@@ -139,8 +141,9 @@ namespace ClassLibraryMedAc
                 int maxBP = valoresBP.Select(i => int.Parse(i.Value)).Max();
                 int minBP = valoresBP.Select(i => int.Parse(i.Value)).Min();
 
+              
 
-
+   
                 return listaVa;
             }
             catch (Exception ex)

@@ -282,6 +282,147 @@ namespace BOT.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ValoresWeb", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.SerializableAttribute()]
+    public partial class ValoresWeb : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dataOfRepositField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nomeUtenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sUtenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int snsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int snsUtenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string typeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string valueRField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime dataOfReposit {
+            get {
+                return this.dataOfRepositField;
+            }
+            set {
+                if ((this.dataOfRepositField.Equals(value) != true)) {
+                    this.dataOfRepositField = value;
+                    this.RaisePropertyChanged("dataOfReposit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nomeUtente {
+            get {
+                return this.nomeUtenteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nomeUtenteField, value) != true)) {
+                    this.nomeUtenteField = value;
+                    this.RaisePropertyChanged("nomeUtente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sUtente {
+            get {
+                return this.sUtenteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sUtenteField, value) != true)) {
+                    this.sUtenteField = value;
+                    this.RaisePropertyChanged("sUtente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int sns {
+            get {
+                return this.snsField;
+            }
+            set {
+                if ((this.snsField.Equals(value) != true)) {
+                    this.snsField = value;
+                    this.RaisePropertyChanged("sns");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int snsUtente {
+            get {
+                return this.snsUtenteField;
+            }
+            set {
+                if ((this.snsUtenteField.Equals(value) != true)) {
+                    this.snsUtenteField = value;
+                    this.RaisePropertyChanged("snsUtente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string type {
+            get {
+                return this.typeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.typeField, value) != true)) {
+                    this.typeField = value;
+                    this.RaisePropertyChanged("type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string valueR {
+            get {
+                return this.valueRField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.valueRField, value) != true)) {
+                    this.valueRField = value;
+                    this.RaisePropertyChanged("valueR");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -315,6 +456,12 @@ namespace BOT.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
         System.Threading.Tasks.Task AddValuesAsync(int sns, string type, string value, System.DateTime data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesbySNS", ReplyAction="http://tempuri.org/IService1/GetValuesbySNSResponse")]
+        BOT.ServiceReference1.ValoresWeb[] GetValuesbySNS(int sns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesbySNS", ReplyAction="http://tempuri.org/IService1/GetValuesbySNSResponse")]
+        System.Threading.Tasks.Task<BOT.ServiceReference1.ValoresWeb[]> GetValuesbySNSAsync(int sns);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -382,6 +529,14 @@ namespace BOT.ServiceReference1 {
         
         public System.Threading.Tasks.Task AddValuesAsync(int sns, string type, string value, System.DateTime data) {
             return base.Channel.AddValuesAsync(sns, type, value, data);
+        }
+        
+        public BOT.ServiceReference1.ValoresWeb[] GetValuesbySNS(int sns) {
+            return base.Channel.GetValuesbySNS(sns);
+        }
+        
+        public System.Threading.Tasks.Task<BOT.ServiceReference1.ValoresWeb[]> GetValuesbySNSAsync(int sns) {
+            return base.Channel.GetValuesbySNSAsync(sns);
         }
     }
 }

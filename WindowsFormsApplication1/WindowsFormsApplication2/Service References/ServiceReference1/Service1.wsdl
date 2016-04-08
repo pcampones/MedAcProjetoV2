@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:4115/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:4115/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:4115/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServiceLayer" />
+      <xsd:import schemaLocation="http://localhost:4115/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ClassLibraryMedAc" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetUtenteBySNS_InputMessage">
@@ -43,6 +44,12 @@
   <wsdl:message name="IService1_AddValues_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddValuesResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetReportsHRbySNS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportsHRbySNS" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportsHRbySNS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportsHRbySNSResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetRegistofGrahp_InputMessage">
     <wsdl:part name="parameters" element="tns:GetRegistofGrahp" />
   </wsdl:message>
@@ -73,6 +80,10 @@
     <wsdl:operation name="AddValues">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddValues" message="tns:IService1_AddValues_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddValuesResponse" message="tns:IService1_AddValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportsHRbySNS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReportsHRbySNS" message="tns:IService1_GetReportsHRbySNS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReportsHRbySNSResponse" message="tns:IService1_GetReportsHRbySNS_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetRegistofGrahp">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetRegistofGrahp" message="tns:IService1_GetRegistofGrahp_InputMessage" />
@@ -128,6 +139,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddValues">
       <soap:operation soapAction="http://tempuri.org/IService1/AddValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportsHRbySNS">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetReportsHRbySNS" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

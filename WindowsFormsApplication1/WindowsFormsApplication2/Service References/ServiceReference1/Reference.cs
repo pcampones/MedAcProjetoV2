@@ -423,6 +423,131 @@ namespace ClinicalAlert.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EstatisticasWeb", Namespace="http://schemas.datacontract.org/2004/07/ClassLibraryMedAc")]
+    [System.SerializableAttribute()]
+    public partial class EstatisticasWeb : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string endDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime startDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tipoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int valorMaxField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double valorMedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int valorMinField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string endDate {
+            get {
+                return this.endDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.endDateField, value) != true)) {
+                    this.endDateField = value;
+                    this.RaisePropertyChanged("endDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime startDate {
+            get {
+                return this.startDateField;
+            }
+            set {
+                if ((this.startDateField.Equals(value) != true)) {
+                    this.startDateField = value;
+                    this.RaisePropertyChanged("startDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string tipo {
+            get {
+                return this.tipoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tipoField, value) != true)) {
+                    this.tipoField = value;
+                    this.RaisePropertyChanged("tipo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int valorMax {
+            get {
+                return this.valorMaxField;
+            }
+            set {
+                if ((this.valorMaxField.Equals(value) != true)) {
+                    this.valorMaxField = value;
+                    this.RaisePropertyChanged("valorMax");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double valorMed {
+            get {
+                return this.valorMedField;
+            }
+            set {
+                if ((this.valorMedField.Equals(value) != true)) {
+                    this.valorMedField = value;
+                    this.RaisePropertyChanged("valorMed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int valorMin {
+            get {
+                return this.valorMinField;
+            }
+            set {
+                if ((this.valorMinField.Equals(value) != true)) {
+                    this.valorMinField = value;
+                    this.RaisePropertyChanged("valorMin");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -462,6 +587,12 @@ namespace ClinicalAlert.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddValues", ReplyAction="http://tempuri.org/IService1/AddValuesResponse")]
         System.Threading.Tasks.Task AddValuesAsync(int sns, string type, string value, System.DateTime data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetReportsHRbySNS", ReplyAction="http://tempuri.org/IService1/GetReportsHRbySNSResponse")]
+        ClinicalAlert.ServiceReference1.EstatisticasWeb[] GetReportsHRbySNS(int sns, System.DateTime startDate, System.DateTime endDate, string type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetReportsHRbySNS", ReplyAction="http://tempuri.org/IService1/GetReportsHRbySNSResponse")]
+        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.EstatisticasWeb[]> GetReportsHRbySNSAsync(int sns, System.DateTime startDate, System.DateTime endDate, string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetRegistofGrahp", ReplyAction="http://tempuri.org/IService1/GetRegistofGrahpResponse")]
         ClinicalAlert.ServiceReference1.ValoresWeb[] GetRegistofGrahp(int sns, System.DateTime dataMax, System.DateTime dataMin);
@@ -543,6 +674,14 @@ namespace ClinicalAlert.ServiceReference1 {
         
         public System.Threading.Tasks.Task AddValuesAsync(int sns, string type, string value, System.DateTime data) {
             return base.Channel.AddValuesAsync(sns, type, value, data);
+        }
+        
+        public ClinicalAlert.ServiceReference1.EstatisticasWeb[] GetReportsHRbySNS(int sns, System.DateTime startDate, System.DateTime endDate, string type) {
+            return base.Channel.GetReportsHRbySNS(sns, startDate, endDate, type);
+        }
+        
+        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.EstatisticasWeb[]> GetReportsHRbySNSAsync(int sns, System.DateTime startDate, System.DateTime endDate, string type) {
+            return base.Channel.GetReportsHRbySNSAsync(sns, startDate, endDate, type);
         }
         
         public ClinicalAlert.ServiceReference1.ValoresWeb[] GetRegistofGrahp(int sns, System.DateTime dataMax, System.DateTime dataMin) {

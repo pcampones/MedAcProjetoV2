@@ -30,9 +30,9 @@ namespace ClassLibraryMedAc
         }
 
         [DataMember]
-        private string endDate;
+        private DateTime endDate;
 
-        public string EndDate
+        public DateTime EndDate
         {
             get { return endDate; }
             set { endDate = value; }

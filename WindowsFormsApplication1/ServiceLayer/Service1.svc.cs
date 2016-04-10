@@ -179,7 +179,7 @@ namespace ServiceLayer
                 ValoresWeb valWeb = new ValoresWeb();
                 valWeb.Value = item.Value;
                 valWeb.DataOfReposit = item.DataOfRegist;
-
+                valWeb.Type = item.Type;
                 listaWeb.Add(valWeb);
             }
             return listaWeb;
@@ -194,13 +194,14 @@ namespace ServiceLayer
             foreach (EstatisticasWeb item in lista)
             {
                 EstatisticasWeb esWeb = new EstatisticasWeb();
+
                 esWeb.ValorMax = item.ValorMax;
                 esWeb.ValorMin = item.ValorMin;
                 esWeb.ValorMed = item.ValorMed;
-              /* esWeb.StartDate = item.StartDate;
-                esWeb.EndDate = item.EndDate;
-                esWeb.Tipo = item.Tipo;
-                */
+                esWeb.StartDate = startDate;
+                esWeb.EndDate = endDate;
+                esWeb.Tipo = type;
+                
 
                 listaWeb.Add(esWeb);
             }

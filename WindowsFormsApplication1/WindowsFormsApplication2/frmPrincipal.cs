@@ -375,19 +375,7 @@ namespace ClinicalAlert
             panelAlerts.Visible = false;
             panel_Reports.Visible = true;
 
-            /*
-            List<ValoresWeb> valor = serv.GetValuesbySNS(sns).ToList();
-
-            foreach (ValoresWeb item in valor)
-            {
-
-                dataGridView1.Rows.Add(item.bloodPressureMax.ToString(), item.bloodPressureMin.ToString()
-                    , item.heartRate.ToString(), item.oxigenSat.ToString(), item.dataOfReposit.ToString());
-                dataGridView1.Sort(this.dataGridView1.Columns[4], ListSortDirection.Ascending);
-            }
-
-
-            */
+         
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -877,6 +865,30 @@ namespace ClinicalAlert
             panelDiarioValores.Visible = true;
             panelAlerts.Visible = false;
             panel_Reports.Visible = false;
+
+            Data_diarioValores.Rows.Clear();
+            Data_diarioValores.Refresh();
+
+            DateTime dateMin = DateTime.MinValue;
+            DateTime dateMax = DateTime.MaxValue;
+
+            List<ValoresWeb> lista = serv.GetValuesbySNS(sns, dateMax, dateMin).ToList();
+            ValoresWeb valor = new ValoresWeb();
+
+
+            foreach (ValoresWeb item in lista)
+            {
+                valor.valueR = item.valueR;
+                valor.dataOfReposit = item.dataOfReposit;
+                valor.type = item.type;
+
+
+                Data_diarioValores.Rows.Add(valor.dataOfReposit, valor.type, valor.valueR);
+                Data_diarioValores.Sort(this.Data_diarioValores.Columns[0], ListSortDirection.Ascending);
+
+                
+            }
+
         }
 
         private void cb_hr_CheckedChanged(object sender, EventArgs e)
@@ -902,6 +914,166 @@ namespace ClinicalAlert
                 chart1.Series["Heart Rate"].Points.Clear();
 
             }
+        }
+
+        
+
+        private void checkBoxHR_CheckedChanged(object sender, EventArgs e)
+        {
+            DateTime dataMax = DateTime.Now;
+            DateTime dataMin = DateTime.Now.AddDays(-7);
+
+            data_reports.Rows.Clear();
+            data_reports.Refresh();
+
+
+            if (checkBoxHR.Checked == true)
+            {
+                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, dataMin, dataMax, "HR").ToList();
+
+                EstatisticasWeb esta = new EstatisticasWeb();
+
+                foreach (EstatisticasWeb item in lista)
+                {
+                    esta.valorMax = item.valorMax;
+                    esta.valorMed = item.valorMed;
+                    esta.valorMin = item.valorMin;
+                    esta.startDate = item.startDate;
+                    esta.tipo = item.tipo;
+                    esta.endDate = item.endDate;
+
+                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                }
+            } 
+           
+        }
+
+        private void checkBoxOS_CheckedChanged(object sender, EventArgs e)
+        {
+            DateTime dataMax = DateTime.Now;
+            DateTime dataMin = DateTime.Now.AddDays(-7);
+
+            data_reports.Rows.Clear();
+            data_reports.Refresh();
+
+
+            if (checkBoxOS.Checked == true)
+            {
+                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, dataMin, dataMax, "SPO2").ToList();
+
+                EstatisticasWeb esta = new EstatisticasWeb();
+
+                foreach (EstatisticasWeb item in lista)
+                {
+                    esta.valorMax = item.valorMax;
+                    esta.valorMed = item.valorMed;
+                    esta.valorMin = item.valorMin;
+                    esta.startDate = item.startDate;
+                    esta.tipo = item.tipo;
+                    esta.endDate = item.endDate;
+
+                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                }
+            }
+
+        }
+
+        private void checkBoxBP_CheckedChanged(object sender, EventArgs e)
+        {
+            DateTime dataMax = DateTime.Now;
+            DateTime dataMin = DateTime.Now.AddDays(-7);
+
+            data_reports.Rows.Clear();
+            data_reports.Refresh();
+
+
+            if (checkBoxBP.Checked == true)
+            {
+                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, dataMin, dataMax, "BP").ToList();
+
+                EstatisticasWeb esta = new EstatisticasWeb();
+
+                foreach (EstatisticasWeb item in lista)
+                {
+                    esta.valorMax = item.valorMax;
+                    esta.valorMed = item.valorMed;
+                    esta.valorMin = item.valorMin;
+                    esta.startDate = item.startDate;
+                    esta.tipo = item.tipo;
+                    esta.endDate = item.endDate;
+
+                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                }
+            }
+
+        }
+
+        private void bt_confirm_Click(object sender, EventArgs e)
+        {
+            DateTime startDate = dtp_start_reports.Value;
+            DateTime endDate = dtp_end_reports.Value;
+
+            data_reports.Rows.Clear();
+            data_reports.Refresh();
+
+
+            if (checkBoxBP.Checked == true)
+            {
+                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, startDate, endDate, "BP").ToList();
+
+                EstatisticasWeb esta = new EstatisticasWeb();
+
+                foreach (EstatisticasWeb item in lista)
+                {
+                    esta.valorMax = item.valorMax;
+                    esta.valorMed = item.valorMed;
+                    esta.valorMin = item.valorMin;
+                    esta.startDate = item.startDate;
+                    esta.tipo = item.tipo;
+                    esta.endDate = item.endDate;
+
+                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                }
+            }
+
+            if (checkBoxOS.Checked == true)
+            {
+                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, startDate, endDate, "SPO2").ToList();
+
+                EstatisticasWeb esta = new EstatisticasWeb();
+
+                foreach (EstatisticasWeb item in lista)
+                {
+                    esta.valorMax = item.valorMax;
+                    esta.valorMed = item.valorMed;
+                    esta.valorMin = item.valorMin;
+                    esta.startDate = item.startDate;
+                    esta.tipo = item.tipo;
+                    esta.endDate = item.endDate;
+
+                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                }
+            }
+
+            if (checkBoxHR.Checked == true)
+            {
+                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, startDate, endDate, "HR").ToList();
+
+                EstatisticasWeb esta = new EstatisticasWeb();
+
+                foreach (EstatisticasWeb item in lista)
+                {
+                    esta.valorMax = item.valorMax;
+                    esta.valorMed = item.valorMed;
+                    esta.valorMin = item.valorMin;
+                    esta.startDate = item.startDate;
+                    esta.tipo = item.tipo;
+                    esta.endDate = item.endDate;
+
+                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                }
+            }
+
         }
     }
 }

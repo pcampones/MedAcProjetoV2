@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
@@ -41,6 +41,31 @@
             this.diavalores = new System.Windows.Forms.ToolStripButton();
             this.diarioValores = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.panelDiarioValores = new System.Windows.Forms.Panel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bloodPressureMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bloodPressureMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.heartRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OxygenSaturation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelGraficos = new System.Windows.Forms.Panel();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.cb_bp = new System.Windows.Forms.CheckBox();
+            this.cb_hr = new System.Windows.Forms.CheckBox();
+            this.cb_OS = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dtp_end = new System.Windows.Forms.DateTimePicker();
+            this.label28 = new System.Windows.Forms.Label();
+            this.dtp_begin = new System.Windows.Forms.DateTimePicker();
+            this.label27 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cb_bars = new System.Windows.Forms.CheckBox();
+            this.cb_lines = new System.Windows.Forms.CheckBox();
+            this.cb_collumns = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -58,12 +83,32 @@
             this.dtp_EndAlerts = new System.Windows.Forms.DateTimePicker();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.listView2 = new System.Windows.Forms.ListView();
+            this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnSns = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderRead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeadertype = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel_Reports = new System.Windows.Forms.Panel();
+            this.bt_confirm = new System.Windows.Forms.Button();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ColumnAveragevalues = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMaxValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1MinValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.checkBoxBP = new System.Windows.Forms.CheckBox();
+            this.checkBoxOS = new System.Windows.Forms.CheckBox();
+            this.checkBoxHR = new System.Windows.Forms.CheckBox();
             this.panelEdit = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -95,25 +140,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.panelDiarioValores = new System.Windows.Forms.Panel();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bloodPressureMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bloodPressureMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.heartRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OxygenSaturation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelGraficos = new System.Windows.Forms.Panel();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dtp_end = new System.Windows.Forms.DateTimePicker();
-            this.label28 = new System.Windows.Forms.Label();
-            this.dtp_begin = new System.Windows.Forms.DateTimePicker();
-            this.label27 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel_Adicionar = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -164,47 +190,11 @@
             this.label29 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.panel_Reports = new System.Windows.Forms.Panel();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.ColumnAveragevalues = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMaxValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1MinValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkBoxHR = new System.Windows.Forms.CheckBox();
-            this.checkBoxOS = new System.Windows.Forms.CheckBox();
-            this.checkBoxBP = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.bt_confirm = new System.Windows.Forms.Button();
-            this.cb_OS = new System.Windows.Forms.CheckBox();
-            this.cb_hr = new System.Windows.Forms.CheckBox();
-            this.cb_bp = new System.Windows.Forms.CheckBox();
-            this.cb_collumns = new System.Windows.Forms.CheckBox();
-            this.cb_lines = new System.Windows.Forms.CheckBox();
-            this.cb_bars = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.panelPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox12.SuspendLayout();
-            this.panelAlerts.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.panelEdit.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.panelDiarioValores.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -214,6 +204,22 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panelPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox12.SuspendLayout();
+            this.panelAlerts.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.panel_Reports.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox15.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.panelEdit.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.panel_Adicionar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -223,11 +229,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
-            this.panel_Reports.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            this.groupBox16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -242,8 +243,8 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panelDiarioValores);
             this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
+            this.splitContainer1.Panel2.Controls.Add(this.panelDiarioValores);
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
             this.splitContainer1.Panel2.Controls.Add(this.panel_Reports);
@@ -356,13 +357,248 @@
             this.toolStripButton2.Size = new System.Drawing.Size(23, 4);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
+            // panelDiarioValores
+            // 
+            this.panelDiarioValores.Controls.Add(this.groupBox6);
+            this.panelDiarioValores.Location = new System.Drawing.Point(0, 26);
+            this.panelDiarioValores.Name = "panelDiarioValores";
+            this.panelDiarioValores.Size = new System.Drawing.Size(667, 495);
+            this.panelDiarioValores.TabIndex = 3;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.dataGridView1);
+            this.groupBox6.Location = new System.Drawing.Point(12, 14);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(639, 469);
+            this.groupBox6.TabIndex = 2;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Daily Values";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.bloodPressureMax,
+            this.bloodPressureMin,
+            this.heartRate,
+            this.OxygenSaturation,
+            this.date});
+            this.dataGridView1.Location = new System.Drawing.Point(26, 32);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(590, 417);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // bloodPressureMax
+            // 
+            this.bloodPressureMax.HeaderText = "Blood Pressure Max";
+            this.bloodPressureMax.Name = "bloodPressureMax";
+            // 
+            // bloodPressureMin
+            // 
+            this.bloodPressureMin.HeaderText = "Blood Pressure Min";
+            this.bloodPressureMin.Name = "bloodPressureMin";
+            // 
+            // heartRate
+            // 
+            this.heartRate.HeaderText = "Heart Rate";
+            this.heartRate.Name = "heartRate";
+            // 
+            // OxygenSaturation
+            // 
+            this.OxygenSaturation.HeaderText = "Oxygen Saturation";
+            this.OxygenSaturation.Name = "OxygenSaturation";
+            // 
+            // date
+            // 
+            this.date.HeaderText = "Date of Regist";
+            this.date.Name = "date";
+            // 
+            // panelGraficos
+            // 
+            this.panelGraficos.Controls.Add(this.groupBox9);
+            this.panelGraficos.Controls.Add(this.button3);
+            this.panelGraficos.Controls.Add(this.groupBox5);
+            this.panelGraficos.Controls.Add(this.groupBox4);
+            this.panelGraficos.Controls.Add(this.groupBox3);
+            this.panelGraficos.Location = new System.Drawing.Point(0, 0);
+            this.panelGraficos.Name = "panelGraficos";
+            this.panelGraficos.Size = new System.Drawing.Size(667, 495);
+            this.panelGraficos.TabIndex = 56;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.cb_bp);
+            this.groupBox9.Controls.Add(this.cb_hr);
+            this.groupBox9.Controls.Add(this.cb_OS);
+            this.groupBox9.Location = new System.Drawing.Point(12, 314);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(172, 133);
+            this.groupBox9.TabIndex = 4;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Type of Graph";
+            // 
+            // cb_bp
+            // 
+            this.cb_bp.AutoSize = true;
+            this.cb_bp.Location = new System.Drawing.Point(49, 104);
+            this.cb_bp.Name = "cb_bp";
+            this.cb_bp.Size = new System.Drawing.Size(97, 17);
+            this.cb_bp.TabIndex = 2;
+            this.cb_bp.Text = "Blood Pressure";
+            this.cb_bp.UseVisualStyleBackColor = true;
+            // 
+            // cb_hr
+            // 
+            this.cb_hr.AutoSize = true;
+            this.cb_hr.Location = new System.Drawing.Point(49, 61);
+            this.cb_hr.Name = "cb_hr";
+            this.cb_hr.Size = new System.Drawing.Size(78, 17);
+            this.cb_hr.TabIndex = 1;
+            this.cb_hr.Text = "Heart Rate";
+            this.cb_hr.UseVisualStyleBackColor = true;
+            this.cb_hr.CheckedChanged += new System.EventHandler(this.cb_hr_CheckedChanged);
+            // 
+            // cb_OS
+            // 
+            this.cb_OS.AutoSize = true;
+            this.cb_OS.Location = new System.Drawing.Point(49, 24);
+            this.cb_OS.Name = "cb_OS";
+            this.cb_OS.Size = new System.Drawing.Size(113, 17);
+            this.cb_OS.TabIndex = 0;
+            this.cb_OS.Text = "Oxygen Saturation";
+            this.cb_OS.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(13, 460);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Confirm";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.dtp_end);
+            this.groupBox5.Controls.Add(this.label28);
+            this.groupBox5.Controls.Add(this.dtp_begin);
+            this.groupBox5.Controls.Add(this.label27);
+            this.groupBox5.Location = new System.Drawing.Point(404, 314);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(238, 133);
+            this.groupBox5.TabIndex = 2;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Date Selected";
+            // 
+            // dtp_end
+            // 
+            this.dtp_end.Location = new System.Drawing.Point(73, 90);
+            this.dtp_end.Name = "dtp_end";
+            this.dtp_end.Size = new System.Drawing.Size(151, 20);
+            this.dtp_end.TabIndex = 3;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(16, 96);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(29, 13);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "End:";
+            // 
+            // dtp_begin
+            // 
+            this.dtp_begin.Location = new System.Drawing.Point(73, 37);
+            this.dtp_begin.Name = "dtp_begin";
+            this.dtp_begin.Size = new System.Drawing.Size(151, 20);
+            this.dtp_begin.TabIndex = 1;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(16, 40);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(37, 13);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Begin:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.cb_bars);
+            this.groupBox4.Controls.Add(this.cb_lines);
+            this.groupBox4.Controls.Add(this.cb_collumns);
+            this.groupBox4.Location = new System.Drawing.Point(213, 314);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(145, 133);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Physiologic Parameters";
+            // 
+            // cb_bars
+            // 
+            this.cb_bars.AutoSize = true;
+            this.cb_bars.Location = new System.Drawing.Point(23, 104);
+            this.cb_bars.Name = "cb_bars";
+            this.cb_bars.Size = new System.Drawing.Size(47, 17);
+            this.cb_bars.TabIndex = 2;
+            this.cb_bars.Text = "Bars";
+            this.cb_bars.UseVisualStyleBackColor = true;
+            // 
+            // cb_lines
+            // 
+            this.cb_lines.AutoSize = true;
+            this.cb_lines.Location = new System.Drawing.Point(23, 61);
+            this.cb_lines.Name = "cb_lines";
+            this.cb_lines.Size = new System.Drawing.Size(51, 17);
+            this.cb_lines.TabIndex = 1;
+            this.cb_lines.Text = "Lines";
+            this.cb_lines.UseVisualStyleBackColor = true;
+            // 
+            // cb_collumns
+            // 
+            this.cb_collumns.AutoSize = true;
+            this.cb_collumns.Location = new System.Drawing.Point(23, 24);
+            this.cb_collumns.Name = "cb_collumns";
+            this.cb_collumns.Size = new System.Drawing.Size(68, 17);
+            this.cb_collumns.TabIndex = 0;
+            this.cb_collumns.Text = "Collumns";
+            this.cb_collumns.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.chart1);
+            this.groupBox3.Location = new System.Drawing.Point(12, 11);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(643, 297);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Chart Area";
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(7, 20);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(626, 266);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
             // panelPrincipal
             // 
             this.panelPrincipal.Controls.Add(this.pictureBox1);
             this.panelPrincipal.Controls.Add(this.groupBox12);
             this.panelPrincipal.Location = new System.Drawing.Point(0, 26);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(667, 495);
+            this.panelPrincipal.Size = new System.Drawing.Size(667, 469);
             this.panelPrincipal.TabIndex = 41;
             // 
             // pictureBox1
@@ -412,7 +648,7 @@
             this.panelAlerts.Controls.Add(this.groupBox7);
             this.panelAlerts.Location = new System.Drawing.Point(0, 26);
             this.panelAlerts.Name = "panelAlerts";
-            this.panelAlerts.Size = new System.Drawing.Size(667, 495);
+            this.panelAlerts.Size = new System.Drawing.Size(667, 469);
             this.panelAlerts.TabIndex = 2;
             // 
             // groupBox13
@@ -504,6 +740,7 @@
             // listView2
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnId,
             this.columnSns,
             this.columnName,
             this.columnHeaderRead,
@@ -518,6 +755,10 @@
             this.listView2.View = System.Windows.Forms.View.Details;
             this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
+            // columnId
+            // 
+            this.columnId.Text = "Id Alerta";
+            // 
             // columnSns
             // 
             this.columnSns.Text = "SNS";
@@ -528,12 +769,12 @@
             // 
             // columnHeaderRead
             // 
-            this.columnHeaderRead.DisplayIndex = 3;
+            this.columnHeaderRead.DisplayIndex = 4;
             this.columnHeaderRead.Text = "Read";
             // 
             // columnHeadertype
             // 
-            this.columnHeadertype.DisplayIndex = 2;
+            this.columnHeadertype.DisplayIndex = 3;
             this.columnHeadertype.Text = "Type";
             // 
             // columnHeaderData
@@ -544,6 +785,168 @@
             // 
             this.columnHeader2.Text = "Parameter";
             this.columnHeader2.Width = 114;
+            // 
+            // panel_Reports
+            // 
+            this.panel_Reports.Controls.Add(this.bt_confirm);
+            this.panel_Reports.Controls.Add(this.groupBox16);
+            this.panel_Reports.Controls.Add(this.groupBox15);
+            this.panel_Reports.Controls.Add(this.groupBox14);
+            this.panel_Reports.Location = new System.Drawing.Point(0, 26);
+            this.panel_Reports.Name = "panel_Reports";
+            this.panel_Reports.Size = new System.Drawing.Size(667, 495);
+            this.panel_Reports.TabIndex = 4;
+            // 
+            // bt_confirm
+            // 
+            this.bt_confirm.Location = new System.Drawing.Point(576, 446);
+            this.bt_confirm.Name = "bt_confirm";
+            this.bt_confirm.Size = new System.Drawing.Size(75, 23);
+            this.bt_confirm.TabIndex = 3;
+            this.bt_confirm.Text = "Confirm";
+            this.bt_confirm.UseVisualStyleBackColor = true;
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.dataGridView2);
+            this.groupBox16.Location = new System.Drawing.Point(15, 13);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(640, 332);
+            this.groupBox16.TabIndex = 2;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Reports";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnAveragevalues,
+            this.ColumnMaxValue,
+            this.Column1MinValue,
+            this.Column1,
+            this.Column2StartDate,
+            this.Column2EndDate});
+            this.dataGridView2.Location = new System.Drawing.Point(15, 20);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(612, 296);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // ColumnAveragevalues
+            // 
+            this.ColumnAveragevalues.HeaderText = "Average Values";
+            this.ColumnAveragevalues.Name = "ColumnAveragevalues";
+            // 
+            // ColumnMaxValue
+            // 
+            this.ColumnMaxValue.HeaderText = "Max Value";
+            this.ColumnMaxValue.Name = "ColumnMaxValue";
+            // 
+            // Column1MinValue
+            // 
+            this.Column1MinValue.HeaderText = "Min. Value";
+            this.Column1MinValue.Name = "Column1MinValue";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Parameter";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2StartDate
+            // 
+            this.Column2StartDate.HeaderText = "Start Date";
+            this.Column2StartDate.Name = "Column2StartDate";
+            // 
+            // Column2EndDate
+            // 
+            this.Column2EndDate.HeaderText = "End Date";
+            this.Column2EndDate.Name = "Column2EndDate";
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.label34);
+            this.groupBox15.Controls.Add(this.label33);
+            this.groupBox15.Controls.Add(this.dateTimePicker3);
+            this.groupBox15.Controls.Add(this.dateTimePicker2);
+            this.groupBox15.Location = new System.Drawing.Point(287, 360);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(268, 123);
+            this.groupBox15.TabIndex = 1;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Date";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(12, 78);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(29, 13);
+            this.label34.TabIndex = 3;
+            this.label34.Text = "End:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(12, 29);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(32, 13);
+            this.label33.TabIndex = 2;
+            this.label33.Text = "Start:";
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(63, 78);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker3.TabIndex = 1;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(62, 25);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 0;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.checkBoxBP);
+            this.groupBox14.Controls.Add(this.checkBoxOS);
+            this.groupBox14.Controls.Add(this.checkBoxHR);
+            this.groupBox14.Location = new System.Drawing.Point(15, 358);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(235, 125);
+            this.groupBox14.TabIndex = 0;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Physiological Parameters";
+            // 
+            // checkBoxBP
+            // 
+            this.checkBoxBP.AutoSize = true;
+            this.checkBoxBP.Location = new System.Drawing.Point(61, 94);
+            this.checkBoxBP.Name = "checkBoxBP";
+            this.checkBoxBP.Size = new System.Drawing.Size(97, 17);
+            this.checkBoxBP.TabIndex = 2;
+            this.checkBoxBP.Text = "Blood Pressure";
+            this.checkBoxBP.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxOS
+            // 
+            this.checkBoxOS.AutoSize = true;
+            this.checkBoxOS.Location = new System.Drawing.Point(62, 60);
+            this.checkBoxOS.Name = "checkBoxOS";
+            this.checkBoxOS.Size = new System.Drawing.Size(113, 17);
+            this.checkBoxOS.TabIndex = 1;
+            this.checkBoxOS.Text = "Oxygen Saturation";
+            this.checkBoxOS.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxHR
+            // 
+            this.checkBoxHR.AutoSize = true;
+            this.checkBoxHR.Location = new System.Drawing.Point(62, 27);
+            this.checkBoxHR.Name = "checkBoxHR";
+            this.checkBoxHR.Size = new System.Drawing.Size(78, 17);
+            this.checkBoxHR.TabIndex = 0;
+            this.checkBoxHR.Text = "Heart Rate";
+            this.checkBoxHR.UseVisualStyleBackColor = true;
             // 
             // panelEdit
             // 
@@ -835,180 +1238,6 @@
             this.label26.Size = new System.Drawing.Size(38, 13);
             this.label26.TabIndex = 41;
             this.label26.Text = "Name:";
-            // 
-            // panelDiarioValores
-            // 
-            this.panelDiarioValores.Controls.Add(this.groupBox6);
-            this.panelDiarioValores.Location = new System.Drawing.Point(0, 26);
-            this.panelDiarioValores.Name = "panelDiarioValores";
-            this.panelDiarioValores.Size = new System.Drawing.Size(667, 495);
-            this.panelDiarioValores.TabIndex = 3;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.dataGridView1);
-            this.groupBox6.Location = new System.Drawing.Point(12, 14);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(639, 469);
-            this.groupBox6.TabIndex = 2;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Daily Values";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.bloodPressureMax,
-            this.bloodPressureMin,
-            this.heartRate,
-            this.OxygenSaturation,
-            this.date});
-            this.dataGridView1.Location = new System.Drawing.Point(26, 32);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(590, 417);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // bloodPressureMax
-            // 
-            this.bloodPressureMax.HeaderText = "Blood Pressure Max";
-            this.bloodPressureMax.Name = "bloodPressureMax";
-            // 
-            // bloodPressureMin
-            // 
-            this.bloodPressureMin.HeaderText = "Blood Pressure Min";
-            this.bloodPressureMin.Name = "bloodPressureMin";
-            // 
-            // heartRate
-            // 
-            this.heartRate.HeaderText = "Heart Rate";
-            this.heartRate.Name = "heartRate";
-            // 
-            // OxygenSaturation
-            // 
-            this.OxygenSaturation.HeaderText = "Oxygen Saturation";
-            this.OxygenSaturation.Name = "OxygenSaturation";
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Date of Regist";
-            this.date.Name = "date";
-            // 
-            // panelGraficos
-            // 
-            this.panelGraficos.Controls.Add(this.groupBox9);
-            this.panelGraficos.Controls.Add(this.button3);
-            this.panelGraficos.Controls.Add(this.groupBox5);
-            this.panelGraficos.Controls.Add(this.groupBox4);
-            this.panelGraficos.Controls.Add(this.groupBox3);
-            this.panelGraficos.Location = new System.Drawing.Point(0, 26);
-            this.panelGraficos.Name = "panelGraficos";
-            this.panelGraficos.Size = new System.Drawing.Size(667, 495);
-            this.panelGraficos.TabIndex = 56;
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.cb_bp);
-            this.groupBox9.Controls.Add(this.cb_hr);
-            this.groupBox9.Controls.Add(this.cb_OS);
-            this.groupBox9.Location = new System.Drawing.Point(12, 314);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(172, 133);
-            this.groupBox9.TabIndex = 4;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Type of Graph";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(13, 460);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Confirm";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.dtp_end);
-            this.groupBox5.Controls.Add(this.label28);
-            this.groupBox5.Controls.Add(this.dtp_begin);
-            this.groupBox5.Controls.Add(this.label27);
-            this.groupBox5.Location = new System.Drawing.Point(404, 314);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(238, 133);
-            this.groupBox5.TabIndex = 2;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Date Selected";
-            // 
-            // dtp_end
-            // 
-            this.dtp_end.Location = new System.Drawing.Point(73, 90);
-            this.dtp_end.Name = "dtp_end";
-            this.dtp_end.Size = new System.Drawing.Size(151, 20);
-            this.dtp_end.TabIndex = 3;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(16, 96);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(29, 13);
-            this.label28.TabIndex = 2;
-            this.label28.Text = "End:";
-            // 
-            // dtp_begin
-            // 
-            this.dtp_begin.Location = new System.Drawing.Point(73, 37);
-            this.dtp_begin.Name = "dtp_begin";
-            this.dtp_begin.Size = new System.Drawing.Size(151, 20);
-            this.dtp_begin.TabIndex = 1;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(16, 40);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(37, 13);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "Begin:";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.cb_bars);
-            this.groupBox4.Controls.Add(this.cb_lines);
-            this.groupBox4.Controls.Add(this.cb_collumns);
-            this.groupBox4.Location = new System.Drawing.Point(213, 314);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(145, 133);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Physiologic Parameters";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.chart1);
-            this.groupBox3.Location = new System.Drawing.Point(12, 11);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(643, 297);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Chart Area";
-            // 
-            // chart1
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(7, 20);
-            this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(626, 266);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
             // 
             // panel_Adicionar
             // 
@@ -1471,228 +1700,6 @@
             this.checkedListBox1.Size = new System.Drawing.Size(175, 64);
             this.checkedListBox1.TabIndex = 0;
             // 
-            // panel_Reports
-            // 
-            this.panel_Reports.Controls.Add(this.bt_confirm);
-            this.panel_Reports.Controls.Add(this.groupBox16);
-            this.panel_Reports.Controls.Add(this.groupBox15);
-            this.panel_Reports.Controls.Add(this.groupBox14);
-            this.panel_Reports.Location = new System.Drawing.Point(0, 26);
-            this.panel_Reports.Name = "panel_Reports";
-            this.panel_Reports.Size = new System.Drawing.Size(667, 495);
-            this.panel_Reports.TabIndex = 4;
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.checkBoxBP);
-            this.groupBox14.Controls.Add(this.checkBoxOS);
-            this.groupBox14.Controls.Add(this.checkBoxHR);
-            this.groupBox14.Location = new System.Drawing.Point(15, 358);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(235, 125);
-            this.groupBox14.TabIndex = 0;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Physiological Parameters";
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.label34);
-            this.groupBox15.Controls.Add(this.label33);
-            this.groupBox15.Controls.Add(this.dateTimePicker3);
-            this.groupBox15.Controls.Add(this.dateTimePicker2);
-            this.groupBox15.Location = new System.Drawing.Point(287, 360);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(268, 123);
-            this.groupBox15.TabIndex = 1;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Date";
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.dataGridView2);
-            this.groupBox16.Location = new System.Drawing.Point(15, 13);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(640, 332);
-            this.groupBox16.TabIndex = 2;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Reports";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnAveragevalues,
-            this.ColumnMaxValue,
-            this.Column1MinValue,
-            this.Column1,
-            this.Column2StartDate,
-            this.Column2EndDate});
-            this.dataGridView2.Location = new System.Drawing.Point(15, 20);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(612, 296);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // ColumnAveragevalues
-            // 
-            this.ColumnAveragevalues.HeaderText = "Average Values";
-            this.ColumnAveragevalues.Name = "ColumnAveragevalues";
-            // 
-            // ColumnMaxValue
-            // 
-            this.ColumnMaxValue.HeaderText = "Max Value";
-            this.ColumnMaxValue.Name = "ColumnMaxValue";
-            // 
-            // Column1MinValue
-            // 
-            this.Column1MinValue.HeaderText = "Min. Value";
-            this.Column1MinValue.Name = "Column1MinValue";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Parameter";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2StartDate
-            // 
-            this.Column2StartDate.HeaderText = "Start Date";
-            this.Column2StartDate.Name = "Column2StartDate";
-            // 
-            // Column2EndDate
-            // 
-            this.Column2EndDate.HeaderText = "End Date";
-            this.Column2EndDate.Name = "Column2EndDate";
-            // 
-            // checkBoxHR
-            // 
-            this.checkBoxHR.AutoSize = true;
-            this.checkBoxHR.Location = new System.Drawing.Point(62, 27);
-            this.checkBoxHR.Name = "checkBoxHR";
-            this.checkBoxHR.Size = new System.Drawing.Size(78, 17);
-            this.checkBoxHR.TabIndex = 0;
-            this.checkBoxHR.Text = "Heart Rate";
-            this.checkBoxHR.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxOS
-            // 
-            this.checkBoxOS.AutoSize = true;
-            this.checkBoxOS.Location = new System.Drawing.Point(62, 60);
-            this.checkBoxOS.Name = "checkBoxOS";
-            this.checkBoxOS.Size = new System.Drawing.Size(113, 17);
-            this.checkBoxOS.TabIndex = 1;
-            this.checkBoxOS.Text = "Oxygen Saturation";
-            this.checkBoxOS.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBP
-            // 
-            this.checkBoxBP.AutoSize = true;
-            this.checkBoxBP.Location = new System.Drawing.Point(61, 94);
-            this.checkBoxBP.Name = "checkBoxBP";
-            this.checkBoxBP.Size = new System.Drawing.Size(97, 17);
-            this.checkBoxBP.TabIndex = 2;
-            this.checkBoxBP.Text = "Blood Pressure";
-            this.checkBoxBP.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(62, 25);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 0;
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(63, 78);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker3.TabIndex = 1;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(12, 29);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(32, 13);
-            this.label33.TabIndex = 2;
-            this.label33.Text = "Start:";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(12, 78);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(29, 13);
-            this.label34.TabIndex = 3;
-            this.label34.Text = "End:";
-            // 
-            // bt_confirm
-            // 
-            this.bt_confirm.Location = new System.Drawing.Point(576, 446);
-            this.bt_confirm.Name = "bt_confirm";
-            this.bt_confirm.Size = new System.Drawing.Size(75, 23);
-            this.bt_confirm.TabIndex = 3;
-            this.bt_confirm.Text = "Confirm";
-            this.bt_confirm.UseVisualStyleBackColor = true;
-            // 
-            // cb_OS
-            // 
-            this.cb_OS.AutoSize = true;
-            this.cb_OS.Location = new System.Drawing.Point(49, 24);
-            this.cb_OS.Name = "cb_OS";
-            this.cb_OS.Size = new System.Drawing.Size(113, 17);
-            this.cb_OS.TabIndex = 0;
-            this.cb_OS.Text = "Oxygen Saturation";
-            this.cb_OS.UseVisualStyleBackColor = true;
-            // 
-            // cb_hr
-            // 
-            this.cb_hr.AutoSize = true;
-            this.cb_hr.Location = new System.Drawing.Point(49, 61);
-            this.cb_hr.Name = "cb_hr";
-            this.cb_hr.Size = new System.Drawing.Size(78, 17);
-            this.cb_hr.TabIndex = 1;
-            this.cb_hr.Text = "Heart Rate";
-            this.cb_hr.UseVisualStyleBackColor = true;
-            // 
-            // cb_bp
-            // 
-            this.cb_bp.AutoSize = true;
-            this.cb_bp.Location = new System.Drawing.Point(49, 104);
-            this.cb_bp.Name = "cb_bp";
-            this.cb_bp.Size = new System.Drawing.Size(97, 17);
-            this.cb_bp.TabIndex = 2;
-            this.cb_bp.Text = "Blood Pressure";
-            this.cb_bp.UseVisualStyleBackColor = true;
-            // 
-            // cb_collumns
-            // 
-            this.cb_collumns.AutoSize = true;
-            this.cb_collumns.Location = new System.Drawing.Point(23, 24);
-            this.cb_collumns.Name = "cb_collumns";
-            this.cb_collumns.Size = new System.Drawing.Size(68, 17);
-            this.cb_collumns.TabIndex = 0;
-            this.cb_collumns.Text = "Collumns";
-            this.cb_collumns.UseVisualStyleBackColor = true;
-            // 
-            // cb_lines
-            // 
-            this.cb_lines.AutoSize = true;
-            this.cb_lines.Location = new System.Drawing.Point(23, 61);
-            this.cb_lines.Name = "cb_lines";
-            this.cb_lines.Size = new System.Drawing.Size(51, 17);
-            this.cb_lines.TabIndex = 1;
-            this.cb_lines.Text = "Lines";
-            this.cb_lines.UseVisualStyleBackColor = true;
-            // 
-            // cb_bars
-            // 
-            this.cb_bars.AutoSize = true;
-            this.cb_bars.Location = new System.Drawing.Point(23, 104);
-            this.cb_bars.Name = "cb_bars";
-            this.cb_bars.Size = new System.Drawing.Size(47, 17);
-            this.cb_bars.TabIndex = 2;
-            this.cb_bars.Text = "Bars";
-            this.cb_bars.UseVisualStyleBackColor = true;
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1711,19 +1718,6 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panelPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox12.ResumeLayout(false);
-            this.panelAlerts.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.panelEdit.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.panelDiarioValores.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1736,6 +1730,26 @@
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panelPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox12.ResumeLayout(false);
+            this.panelAlerts.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.panel_Reports.ResumeLayout(false);
+            this.groupBox16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.panelEdit.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.panel_Adicionar.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -1748,13 +1762,6 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.groupBox10.ResumeLayout(false);
-            this.panel_Reports.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
-            this.groupBox16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1918,6 +1925,7 @@
         private System.Windows.Forms.CheckBox cb_bars;
         private System.Windows.Forms.CheckBox cb_lines;
         private System.Windows.Forms.CheckBox cb_collumns;
+        private System.Windows.Forms.ColumnHeader columnId;
     }
 }
 

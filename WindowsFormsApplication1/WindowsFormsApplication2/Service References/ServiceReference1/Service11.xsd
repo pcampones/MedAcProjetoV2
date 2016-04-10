@@ -57,6 +57,7 @@
       <xs:element minOccurs="0" name="parametro" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="read" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="sUtente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sns" type="xs:int" />
       <xs:element minOccurs="0" name="snsUtente" type="xs:int" />
       <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string" />
     </xs:sequence>

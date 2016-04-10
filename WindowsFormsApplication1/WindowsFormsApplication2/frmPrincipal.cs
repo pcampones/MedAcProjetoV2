@@ -58,25 +58,25 @@ namespace ClinicalAlert
             foreach (UtenteWeb item in listaUtente)
 
             {
-                
+
                 ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
                 linha.SubItems.Add(item.name + " " + item.surname);
-                
+
                 listView1.Items.Add(linha);
 
             }
 
 
-          /*  List<AlertasWeb> listaWeb = serv.GetUtentesNotRead().ToList();
-            // List<AlertasWeb> listaWeb = serv.GetAlertsNotRead(sns,start,end).ToList();
-            foreach (AlertasWeb item in listaWeb)
-            {
-                ListViewItem linha = new ListViewItem(item.snsUtente.ToString(), 0);
-                linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
+            /*  List<AlertasWeb> listaWeb = serv.GetUtentesNotRead().ToList();
+              // List<AlertasWeb> listaWeb = serv.GetAlertsNotRead(sns,start,end).ToList();
+              foreach (AlertasWeb item in listaWeb)
+              {
+                  ListViewItem linha = new ListViewItem(item.snsUtente.ToString(), 0);
+                  linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
 
-                listView3.Items.Add(linha);
+                  listView3.Items.Add(linha);
 
-            }*/
+              }*/
             // listBox_utentes.DisplayMember = "Name";
         }
 
@@ -290,8 +290,8 @@ namespace ClinicalAlert
             chart1.ChartAreas.Clear();
             chart1.Series.Clear();
             chart1.Titles.Clear();
-            
-        //   List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
+
+            //   List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
             chart1.Titles.Add("Chart Values");
 
             //Construção da àrea do gráfico
@@ -318,7 +318,7 @@ namespace ClinicalAlert
             chart1.Series["Blood Pressure"].Color = Color.Red;
             chart1.Series["Heart Rate"].Color = Color.Blue;
             chart1.Series["Oxygen Saturation"].Color = Color.Green;
-         //   ValoresWeb valoresWeb = new ValoresWeb();
+            //   ValoresWeb valoresWeb = new ValoresWeb();
             //Pontos a aparecer no gráfico
             /*  foreach (ValoresWeb item in valores)
               {
@@ -331,10 +331,10 @@ namespace ClinicalAlert
              */
 
             //chart1.Series["area"].Points.AddXY(dataMax,0);
-            chart1.Series["Blood Pressure"].Points.AddXY(dataMin,10);
+            chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
             chart1.Series["Heart Rate"].Points.AddXY(dataMax, 10);
             chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 10);
-            
+
             chart1.ChartAreas["area"].BackColor = Color.White;
             chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
             chart1.ChartAreas["area"].BackGradientStyle =
@@ -360,7 +360,7 @@ namespace ClinicalAlert
             //lsb_parameters.Items.Add("Oxygen Saturation");
 
 
-         
+
 
             //Titulo do gráfico
         }
@@ -524,14 +524,14 @@ namespace ClinicalAlert
             DateTime end = DateTime.MaxValue;
 
 
-            List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start,end).ToList();
+            List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end).ToList();
             listView2.Items.Clear();
             foreach (AlertasWeb item in listaWeb)
             {
                 if (item.read.Equals("Not Read"))
                 {
-                    ListViewItem linha = new ListViewItem(item.snsUtente.ToString(),0);
-                
+                    ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
+                    linha.SubItems.Add(item.snsUtente.ToString());
                     linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
                     linha.SubItems.Add(item.read);
                     linha.SubItems.Add(item.tipo);
@@ -541,15 +541,15 @@ namespace ClinicalAlert
 
                 }
             }
-           // List<AlertasWeb> listaWeb = serv.GetUtentesNotRead().ToList();
-           //// List<AlertasWeb> listaWeb = serv.GetAlertsNotRead(sns,start,end).ToList();
-           // foreach (AlertasWeb item in listaWeb)
-           // {
-           //     ListViewItem linha = new ListViewItem(item.snsUtente.ToString(), 0);
-           //     linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
-           //     listView3.Items.Add(linha);
+            // List<AlertasWeb> listaWeb = serv.GetUtentesNotRead().ToList();
+            //// List<AlertasWeb> listaWeb = serv.GetAlertsNotRead(sns,start,end).ToList();
+            // foreach (AlertasWeb item in listaWeb)
+            // {
+            //     ListViewItem linha = new ListViewItem(item.snsUtente.ToString(), 0);
+            //     linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
+            //     listView3.Items.Add(linha);
 
-           // }
+            // }
             /*   List<AlertasWeb> valor = serv.GetValuesAlertsbySns(sns).ToList();
 
                foreach (AlertasWeb item in valor)
@@ -591,7 +591,7 @@ namespace ClinicalAlert
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            sns = Convert.ToInt32(listView2.Items[listView2.FocusedItem.Index].SubItems[0].Text);
+            //  sns = Convert.ToInt32(listView2.Items[listView2.FocusedItem.Index].SubItems[0].Text);
 
 
         }
@@ -600,7 +600,7 @@ namespace ClinicalAlert
         private void button3_Click(object sender, EventArgs e)
         {
 
-          /*  chart1.ChartAreas.Clear();
+            chart1.ChartAreas.Clear();
             chart1.Series.Clear();
             chart1.Titles.Clear();
 
@@ -613,35 +613,35 @@ namespace ClinicalAlert
             //Construção da àrea do gráfico
             chart1.ChartAreas.Add("area");
 
-            lsb_parameters.Items.Clear();
-            lsb_parameters.ClearSelected();
-            lsb_tipos.Items.Clear();
-            lsb_tipos.ClearSelected();
-
+            /*  lsb_parameters.Items.Clear();
+              lsb_parameters.ClearSelected();
+              lsb_tipos.Items.Clear();
+              lsb_tipos.ClearSelected();
+              */
 
             DateTime dataMin = dtp_begin.Value;
             DateTime dataMax = dtp_end.Value;
-            
+
             if (dataMin <= dataMax)
             {
-               List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
-
+                List<ValoresWeb> valores = serv.GetRegistofGrahp(sns, dataMax, dataMin).ToList();
+                ValoresWeb valoresWeb = new ValoresWeb();
                 foreach (ValoresWeb item in valores)
                 {
-                    ValoresWeb valoresWeb = new ValoresWeb();
+
                     item.type = valoresWeb.type;
                     item.valueR = valoresWeb.valueR;
                     item.dataOfReposit = item.dataOfReposit;
-                /*    item.bloodPressureMax = valoresWeb.bloodPressureMax;
-                    item.bloodPressureMin = valoresWeb.bloodPressureMin;
-                    item.heartRate = valoresWeb.heartRate;
-                    item.oxigenSat = valoresWeb.oxigenSat;
-                    item.dataOfReposit = valoresWeb.dataOfReposit;
-                    */
-            /*    }
+                    /*    item.bloodPressureMax = valoresWeb.bloodPressureMax;
+                        item.bloodPressureMin = valoresWeb.bloodPressureMin;
+                        item.heartRate = valoresWeb.heartRate;
+                        item.oxigenSat = valoresWeb.oxigenSat;
+                        item.dataOfReposit = valoresWeb.dataOfReposit;
+                       */
+                }
 
-                chart1.ChartAreas["area"].AxisX.Minimum = dataMin.Day;
-                chart1.ChartAreas["area"].AxisX.Maximum = dataMax.Day;
+                chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
+                chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
                 chart1.ChartAreas["area"].AxisX.Interval = 1;
                 chart1.ChartAreas["area"].AxisY.Minimum = 0;
                 chart1.ChartAreas["area"].AxisY.Interval = 10;
@@ -649,17 +649,17 @@ namespace ClinicalAlert
                 chart1.ChartAreas["area"].AxisX.Title = "Date";
                 chart1.ChartAreas["area"].AxisY.Title = "Values";
 
-               
+
                 //definição da cor de cada série
                 chart1.Series["Blood Pressure"].Color = Color.Red;
                 chart1.Series["Heart Rate"].Color = Color.Blue;
                 chart1.Series["Oxygen Saturation"].Color = Color.Green;
 
                 //Pontos a aparecer no gráfico         
-                chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);   
+                /*chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
                 chart1.Series["Heart Rate"].Points.AddXY(dataMax, 10);
                 chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 10);
-
+                */
                 chart1.ChartAreas["area"].BackColor = Color.White;
                 chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
                 chart1.ChartAreas["area"].BackGradientStyle =
@@ -676,13 +676,13 @@ namespace ClinicalAlert
             {
                 MessageBox.Show("The start date can not be bigher than the end date", "Confirmation", MessageBoxButtons.OK);
             }
-            */
+
 
         }
 
         private void lsb_tipos_SelectedIndexChanged(object sender, EventArgs e)
         {
-        /*    if (cb_bars.Checked == true)
+            if (cb_bars.Checked == true)
             {
                 //definição do tipo de gráficosss
                 chart1.Series["Blood Pressure"].ChartType =
@@ -709,24 +709,24 @@ namespace ClinicalAlert
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
                 chart1.Series["Heart Rate"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            }*/
+            }
         }
 
         private void lsb_parameters_SelectedIndexChanged(object sender, EventArgs e)
         {
-           /* dtp_begin.Value = dataMin;
+            dtp_begin.Value = dataMin;
             dtp_end.Value = dataMax;
 
             if (dataMax < dataMin)
             {
-                List<ValoresWeb> regGraficos = serv.GetRegistofGrahp(sns).ToList();
+                List<ValoresWeb> regGraficos = serv.GetRegistofGrahp(sns, dataMax, dataMin).ToList();
 
                 foreach (ValoresWeb item in regGraficos)
                 {
                     if (cb_bp.Checked == true)
-                    {                  
-                            //chart1.Series["Blood Pre0ssure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.bloodPressureMax);
-                       chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);               
+                    {
+                        //chart1.Series["Blood Pre0ssure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.bloodPressureMax);
+                        chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
                     }
                     if (!cb_bp.Checked == true)
                     {
@@ -760,26 +760,26 @@ namespace ClinicalAlert
                     }
                 }
             }
-         */   
+
         }
-        
+
         private void button4_Click(object sender, EventArgs e)
         {
             DateTime dataFIm = dtp_end_relatorios.Value;
             DateTime dataInicio = dtp_start_relatorios.Value;
             string tipo = null;
             List<EstatisticasWeb> estat = serv.GetReportsHRbySNS(sns, dataFIm, dataInicio, tipo).ToList();
-           
+
             List<Estatisticas> es = new List<Estatisticas>();
             Estatisticas esta = new Estatisticas();
             foreach (EstatisticasWeb item in estat)
             {
                 esta.MaxValue = item.valorMax;
-              
-               
+
+
             }
 
-            
+
             //foreach (ValoresWeb item in estat)
             //{
             //    if (checkBoxOS.Checked == true)
@@ -812,11 +812,54 @@ namespace ClinicalAlert
 
         private void bt_search_Click(object sender, EventArgs e)
         {
+            DateTime start = dtp_beginAlerts.Value;
+            DateTime end = dtp_EndAlerts.Value;
 
+            if (start <= end)
+            {
+                List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end).ToList();
+                listView2.Items.Clear();
+                foreach (AlertasWeb item in listaWeb)
+                {
+                    if (item.read.Equals("Not Read"))
+                    {
+                        ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
+                        linha.SubItems.Add(item.snsUtente.ToString());
+                        linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
+                        linha.SubItems.Add(item.read);
+                        linha.SubItems.Add(item.tipo);
+                        linha.SubItems.Add(item.dataAlerta.ToShortDateString());
+                        linha.SubItems.Add(item.parametro);
+                        listView2.Items.Add(linha);
+
+                    }
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Data de Inicio nao pode maior que a data de fim!");
+            }
         }
 
         private void bt_read_Click(object sender, EventArgs e)
         {
+            if (listView2.SelectedItems.Count > 0)
+            {
+                AlertasWeb al = new AlertasWeb();
+
+                ListViewItem item = listView2.SelectedItems[0];
+                if (listView2.SelectedItems[0].SubItems[3].Text.Equals("Not Read"))
+                {
+                    int id = Convert.ToInt32(listView2.SelectedItems[0].Text);
+                    al.read = "Read";
+                    serv.marcarComoLido(al, id);
+                    listView2.SelectedItems[0].Remove();
+                    listView2.Refresh();
+                }
+            }
+
 
         }
 
@@ -835,6 +878,30 @@ namespace ClinicalAlert
             panelAlerts.Visible = false;
             panel_Reports.Visible = false;
         }
-    }
 
+        private void cb_hr_CheckedChanged(object sender, EventArgs e)
+        {
+            List<ValoresWeb> lis = serv.GetRegistofGrahp(sns, dataMax, dataMin).ToList();
+            ValoresWeb v = new ValoresWeb();
+            foreach (var item in lis)
+            {
+                v.valueR = item.valueR;
+                v.type = item.type;
+                v.dataOfReposit = item.dataOfReposit;
+            }
+            if (cb_hr.Checked == true)
+            {
+                if (v.type == "HR")
+                {
+                    chart1.Series["Heart Rate"].Points.AddXY(v.dataOfReposit.ToOADate(), v.valueR);
+                }
+
+            }
+            else
+            {
+                chart1.Series["Heart Rate"].Points.Clear();
+
+            }
+        }
+    }
 }

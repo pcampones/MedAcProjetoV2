@@ -573,6 +573,9 @@ namespace ClinicalAlert.ServiceReference1 {
         private string sUtenteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int snsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int snsUtenteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -649,6 +652,19 @@ namespace ClinicalAlert.ServiceReference1 {
                 if ((object.ReferenceEquals(this.sUtenteField, value) != true)) {
                     this.sUtenteField = value;
                     this.RaisePropertyChanged("sUtente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int sns {
+            get {
+                return this.snsField;
+            }
+            set {
+                if ((this.snsField.Equals(value) != true)) {
+                    this.snsField = value;
+                    this.RaisePropertyChanged("sns");
                 }
             }
         }

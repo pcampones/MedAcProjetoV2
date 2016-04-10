@@ -292,6 +292,16 @@ namespace ServiceLayer
 
     public class AlertasWeb
     {
+
+        [DataMember]
+        private int sns;
+
+        public int SNS
+        {
+            get { return sns; }
+            set { sns = value; }
+        }
+
         [DataMember]
         private string tipo;
 
@@ -426,64 +436,5 @@ namespace ServiceLayer
 
         }
     }
-
-        //[DataContract]
-
-        //public class EstatisticasWeb
-        //{
-        //    [DataMember]
-        //    private string tipo;
-
-        //    public string Tipo
-        //    {
-        //        get { return tipo; }
-        //        set { tipo = value; }
-        //    }
-
-        //    [DataMember]
-        //    private DateTime startDate;
-
-        //    public DateTime StartDate
-        //    {
-        //        get { return startDate; }
-        //        set { startDate = value; }
-        //    }
-
-        //    [DataMember]
-        //    private string endDate;
-
-        //    public string EndDate
-        //    {
-        //        get { return endDate; }
-        //        set { endDate = value; }
-
-
-        //    }
-        //    [DataMember]
-        //    private int valorMin;
-
-        //    public int ValorMin
-        //    {
-        //        get { return valorMin; }
-        //        set { valorMin = value; }
-        //    }
-
-        //    [DataMember]
-        //    private int valorMax;
-
-        //    public int ValorMax
-        //    {
-        //        get { return valorMax; }
-        //        set { valorMax = value; }
-        //    }
-
-        //    [DataMember]
-        //    private int valorMed;
-
-        //    public int ValorMed
-        //    {
-        //        get { return valorMed; }
-        //        set { valorMed = value; }
-        //    }
-        //}
+    
 }

@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
             this.Edit = new System.Windows.Forms.ToolStripButton();
             this.Alerts = new System.Windows.Forms.ToolStripButton();
             this.Graficos = new System.Windows.Forms.ToolStripButton();
-            this.Reports = new System.Windows.Forms.ToolStripButton();
+            this.diavalores = new System.Windows.Forms.ToolStripButton();
             this.diarioValores = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton_reports = new System.Windows.Forms.ToolStripButton();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -64,6 +63,7 @@
             this.columnHeaderRead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeadertype = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelEdit = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -164,7 +164,31 @@
             this.label29 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel_Reports = new System.Windows.Forms.Panel();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ColumnAveragevalues = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMaxValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1MinValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBoxHR = new System.Windows.Forms.CheckBox();
+            this.checkBoxOS = new System.Windows.Forms.CheckBox();
+            this.checkBoxBP = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.bt_confirm = new System.Windows.Forms.Button();
+            this.cb_OS = new System.Windows.Forms.CheckBox();
+            this.cb_hr = new System.Windows.Forms.CheckBox();
+            this.cb_bp = new System.Windows.Forms.CheckBox();
+            this.cb_collumns = new System.Windows.Forms.CheckBox();
+            this.cb_lines = new System.Windows.Forms.CheckBox();
+            this.cb_bars = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -185,7 +209,9 @@
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelGraficos.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel_Adicionar.SuspendLayout();
@@ -197,6 +223,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            this.panel_Reports.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -211,11 +242,12 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
+            this.splitContainer1.Panel2.Controls.Add(this.panel_Reports);
             this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
             this.splitContainer1.Panel2.Controls.Add(this.panelDiarioValores);
-            this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
             this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip2);
             this.splitContainer1.Size = new System.Drawing.Size(828, 521);
@@ -231,10 +263,9 @@
             this.Edit,
             this.Alerts,
             this.Graficos,
-            this.Reports,
+            this.diavalores,
             this.diarioValores,
-            this.toolStripButton2,
-            this.toolStripButton_reports});
+            this.toolStripButton2});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -293,16 +324,17 @@
             this.Graficos.Text = "graficos";
             this.Graficos.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // Reports
+            // diavalores
             // 
-            this.Reports.AutoSize = false;
-            this.Reports.AutoToolTip = false;
-            this.Reports.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Reports.Image = ((System.Drawing.Image)(resources.GetObject("Reports.Image")));
-            this.Reports.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Reports.Name = "Reports";
-            this.Reports.Size = new System.Drawing.Size(140, 50);
-            this.Reports.Text = "Reports";
+            this.diavalores.AutoSize = false;
+            this.diavalores.AutoToolTip = false;
+            this.diavalores.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.diavalores.Image = ((System.Drawing.Image)(resources.GetObject("diavalores.Image")));
+            this.diavalores.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.diavalores.Name = "diavalores";
+            this.diavalores.Size = new System.Drawing.Size(140, 50);
+            this.diavalores.Text = "Daily Values";
+            this.diavalores.Click += new System.EventHandler(this.Reports_Click);
             // 
             // diarioValores
             // 
@@ -324,22 +356,13 @@
             this.toolStripButton2.Size = new System.Drawing.Size(23, 4);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
-            // toolStripButton_reports
-            // 
-            this.toolStripButton_reports.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton_reports.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_reports.Image")));
-            this.toolStripButton_reports.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_reports.Name = "toolStripButton_reports";
-            this.toolStripButton_reports.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton_reports.Text = "Reports";
-            // 
             // panelPrincipal
             // 
             this.panelPrincipal.Controls.Add(this.pictureBox1);
             this.panelPrincipal.Controls.Add(this.groupBox12);
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 28);
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 26);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(667, 467);
+            this.panelPrincipal.Size = new System.Drawing.Size(667, 495);
             this.panelPrincipal.TabIndex = 41;
             // 
             // pictureBox1
@@ -516,6 +539,11 @@
             // columnHeaderData
             // 
             this.columnHeaderData.Text = "Data";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Parameter";
+            this.columnHeader2.Width = 114;
             // 
             // panelEdit
             // 
@@ -879,20 +907,23 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.Location = new System.Drawing.Point(12, 319);
+            this.groupBox9.Controls.Add(this.cb_bp);
+            this.groupBox9.Controls.Add(this.cb_hr);
+            this.groupBox9.Controls.Add(this.cb_OS);
+            this.groupBox9.Location = new System.Drawing.Point(12, 314);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(172, 128);
+            this.groupBox9.Size = new System.Drawing.Size(172, 133);
             this.groupBox9.TabIndex = 4;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Type of Graph";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(23, 453);
+            this.button3.Location = new System.Drawing.Point(13, 460);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
+            this.button3.Text = "Confirm";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -943,9 +974,12 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Location = new System.Drawing.Point(213, 319);
+            this.groupBox4.Controls.Add(this.cb_bars);
+            this.groupBox4.Controls.Add(this.cb_lines);
+            this.groupBox4.Controls.Add(this.cb_collumns);
+            this.groupBox4.Location = new System.Drawing.Point(213, 314);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(145, 128);
+            this.groupBox4.Size = new System.Drawing.Size(145, 133);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Physiologic Parameters";
@@ -955,24 +989,24 @@
             this.groupBox3.Controls.Add(this.chart1);
             this.groupBox3.Location = new System.Drawing.Point(12, 11);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(643, 178);
+            this.groupBox3.Size = new System.Drawing.Size(643, 297);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chart Area";
             // 
             // chart1
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chart1.Legends.Add(legend8);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(7, 20);
             this.chart1.Name = "chart1";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.chart1.Series.Add(series8);
-            this.chart1.Size = new System.Drawing.Size(474, 125);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(626, 266);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -1437,10 +1471,227 @@
             this.checkedListBox1.Size = new System.Drawing.Size(175, 64);
             this.checkedListBox1.TabIndex = 0;
             // 
-            // columnHeader2
+            // panel_Reports
             // 
-            this.columnHeader2.Text = "Parameter";
-            this.columnHeader2.Width = 114;
+            this.panel_Reports.Controls.Add(this.bt_confirm);
+            this.panel_Reports.Controls.Add(this.groupBox16);
+            this.panel_Reports.Controls.Add(this.groupBox15);
+            this.panel_Reports.Controls.Add(this.groupBox14);
+            this.panel_Reports.Location = new System.Drawing.Point(0, 26);
+            this.panel_Reports.Name = "panel_Reports";
+            this.panel_Reports.Size = new System.Drawing.Size(667, 495);
+            this.panel_Reports.TabIndex = 4;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.checkBoxBP);
+            this.groupBox14.Controls.Add(this.checkBoxOS);
+            this.groupBox14.Controls.Add(this.checkBoxHR);
+            this.groupBox14.Location = new System.Drawing.Point(15, 358);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(235, 125);
+            this.groupBox14.TabIndex = 0;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Physiological Parameters";
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.label34);
+            this.groupBox15.Controls.Add(this.label33);
+            this.groupBox15.Controls.Add(this.dateTimePicker3);
+            this.groupBox15.Controls.Add(this.dateTimePicker2);
+            this.groupBox15.Location = new System.Drawing.Point(287, 360);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(268, 123);
+            this.groupBox15.TabIndex = 1;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Date";
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.dataGridView2);
+            this.groupBox16.Location = new System.Drawing.Point(15, 13);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(640, 332);
+            this.groupBox16.TabIndex = 2;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Reports";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnAveragevalues,
+            this.ColumnMaxValue,
+            this.Column1MinValue,
+            this.Column1,
+            this.Column2StartDate,
+            this.Column2EndDate});
+            this.dataGridView2.Location = new System.Drawing.Point(15, 20);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(612, 296);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // ColumnAveragevalues
+            // 
+            this.ColumnAveragevalues.HeaderText = "Average Values";
+            this.ColumnAveragevalues.Name = "ColumnAveragevalues";
+            // 
+            // ColumnMaxValue
+            // 
+            this.ColumnMaxValue.HeaderText = "Max Value";
+            this.ColumnMaxValue.Name = "ColumnMaxValue";
+            // 
+            // Column1MinValue
+            // 
+            this.Column1MinValue.HeaderText = "Min. Value";
+            this.Column1MinValue.Name = "Column1MinValue";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Parameter";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2StartDate
+            // 
+            this.Column2StartDate.HeaderText = "Start Date";
+            this.Column2StartDate.Name = "Column2StartDate";
+            // 
+            // Column2EndDate
+            // 
+            this.Column2EndDate.HeaderText = "End Date";
+            this.Column2EndDate.Name = "Column2EndDate";
+            // 
+            // checkBoxHR
+            // 
+            this.checkBoxHR.AutoSize = true;
+            this.checkBoxHR.Location = new System.Drawing.Point(62, 27);
+            this.checkBoxHR.Name = "checkBoxHR";
+            this.checkBoxHR.Size = new System.Drawing.Size(78, 17);
+            this.checkBoxHR.TabIndex = 0;
+            this.checkBoxHR.Text = "Heart Rate";
+            this.checkBoxHR.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxOS
+            // 
+            this.checkBoxOS.AutoSize = true;
+            this.checkBoxOS.Location = new System.Drawing.Point(62, 60);
+            this.checkBoxOS.Name = "checkBoxOS";
+            this.checkBoxOS.Size = new System.Drawing.Size(113, 17);
+            this.checkBoxOS.TabIndex = 1;
+            this.checkBoxOS.Text = "Oxygen Saturation";
+            this.checkBoxOS.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBP
+            // 
+            this.checkBoxBP.AutoSize = true;
+            this.checkBoxBP.Location = new System.Drawing.Point(61, 94);
+            this.checkBoxBP.Name = "checkBoxBP";
+            this.checkBoxBP.Size = new System.Drawing.Size(97, 17);
+            this.checkBoxBP.TabIndex = 2;
+            this.checkBoxBP.Text = "Blood Pressure";
+            this.checkBoxBP.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(62, 25);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 0;
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(63, 78);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker3.TabIndex = 1;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(12, 29);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(32, 13);
+            this.label33.TabIndex = 2;
+            this.label33.Text = "Start:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(12, 78);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(29, 13);
+            this.label34.TabIndex = 3;
+            this.label34.Text = "End:";
+            // 
+            // bt_confirm
+            // 
+            this.bt_confirm.Location = new System.Drawing.Point(576, 446);
+            this.bt_confirm.Name = "bt_confirm";
+            this.bt_confirm.Size = new System.Drawing.Size(75, 23);
+            this.bt_confirm.TabIndex = 3;
+            this.bt_confirm.Text = "Confirm";
+            this.bt_confirm.UseVisualStyleBackColor = true;
+            // 
+            // cb_OS
+            // 
+            this.cb_OS.AutoSize = true;
+            this.cb_OS.Location = new System.Drawing.Point(49, 24);
+            this.cb_OS.Name = "cb_OS";
+            this.cb_OS.Size = new System.Drawing.Size(113, 17);
+            this.cb_OS.TabIndex = 0;
+            this.cb_OS.Text = "Oxygen Saturation";
+            this.cb_OS.UseVisualStyleBackColor = true;
+            // 
+            // cb_hr
+            // 
+            this.cb_hr.AutoSize = true;
+            this.cb_hr.Location = new System.Drawing.Point(49, 61);
+            this.cb_hr.Name = "cb_hr";
+            this.cb_hr.Size = new System.Drawing.Size(78, 17);
+            this.cb_hr.TabIndex = 1;
+            this.cb_hr.Text = "Heart Rate";
+            this.cb_hr.UseVisualStyleBackColor = true;
+            // 
+            // cb_bp
+            // 
+            this.cb_bp.AutoSize = true;
+            this.cb_bp.Location = new System.Drawing.Point(49, 104);
+            this.cb_bp.Name = "cb_bp";
+            this.cb_bp.Size = new System.Drawing.Size(97, 17);
+            this.cb_bp.TabIndex = 2;
+            this.cb_bp.Text = "Blood Pressure";
+            this.cb_bp.UseVisualStyleBackColor = true;
+            // 
+            // cb_collumns
+            // 
+            this.cb_collumns.AutoSize = true;
+            this.cb_collumns.Location = new System.Drawing.Point(23, 24);
+            this.cb_collumns.Name = "cb_collumns";
+            this.cb_collumns.Size = new System.Drawing.Size(68, 17);
+            this.cb_collumns.TabIndex = 0;
+            this.cb_collumns.Text = "Collumns";
+            this.cb_collumns.UseVisualStyleBackColor = true;
+            // 
+            // cb_lines
+            // 
+            this.cb_lines.AutoSize = true;
+            this.cb_lines.Location = new System.Drawing.Point(23, 61);
+            this.cb_lines.Name = "cb_lines";
+            this.cb_lines.Size = new System.Drawing.Size(51, 17);
+            this.cb_lines.TabIndex = 1;
+            this.cb_lines.Text = "Lines";
+            this.cb_lines.UseVisualStyleBackColor = true;
+            // 
+            // cb_bars
+            // 
+            this.cb_bars.AutoSize = true;
+            this.cb_bars.Location = new System.Drawing.Point(23, 104);
+            this.cb_bars.Name = "cb_bars";
+            this.cb_bars.Size = new System.Drawing.Size(47, 17);
+            this.cb_bars.TabIndex = 2;
+            this.cb_bars.Text = "Bars";
+            this.cb_bars.UseVisualStyleBackColor = true;
             // 
             // frmPrincipal
             // 
@@ -1476,8 +1727,12 @@
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelGraficos.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel_Adicionar.ResumeLayout(false);
@@ -1492,6 +1747,13 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.groupBox10.ResumeLayout(false);
+            this.panel_Reports.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            this.groupBox16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1504,7 +1766,7 @@
         private System.Windows.Forms.ToolStripButton Edit;
         private System.Windows.Forms.ToolStripButton Alerts;
         private System.Windows.Forms.ToolStripButton Graficos;
-        private System.Windows.Forms.ToolStripButton Reports;
+        private System.Windows.Forms.ToolStripButton diavalores;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripLabel tsl_nameUtente;
         private System.Windows.Forms.Panel panel_Adicionar;
@@ -1617,7 +1879,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValueMax;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValueMean;
         private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.ToolStripButton toolStripButton_reports;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Button bt_read;
         private System.Windows.Forms.GroupBox groupBox8;
@@ -1631,6 +1892,31 @@
         private System.Windows.Forms.ColumnHeader columnHeaderData;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Panel panel_Reports;
+        private System.Windows.Forms.Button bt_confirm;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAveragevalues;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMaxValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1MinValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2StartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2EndDate;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.CheckBox checkBoxBP;
+        private System.Windows.Forms.CheckBox checkBoxOS;
+        private System.Windows.Forms.CheckBox checkBoxHR;
+        private System.Windows.Forms.CheckBox cb_bp;
+        private System.Windows.Forms.CheckBox cb_hr;
+        private System.Windows.Forms.CheckBox cb_OS;
+        private System.Windows.Forms.CheckBox cb_bars;
+        private System.Windows.Forms.CheckBox cb_lines;
+        private System.Windows.Forms.CheckBox cb_collumns;
     }
 }
 

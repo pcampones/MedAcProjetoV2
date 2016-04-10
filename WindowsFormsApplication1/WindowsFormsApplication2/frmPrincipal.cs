@@ -14,7 +14,7 @@ namespace ClinicalAlert
     public partial class frmPrincipal : Form
     {
 
-        //ap
+        
         private Service1Client serv;
         UtenteWeb ut;
         ValoresWeb val;
@@ -25,8 +25,7 @@ namespace ClinicalAlert
         DateTime dataMax = DateTime.Now;
         DateTime dataMin = DateTime.Now.AddDays(-2);
 
-        List<Estatisticas> reports = new List<Estatisticas>();
-
+        
         public frmPrincipal()
         {
             InitializeComponent();
@@ -265,80 +264,7 @@ namespace ClinicalAlert
             }
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            panel_Adicionar.Visible = false;
-            panelPrincipal.Visible = false;
-            panelEdit.Visible = false;
-            panelGraficos.Visible = true;
-            panelDiarioValores.Visible = false;
-            panelAlerts.Visible = false;
-            panel_Reports.Visible = false;
-
-
-            chart1.ChartAreas.Clear();
-            chart1.Series.Clear();
-            chart1.Titles.Clear();
-
-            chart1.Titles.Add("Chart Values");
-
-            //Construção da àrea do gráfico
-            chart1.ChartAreas.Add("area");
-
-            dtp_begin.Value = dataMin;
-            dtp_end.Value = dataMax;
-            //dataMin = dtp_begin.Value;
-            //6dataMax = dtp_end.Value;
-            chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
-            chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
-            chart1.ChartAreas["area"].AxisX.Interval = 1;
-            chart1.ChartAreas["area"].AxisY.Minimum = 0;
-            chart1.ChartAreas["area"].AxisY.Interval = 10;
-
-            chart1.ChartAreas["area"].AxisX.Title = "Date";
-            chart1.ChartAreas["area"].AxisY.Title = "Values";
-
-            chart1.Series.Add("Blood Pressure");
-            chart1.Series.Add("Heart Rate");
-            chart1.Series.Add("Oxygen Saturation");
-
-            //definição da cor de cada série
-            chart1.Series["Blood Pressure"].Color = Color.Red;
-            chart1.Series["Heart Rate"].Color = Color.Blue;
-            chart1.Series["Oxygen Saturation"].Color = Color.Green;
-
-            chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
-            chart1.Series["Heart Rate"].Points.AddXY(dataMax, 10);
-            chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 10);
-
-            chart1.ChartAreas["area"].BackColor = Color.White;
-            chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
-            chart1.ChartAreas["area"].BackGradientStyle =
-            System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
-
-            chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
-            chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
-
-            chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
-            chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
-            chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
-
-
-
-        }
-
-        private void diarioValores_Click(object sender, EventArgs e)
-        {
-            panel_Adicionar.Visible = false;
-            panelPrincipal.Visible = false;
-            panelEdit.Visible = false;
-            panelGraficos.Visible = false;
-            panelDiarioValores.Visible = false;
-            panelAlerts.Visible = false;
-            panel_Reports.Visible = true;
-
-         
-        }
+    
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -381,16 +307,7 @@ namespace ClinicalAlert
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox_utentes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+    
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             panelEdit.Visible = false;
@@ -453,57 +370,70 @@ namespace ClinicalAlert
             }
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
-        }
+        //Graficos
 
-        private void Alerts_Click(object sender, EventArgs e)
+        private void toolStripButton3_Click(object sender, EventArgs e)
         {
             panel_Adicionar.Visible = false;
             panelPrincipal.Visible = false;
             panelEdit.Visible = false;
-            panelGraficos.Visible = false;
+            panelGraficos.Visible = true;
             panelDiarioValores.Visible = false;
-            panelAlerts.Visible = true;
+            panelAlerts.Visible = false;
             panel_Reports.Visible = false;
 
-            DateTime start = DateTime.MinValue;
-            DateTime end = DateTime.MaxValue;
+
+            chart1.ChartAreas.Clear();
+            chart1.Series.Clear();
+            chart1.Titles.Clear();
+
+            chart1.Titles.Add("Chart Values");
+
+            //Construção da àrea do gráfico
+            chart1.ChartAreas.Add("area");
+
+            dtp_begin.Value = dataMin;
+            dtp_end.Value = dataMax;
+            //dataMin = dtp_begin.Value;
+            //6dataMax = dtp_end.Value;
+            chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
+            chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
+            chart1.ChartAreas["area"].AxisX.Interval = 1;
+            chart1.ChartAreas["area"].AxisY.Minimum = 0;
+            chart1.ChartAreas["area"].AxisY.Interval = 10;
+
+            chart1.ChartAreas["area"].AxisX.Title = "Date";
+            chart1.ChartAreas["area"].AxisY.Title = "Values";
+
+            chart1.Series.Add("Blood Pressure");
+            chart1.Series.Add("Heart Rate");
+            chart1.Series.Add("Oxygen Saturation");
+
+            //definição da cor de cada série
+            chart1.Series["Blood Pressure"].Color = Color.Red;
+            chart1.Series["Heart Rate"].Color = Color.Blue;
+            chart1.Series["Oxygen Saturation"].Color = Color.Green;
+
+            chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
+            chart1.Series["Heart Rate"].Points.AddXY(dataMax, 10);
+            chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 10);
+
+            chart1.ChartAreas["area"].BackColor = Color.White;
+            chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
+            chart1.ChartAreas["area"].BackGradientStyle =
+            System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+            chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+            chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+            chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
+            chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
+            chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
 
 
-            List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end).ToList();
-            listView2.Items.Clear();
-            foreach (AlertasWeb item in listaWeb)
-            {
-                if (item.read.Equals("Not Read"))
-                {
-                    ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
-                    linha.SubItems.Add(item.snsUtente.ToString());
-                    linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
-                    linha.SubItems.Add(item.read);
-                    linha.SubItems.Add(item.tipo);
-                    linha.SubItems.Add(item.dataAlerta.ToShortDateString());
-                    linha.SubItems.Add(item.parametro);
-                    listView2.Items.Add(linha);
 
-                }
-            }
-            
         }
-
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-
-        }
-
-
-     
-     
-      
-
-        //Graficos
 
         private void cb_hr_CheckedChanged(object sender, EventArgs e)
         {
@@ -640,22 +570,37 @@ namespace ClinicalAlert
 
             if (dataMin <= dataMax)
             {
-                List<ValoresWeb> valores = getValuesGraphs(sns, dataMin, dataMax).ToList();
-                /*  ValoresWeb valoresWeb = new ValoresWeb();
-                  foreach (ValoresWeb item in valores)
-                  {
-
-                      item.type = valoresWeb.type;
-                      item.valueR = valoresWeb.valueR;
-                      item.dataOfReposit = item.dataOfReposit;
-                      */
+                List<ValoresWeb> valores = getValuesGraphs(sns, dataMax, dataMin).ToList();
+                
                 foreach (var item in valores)
                 {
-                    if (item.type == "HR")
+                    if(cb_hr.Checked == true)
                     {
-                        chart1.Series["Heart Rate"].Points.AddXY(item.dataOfReposit, item.valueR);
+                        if (item.type == "HR")
+                        {
+                            chart1.Series["Heart Rate"].Points.AddXY(item.dataOfReposit, item.valueR);
+
+                        }
+                    }
+                    if (cb_bp.Checked == true)
+                    {
+                        if (item.type == "BP")
+                        {
+                            chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit, item.valueR);
+
+                        }
 
                     }
+
+                    if (cb_OS.Checked == true)
+                    {
+                        if (item.type == "SPO2")
+                        {
+                            chart1.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit, item.valueR);
+
+                        }
+                    }
+                   
                 }
 
 
@@ -699,33 +644,44 @@ namespace ClinicalAlert
 
         }
 
-
-
-
-        private void relatorios_Click(object sender, EventArgs e)
+        
+        // Alertas
+        
+        private void Alerts_Click(object sender, EventArgs e)
         {
             panel_Adicionar.Visible = false;
             panelPrincipal.Visible = false;
             panelEdit.Visible = false;
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = false;
-            panelAlerts.Visible = false;
-            panel_Reports.Visible = true;
+            panelAlerts.Visible = true;
+            panel_Reports.Visible = false;
+
+            DateTime start = DateTime.MinValue;
+            DateTime end = DateTime.MaxValue;
+
+
+            List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end).ToList();
+            listView2.Items.Clear();
+            foreach (AlertasWeb item in listaWeb)
+            {
+                if (item.read.Equals("Not Read"))
+                {
+                    ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
+                    linha.SubItems.Add(item.snsUtente.ToString());
+                    linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
+                    linha.SubItems.Add(item.read);
+                    linha.SubItems.Add(item.tipo);
+                    linha.SubItems.Add(item.dataAlerta.ToShortDateString());
+                    linha.SubItems.Add(item.parametro);
+                    listView2.Items.Add(linha);
+
+                }
+            }
+            
         }
 
-        private void frmPrincipal_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void listView3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        // Alertas
-        
         private void bt_search_Click(object sender, EventArgs e)
         {
             DateTime start = dtp_beginAlerts.Value;
@@ -781,11 +737,7 @@ namespace ClinicalAlert
 
         }
 
-        private void toolStripButton_reports_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
 
 
         //Diario de Valores
@@ -825,6 +777,20 @@ namespace ClinicalAlert
         }
 
         // Estatisticas
+
+        private void diarioValores_Click(object sender, EventArgs e)
+        {
+            panel_Adicionar.Visible = false;
+            panelPrincipal.Visible = false;
+            panelEdit.Visible = false;
+            panelGraficos.Visible = false;
+            panelDiarioValores.Visible = false;
+            panelAlerts.Visible = false;
+            panel_Reports.Visible = true;
+
+
+        }
+
 
 
         private void checkBoxHR_CheckedChanged(object sender, EventArgs e)
@@ -910,6 +876,9 @@ namespace ClinicalAlert
             }
 
         }
+
+
+        //Metodos Auxiliares
 
         private void limpaDataGrid(DataGridView data)
         {

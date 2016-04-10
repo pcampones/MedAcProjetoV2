@@ -170,8 +170,7 @@ namespace ClassLibraryMedAc
             {
                 List<Valores> listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) && i.DataOfRegist >= startDate && 
                 i.DataOfRegist <= endDate && i.Type == type).ToList();
-
-                ////HR                    
+                
                 EstatisticasWeb es = new EstatisticasWeb();
 
                 List<EstatisticasWeb> estastisticas = new List<EstatisticasWeb>();

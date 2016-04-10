@@ -88,7 +88,7 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = false;
             panelAlerts.Visible = false;
-            panel_relatorios.Visible = false;
+            panel_Reports.Visible = false;
 
         }
 
@@ -100,7 +100,7 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = false;
             panelAlerts.Visible = false;
-            panel_relatorios.Visible = false;
+            panel_Reports.Visible = false;
 
         }
 
@@ -278,12 +278,13 @@ namespace ClinicalAlert
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            panelEdit.Visible = false;
-            panelPrincipal.Visible = false;
             panel_Adicionar.Visible = false;
+            panelPrincipal.Visible = false;
+            panelEdit.Visible = false;
             panelGraficos.Visible = true;
             panelDiarioValores.Visible = false;
-            panel_relatorios.Visible = false;
+            panelAlerts.Visible = false;
+            panel_Reports.Visible = false;
 
 
             chart1.ChartAreas.Clear();
@@ -366,13 +367,13 @@ namespace ClinicalAlert
 
         private void diarioValores_Click(object sender, EventArgs e)
         {
-            panelEdit.Visible = false;
-            panelPrincipal.Visible = false;
             panel_Adicionar.Visible = false;
+            panelPrincipal.Visible = false;
+            panelEdit.Visible = false;
             panelGraficos.Visible = false;
-            panelDiarioValores.Visible = true;
+            panelDiarioValores.Visible = false;
             panelAlerts.Visible = false;
-            panel_relatorios.Visible = false;
+            panel_Reports.Visible = true;
 
             /*
             List<ValoresWeb> valor = serv.GetValuesbySNS(sns).ToList();
@@ -449,7 +450,7 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             panelAlerts.Visible = false;
             panelDiarioValores.Visible = false;
-            panel_relatorios.Visible = false;
+            panel_Reports.Visible = false;
 
         }
 
@@ -517,7 +518,8 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = false;
             panelAlerts.Visible = true;
-            panel_relatorios.Visible = false;
+            panel_Reports.Visible = false;
+
             DateTime start = DateTime.MinValue;
             DateTime end = DateTime.MaxValue;
 
@@ -795,7 +797,7 @@ namespace ClinicalAlert
             panelGraficos.Visible = false;
             panelDiarioValores.Visible = false;
             panelAlerts.Visible = false;
-            panel_relatorios.Visible = true;
+            panel_Reports.Visible = true;
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
@@ -810,55 +812,28 @@ namespace ClinicalAlert
 
         private void bt_search_Click(object sender, EventArgs e)
         {
-            DateTime start = dtp_beginAlerts.Value;
-            DateTime end = dtp_EndAlerts.Value;
 
-            if(start <= end)
-            {
-                List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end).ToList();
-                listView2.Items.Clear();
-                foreach (AlertasWeb item in listaWeb)
-                {
-                    if (item.read.Equals("Not Read"))
-                    {
-                        ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
-                        linha.SubItems.Add(item.snsUtente.ToString());
-                        linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
-                        linha.SubItems.Add(item.read);
-                        linha.SubItems.Add(item.tipo);
-                        linha.SubItems.Add(item.dataAlerta.ToShortDateString());
-                        linha.SubItems.Add(item.parametro);
-                        listView2.Items.Add(linha);
-
-                    }
-                }
-
-
-            }
-            else
-            {
-                MessageBox.Show("Data de Inicio nao pode maior que a data de fim!");
-            }
         }
 
         private void bt_read_Click(object sender, EventArgs e)
         {
 
-            if (listView2.SelectedItems.Count > 0)
-            {
-                AlertasWeb al = new AlertasWeb();
+        }
 
-                ListViewItem item = listView2.SelectedItems[0];
-                if (listView2.SelectedItems[0].SubItems[3].Text.Equals("Not Read"))
-                {
-                    int id = Convert.ToInt32(listView2.SelectedItems[0].Text);
-                    al.read = "Read";
-                    serv.marcarComoLido(al, id);
-                    listView2.SelectedItems[0].Remove();
-                    listView2.Refresh();
-                }
-            }
-           
+        private void toolStripButton_reports_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Reports_Click(object sender, EventArgs e)
+        {
+            panel_Adicionar.Visible = false;
+            panelPrincipal.Visible = false;
+            panelEdit.Visible = false;
+            panelGraficos.Visible = false;
+            panelDiarioValores.Visible = true;
+            panelAlerts.Visible = false;
+            panel_Reports.Visible = false;
         }
     }
 

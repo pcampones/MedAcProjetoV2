@@ -637,7 +637,7 @@ namespace ClinicalAlert
                         item.heartRate = valoresWeb.heartRate;
                         item.oxigenSat = valoresWeb.oxigenSat;
                         item.dataOfReposit = valoresWeb.dataOfReposit;
-                       */
+                       *///sdsdsdsd
                 }
 
                 chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();

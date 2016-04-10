@@ -271,6 +271,60 @@ namespace ClassLibraryMedAc
             }
         }
 
-       
+        public List<Alertas> getAlertaSns( DateTime startBegin, DateTime endBegin)
+        {
+            try
+            {
+                List<Alertas> result = context.AlertasSet.Where(i => i.Read.Equals("Not Read") && 
+                i.Data >= startBegin
+                && i.Data <= endBegin).ToList();
+
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public List<Utente> getUtentesAlertsNotRead()
+        {
+            try
+            {
+                List<Utente> utentes = new List<Utente>();
+                Utente u = new Utente();
+                var result = from utente in context.UtenteSet
+                             join alerta in context.AlertasSet on
+                             utente.Id equals alerta.Utente.Id
+                             where alerta.Read.Equals("Not Read")
+                             select new { utente };
+
+
+                foreach (var item in result)
+                {
+                    u = item.utente;
+                    utentes.Add(u);
+                }
+                return utentes;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void marcarComoLido(Alertas alerta, int id)
+        {
+            Alertas result = context.AlertasSet.Where(i=>i.Id == id).FirstOrDefault();
+
+            result.Read = alerta.Read;
+
+            context.SaveChanges();
+        }
+
+
     }
 }

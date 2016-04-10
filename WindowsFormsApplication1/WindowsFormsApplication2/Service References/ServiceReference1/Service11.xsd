@@ -44,4 +44,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ValoresWeb" nillable="true" type="tns:ValoresWeb" />
+  <xs:complexType name="ArrayOfAlertasWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlertasWeb" nillable="true" type="tns:AlertasWeb" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlertasWeb" nillable="true" type="tns:ArrayOfAlertasWeb" />
+  <xs:complexType name="AlertasWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataAlerta" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="nomeUtente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="parametro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="read" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sUtente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="snsUtente" type="xs:int" />
+      <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlertasWeb" nillable="true" type="tns:AlertasWeb" />
 </xs:schema>

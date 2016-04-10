@@ -102,6 +102,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetUtentesNotRead">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUtentesNotReadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetUtentesNotReadResult" nillable="true" type="q7:ArrayOfUtenteWeb" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetRegistofGrahp">
     <xs:complexType>
       <xs:sequence>
@@ -114,8 +126,52 @@
   <xs:element name="GetRegistofGrahpResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetRegistofGrahpResult" nillable="true" type="q7:ArrayOfValoresWeb" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetRegistofGrahpResult" nillable="true" type="q8:ArrayOfValoresWeb" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlertsNotRead">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+        <xs:element minOccurs="0" name="startBegin" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="startEnd" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlertsNotReadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAlertsNotReadResult" nillable="true" type="q9:ArrayOfAlertasWeb" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlertsNotReadDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="startBegin" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="startEnd" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlertsNotReadDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAlertsNotReadDateResult" nillable="true" type="q10:ArrayOfAlertasWeb" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="marcarComoLido">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="alerta" nillable="true" type="q11:AlertasWeb" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="marcarComoLidoResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -56,12 +56,27 @@ namespace ClinicalAlert
             List<UtenteWeb> listaUtente = serv.GetListaUtentes().ToList();
 
             foreach (UtenteWeb item in listaUtente)
+
             {
+                
                 ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
                 linha.SubItems.Add(item.name + " " + item.surname);
+                
                 listView1.Items.Add(linha);
 
             }
+
+
+          /*  List<AlertasWeb> listaWeb = serv.GetUtentesNotRead().ToList();
+            // List<AlertasWeb> listaWeb = serv.GetAlertsNotRead(sns,start,end).ToList();
+            foreach (AlertasWeb item in listaWeb)
+            {
+                ListViewItem linha = new ListViewItem(item.snsUtente.ToString(), 0);
+                linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
+
+                listView3.Items.Add(linha);
+
+            }*/
             // listBox_utentes.DisplayMember = "Name";
         }
 
@@ -503,7 +518,36 @@ namespace ClinicalAlert
             panelDiarioValores.Visible = false;
             panelAlerts.Visible = true;
             panel_relatorios.Visible = false;
+            DateTime start = DateTime.MinValue;
+            DateTime end = DateTime.MaxValue;
 
+
+            List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start,end).ToList();
+            listView2.Items.Clear();
+            foreach (AlertasWeb item in listaWeb)
+            {
+                if (item.read.Equals("Not Read"))
+                {
+                    ListViewItem linha = new ListViewItem(item.snsUtente.ToString(),0);
+                
+                    linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
+                    linha.SubItems.Add(item.read);
+                    linha.SubItems.Add(item.tipo);
+                    linha.SubItems.Add(item.dataAlerta.ToShortDateString());
+                    linha.SubItems.Add(item.parametro);
+                    listView2.Items.Add(linha);
+
+                }
+            }
+           // List<AlertasWeb> listaWeb = serv.GetUtentesNotRead().ToList();
+           //// List<AlertasWeb> listaWeb = serv.GetAlertsNotRead(sns,start,end).ToList();
+           // foreach (AlertasWeb item in listaWeb)
+           // {
+           //     ListViewItem linha = new ListViewItem(item.snsUtente.ToString(), 0);
+           //     linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
+           //     listView3.Items.Add(linha);
+
+           // }
             /*   List<AlertasWeb> valor = serv.GetValuesAlertsbySns(sns).ToList();
 
                foreach (AlertasWeb item in valor)
@@ -752,6 +796,26 @@ namespace ClinicalAlert
             panelDiarioValores.Visible = false;
             panelAlerts.Visible = false;
             panel_relatorios.Visible = true;
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_search_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_read_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

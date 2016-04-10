@@ -38,8 +38,8 @@ namespace ServiceLayer
         //[OperationContract]
         //List<AlertasWeb> GetValuesAlertsbySns(int sns);
 
-        //[OperationContract]
-        //List<ValoresWeb> GetAlertNotRead(int sns);
+        [OperationContract]
+        List<UtenteWeb> GetUtentesNotRead();
 
         [OperationContract]
         List<ValoresWeb> GetRegistofGrahp(int sns, DateTime dataMax, DateTime dataMin);
@@ -48,6 +48,11 @@ namespace ServiceLayer
         [OperationContract]
         List<AlertasWeb> GetAlertsNotRead(int sns, DateTime startBegin, DateTime startEnd);
 
+        [OperationContract]
+        List<AlertasWeb> GetAlertsNotReadDate(DateTime startBegin, DateTime startEnd);
+
+        [OperationContract]
+        void marcarComoLido(AlertasWeb alerta, int id);
         // TODO: Add your service operations here
     }
 
@@ -333,6 +338,25 @@ namespace ServiceLayer
         {
             get { return snsUtente; }
             set { snsUtente = value; }
+        }
+
+
+        [DataMember]
+        private string nomeUtente;
+
+        public string NomeUtente
+        {
+            get { return nomeUtente; }
+            set { nomeUtente = value; }
+        }
+
+        [DataMember]
+        private string sUtente;
+
+        public string SobreUtente
+        {
+            get { return sUtente; }
+            set { sUtente = value; }
         }
 
         [DataContract]

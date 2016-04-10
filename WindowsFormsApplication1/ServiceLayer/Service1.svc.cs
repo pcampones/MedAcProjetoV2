@@ -415,6 +415,8 @@ namespace ServiceLayer
                     alerW.Read = item.Read;
                     alerW.SnsUtente = item.Utente.SNS;
                     alerW.Tipo = item.Tipo;
+                    alerW.NomeUtente = item.Utente.Name;
+                    alerW.SobreUtente = item.Utente.Surname;
                     alerW.Parametro = item.Parametro;
                     listaWeb.Add(alerW);
                 }
@@ -428,6 +430,65 @@ namespace ServiceLayer
             }
         }
 
+        public List<AlertasWeb> GetAlertsNotReadDate(DateTime startBegin, DateTime startEnd)
+        {
+            try
+            {
+                List<Alertas> lista = _acederBd.getAlertaSns(startBegin, startEnd);
+                List<AlertasWeb> listaWeb = new List<AlertasWeb>();
+
+                foreach (Alertas item in lista)
+                {
+                    AlertasWeb alerW = new AlertasWeb();
+
+                    alerW.DataAlerta = item.Data;
+                    alerW.Read = item.Read;
+                    alerW.SnsUtente = item.Utente.SNS;
+                    alerW.Tipo = item.Tipo;
+                    alerW.NomeUtente = item.Utente.Name;
+                    alerW.SobreUtente = item.Utente.Surname;
+                    alerW.Parametro = item.Parametro;
+                    listaWeb.Add(alerW);
+                }
+
+                return listaWeb;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public void marcarComoLido(AlertasWeb alertaWeb, int id)
+        {
+            Alertas alerta = new Alertas();
+            alerta.Read = alertaWeb.Read;
+            _acederBd.marcarComoLido(alerta,id);
+        }
+
+        public List<UtenteWeb> GetUtentesNotRead()
+        {
+            try
+            {
+                List<Utente> lista = _acederBd.getUtentesAlertsNotRead();
+                List<UtenteWeb> listaWeb = new List<UtenteWeb>();
+
+                foreach (Utente item in lista)
+                {
+                    UtenteWeb alerW = new UtenteWeb();
+                    alerW.Name = item.Name;
+                    alerW.Surname = item.Surname;
+                    listaWeb.Add(alerW);
+                }
+
+                return listaWeb;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         public List<ValoresWeb> GetRegistofGrahp(int sns, DateTime dataMax, DateTime dataMin)
         {
             try

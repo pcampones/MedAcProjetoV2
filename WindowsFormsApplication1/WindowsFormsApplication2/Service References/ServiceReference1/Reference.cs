@@ -548,6 +548,147 @@ namespace ClinicalAlert.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlertasWeb", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.SerializableAttribute()]
+    public partial class AlertasWeb : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dataAlertaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nomeUtenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string parametroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string readField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sUtenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int snsUtenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tipoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime dataAlerta {
+            get {
+                return this.dataAlertaField;
+            }
+            set {
+                if ((this.dataAlertaField.Equals(value) != true)) {
+                    this.dataAlertaField = value;
+                    this.RaisePropertyChanged("dataAlerta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nomeUtente {
+            get {
+                return this.nomeUtenteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nomeUtenteField, value) != true)) {
+                    this.nomeUtenteField = value;
+                    this.RaisePropertyChanged("nomeUtente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string parametro {
+            get {
+                return this.parametroField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.parametroField, value) != true)) {
+                    this.parametroField = value;
+                    this.RaisePropertyChanged("parametro");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string read {
+            get {
+                return this.readField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.readField, value) != true)) {
+                    this.readField = value;
+                    this.RaisePropertyChanged("read");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sUtente {
+            get {
+                return this.sUtenteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sUtenteField, value) != true)) {
+                    this.sUtenteField = value;
+                    this.RaisePropertyChanged("sUtente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int snsUtente {
+            get {
+                return this.snsUtenteField;
+            }
+            set {
+                if ((this.snsUtenteField.Equals(value) != true)) {
+                    this.snsUtenteField = value;
+                    this.RaisePropertyChanged("snsUtente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string tipo {
+            get {
+                return this.tipoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tipoField, value) != true)) {
+                    this.tipoField = value;
+                    this.RaisePropertyChanged("tipo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -594,11 +735,35 @@ namespace ClinicalAlert.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetReportsHRbySNS", ReplyAction="http://tempuri.org/IService1/GetReportsHRbySNSResponse")]
         System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.EstatisticasWeb[]> GetReportsHRbySNSAsync(int sns, System.DateTime startDate, System.DateTime endDate, string type);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUtentesNotRead", ReplyAction="http://tempuri.org/IService1/GetUtentesNotReadResponse")]
+        ClinicalAlert.ServiceReference1.UtenteWeb[] GetUtentesNotRead();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUtentesNotRead", ReplyAction="http://tempuri.org/IService1/GetUtentesNotReadResponse")]
+        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.UtenteWeb[]> GetUtentesNotReadAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetRegistofGrahp", ReplyAction="http://tempuri.org/IService1/GetRegistofGrahpResponse")]
         ClinicalAlert.ServiceReference1.ValoresWeb[] GetRegistofGrahp(int sns, System.DateTime dataMax, System.DateTime dataMin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetRegistofGrahp", ReplyAction="http://tempuri.org/IService1/GetRegistofGrahpResponse")]
         System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetRegistofGrahpAsync(int sns, System.DateTime dataMax, System.DateTime dataMin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertsNotRead", ReplyAction="http://tempuri.org/IService1/GetAlertsNotReadResponse")]
+        ClinicalAlert.ServiceReference1.AlertasWeb[] GetAlertsNotRead(int sns, System.DateTime startBegin, System.DateTime startEnd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertsNotRead", ReplyAction="http://tempuri.org/IService1/GetAlertsNotReadResponse")]
+        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetAlertsNotReadAsync(int sns, System.DateTime startBegin, System.DateTime startEnd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertsNotReadDate", ReplyAction="http://tempuri.org/IService1/GetAlertsNotReadDateResponse")]
+        ClinicalAlert.ServiceReference1.AlertasWeb[] GetAlertsNotReadDate(System.DateTime startBegin, System.DateTime startEnd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertsNotReadDate", ReplyAction="http://tempuri.org/IService1/GetAlertsNotReadDateResponse")]
+        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetAlertsNotReadDateAsync(System.DateTime startBegin, System.DateTime startEnd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/marcarComoLido", ReplyAction="http://tempuri.org/IService1/marcarComoLidoResponse")]
+        void marcarComoLido(ClinicalAlert.ServiceReference1.AlertasWeb alerta, int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/marcarComoLido", ReplyAction="http://tempuri.org/IService1/marcarComoLidoResponse")]
+        System.Threading.Tasks.Task marcarComoLidoAsync(ClinicalAlert.ServiceReference1.AlertasWeb alerta, int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -684,12 +849,44 @@ namespace ClinicalAlert.ServiceReference1 {
             return base.Channel.GetReportsHRbySNSAsync(sns, startDate, endDate, type);
         }
         
+        public ClinicalAlert.ServiceReference1.UtenteWeb[] GetUtentesNotRead() {
+            return base.Channel.GetUtentesNotRead();
+        }
+        
+        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.UtenteWeb[]> GetUtentesNotReadAsync() {
+            return base.Channel.GetUtentesNotReadAsync();
+        }
+        
         public ClinicalAlert.ServiceReference1.ValoresWeb[] GetRegistofGrahp(int sns, System.DateTime dataMax, System.DateTime dataMin) {
             return base.Channel.GetRegistofGrahp(sns, dataMax, dataMin);
         }
         
         public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetRegistofGrahpAsync(int sns, System.DateTime dataMax, System.DateTime dataMin) {
             return base.Channel.GetRegistofGrahpAsync(sns, dataMax, dataMin);
+        }
+        
+        public ClinicalAlert.ServiceReference1.AlertasWeb[] GetAlertsNotRead(int sns, System.DateTime startBegin, System.DateTime startEnd) {
+            return base.Channel.GetAlertsNotRead(sns, startBegin, startEnd);
+        }
+        
+        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetAlertsNotReadAsync(int sns, System.DateTime startBegin, System.DateTime startEnd) {
+            return base.Channel.GetAlertsNotReadAsync(sns, startBegin, startEnd);
+        }
+        
+        public ClinicalAlert.ServiceReference1.AlertasWeb[] GetAlertsNotReadDate(System.DateTime startBegin, System.DateTime startEnd) {
+            return base.Channel.GetAlertsNotReadDate(startBegin, startEnd);
+        }
+        
+        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetAlertsNotReadDateAsync(System.DateTime startBegin, System.DateTime startEnd) {
+            return base.Channel.GetAlertsNotReadDateAsync(startBegin, startEnd);
+        }
+        
+        public void marcarComoLido(ClinicalAlert.ServiceReference1.AlertasWeb alerta, int id) {
+            base.Channel.marcarComoLido(alerta, id);
+        }
+        
+        public System.Threading.Tasks.Task marcarComoLidoAsync(ClinicalAlert.ServiceReference1.AlertasWeb alerta, int id) {
+            return base.Channel.marcarComoLidoAsync(alerta, id);
         }
     }
 }

@@ -48,10 +48,13 @@ namespace ClinicalAlert
             panelDiarioValores.Visible = false;
             listView1.View = View.Details;
             listView1.FullRowSelect = true;
-
-
+            listView2.View = View.Details;
+            listView2.FullRowSelect = true;
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             List<UtenteWeb> listaUtente = serv.GetListaUtentes().ToList();
 
@@ -61,23 +64,10 @@ namespace ClinicalAlert
 
                 ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
                 linha.SubItems.Add(item.name + " " + item.surname);
-
                 listView1.Items.Add(linha);
-
             }
 
-
-            /*  List<AlertasWeb> listaWeb = serv.GetUtentesNotRead().ToList();
-              // List<AlertasWeb> listaWeb = serv.GetAlertsNotRead(sns,start,end).ToList();
-              foreach (AlertasWeb item in listaWeb)
-              {
-                  ListViewItem linha = new ListViewItem(item.snsUtente.ToString(), 0);
-                  linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
-
-                  listView3.Items.Add(linha);
-
-              }*/
-            // listBox_utentes.DisplayMember = "Name";
+            
         }
 
         private void Add_Click(object sender, EventArgs e)
@@ -140,8 +130,7 @@ namespace ClinicalAlert
                 }
                 else
                 {
-                    //    frmPrincipal form = new frmPrincipal();
-
+                   
                 }
             }
             else
@@ -291,7 +280,6 @@ namespace ClinicalAlert
             chart1.Series.Clear();
             chart1.Titles.Clear();
 
-            //   List<ValoresWeb> valores = serv.GetRegistofGrahp(sns).ToList();
             chart1.Titles.Add("Chart Values");
 
             //Construção da àrea do gráfico
@@ -318,19 +306,7 @@ namespace ClinicalAlert
             chart1.Series["Blood Pressure"].Color = Color.Red;
             chart1.Series["Heart Rate"].Color = Color.Blue;
             chart1.Series["Oxygen Saturation"].Color = Color.Green;
-            //   ValoresWeb valoresWeb = new ValoresWeb();
-            //Pontos a aparecer no gráfico
-            /*  foreach (ValoresWeb item in valores)
-              {
 
-                  valoresWeb.valueR = item.valueR;
-                  valoresWeb.type = item.type;
-                  valoresWeb.dataOfReposit = item.dataOfReposit;
-
-              }
-             */
-
-            //chart1.Series["area"].Points.AddXY(dataMax,0);
             chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
             chart1.Series["Heart Rate"].Points.AddXY(dataMax, 10);
             chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 10);
@@ -346,23 +322,9 @@ namespace ClinicalAlert
             chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
             chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
             chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
-            //lsb_tipos.Items.Clear();
-            //lsb_parameters.Items.Clear();
-            //lsb_parameters.ClearSelected();
-            //lsb_tipos.ClearSelected();
-            //lsb_tipos.ResetText();
-            //lsb_parameters.ResetText();
-            //lsb_tipos.Items.Add("Collumns");
-            //lsb_tipos.Items.Add("Bars");
-            //lsb_tipos.Items.Add("Lines");
-            //lsb_parameters.Items.Add("Blood Pressure");
-            //lsb_parameters.Items.Add("Heart Rate");
-            //lsb_parameters.Items.Add("Oxygen Saturation");
 
 
 
-
-            //Titulo do gráfico
         }
 
         private void diarioValores_Click(object sender, EventArgs e)
@@ -431,7 +393,6 @@ namespace ClinicalAlert
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            //cem
             panelEdit.Visible = false;
             panelPrincipal.Visible = true;
             panel_Adicionar.Visible = false;
@@ -494,7 +455,6 @@ namespace ClinicalAlert
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            //aaaaa
 
         }
 
@@ -529,61 +489,134 @@ namespace ClinicalAlert
 
                 }
             }
-            // List<AlertasWeb> listaWeb = serv.GetUtentesNotRead().ToList();
-            //// List<AlertasWeb> listaWeb = serv.GetAlertsNotRead(sns,start,end).ToList();
-            // foreach (AlertasWeb item in listaWeb)
-            // {
-            //     ListViewItem linha = new ListViewItem(item.snsUtente.ToString(), 0);
-            //     linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
-            //     listView3.Items.Add(linha);
-
-            // }
-            /*   List<AlertasWeb> valor = serv.GetValuesAlertsbySns(sns).ToList();
-
-               foreach (AlertasWeb item in valor)
-               {
-
-                   if (item.read.Equals("Not Read"))
-                   {
-                       dataGridView2.Rows.Add(item.dataAlerta,
-                           item.tipo, item.read);
-
-                   }
-
-
-               }
-
-               List<ValoresWeb> u = serv.GetAlertNotRead(sns).ToList();
-
-               foreach (ValoresWeb item in u)
-               {
-                   ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
-                   linha.SubItems.Add(item.nomeUtente + " " + item.sUtente); // name + surname
-
-                   listView2.Items.Add(linha);
-               }
-
-
-                List<ValoresWeb> valor2 = serv.GetAlertNotRead (sns).ToList();
-
-
-
-                 foreach (ValoresWeb item in valor2)
-                 {
-                     ListViewItem linha = new ListViewItem(item..sns.ToString(), 0);
-                     linha.SubItems.Add(item.name + " " + item.surname);
-
-                     listView2.Items.Add(linha);
-                 }*/
+            
         }
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //  sns = Convert.ToInt32(listView2.Items[listView2.FocusedItem.Index].SubItems[0].Text);
+            
+
+        }
+
+
+     
+     
+      
+
+        //Graficos
+
+        private void cb_hr_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_hr.Checked == true)
+            {
+                List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
+
+                foreach (ValoresWeb item in v)
+                {
+                    if (item.type == "HR")
+                    {
+                        chart1.Series["Heart Rate"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+                    }
+
+                }
+
+            }
+            else
+            {
+                chart1.Series["Heart Rate"].Points.Clear();
+
+            }
+        }
+
+        private void cb_OS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_OS.Checked == true)
+            {
+                List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
+
+                foreach (ValoresWeb item in v)
+                {
+                    if (item.type == "SPO2")
+                    {
+                        chart1.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+                    }
+
+                }
+
+            }
+            else
+            {
+                chart1.Series["Oxygen Saturation"].Points.Clear();
+
+            }
+        }
+
+
+        private void cb_bp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_bp.Checked == true)
+            {
+                List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
+
+                foreach (ValoresWeb item in v)
+                {
+                    if (item.type == "BP")
+                    {
+                        chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+                    }
+
+                }
+
+            }
+            else
+            {
+                chart1.Series["Blood Pressure"].Points.Clear();
+
+            }
+        }
+
+        private void cb_collumns_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_collumns.Checked == true)
+            {
+                chart1.Series["Blood Pressure"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+                chart1.Series["Oxygen Saturation"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+                chart1.Series["Heart Rate"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            }
+
 
 
         }
 
+        private void cb_lines_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_lines.Checked == true)
+            {
+                chart1.Series["Blood Pressure"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                chart1.Series["Oxygen Saturation"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                chart1.Series["Heart Rate"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            }
+        }
+
+        private void cb_bars_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_bars.Checked == true)
+            {
+                //definição do tipo de gráficosss
+                chart1.Series["Blood Pressure"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+                chart1.Series["Oxygen Saturation"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+                chart1.Series["Heart Rate"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            }
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -601,32 +634,34 @@ namespace ClinicalAlert
             //Construção da àrea do gráfico
             chart1.ChartAreas.Add("area");
 
-            /*  lsb_parameters.Items.Clear();
-              lsb_parameters.ClearSelected();
-              lsb_tipos.Items.Clear();
-              lsb_tipos.ClearSelected();
-              */
 
             DateTime dataMin = dtp_begin.Value;
             DateTime dataMax = dtp_end.Value;
 
             if (dataMin <= dataMax)
             {
-                List<ValoresWeb> valores = serv.GetRegistofGrahp(sns, dataMax, dataMin).ToList();
-                ValoresWeb valoresWeb = new ValoresWeb();
-                foreach (ValoresWeb item in valores)
-                {
+                List<ValoresWeb> valores = getValuesGraphs(sns, dataMin, dataMax).ToList();
+                /*  ValoresWeb valoresWeb = new ValoresWeb();
+                  foreach (ValoresWeb item in valores)
+                  {
 
-                    item.type = valoresWeb.type;
-                    item.valueR = valoresWeb.valueR;
-                    item.dataOfReposit = item.dataOfReposit;
-                    /*    item.bloodPressureMax = valoresWeb.bloodPressureMax;
-                        item.bloodPressureMin = valoresWeb.bloodPressureMin;
-                        item.heartRate = valoresWeb.heartRate;
-                        item.oxigenSat = valoresWeb.oxigenSat;
-                        item.dataOfReposit = valoresWeb.dataOfReposit;
-                       */
+                      item.type = valoresWeb.type;
+                      item.valueR = valoresWeb.valueR;
+                      item.dataOfReposit = item.dataOfReposit;
+                      */
+                foreach (var item in valores)
+                {
+                    if (item.type == "HR")
+                    {
+                        chart1.Series["Heart Rate"].Points.AddXY(item.dataOfReposit, item.valueR);
+
+                    }
                 }
+
+
+
+
+
 
                 chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
                 chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
@@ -643,11 +678,7 @@ namespace ClinicalAlert
                 chart1.Series["Heart Rate"].Color = Color.Blue;
                 chart1.Series["Oxygen Saturation"].Color = Color.Green;
 
-                //Pontos a aparecer no gráfico         
-                /*chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
-                chart1.Series["Heart Rate"].Points.AddXY(dataMax, 10);
-                chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 10);
-                */
+
                 chart1.ChartAreas["area"].BackColor = Color.White;
                 chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
                 chart1.ChartAreas["area"].BackGradientStyle =
@@ -668,114 +699,8 @@ namespace ClinicalAlert
 
         }
 
-        private void lsb_tipos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cb_bars.Checked == true)
-            {
-                //definição do tipo de gráficosss
-                chart1.Series["Blood Pressure"].ChartType =
-                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-                chart1.Series["Oxygen Saturation"].ChartType =
-                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-                chart1.Series["Heart Rate"].ChartType =
-                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            }
-            if (cb_collumns.Checked == true)
-            {
-                chart1.Series["Blood Pressure"].ChartType =
-                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-                chart1.Series["Oxygen Saturation"].ChartType =
-                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-                chart1.Series["Heart Rate"].ChartType =
-                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            }
-            if (cb_lines.Checked == true)
-            {
-                chart1.Series["Blood Pressure"].ChartType =
-                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-                chart1.Series["Oxygen Saturation"].ChartType =
-                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-                chart1.Series["Heart Rate"].ChartType =
-                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            }
-        }
-
-        private void lsb_parameters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dtp_begin.Value = dataMin;
-            dtp_end.Value = dataMax;
-
-            if (dataMax < dataMin)
-            {
-                List<ValoresWeb> regGraficos = serv.GetRegistofGrahp(sns, dataMax, dataMin).ToList();
-
-                foreach (ValoresWeb item in regGraficos)
-                {
-                    if (cb_bp.Checked == true)
-                    {
-                        //chart1.Series["Blood Pre0ssure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.bloodPressureMax);
-                        chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
-                    }
-                    if (!cb_bp.Checked == true)
-                    {
-                        chart1.Series["Blood Pressure"].Points.Clear();
-                    }
-
-                    if (cb_hr.Checked == true)
-                    {
-                        if (item.type == "HR")
-                        {
-                            chart1.Series["Heart Rate"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
-                        }
-
-                    }
-                    if (!cb_hr.Checked == true)
-                    {
-                        chart1.Series["Heart Rate"].Points.Clear();
-                    }
-
-                    if (cb_OS.Checked == true)
-                    {
-                        if (item.type == "SPO2")
-                        {
-
-                            chart1.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
-                        }
-                    }
-                    if (!cb_OS.Checked == true)
-                    {
-                        chart1.Series["Oxygen Saturation"].Points.Clear();
-                    }
-                }
-            }
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            DateTime dataFIm = dtp_end_relatorios.Value;
-            DateTime dataInicio = dtp_start_relatorios.Value;
-            string tipo = null;
-            List<EstatisticasWeb> estat = serv.GetReportsHRbySNS(sns, dataFIm, dataInicio, tipo).ToList();
-
-            List<Estatisticas> es = new List<Estatisticas>();
-            Estatisticas esta = new Estatisticas();
-            foreach (EstatisticasWeb item in estat)
-            {
-                esta.MaxValue = item.valorMax;
 
 
-            }
-
-
-            //foreach (ValoresWeb item in estat)
-            //{
-            //    if (checkBoxOS.Checked == true)
-            //    {
-            //        Estatisticas es = new Estatisticas(item.type, 0, 0, 0, dataInicio, dataFIm);
-            //    }
-            //}
-        }
 
         private void relatorios_Click(object sender, EventArgs e)
         {
@@ -798,6 +723,9 @@ namespace ClinicalAlert
 
         }
 
+
+        // Alertas
+        
         private void bt_search_Click(object sender, EventArgs e)
         {
             DateTime start = dtp_beginAlerts.Value;
@@ -845,6 +773,8 @@ namespace ClinicalAlert
                     serv.marcarComoLido(al, id);
                     listView2.SelectedItems[0].Remove();
                     listView2.Refresh();
+                    MessageBox.Show("Alert Marked as read!","Information",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+
                 }
             }
 
@@ -856,6 +786,10 @@ namespace ClinicalAlert
 
         }
 
+
+
+        //Diario de Valores
+
         private void Reports_Click(object sender, EventArgs e)
         {
             panel_Adicionar.Visible = false;
@@ -866,8 +800,7 @@ namespace ClinicalAlert
             panelAlerts.Visible = false;
             panel_Reports.Visible = false;
 
-            Data_diarioValores.Rows.Clear();
-            Data_diarioValores.Refresh();
+            limpaDataGrid(Data_diarioValores);
 
             DateTime dateMin = DateTime.MinValue;
             DateTime dateMax = DateTime.MaxValue;
@@ -891,59 +824,21 @@ namespace ClinicalAlert
 
         }
 
-        private void cb_hr_CheckedChanged(object sender, EventArgs e)
-        {
-            List<ValoresWeb> lis = serv.GetRegistofGrahp(sns, dataMax, dataMin).ToList();
-            ValoresWeb v = new ValoresWeb();
-            foreach (var item in lis)
-            {
-                v.valueR = item.valueR;
-                v.type = item.type;
-                v.dataOfReposit = item.dataOfReposit;
-            }
-            if (cb_hr.Checked == true)
-            {
-                if (v.type == "HR")
-                {
-                    chart1.Series["Heart Rate"].Points.AddXY(v.dataOfReposit.ToOADate(), v.valueR);
-                }
+        // Estatisticas
 
-            }
-            else
-            {
-                chart1.Series["Heart Rate"].Points.Clear();
-
-            }
-        }
-
-        
 
         private void checkBoxHR_CheckedChanged(object sender, EventArgs e)
         {
             DateTime dataMax = DateTime.Now;
             DateTime dataMin = DateTime.Now.AddDays(-7);
 
-            data_reports.Rows.Clear();
-            data_reports.Refresh();
+            limpaDataGrid(data_reports);
 
 
             if (checkBoxHR.Checked == true)
             {
-                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, dataMin, dataMax, "HR").ToList();
-
-                EstatisticasWeb esta = new EstatisticasWeb();
-
-                foreach (EstatisticasWeb item in lista)
-                {
-                    esta.valorMax = item.valorMax;
-                    esta.valorMed = item.valorMed;
-                    esta.valorMin = item.valorMin;
-                    esta.startDate = item.startDate;
-                    esta.tipo = item.tipo;
-                    esta.endDate = item.endDate;
-
-                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
-                }
+                EstatisticasWeb esta = getEstatisticas(sns,dataMin, dataMax, "HR");
+                data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
             } 
            
         }
@@ -953,27 +848,12 @@ namespace ClinicalAlert
             DateTime dataMax = DateTime.Now;
             DateTime dataMin = DateTime.Now.AddDays(-7);
 
-            data_reports.Rows.Clear();
-            data_reports.Refresh();
-
+            limpaDataGrid(data_reports);
 
             if (checkBoxOS.Checked == true)
             {
-                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, dataMin, dataMax, "SPO2").ToList();
-
-                EstatisticasWeb esta = new EstatisticasWeb();
-
-                foreach (EstatisticasWeb item in lista)
-                {
-                    esta.valorMax = item.valorMax;
-                    esta.valorMed = item.valorMed;
-                    esta.valorMin = item.valorMin;
-                    esta.startDate = item.startDate;
-                    esta.tipo = item.tipo;
-                    esta.endDate = item.endDate;
-
-                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
-                }
+                EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "SPO2");
+                data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
             }
 
         }
@@ -983,27 +863,12 @@ namespace ClinicalAlert
             DateTime dataMax = DateTime.Now;
             DateTime dataMin = DateTime.Now.AddDays(-7);
 
-            data_reports.Rows.Clear();
-            data_reports.Refresh();
-
+            limpaDataGrid(data_reports);
 
             if (checkBoxBP.Checked == true)
             {
-                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, dataMin, dataMax, "BP").ToList();
-
-                EstatisticasWeb esta = new EstatisticasWeb();
-
-                foreach (EstatisticasWeb item in lista)
-                {
-                    esta.valorMax = item.valorMax;
-                    esta.valorMed = item.valorMed;
-                    esta.valorMin = item.valorMin;
-                    esta.startDate = item.startDate;
-                    esta.tipo = item.tipo;
-                    esta.endDate = item.endDate;
-
-                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
-                }
+                EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "BP");
+                data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
             }
 
         }
@@ -1013,67 +878,82 @@ namespace ClinicalAlert
             DateTime startDate = dtp_start_reports.Value;
             DateTime endDate = dtp_end_reports.Value;
 
-            data_reports.Rows.Clear();
-            data_reports.Refresh();
+            
+            limpaDataGrid(data_reports);
 
-
-            if (checkBoxBP.Checked == true)
+            if (checkBoxBP.Checked == false && checkBoxHR.Checked == false && checkBoxOS.Checked == false)
             {
-                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, startDate, endDate, "BP").ToList();
+                MessageBox.Show("Please select checkbox!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                EstatisticasWeb esta = new EstatisticasWeb();
-
-                foreach (EstatisticasWeb item in lista)
-                {
-                    esta.valorMax = item.valorMax;
-                    esta.valorMed = item.valorMed;
-                    esta.valorMin = item.valorMin;
-                    esta.startDate = item.startDate;
-                    esta.tipo = item.tipo;
-                    esta.endDate = item.endDate;
-
-                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
-                }
             }
-
-            if (checkBoxOS.Checked == true)
+            else
             {
-                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, startDate, endDate, "SPO2").ToList();
-
-                EstatisticasWeb esta = new EstatisticasWeb();
-
-                foreach (EstatisticasWeb item in lista)
+                if (checkBoxBP.Checked == true)
                 {
-                    esta.valorMax = item.valorMax;
-                    esta.valorMed = item.valorMed;
-                    esta.valorMin = item.valorMin;
-                    esta.startDate = item.startDate;
-                    esta.tipo = item.tipo;
-                    esta.endDate = item.endDate;
-
+                    EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "BP");
                     data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
                 }
-            }
 
-            if (checkBoxHR.Checked == true)
-            {
-                List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, startDate, endDate, "HR").ToList();
-
-                EstatisticasWeb esta = new EstatisticasWeb();
-
-                foreach (EstatisticasWeb item in lista)
+                if (checkBoxOS.Checked == true)
                 {
-                    esta.valorMax = item.valorMax;
-                    esta.valorMed = item.valorMed;
-                    esta.valorMin = item.valorMin;
-                    esta.startDate = item.startDate;
-                    esta.tipo = item.tipo;
-                    esta.endDate = item.endDate;
 
+                    EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "SPO2");
                     data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
                 }
+
+                if (checkBoxHR.Checked == true)
+                {
+                    EstatisticasWeb esta = getEstatisticas(sns, startDate, endDate, "HR");
+                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                }
+
             }
 
         }
+
+        private void limpaDataGrid(DataGridView data)
+        {
+            data.Rows.Clear();
+            data.Refresh();
+        }
+
+        private List<ValoresWeb> getValuesGraphs(int sns, DateTime startDate, DateTime endDate)
+        {
+            List<ValoresWeb> lista = serv.GetRegistofGrahp(sns, startDate, endDate).ToList();
+            List<ValoresWeb> listaW = new List<ValoresWeb>();
+         
+            foreach (ValoresWeb item in lista)
+            {
+                ValoresWeb v = new ValoresWeb();
+
+                v.valueR = item.valueR;
+                v.type = item.type;
+                v.dataOfReposit = item.dataOfReposit;
+
+                listaW.Add(v);
+            }
+            return listaW;
+        }
+
+        private EstatisticasWeb getEstatisticas(int sns, DateTime start, DateTime end, string type)
+        {
+            List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns,start,end,type).ToList();
+            EstatisticasWeb esta = new EstatisticasWeb();
+            foreach (EstatisticasWeb item in lista)
+            {
+                esta.valorMax = item.valorMax;
+                esta.valorMed = item.valorMed;
+                esta.valorMin = item.valorMin;
+                esta.startDate = item.startDate;
+                esta.tipo = item.tipo;
+                esta.endDate = item.endDate;
+
+                return esta;
+            }
+            return null;
+            
+        }
+
+     
     }
 }

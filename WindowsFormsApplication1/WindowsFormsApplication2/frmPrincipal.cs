@@ -285,7 +285,7 @@ namespace ClinicalAlert
                 numericUpDown3.Enabled = false;
                 richTextBox1.Enabled = false;
                 button2.Text = "Edit";
-                MessageBox.Show("Successfully edited data!", "Confirmation", MessageBoxButtons.OK);
+                MessageBox.Show("Successfully edited data!", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (button2.Text.Equals("Edit"))
             {

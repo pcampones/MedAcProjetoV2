@@ -810,12 +810,55 @@ namespace ClinicalAlert
 
         private void bt_search_Click(object sender, EventArgs e)
         {
+            DateTime start = dtp_beginAlerts.Value;
+            DateTime end = dtp_EndAlerts.Value;
 
+            if(start <= end)
+            {
+                List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end).ToList();
+                listView2.Items.Clear();
+                foreach (AlertasWeb item in listaWeb)
+                {
+                    if (item.read.Equals("Not Read"))
+                    {
+                        ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
+                        linha.SubItems.Add(item.snsUtente.ToString());
+                        linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
+                        linha.SubItems.Add(item.read);
+                        linha.SubItems.Add(item.tipo);
+                        linha.SubItems.Add(item.dataAlerta.ToShortDateString());
+                        linha.SubItems.Add(item.parametro);
+                        listView2.Items.Add(linha);
+
+                    }
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Data de Inicio nao pode maior que a data de fim!");
+            }
         }
 
         private void bt_read_Click(object sender, EventArgs e)
         {
 
+            if (listView2.SelectedItems.Count > 0)
+            {
+                AlertasWeb al = new AlertasWeb();
+
+                ListViewItem item = listView2.SelectedItems[0];
+                if (listView2.SelectedItems[0].SubItems[3].Text.Equals("Not Read"))
+                {
+                    int id = Convert.ToInt32(listView2.SelectedItems[0].Text);
+                    al.read = "Read";
+                    serv.marcarComoLido(al, id);
+                    listView2.SelectedItems[0].Remove();
+                    listView2.Refresh();
+                }
+            }
+           
         }
     }
 

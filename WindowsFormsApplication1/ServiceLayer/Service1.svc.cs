@@ -441,6 +441,7 @@ namespace ServiceLayer
                 {
                     AlertasWeb alerW = new AlertasWeb();
 
+                    alerW.SNS = item.Id;
                     alerW.DataAlerta = item.Data;
                     alerW.Read = item.Read;
                     alerW.SnsUtente = item.Utente.SNS;

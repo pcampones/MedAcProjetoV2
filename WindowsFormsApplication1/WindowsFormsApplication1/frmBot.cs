@@ -15,6 +15,7 @@ using System.Xml;
 using System.Web;
 using System.Net;
 using System.IO;
+using System.Speech.Synthesis;
 
 namespace BOT
 {
@@ -22,21 +23,20 @@ namespace BOT
     {
 
         private Service1Client serv;
-        PhysiologicParametersDll.PhysiologicParametersDll dll = null;
+        private UtenteWeb u;
+        private int sns;
+        enum DataType { Normal, Alerts };
 
         bool BLOODPRESSSURE = true;
         bool HEARTRATE = true;
         bool OXIGENSATURATION = true;
 
-        BackgroundWorker bw = new BackgroundWorker();
+        PhysiologicParametersDll.PhysiologicParametersDll dll = null;
+
+        SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
         List<SearchTerm> listSearchTerm = new List<SearchTerm>();
 
-        private UtenteWeb u;
-
-        enum DataType { Normal, Alerts };
-
-        private int sns;
-
+        BackgroundWorker bw = new BackgroundWorker();
 
         public Form1()
         {
@@ -44,35 +44,23 @@ namespace BOT
             serv = new Service1Client();
 
             this.MaximizeBox = false;
-
-            this.StartPosition = FormStartPosition.CenterScreen;
-
-          
+            this.StartPosition = FormStartPosition.CenterScreen;         
             bw.DoWork += new DoWorkEventHandler(doWork);
-            //panelMedical.Visible = false;
+
             panelDataAcquisition.Visible = false;
             panelMe.Visible = false;
             panel1.Visible = false;
             panelPrincipal.Visible = true;
-
         }
-
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
             sns = Settings.Default.SNS;
-
             bloodPreCheckBox.Checked = false;
             heartRateCheckBox.Checked = false;
             oxigenPressurecheckBox.Checked = false;
-
             toolStripTextBox1.Text = sns.ToString();
-
         }
-
-
-
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -81,6 +69,7 @@ namespace BOT
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -90,8 +79,6 @@ namespace BOT
             panelPrincipal.Visible = false;
             panel1.Visible = false;
 
-            //     panelMedical.Visible = false;
-
             if (u == null)
             {
                 lbl_name.Text = "N.D";
@@ -100,9 +87,6 @@ namespace BOT
                 lbl_sns.Text = "N.D";
                 lbl_surname.Text = "N.D";
             }
-
-
-
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -111,10 +95,6 @@ namespace BOT
             panelMe.Visible = false;
             panelPrincipal.Visible = false;
             panel1.Visible = false;
-
-            //sdsd
-
-
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -136,18 +116,14 @@ namespace BOT
 
         }
 
-
-
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            //dsdsj n nsd sds
             Properties.Settings.Default.SNS = int.Parse(toolStripTextBox1.Text);
             Properties.Settings.Default.Save();
 
             u = serv.GetUtenteBySNS(int.Parse(toolStripTextBox1.Text));
             if (u != null)
             {
-
                 toolStripLabel2.Text = "Welcome " + u.name;
 
                 MessageBox.Show("SNS valid!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -159,8 +135,6 @@ namespace BOT
                 lbl_birthdate.Text = u.birthdate.ToShortDateString();
                 lbl_age.Text = u.age.ToString();
 
-
-
             }
             else
             {
@@ -171,8 +145,6 @@ namespace BOT
                 lbl_sns.Text = "N.D";
                 lbl_surname.Text = "N.D";
                 toolStripLabel2.Text = "N.D";
-
-
             }
         }
 
@@ -221,7 +193,6 @@ namespace BOT
 
                 item1.SubItems.Add(a);
                 item1.SubItems.Add(result.FullSummary);
-                //dataGridView1.Rows.Add(item1.ToString());
             }
         }
 
@@ -259,43 +230,7 @@ namespace BOT
                 results.Add(searchTerm);
             }
             FillListView(results);
-
         }
-
-        // CODIGO RECONHECIMENTO
-        //    //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
-
-        //    //List<String> options = new List<String>(new String[] { "search" });
-
-        //    //Choices choicesOptions = new Choices(options.ToArray());
-
-        //    //GrammarBuilder gb = new GrammarBuilder();
-        //    //gb.Append(choicesOptions);
-
-        //    //Grammar g = new Grammar(gb);
-        //    //g.Name = "services grammar";
-        //    ////groupBox1.Name = g.Name;
-        //    //recognizer.LoadGrammar(g);
-
-        //    //recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
-
-        //    //recognizer.SetInputToDefaultAudioDevice();
-
-        //    //recognizer.RecognizeAsync(RecognizeMode.Multiple);     
-        //    //}
-
-        //    // void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
-        //    //{
-        //    //    if (e.Result.Text.Equals("search"))
-        //    //    {
-        //    //        listView1.Items.Clear();
-
-        //    listView1.Columns.Add("Rank", 50, HorizontalAlignment.Left);
-        //    listView1.Columns.Add("Title", 150, HorizontalAlignment.Left);
-        //    listView1.Columns.Add("Organization Name", 150, HorizontalAlignment.Left);
-        //    listView1.Columns.Add("Alternative Names", 150, HorizontalAlignment.Left);
-        //    listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
-        //}
 
         private void panelDataAcquisition_Paint(object sender, PaintEventArgs e)
         {
@@ -382,9 +317,6 @@ namespace BOT
 
                     serv.AddValues(Settings.Default.SNS, "BP", bloodPressureMaxLbl.Text , DateTime.Parse(label16.Text));
 
-                    //serv.AddValues(Settings.Default.SNS, Convert.ToInt32(bloodPressureMinLbl.Text),
-                    //    Convert.ToInt32(bloodPressureMaxLbl.Text)
-                    // , 0, 0, DateTime.Parse(label16.Text));
                 }
                 else if (valor[0].Equals("HR"))
                 {
@@ -393,9 +325,6 @@ namespace BOT
 
                     serv.AddValues(Settings.Default.SNS, "HR", heartRateLbl.Text, DateTime.Parse(label15.Text));
 
-                    //serv.AddValues(Settings.Default.SNS, 0,
-                    //  0, Convert.ToInt32(heartRateLbl.Text), 0, Convert.ToDateTime(label15.Text));
-
                 }
                 else if (valor[0].Equals("SPO2"))
                 {
@@ -403,13 +332,7 @@ namespace BOT
                     label17.Text = valor[2];
 
                     serv.AddValues(Settings.Default.SNS, "SPO2", oxigenPressureLbl.Text, Convert.ToDateTime(label17.Text));
-
-                    //serv.AddValues(Settings.Default.SNS, 0,
-                    // 0, 0, Convert.ToInt32(oxigenPressureLbl.Text), Convert.ToDateTime(label17.Text));
-
                 }
-
-
             });
         }
         public void doWork(object sender, DoWorkEventArgs e)
@@ -453,8 +376,6 @@ namespace BOT
                     XmlNodeList s = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='FullSummary']");
                     XmlNodeList at = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='altTitle']");
 
-
-                    // falta altTitle criar uma lista para os alternative titles
                     foreach (XmlNode nodeT in t)
                     {
                         foreach (XmlNode nodeO in o)
@@ -476,51 +397,10 @@ namespace BOT
 
                 foreach (SearchTerm item in listSearchTerm)
                 {
-             
-                    dataGridView1.Rows.Add(item.Rank, item.Title, item.AltTitles, item.FullSummary, item.OrganizationName);         
+
+                    dataGridView1.Rows.Add(item.Rank, item.Title, item.AltTitles, item.FullSummary, item.OrganizationName);
                 }
-
             }
-
-
-            //    serv = new Service1Client();
-
-            //SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
-
-            //List<String> options = new List<String>(new String[] { "search" });
-
-            //Choices choicesOptions = new Choices(options.ToArray());
-
-            //GrammarBuilder gb = new GrammarBuilder();
-            //gb.Append(choicesOptions);
-
-            //Grammar g = new Grammar(gb);
-            //g.Name = "services grammar";
-            ////groupBox1.Name = g.Name;
-            //recognizer.LoadGrammar(g);
-
-            //recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
-
-            //recognizer.SetInputToDefaultAudioDevice();
-
-            //recognizer.RecognizeAsync(RecognizeMode.Multiple);     
-            //}
-
-            // void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
-            //{
-            //    if (e.Result.Text.Equals("search"))
-            //    {
-            //        listView1.Items.Clear();
-
-
-            //    listView1.Columns.Add("Title", 150, HorizontalAlignment.Left);
-            //listView1.Columns.Add("Organization Name", 150, HorizontalAlignment.Left);
-            //listView1.Columns.Add("Alternative Names", 150, HorizontalAlignment.Left);
-            //listView1.Columns.Add("Full Summary", 200, HorizontalAlignment.Left);
-
-
-            //dataGridView1.Columns.Add("Rank", 50, HorizontalAlignment.Left);
-            //dataGridView1.aaa
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
@@ -543,6 +423,50 @@ namespace BOT
             webBrowser1.Navigate("about:blank");
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
+        }
+
+        void LoadGrammar()
+        {
+            Choices sLists = new Choices();
+            sLists.Add(new string[] { "asthma", "search", "clear", "exit", "configuration", "ok"});
+            Grammar gr = new Grammar(new GrammarBuilder(sLists));
+            try
+            {
+                recognizer.RequestRecognizerUpdate();//recognizer is	the	SpeechRecognitionEngine
+                recognizer.LoadGrammar(gr);
+                recognizer.SpeechRecognized += sRecognize_SpeechRecognized;
+                recognizer.SetInputToDefaultAudioDevice();	//wich	microfone	to	use
+                recognizer.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        private void sRecognize_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            if (e.Result.Text.Equals("asthma"))
+            {
+                txb_search.AppendText("asthma" + Environment.NewLine);
+            }
+            else if (e.Result.Text.Equals("search"))
+            {
+                bt_search_Click(this, e);
+            }
+            else if (e.Result.Text.Equals("exit"))
+            {
+                this.Close();
+            }
+            else if (e.Result.Text.Equals("configuration"))
+            {
+                formConfigs frm = new formConfigs();
+                frm.ShowDialog();
+            }
+            else if (e.Result.Text.Equals("clear"))
+            {
+                bt_clear_Click(this, e);
+            }
         }
     }
 

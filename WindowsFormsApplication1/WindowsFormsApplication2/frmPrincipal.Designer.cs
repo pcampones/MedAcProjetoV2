@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
@@ -242,9 +242,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
+            this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
             this.splitContainer1.Panel2.Controls.Add(this.panel_Reports);
             this.splitContainer1.Panel2.Controls.Add(this.panelDiarioValores);
-            this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
             this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
             this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
             this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
@@ -271,7 +271,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(157, 521);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+          
             // 
             // Add
             // 
@@ -359,9 +359,9 @@
             // 
             this.panelPrincipal.Controls.Add(this.pictureBox1);
             this.panelPrincipal.Controls.Add(this.groupBox12);
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 26);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(667, 463);
+            this.panelPrincipal.Size = new System.Drawing.Size(667, 495);
             this.panelPrincipal.TabIndex = 41;
             // 
             // pictureBox1
@@ -410,9 +410,9 @@
             this.panel_Reports.Controls.Add(this.groupBox16);
             this.panel_Reports.Controls.Add(this.groupBox15);
             this.panel_Reports.Controls.Add(this.groupBox14);
-            this.panel_Reports.Location = new System.Drawing.Point(0, 0);
+            this.panel_Reports.Location = new System.Drawing.Point(0, 29);
             this.panel_Reports.Name = "panel_Reports";
-            this.panel_Reports.Size = new System.Drawing.Size(667, 495);
+            this.panel_Reports.Size = new System.Drawing.Size(667, 492);
             this.panel_Reports.TabIndex = 4;
             // 
             // bt_confirm
@@ -648,6 +648,7 @@
             this.cb_bp.TabIndex = 2;
             this.cb_bp.Text = "Blood Pressure";
             this.cb_bp.UseVisualStyleBackColor = true;
+            this.cb_bp.CheckedChanged += new System.EventHandler(this.cb_bp_CheckedChanged);
             // 
             // cb_hr
             // 
@@ -669,6 +670,7 @@
             this.cb_OS.TabIndex = 0;
             this.cb_OS.Text = "Oxygen Saturation";
             this.cb_OS.UseVisualStyleBackColor = true;
+            this.cb_OS.CheckedChanged += new System.EventHandler(this.cb_OS_CheckedChanged);
             // 
             // button3
             // 
@@ -746,6 +748,7 @@
             this.cb_bars.TabIndex = 2;
             this.cb_bars.Text = "Bars";
             this.cb_bars.UseVisualStyleBackColor = true;
+            this.cb_bars.CheckedChanged += new System.EventHandler(this.cb_bars_CheckedChanged);
             // 
             // cb_lines
             // 
@@ -756,6 +759,7 @@
             this.cb_lines.TabIndex = 1;
             this.cb_lines.Text = "Lines";
             this.cb_lines.UseVisualStyleBackColor = true;
+            this.cb_lines.CheckedChanged += new System.EventHandler(this.cb_lines_CheckedChanged);
             // 
             // cb_collumns
             // 
@@ -766,6 +770,7 @@
             this.cb_collumns.TabIndex = 0;
             this.cb_collumns.Text = "Collumns";
             this.cb_collumns.UseVisualStyleBackColor = true;
+            this.cb_collumns.CheckedChanged += new System.EventHandler(this.cb_collumns_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -779,16 +784,16 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart1.Legends.Add(legend7);
             this.chart1.Location = new System.Drawing.Point(7, 20);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.chart1.Series.Add(series7);
             this.chart1.Size = new System.Drawing.Size(626, 266);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -905,7 +910,7 @@
             this.listView2.TabIndex = 1;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+         
             // 
             // columnId
             // 
@@ -1699,7 +1704,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPrincipal";
             this.Text = "Clinical Alert";
-            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

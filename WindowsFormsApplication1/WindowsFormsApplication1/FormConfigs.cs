@@ -12,7 +12,6 @@ namespace BOT
 {
     public partial class formConfigs : Form
     {
-        //caac shjbsjb
         public formConfigs()
         {
             InitializeComponent();
@@ -33,14 +32,10 @@ namespace BOT
             {
                 txb_local.Text = Properties.Settings.Default.LocalUrl;
             }
-
-
         }
 
         private void bt_ok_Click(object sender, EventArgs e)
         {
-            
-
             if (txb_delaydll.Text != null)
             {
                 Properties.Settings.Default.Delay =int.Parse(txb_delaydll.Text);
@@ -72,8 +67,7 @@ namespace BOT
             txb_medline.Text = Properties.Settings.Default.Medline;
             txb_local.Text = Properties.Settings.Default.LocalUrl;
             txb_retmax.Text = Properties.Settings.Default.Retmax.ToString();
-            txb_delaydll.Text = Properties.Settings.Default.Delay.ToString();
-           
+            txb_delaydll.Text = Properties.Settings.Default.Delay.ToString();          
         }
     }
 }

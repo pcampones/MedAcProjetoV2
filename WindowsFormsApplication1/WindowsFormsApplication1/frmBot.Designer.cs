@@ -34,6 +34,38 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AlternativeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullSummary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txb_alternative = new System.Windows.Forms.TextBox();
+            this.txb_organization = new System.Windows.Forms.TextBox();
+            this.txb_title = new System.Windows.Forms.TextBox();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.bt_clear = new System.Windows.Forms.Button();
+            this.bt_search = new System.Windows.Forms.Button();
+            this.txb_search = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panelMe = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_surname = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_name = new System.Windows.Forms.Label();
+            this.lbl_birthdate = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_sns = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbl_age = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panelDataAcquisition = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.launchAlertsButton = new System.Windows.Forms.Button();
@@ -51,9 +83,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,17 +90,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.oxigenPressurecheckBox = new System.Windows.Forms.CheckBox();
             this.heartRateCheckBox = new System.Windows.Forms.CheckBox();
-            this.panelMe = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lbl_surname = new System.Windows.Forms.Label();
-            this.lbl_name = new System.Windows.Forms.Label();
-            this.lbl_birthdate = new System.Windows.Forms.Label();
-            this.lbl_sns = new System.Windows.Forms.Label();
-            this.lbl_age = new System.Windows.Forms.Label();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -82,44 +103,23 @@
             this.bt_searcg = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txb_search = new System.Windows.Forms.TextBox();
-            this.bt_search = new System.Windows.Forms.Button();
-            this.bt_clear = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.txb_title = new System.Windows.Forms.TextBox();
-            this.txb_organization = new System.Windows.Forms.TextBox();
-            this.txb_alternative = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullSummary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AlternativeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panelMe.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelDataAcquisition.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.panelMe.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -133,10 +133,10 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.panelMe);
             this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
-            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Size = new System.Drawing.Size(751, 493);
             this.splitContainer1.SplitterDistance = 105;
@@ -198,6 +198,293 @@
             this.toolStripButton3.Text = "Medical Dictionary";
             this.toolStripButton3.ToolTipText = "Medical Dictionary";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.txb_alternative);
+            this.panel1.Controls.Add(this.txb_organization);
+            this.panel1.Controls.Add(this.txb_title);
+            this.panel1.Controls.Add(this.webBrowser1);
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.bt_clear);
+            this.panel1.Controls.Add(this.bt_search);
+            this.panel1.Controls.Add(this.txb_search);
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(642, 465);
+            this.panel1.TabIndex = 48;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rank,
+            this.title,
+            this.AlternativeTitle,
+            this.FullSummary,
+            this.OrganizationName});
+            this.dataGridView1.Location = new System.Drawing.Point(18, 93);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(248, 358);
+            this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            // 
+            // rank
+            // 
+            this.rank.HeaderText = "Rank";
+            this.rank.Name = "rank";
+            // 
+            // title
+            // 
+            this.title.HeaderText = "Title";
+            this.title.Name = "title";
+            // 
+            // AlternativeTitle
+            // 
+            this.AlternativeTitle.HeaderText = "Alternative Title";
+            this.AlternativeTitle.Name = "AlternativeTitle";
+            // 
+            // FullSummary
+            // 
+            this.FullSummary.HeaderText = "Full Summary";
+            this.FullSummary.Name = "FullSummary";
+            // 
+            // OrganizationName
+            // 
+            this.OrganizationName.HeaderText = "Organizarion Name";
+            this.OrganizationName.Name = "OrganizationName";
+            // 
+            // txb_alternative
+            // 
+            this.txb_alternative.Location = new System.Drawing.Point(364, 188);
+            this.txb_alternative.Name = "txb_alternative";
+            this.txb_alternative.Size = new System.Drawing.Size(267, 20);
+            this.txb_alternative.TabIndex = 12;
+            // 
+            // txb_organization
+            // 
+            this.txb_organization.Location = new System.Drawing.Point(364, 145);
+            this.txb_organization.Name = "txb_organization";
+            this.txb_organization.Size = new System.Drawing.Size(267, 20);
+            this.txb_organization.TabIndex = 11;
+            // 
+            // txb_title
+            // 
+            this.txb_title.Location = new System.Drawing.Point(364, 93);
+            this.txb_title.Name = "txb_title";
+            this.txb_title.Size = new System.Drawing.Size(267, 20);
+            this.txb_title.TabIndex = 10;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(364, 231);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(267, 220);
+            this.webBrowser1.TabIndex = 9;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(283, 231);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(72, 13);
+            this.label23.TabIndex = 8;
+            this.label23.Text = "Full Summary:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(272, 191);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(83, 13);
+            this.label22.TabIndex = 7;
+            this.label22.Text = "Alternative Title:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(288, 148);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(69, 13);
+            this.label21.TabIndex = 6;
+            this.label21.Text = "Organization:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(325, 98);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(30, 13);
+            this.label20.TabIndex = 5;
+            this.label20.Text = "Title:";
+            // 
+            // bt_clear
+            // 
+            this.bt_clear.Location = new System.Drawing.Point(434, 20);
+            this.bt_clear.Name = "bt_clear";
+            this.bt_clear.Size = new System.Drawing.Size(75, 23);
+            this.bt_clear.TabIndex = 4;
+            this.bt_clear.Text = "Clear";
+            this.bt_clear.UseVisualStyleBackColor = true;
+            this.bt_clear.Click += new System.EventHandler(this.bt_clear_Click);
+            // 
+            // bt_search
+            // 
+            this.bt_search.Location = new System.Drawing.Point(311, 20);
+            this.bt_search.Name = "bt_search";
+            this.bt_search.Size = new System.Drawing.Size(75, 23);
+            this.bt_search.TabIndex = 3;
+            this.bt_search.Text = "Search";
+            this.bt_search.UseVisualStyleBackColor = true;
+            this.bt_search.Click += new System.EventHandler(this.bt_search_Click);
+            // 
+            // txb_search
+            // 
+            this.txb_search.Location = new System.Drawing.Point(47, 22);
+            this.txb_search.Name = "txb_search";
+            this.txb_search.Size = new System.Drawing.Size(226, 20);
+            this.txb_search.TabIndex = 2;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(7, 25);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(34, 13);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Term:";
+            // 
+            // panelMe
+            // 
+            this.panelMe.Controls.Add(this.groupBox4);
+            this.panelMe.Location = new System.Drawing.Point(0, 28);
+            this.panelMe.Name = "panelMe";
+            this.panelMe.Size = new System.Drawing.Size(642, 465);
+            this.panelMe.TabIndex = 24;
+            this.panelMe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMe_Paint);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.pictureBox2);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.lbl_surname);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.lbl_name);
+            this.groupBox4.Controls.Add(this.lbl_birthdate);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.lbl_sns);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.lbl_age);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(15, 20);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(606, 431);
+            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Me";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(208, 165);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(348, 227);
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(32, 100);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(36, 16);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "SNS";
+            // 
+            // lbl_surname
+            // 
+            this.lbl_surname.AutoSize = true;
+            this.lbl_surname.Location = new System.Drawing.Point(361, 49);
+            this.lbl_surname.Name = "lbl_surname";
+            this.lbl_surname.Size = new System.Drawing.Size(0, 16);
+            this.lbl_surname.TabIndex = 7;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(293, 100);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 16);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Age";
+            // 
+            // lbl_name
+            // 
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Location = new System.Drawing.Point(83, 49);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(0, 16);
+            this.lbl_name.TabIndex = 5;
+            // 
+            // lbl_birthdate
+            // 
+            this.lbl_birthdate.AutoSize = true;
+            this.lbl_birthdate.Location = new System.Drawing.Point(96, 165);
+            this.lbl_birthdate.Name = "lbl_birthdate";
+            this.lbl_birthdate.Size = new System.Drawing.Size(0, 16);
+            this.lbl_birthdate.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 16);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Name:";
+            // 
+            // lbl_sns
+            // 
+            this.lbl_sns.AutoSize = true;
+            this.lbl_sns.Location = new System.Drawing.Point(74, 100);
+            this.lbl_sns.Name = "lbl_sns";
+            this.lbl_sns.Size = new System.Drawing.Size(0, 16);
+            this.lbl_sns.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(29, 165);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 16);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Birthdate";
+            // 
+            // lbl_age
+            // 
+            this.lbl_age.AutoSize = true;
+            this.lbl_age.Location = new System.Drawing.Point(332, 100);
+            this.lbl_age.Name = "lbl_age";
+            this.lbl_age.Size = new System.Drawing.Size(0, 16);
+            this.lbl_age.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(293, 49);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 16);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Surname";
             // 
             // panelDataAcquisition
             // 
@@ -380,36 +667,6 @@
             this.label4.TabIndex = 36;
             this.label4.Text = "Blood Pressure:";
             // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Controls.Add(this.pictureBox1);
-            this.panelPrincipal.Controls.Add(this.label11);
-            this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 28);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(642, 465);
-            this.panelPrincipal.TabIndex = 10;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(140, 120);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(337, 295);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe Script", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(183, 33);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(172, 52);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Welcome";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label3);
@@ -483,100 +740,35 @@
             this.heartRateCheckBox.UseVisualStyleBackColor = true;
             this.heartRateCheckBox.CheckedChanged += new System.EventHandler(this.heartRateCheckBox_CheckedChanged);
             // 
-            // panelMe
+            // panelPrincipal
             // 
-            this.panelMe.Controls.Add(this.groupBox4);
-            this.panelMe.Location = new System.Drawing.Point(0, 28);
-            this.panelMe.Name = "panelMe";
-            this.panelMe.Size = new System.Drawing.Size(642, 465);
-            this.panelMe.TabIndex = 24;
-            this.panelMe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMe_Paint);
+            this.panelPrincipal.Controls.Add(this.pictureBox1);
+            this.panelPrincipal.Controls.Add(this.label11);
+            this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 28);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(642, 465);
+            this.panelPrincipal.TabIndex = 10;
             // 
-            // label9
+            // pictureBox1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(293, 100);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(33, 16);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Age";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(140, 120);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(337, 295);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
-            // label8
+            // label11
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(29, 165);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 16);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Birthdate";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(293, 49);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 16);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Surname";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 16);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Name:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 100);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(36, 16);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "SNS";
-            // 
-            // lbl_surname
-            // 
-            this.lbl_surname.AutoSize = true;
-            this.lbl_surname.Location = new System.Drawing.Point(361, 49);
-            this.lbl_surname.Name = "lbl_surname";
-            this.lbl_surname.Size = new System.Drawing.Size(0, 16);
-            this.lbl_surname.TabIndex = 7;
-            // 
-            // lbl_name
-            // 
-            this.lbl_name.AutoSize = true;
-            this.lbl_name.Location = new System.Drawing.Point(83, 49);
-            this.lbl_name.Name = "lbl_name";
-            this.lbl_name.Size = new System.Drawing.Size(0, 16);
-            this.lbl_name.TabIndex = 5;
-            // 
-            // lbl_birthdate
-            // 
-            this.lbl_birthdate.AutoSize = true;
-            this.lbl_birthdate.Location = new System.Drawing.Point(96, 165);
-            this.lbl_birthdate.Name = "lbl_birthdate";
-            this.lbl_birthdate.Size = new System.Drawing.Size(0, 16);
-            this.lbl_birthdate.TabIndex = 6;
-            // 
-            // lbl_sns
-            // 
-            this.lbl_sns.AutoSize = true;
-            this.lbl_sns.Location = new System.Drawing.Point(74, 100);
-            this.lbl_sns.Name = "lbl_sns";
-            this.lbl_sns.Size = new System.Drawing.Size(0, 16);
-            this.lbl_sns.TabIndex = 8;
-            // 
-            // lbl_age
-            // 
-            this.lbl_age.AutoSize = true;
-            this.lbl_age.Location = new System.Drawing.Point(332, 100);
-            this.lbl_age.Name = "lbl_age";
-            this.lbl_age.Size = new System.Drawing.Size(0, 16);
-            this.lbl_age.TabIndex = 9;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe Script", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(183, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(172, 52);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Welcome";
             // 
             // toolStrip1
             // 
@@ -667,198 +859,6 @@
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 0;
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(7, 25);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(34, 13);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Term:";
-            // 
-            // txb_search
-            // 
-            this.txb_search.Location = new System.Drawing.Point(47, 22);
-            this.txb_search.Name = "txb_search";
-            this.txb_search.Size = new System.Drawing.Size(226, 20);
-            this.txb_search.TabIndex = 2;
-            // 
-            // bt_search
-            // 
-            this.bt_search.Location = new System.Drawing.Point(311, 20);
-            this.bt_search.Name = "bt_search";
-            this.bt_search.Size = new System.Drawing.Size(75, 23);
-            this.bt_search.TabIndex = 3;
-            this.bt_search.Text = "Search";
-            this.bt_search.UseVisualStyleBackColor = true;
-            this.bt_search.Click += new System.EventHandler(this.bt_search_Click);
-            // 
-            // bt_clear
-            // 
-            this.bt_clear.Location = new System.Drawing.Point(434, 20);
-            this.bt_clear.Name = "bt_clear";
-            this.bt_clear.Size = new System.Drawing.Size(75, 23);
-            this.bt_clear.TabIndex = 4;
-            this.bt_clear.Text = "Clear";
-            this.bt_clear.UseVisualStyleBackColor = true;
-            this.bt_clear.Click += new System.EventHandler(this.bt_clear_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(325, 98);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(30, 13);
-            this.label20.TabIndex = 5;
-            this.label20.Text = "Title:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(288, 148);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(69, 13);
-            this.label21.TabIndex = 6;
-            this.label21.Text = "Organization:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(272, 191);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(83, 13);
-            this.label22.TabIndex = 7;
-            this.label22.Text = "Alternative Title:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(283, 231);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(72, 13);
-            this.label23.TabIndex = 8;
-            this.label23.Text = "Full Summary:";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(364, 231);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(267, 220);
-            this.webBrowser1.TabIndex = 9;
-            // 
-            // txb_title
-            // 
-            this.txb_title.Location = new System.Drawing.Point(364, 93);
-            this.txb_title.Name = "txb_title";
-            this.txb_title.Size = new System.Drawing.Size(267, 20);
-            this.txb_title.TabIndex = 10;
-            // 
-            // txb_organization
-            // 
-            this.txb_organization.Location = new System.Drawing.Point(364, 145);
-            this.txb_organization.Name = "txb_organization";
-            this.txb_organization.Size = new System.Drawing.Size(267, 20);
-            this.txb_organization.TabIndex = 11;
-            // 
-            // txb_alternative
-            // 
-            this.txb_alternative.Location = new System.Drawing.Point(364, 188);
-            this.txb_alternative.Name = "txb_alternative";
-            this.txb_alternative.Size = new System.Drawing.Size(267, 20);
-            this.txb_alternative.TabIndex = 12;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rank,
-            this.title,
-            this.AlternativeTitle,
-            this.FullSummary,
-            this.OrganizationName});
-            this.dataGridView1.Location = new System.Drawing.Point(18, 93);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(248, 358);
-            this.dataGridView1.TabIndex = 13;
-            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
-            // 
-            // OrganizationName
-            // 
-            this.OrganizationName.HeaderText = "Organizarion Name";
-            this.OrganizationName.Name = "OrganizationName";
-            // 
-            // FullSummary
-            // 
-            this.FullSummary.HeaderText = "Full Summary";
-            this.FullSummary.Name = "FullSummary";
-            // 
-            // AlternativeTitle
-            // 
-            this.AlternativeTitle.HeaderText = "Alternative Title";
-            this.AlternativeTitle.Name = "AlternativeTitle";
-            // 
-            // title
-            // 
-            this.title.HeaderText = "Title";
-            this.title.Name = "title";
-            // 
-            // rank
-            // 
-            this.rank.HeaderText = "Rank";
-            this.rank.Name = "rank";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.txb_alternative);
-            this.panel1.Controls.Add(this.txb_organization);
-            this.panel1.Controls.Add(this.txb_title);
-            this.panel1.Controls.Add(this.webBrowser1);
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.bt_clear);
-            this.panel1.Controls.Add(this.bt_search);
-            this.panel1.Controls.Add(this.txb_search);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Location = new System.Drawing.Point(0, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(642, 465);
-            this.panel1.TabIndex = 48;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.pictureBox2);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.lbl_surname);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.lbl_name);
-            this.groupBox4.Controls.Add(this.lbl_birthdate);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.lbl_sns);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.lbl_age);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(15, 20);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(606, 431);
-            this.groupBox4.TabIndex = 15;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Me";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(208, 165);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(348, 227);
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -877,24 +877,24 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panelMe.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelDataAcquisition.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panelPrincipal.ResumeLayout(false);
             this.panelPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panelMe.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

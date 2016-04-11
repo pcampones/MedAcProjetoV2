@@ -12,7 +12,7 @@ namespace BOT
 {
     public partial class formConfigs : Form
     {
-        //caac 
+        //caac shjbsjb
         public formConfigs()
         {
             InitializeComponent();

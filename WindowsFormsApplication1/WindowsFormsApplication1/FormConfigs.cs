@@ -12,6 +12,7 @@ namespace BOT
 {
     public partial class formConfigs : Form
     {
+        //ahaha
         //caac 
         public formConfigs()
         {

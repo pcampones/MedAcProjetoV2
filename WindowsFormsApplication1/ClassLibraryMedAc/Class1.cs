@@ -296,7 +296,12 @@ namespace ClassLibraryMedAc
         }
 
 
+        public IEnumerable<int> getUtentesAlerts(int sns)
+        {
+            var result = context.AlertasSet.Where(i => i.Utente.SNS.Equals(sns) && i.Read.Equals("Not Read")).Select(i =>i.Utente.SNS).Distinct();
 
+            return result;
+        }
 
         public List<Alertas> getAlertaSns(int sns, DateTime startBegin, DateTime endBegin)
         {

@@ -134,7 +134,7 @@ namespace ClinicalAlert
             }
             else
             {
-                MessageBox.Show("Campos por preencher");
+                MessageBox.Show("Fields","Warning",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
         }
@@ -281,6 +281,7 @@ namespace ClinicalAlert
                 textBox1.Enabled = false;
                 radioButton1.Enabled = false;
                 radioButton2.Enabled = false;
+                ativeCheckBox.Enabled = false;
                 numericUpDown4.Enabled = false;
                 numericUpDown3.Enabled = false;
                 richTextBox1.Enabled = false;
@@ -304,6 +305,7 @@ namespace ClinicalAlert
                 numericUpDown4.Enabled = true;
                 numericUpDown3.Enabled = true;
                 richTextBox1.Enabled = true;
+                ativeCheckBox.Enabled = true;
             }
         }
 
@@ -348,16 +350,17 @@ namespace ClinicalAlert
                 dateTimePicker1.Enabled = false;
                 textBox1.Text = u.sns.ToString();
                 textBox1.Enabled = false;
+                radioButton1.Enabled = false;
+                radioButton2.Enabled = false;
 
                 if (u.gender == "Male")
                 {
-                    radioButton1.Text = u.gender;
-                    radioButton1.Enabled = false;
+                    radioButton1.Checked = true;
+                    
                 }
                 else
                 {
-                    radioButton2.Text = u.gender;
-                    radioButton2.Enabled = false;
+                    radioButton2.Checked = true;
                 }
                 numericUpDown4.Value = u.weight;
                 numericUpDown4.Enabled = false;
@@ -365,6 +368,13 @@ namespace ClinicalAlert
                 numericUpDown3.Enabled = false;
                 richTextBox1.Text = u.alergies;
                 richTextBox1.Enabled = false;
+                ativeCheckBox.Enabled = false;
+                if (ative == "Ative")
+                {
+                    ativeCheckBox.Checked = true;
+                }
+               
+
 
 
             }
@@ -415,9 +425,9 @@ namespace ClinicalAlert
             chart1.Series["Heart Rate"].Color = Color.Blue;
             chart1.Series["Oxygen Saturation"].Color = Color.Green;
 
-            chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 10);
-            chart1.Series["Heart Rate"].Points.AddXY(dataMax, 10);
-            chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 10);
+            chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 0);
+            chart1.Series["Heart Rate"].Points.AddXY(dataMax, 0);
+            chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 0);
 
             chart1.ChartAreas["area"].BackColor = Color.White;
             chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
@@ -437,70 +447,107 @@ namespace ClinicalAlert
 
         private void cb_hr_CheckedChanged(object sender, EventArgs e)
         {
-            if (cb_hr.Checked == true)
+            if (verifySns(sns)==false)
             {
-                List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
 
-                foreach (ValoresWeb item in v)
+                if (cb_hr.Checked == true)
                 {
-                    if (item.type == "HR")
+                    List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
+
+                    foreach (var item in v)
                     {
-                        chart1.Series["Heart Rate"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+                        if (item.type == "HR")
+                        {
+                            chart1.Series["Heart Rate"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+                        }
+
                     }
 
                 }
+                else
+                {
+                    chart1.Series["Heart Rate"].Points.Clear();
 
+                }
             }
             else
             {
-                chart1.Series["Heart Rate"].Points.Clear();
-
+                cb_hr.Checked = false;
+                MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void cb_OS_CheckedChanged(object sender, EventArgs e)
         {
-            if (cb_OS.Checked == true)
+            if (verifySns(sns)==false)
             {
-                List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
+                if (cb_OS.Checked == true)
 
-                foreach (ValoresWeb item in v)
                 {
-                    if (item.type == "SPO2")
+                    List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
+
+                    foreach (ValoresWeb item in v)
                     {
-                        chart1.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+                        if (item.type == "SPO2")
+                        {
+                            chart1.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+                        }
+
                     }
+
+                }
+                else
+                {
+                    chart1.Series["Oxygen Saturation"].Points.Clear();
 
                 }
 
             }
+
             else
             {
-                chart1.Series["Oxygen Saturation"].Points.Clear();
+                cb_OS.Checked = false;
+                MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+
+
+
+
         }
 
 
         private void cb_bp_CheckedChanged(object sender, EventArgs e)
         {
-            if (cb_bp.Checked == true)
+            if (verifySns(sns)==false)
             {
-                List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
 
-                foreach (ValoresWeb item in v)
+                if (cb_bp.Checked == true)
                 {
-                    if (item.type == "BP")
+
+
+                    List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
+
+                    foreach (ValoresWeb item in v)
                     {
-                        chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+                        if (item.type == "BP")
+                        {
+                            chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+                        }
+
                     }
 
                 }
+                else
+                {
+                    chart1.Series["Blood Pressure"].Points.Clear();
 
+                }
             }
             else
             {
-                chart1.Series["Blood Pressure"].Points.Clear();
+                cb_bp.Checked = false;
+                MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
@@ -509,6 +556,8 @@ namespace ClinicalAlert
         {
             if (cb_collumns.Checked == true)
             {
+                cb_bars.Checked = false;
+                cb_lines.Checked = false;
                 chart1.Series["Blood Pressure"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
                 chart1.Series["Oxygen Saturation"].ChartType =
@@ -525,6 +574,9 @@ namespace ClinicalAlert
         {
             if (cb_lines.Checked == true)
             {
+
+                cb_collumns.Checked = false;
+                cb_bars.Checked = false;
                 chart1.Series["Blood Pressure"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
                 chart1.Series["Oxygen Saturation"].ChartType =
@@ -538,6 +590,8 @@ namespace ClinicalAlert
         {
             if (cb_bars.Checked == true)
             {
+                cb_collumns.Checked = false;
+                cb_lines.Checked = false;
                 //definição do tipo de gráficosss
                 chart1.Series["Blood Pressure"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
@@ -564,83 +618,95 @@ namespace ClinicalAlert
             //Construção da àrea do gráfico
             chart1.ChartAreas.Add("area");
 
-
+            List<ValoresWeb> valores = null;
             DateTime dataMin = dtp_begin.Value;
             DateTime dataMax = dtp_end.Value;
-
-            if (dataMin <= dataMax)
+            if (verifySns(sns)== false)
             {
-                List<ValoresWeb> valores = getValuesGraphs(sns, dataMax, dataMin).ToList();
 
-                foreach (var item in valores)
+                if (dataMin <= dataMax)
                 {
-                    if (cb_hr.Checked == true)
+                    valores = getValuesGraphs(sns, dataMax, dataMin).ToList();
+                    if (valores.Count != 0)
                     {
-                        if (item.type == "HR")
+
+                        foreach (var item in valores)
                         {
-                            chart1.Series["Heart Rate"].Points.AddXY(item.dataOfReposit, item.valueR);
+                            if (cb_hr.Checked == true)
+                            {
+                                if (item.type == "HR")
+                                {
+                                    chart1.Series["Heart Rate"].Points.AddXY(item.dataOfReposit, item.valueR);
+
+                                }
+                            }
+                            if (cb_bp.Checked == true)
+                            {
+                                if (item.type == "BP")
+                                {
+                                    chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit, item.valueR);
+
+                                }
+
+                            }
+
+                            if (cb_OS.Checked == true)
+                            {
+                                if (item.type == "SPO2")
+                                {
+                                    chart1.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit, item.valueR);
+
+                                }
+                            }
 
                         }
+                        
+                        chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
+                        chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
+                        chart1.ChartAreas["area"].AxisX.Interval = 1;
+                        chart1.ChartAreas["area"].AxisY.Minimum = 0;
+                        chart1.ChartAreas["area"].AxisY.Interval = 10;
+
+                        chart1.ChartAreas["area"].AxisX.Title = "Date";
+                        chart1.ChartAreas["area"].AxisY.Title = "Values";
+
+
+                        //definição da cor de cada série
+                        chart1.Series["Blood Pressure"].Color = Color.Red;
+                        chart1.Series["Heart Rate"].Color = Color.Blue;
+                        chart1.Series["Oxygen Saturation"].Color = Color.Green;
+
+
+                        chart1.ChartAreas["area"].BackColor = Color.White;
+                        chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
+                        chart1.ChartAreas["area"].BackGradientStyle =
+                        System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+                        chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+                        chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+                        chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
+                        chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
+                        chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
                     }
-                    if (cb_bp.Checked == true)
+                    else
                     {
-                        if (item.type == "BP")
-                        {
-                            chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit, item.valueR);
-
-                        }
-
+                        MessageBox.Show("For the dates choosen doesn't have values associated!","Warning",
+                            MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
-
-                    if (cb_OS.Checked == true)
-                    {
-                        if (item.type == "SPO2")
-                        {
-                            chart1.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit, item.valueR);
-
-                        }
-                    }
-
+                }
+                
+                else
+                {
+                    MessageBox.Show("The start date can not be bigger than the end date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-
-
-
-
-
-                chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
-                chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
-                chart1.ChartAreas["area"].AxisX.Interval = 1;
-                chart1.ChartAreas["area"].AxisY.Minimum = 0;
-                chart1.ChartAreas["area"].AxisY.Interval = 10;
-
-                chart1.ChartAreas["area"].AxisX.Title = "Date";
-                chart1.ChartAreas["area"].AxisY.Title = "Values";
-
-
-                //definição da cor de cada série
-                chart1.Series["Blood Pressure"].Color = Color.Red;
-                chart1.Series["Heart Rate"].Color = Color.Blue;
-                chart1.Series["Oxygen Saturation"].Color = Color.Green;
-
-
-                chart1.ChartAreas["area"].BackColor = Color.White;
-                chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
-                chart1.ChartAreas["area"].BackGradientStyle =
-                System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
-
-                chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
-                chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
-
-                chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
-                chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
-                chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
             }
             else
             {
-                MessageBox.Show("The start date can not be bigger than the end date", "Confirmation", MessageBoxButtons.OK);
-            }
+                MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
 
         }
 
@@ -711,7 +777,10 @@ namespace ClinicalAlert
             }
             else
             {
-                MessageBox.Show("Data de Inicio nao pode maior que a data de fim!");
+
+                MessageBox.Show("Start Date can not be bigger than End Date!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                //                MessageBox.Show("Data de Inicio nao pode maior que a data de fim!");
             }
         }
 
@@ -800,22 +869,31 @@ namespace ClinicalAlert
 
             limpaDataGrid(data_reports);
 
-
-            if (checkBoxHR.Checked == true)
+            if (verifySns(sns)== false)
             {
-                checkBoxBP.Checked = false;
-                checkBoxOS.Checked = false;
-                EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "HR");
-                if (esta != null)
+                if (checkBoxHR.Checked == true)
                 {
-                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                    checkBoxBP.Checked = false;
+                    checkBoxOS.Checked = false;
+                    EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "HR");
+                    if (esta != null)
+                    {
+                        data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
 
+                    }
+                    else
+                    {
+                        
+                        MessageBox.Show(" The option you choose doesn't have default values in previous 7 days!", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    checkBoxHR.Checked = false;
-                    MessageBox.Show(" The option you choose doesn't have default values in previous two days!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+
+            }
+            else
+            {
+                checkBoxHR.Checked = false;
+                   MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -827,27 +905,36 @@ namespace ClinicalAlert
 
             limpaDataGrid(data_reports);
 
-            if (checkBoxOS.Checked == true)
+            if (verifySns(sns)==false)
             {
-                checkBoxHR.Checked = false;
-                checkBoxBP.Checked = false;
 
-                EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "SPO2");
-                if (esta != null)
+                if (checkBoxOS.Checked == true)
                 {
-                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                    checkBoxHR.Checked = false;
+                    checkBoxBP.Checked = false;
 
-                }
-                else
-                {
-                    checkBoxOS.Checked = false;
-                    MessageBox.Show(" The option you choose doesn't have default values in previous 7 days!", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "SPO2");
+                    if (esta != null)
+                    {
+                        data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+
+                    }
+                    else
+                    {
+                        
+                        MessageBox.Show(" The option you choose doesn't have default values in previous 7 days!", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
 
                 }
 
             }
-
+            else
+            {
+                checkBoxOS.Checked = false;
+                MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void checkBoxBP_CheckedChanged(object sender, EventArgs e)
@@ -856,27 +943,35 @@ namespace ClinicalAlert
             DateTime dataMin = DateTime.Now.AddDays(-7);
 
             limpaDataGrid(data_reports);
-
-            if (checkBoxBP.Checked == true)
+            if (verifySns(sns)==false)
             {
-                checkBoxHR.Checked = false;
-                checkBoxOS.Checked = false;
 
-                EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "BP");
-                if (esta != null)
+                if (checkBoxBP.Checked == true)
                 {
-                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                    checkBoxHR.Checked = false;
+                    checkBoxOS.Checked = false;
 
-                }
-                else
-                {
-                    checkBoxBP.Checked = false;
-                    MessageBox.Show(" The option you choose doesn't have default values in previous 7 days!", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "BP");
+                    if (esta != null)
+                    {
+                        data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
 
+                    }
+                    else
+                    {
+                        
+                        MessageBox.Show(" The option you choose doesn't have default values in previous 7 days!", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
                 }
+
             }
-
+            else
+            {
+                checkBoxBP.Checked = false;
+                MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void bt_confirm_Click(object sender, EventArgs e)
@@ -884,51 +979,91 @@ namespace ClinicalAlert
             DateTime startDate = dtp_start_reports.Value;
             DateTime endDate = dtp_end_reports.Value;
 
-
+            EstatisticasWeb esta = null;
             limpaDataGrid(data_reports);
 
 
-            if (startDate <= endDate)
+            if (verifySns(sns)== false)
             {
-                if (checkBoxBP.Checked == false && checkBoxHR.Checked == false && checkBoxOS.Checked == false)
+                if (startDate <= endDate)
                 {
-                    MessageBox.Show("Please select checkbox!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (checkBoxBP.Checked == false && checkBoxHR.Checked == false && checkBoxOS.Checked == false)
+                    {
+                        MessageBox.Show("Please select checkbox!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+                    else
+                    {
+                        if (checkBoxBP.Checked == true)
+                        {
+                             esta = getEstatisticas(sns, dataMin, dataMax, "BP");
+                            if(esta != null)
+                            {
+                                data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                            }
+                            else
+                            {
+                                MessageBox.Show("For the dates selected doesn't have values associated!","Error",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                            }
+                            
+                        }
+
+                        if (checkBoxOS.Checked == true)
+                        {
+
+                             esta = getEstatisticas(sns, dataMin, dataMax, "SPO2");
+                            if (esta != null)
+                            {
+                                data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                            }
+                            else
+                            {
+                                MessageBox.Show("For the dates selected doesn't have values associated!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            }
+                            // data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                        }
+
+                        if (checkBoxHR.Checked == true)
+                        {
+                            esta = getEstatisticas(sns, startDate, endDate, "HR");
+                           
+                            if (esta != null)
+                            {
+                                data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                            }
+                            else
+                            {
+                                MessageBox.Show("For the dates selected doesn't have values associated!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            }
+                        }
+
+                    }
 
                 }
                 else
                 {
-                    if (checkBoxBP.Checked == true)
-                    {
-                        EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "BP");
-                        data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
-                    }
 
-                    if (checkBoxOS.Checked == true)
-                    {
-
-                        EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "SPO2");
-                        data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
-                    }
-
-                    if (checkBoxHR.Checked == true)
-                    {
-                        EstatisticasWeb esta = getEstatisticas(sns, startDate, endDate, "HR");
-                        data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
-                    }
+                    MessageBox.Show("Start Date can not be bigger than End Date!","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
 
                 }
-
             }
             else
             {
-
-                MessageBox.Show("Start Date can not be bigger than End Date");
-
+                MessageBox.Show("Please Select the Patient!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         //Metodos Auxiliares
-
+        private bool verifySns(int sns)
+        {
+            if (sns == 0)
+            {
+             
+                return true;
+            }
+            return false;
+        }
         private void limpaDataGrid(DataGridView data)
         {
             data.Rows.Clear();
@@ -943,6 +1078,7 @@ namespace ClinicalAlert
             if (lista.Count != 0)
             {
 
+
                 foreach (ValoresWeb item in lista)
                 {
                     ValoresWeb v = new ValoresWeb();
@@ -952,9 +1088,10 @@ namespace ClinicalAlert
                     v.dataOfReposit = item.dataOfReposit;
 
                     listaW.Add(v);
-                    return listaW;
-
+                
                 }
+                return listaW;
+
             }
             return null;
         }

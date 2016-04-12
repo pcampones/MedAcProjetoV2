@@ -777,7 +777,7 @@ namespace ClinicalAlert
         }
 
         // Estatisticas
-
+        // Cemas
         private void diarioValores_Click(object sender, EventArgs e)
         {
             panel_Adicionar.Visible = false;

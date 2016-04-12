@@ -193,7 +193,7 @@ namespace ServiceLayer
 
             if (lista != null)
             {
-                
+
                 foreach (EstatisticasWeb item in lista)
                 {
                     EstatisticasWeb esWeb = new EstatisticasWeb();
@@ -208,25 +208,19 @@ namespace ServiceLayer
 
                     listaWeb.Add(esWeb);
                 }
-                
+
             }
             return listaWeb;
         }
 
         public AlertasWeb VerificaAlerta(Utente utente, Valores valores)
         {
-            //Utente utente = _acederBd.getUtenteBySNS(sns);
             Alertas alertas = new Alertas();
             AlertasWeb alertasWeb = new AlertasWeb();
             DateTime data = DateTime.Now;
-            //List<Valores> valores = _acederBd.getValuesbySNS(sns);
-            //List<DateTime> datasSPO2 = 
-            //if (utente != null)
-            //{
+
             if (valores != null)
             {
-                // foreach (Valores item in valores)
-                // {
                 switch (valores.Type)
                 {
                     case "SPO2":
@@ -249,64 +243,61 @@ namespace ServiceLayer
                     case "HR":
 
                         List<Valores> datasHR = _acederBd.getDataSPO2(valores.Type).ToList();
-                        
+
+                        List<Valores> lista30min = _acederBd.get30min(valores.Type, utente.SNS).ToList();
+                        List<Valores> lista10min = _acederBd.get10min(valores.Type, utente.SNS).ToList();
+                        int proximoValor = 0;
+                        int somarMin = 0;
+                        int sp = 0;
+                      
 
                         List<DateTime> datas = new List<DateTime>();
-                        datasHR.Add(valores);
-                        //datas.Add(valores.DataOfRegist);
-                        int re = 0;
-                     /*   foreach (Valores item in datasHR)
-                        {
-                           
-                            datas.Add(item.DataOfRegist);
-                        }
-                        */
                         DateTime dataFinaL = datas.LastOrDefault();
-                        
-                       //     re = (data - dataFinaL).Minutes;
 
-                        int soma = 0;
 
-                        /*foreach (var item in datas)
+                        foreach (Valores item in lista10min.Where(i => Convert.ToInt32(i.Value) < 90 && Convert.ToInt32(i.Value) > 80))
                         {
-                            soma += item.Minute;
+                            int dez = item.DataOfRegist.Minute;
+                            proximoValor += dez;
                         }
-                        */
+
+
+                        foreach (Valores item10 in lista30min.Where(i => Convert.ToInt32(i.Value) < 90 && Convert.ToInt32(i.Value) > 80))
+                        {
+                            
+                                sp = item10.DataOfRegist.Minute;
+                                somarMin += sp;
+
+                            
+                        }
+                              
+
+
                         if (Convert.ToInt32(valores.Value) <= 90)
                         {
                             if (dataFinaL.Equals(data.AddMinutes(-10)))
                             {
-                                if (soma == 30)
-                                {
-
-                                    alertas.Read = "Not Read";
-                                    alertas.Tipo = "Aviso Intermitente";
-                                    alertas.Data = DateTime.Now;
-                                    alertas.Utente = utente;
-                                }
                                 alertas.Read = "Not Read";
                                 alertas.Tipo = "Aviso Continuo";
                                 alertas.Data = DateTime.Now;
                                 alertas.Utente = utente;
 
-
                             }
-                            else if (re >= 60)
+                            else if (dataFinaL.Equals(data.AddHours(-1)))
                             {
-                                if (soma == 120)
-                                {
-                                    alertas.Read = "Not Read";
-                                    alertas.Tipo = "Critico Intermitente";
-                                    alertas.Data = DateTime.Now;
-                                    alertas.Utente = utente;
-
-                                }
                                 alertas.Read = "Not Read";
                                 alertas.Tipo = "Critico Continuo";
                                 alertas.Data = DateTime.Now;
                                 alertas.Utente = utente;
-
                             }
+                            else if (sp >= 10)
+                            {
+                                alertas.Read = "Not Read";
+                                alertas.Tipo = "Intermitente";
+                                alertas.Data = DateTime.Now;
+                                alertas.Utente = utente;
+                            }
+
 
                         }
                         else if (Convert.ToInt32(valores.Value) < 80)
@@ -410,10 +401,10 @@ namespace ServiceLayer
         {
             try
             {
-                List<Alertas> lista = _acederBd.getAlertaSns(sns,startBegin,startEnd);
-                List < AlertasWeb > listaWeb = new List<AlertasWeb>();
+                List<Alertas> lista = _acederBd.getAlertaSns(sns, startBegin, startEnd);
+                List<AlertasWeb> listaWeb = new List<AlertasWeb>();
 
-                foreach  (Alertas item in lista)
+                foreach (Alertas item in lista)
                 {
                     AlertasWeb alerW = new AlertasWeb();
 
@@ -470,7 +461,7 @@ namespace ServiceLayer
         {
             Alertas alerta = new Alertas();
             alerta.Read = alertaWeb.Read;
-            _acederBd.marcarComoLido(alerta,id);
+            _acederBd.marcarComoLido(alerta, id);
         }
 
         public List<UtenteWeb> GetUtentesNotRead()
@@ -719,7 +710,7 @@ namespace ServiceLayer
     //        List<Valores> listavalores = new List<Valores>();
     //        foreach (Valores item in listavalores)
     //        {
-               
+
     //        }
 
     //        return null;

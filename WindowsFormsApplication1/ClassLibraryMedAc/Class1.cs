@@ -168,27 +168,33 @@ namespace ClassLibraryMedAc
         {
             try
             {
+
+
                 List<Valores> listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) && i.DataOfRegist >= startDate && 
                 i.DataOfRegist <= endDate && i.Type == type).ToList();
-                
-                EstatisticasWeb es = new EstatisticasWeb();
 
-                List<EstatisticasWeb> estastisticas = new List<EstatisticasWeb>();
-                double mediaHR = 0;
-                int maxHR = 0;
-                int minHR = 0;
+                if (listaVa.Count != 0)
+                {
+                    EstatisticasWeb es = new EstatisticasWeb();
+
+                    List<EstatisticasWeb> estastisticas = new List<EstatisticasWeb>();
+                    double mediaHR = 0;
+                    int maxHR = 0;
+                    int minHR = 0;
 
 
-                mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
-                maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
-                minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
+                    mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
+                    maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
+                    minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
 
-                es.ValorMax = maxHR;
-                es.ValorMed = mediaHR;
-                es.ValorMin = minHR;
+                    es.ValorMax = maxHR;
+                    es.ValorMed = mediaHR;
+                    es.ValorMin = minHR;
 
-                estastisticas.Add(es);
+                    estastisticas.Add(es);
 
+                    return estastisticas;
+                }
                 /*  if (type == "HR")
                   {
                        mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
@@ -239,7 +245,7 @@ namespace ClassLibraryMedAc
                 //int maxBP = valoresBP.Select(i => int.Parse(i.Value)).Max();
                 //int minBP = valoresBP.Select(i => int.Parse(i.Value)).Min();
 
-                return estastisticas;
+                return null;
             }
             catch (Exception ex)
             {

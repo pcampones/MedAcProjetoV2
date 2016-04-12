@@ -433,7 +433,7 @@ namespace ClinicalAlert.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string endDateField;
+        private System.DateTime endDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime startDateField;
@@ -461,12 +461,12 @@ namespace ClinicalAlert.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string endDate {
+        public System.DateTime endDate {
             get {
                 return this.endDateField;
             }
             set {
-                if ((object.ReferenceEquals(this.endDateField, value) != true)) {
+                if ((this.endDateField.Equals(value) != true)) {
                     this.endDateField = value;
                     this.RaisePropertyChanged("endDate");
                 }

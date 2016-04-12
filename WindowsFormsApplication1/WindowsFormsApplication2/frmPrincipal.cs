@@ -14,7 +14,7 @@ namespace ClinicalAlert
     public partial class frmPrincipal : Form
     {
 
-        
+
         private Service1Client serv;
         UtenteWeb ut;
         ValoresWeb val;
@@ -25,7 +25,7 @@ namespace ClinicalAlert
         DateTime dataMax = DateTime.Now;
         DateTime dataMin = DateTime.Now.AddDays(-2);
 
-        
+
         public frmPrincipal()
         {
             InitializeComponent();
@@ -66,7 +66,7 @@ namespace ClinicalAlert
                 listView1.Items.Add(linha);
             }
 
-            
+
         }
 
         private void Add_Click(object sender, EventArgs e)
@@ -129,7 +129,7 @@ namespace ClinicalAlert
                 }
                 else
                 {
-                   
+
                 }
             }
             else
@@ -264,7 +264,7 @@ namespace ClinicalAlert
             }
         }
 
-    
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -307,7 +307,7 @@ namespace ClinicalAlert
             }
         }
 
-    
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             panelEdit.Visible = false;
@@ -571,10 +571,10 @@ namespace ClinicalAlert
             if (dataMin <= dataMax)
             {
                 List<ValoresWeb> valores = getValuesGraphs(sns, dataMax, dataMin).ToList();
-                
+
                 foreach (var item in valores)
                 {
-                    if(cb_hr.Checked == true)
+                    if (cb_hr.Checked == true)
                     {
                         if (item.type == "HR")
                         {
@@ -600,7 +600,7 @@ namespace ClinicalAlert
 
                         }
                     }
-                   
+
                 }
 
 
@@ -638,15 +638,15 @@ namespace ClinicalAlert
             }
             else
             {
-                MessageBox.Show("The start date can not be bigher than the end date", "Confirmation", MessageBoxButtons.OK);
+                MessageBox.Show("The start date can not be bigger than the end date", "Confirmation", MessageBoxButtons.OK);
             }
 
 
         }
 
-        
+
         // Alertas
-        
+
         private void Alerts_Click(object sender, EventArgs e)
         {
             panel_Adicionar.Visible = false;
@@ -678,7 +678,7 @@ namespace ClinicalAlert
 
                 }
             }
-            
+
         }
 
 
@@ -729,7 +729,7 @@ namespace ClinicalAlert
                     serv.marcarComoLido(al, id);
                     listView2.SelectedItems[0].Remove();
                     listView2.Refresh();
-                    MessageBox.Show("Alert Marked as read!","Information",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Alert Marked as read!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 }
             }
@@ -737,7 +737,7 @@ namespace ClinicalAlert
 
         }
 
-      
+
 
 
         //Diario de Valores
@@ -771,7 +771,7 @@ namespace ClinicalAlert
                 Data_diarioValores.Rows.Add(valor.dataOfReposit, valor.type, valor.valueR);
                 Data_diarioValores.Sort(this.Data_diarioValores.Columns[0], ListSortDirection.Ascending);
 
-                
+
             }
 
         }
@@ -803,10 +803,21 @@ namespace ClinicalAlert
 
             if (checkBoxHR.Checked == true)
             {
-                EstatisticasWeb esta = getEstatisticas(sns,dataMin, dataMax, "HR");
-                data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
-            } 
-           
+                checkBoxBP.Checked = false;
+                checkBoxOS.Checked = false;
+                EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "HR");
+                if (esta != null)
+                {
+                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+
+                }
+                else
+                {
+                    checkBoxHR.Checked = false;
+                    MessageBox.Show(" The option you choose doesn't have default values in previous two days!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
         }
 
         private void checkBoxOS_CheckedChanged(object sender, EventArgs e)
@@ -818,8 +829,23 @@ namespace ClinicalAlert
 
             if (checkBoxOS.Checked == true)
             {
+                checkBoxHR.Checked = false;
+                checkBoxBP.Checked = false;
+
                 EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "SPO2");
-                data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                if (esta != null)
+                {
+                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+
+                }
+                else
+                {
+                    checkBoxOS.Checked = false;
+                    MessageBox.Show(" The option you choose doesn't have default values in previous 7 days!", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
             }
 
         }
@@ -833,8 +859,22 @@ namespace ClinicalAlert
 
             if (checkBoxBP.Checked == true)
             {
+                checkBoxHR.Checked = false;
+                checkBoxOS.Checked = false;
+
                 EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "BP");
-                data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                if (esta != null)
+                {
+                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+
+                }
+                else
+                {
+                    checkBoxBP.Checked = false;
+                    MessageBox.Show(" The option you choose doesn't have default values in previous 7 days!", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
 
         }
@@ -844,39 +884,48 @@ namespace ClinicalAlert
             DateTime startDate = dtp_start_reports.Value;
             DateTime endDate = dtp_end_reports.Value;
 
-            
+
             limpaDataGrid(data_reports);
 
-            if (checkBoxBP.Checked == false && checkBoxHR.Checked == false && checkBoxOS.Checked == false)
+
+            if (startDate <= endDate)
             {
-                MessageBox.Show("Please select checkbox!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (checkBoxBP.Checked == false && checkBoxHR.Checked == false && checkBoxOS.Checked == false)
+                {
+                    MessageBox.Show("Please select checkbox!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                else
+                {
+                    if (checkBoxBP.Checked == true)
+                    {
+                        EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "BP");
+                        data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                    }
+
+                    if (checkBoxOS.Checked == true)
+                    {
+
+                        EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "SPO2");
+                        data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                    }
+
+                    if (checkBoxHR.Checked == true)
+                    {
+                        EstatisticasWeb esta = getEstatisticas(sns, startDate, endDate, "HR");
+                        data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
+                    }
+
+                }
 
             }
             else
             {
-                if (checkBoxBP.Checked == true)
-                {
-                    EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "BP");
-                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
-                }
 
-                if (checkBoxOS.Checked == true)
-                {
-
-                    EstatisticasWeb esta = getEstatisticas(sns, dataMin, dataMax, "SPO2");
-                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
-                }
-
-                if (checkBoxHR.Checked == true)
-                {
-                    EstatisticasWeb esta = getEstatisticas(sns, startDate, endDate, "HR");
-                    data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
-                }
+                MessageBox.Show("Start Date can not be bigger than End Date");
 
             }
-
         }
-
 
         //Metodos Auxiliares
 
@@ -890,36 +939,53 @@ namespace ClinicalAlert
         {
             List<ValoresWeb> lista = serv.GetRegistofGrahp(sns, startDate, endDate).ToList();
             List<ValoresWeb> listaW = new List<ValoresWeb>();
-         
-            foreach (ValoresWeb item in lista)
+
+            if (lista.Count != 0)
             {
-                ValoresWeb v = new ValoresWeb();
 
-                v.valueR = item.valueR;
-                v.type = item.type;
-                v.dataOfReposit = item.dataOfReposit;
+                foreach (ValoresWeb item in lista)
+                {
+                    ValoresWeb v = new ValoresWeb();
 
-                listaW.Add(v);
+                    v.valueR = item.valueR;
+                    v.type = item.type;
+                    v.dataOfReposit = item.dataOfReposit;
+
+                    listaW.Add(v);
+                    return listaW;
+
+                }
             }
-            return listaW;
+            return null;
         }
 
         private EstatisticasWeb getEstatisticas(int sns, DateTime start, DateTime end, string type)
         {
             List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns,start,end,type).ToList();
-            EstatisticasWeb esta = new EstatisticasWeb();
-            foreach (EstatisticasWeb item in lista)
-            {
-                esta.valorMax = item.valorMax;
-                esta.valorMed = item.valorMed;
-                esta.valorMin = item.valorMin;
-                esta.startDate = item.startDate;
-                esta.tipo = item.tipo;
-                esta.endDate = item.endDate;
 
-                return esta;
+
+            if (lista.Count  != 0)
+            {
+                EstatisticasWeb esta = new EstatisticasWeb();
+
+                foreach (EstatisticasWeb item in lista)
+                {
+                    esta.valorMax = item.valorMax;
+                    esta.valorMed = item.valorMed;
+                    esta.valorMin = item.valorMin;
+                    esta.startDate = item.startDate;
+                    esta.tipo = item.tipo;
+                    esta.endDate = item.endDate;
+
+                    return esta;
+                }
+
             }
-            return null;
+            
+                
+            return null;    
+            
+
             
         }
 

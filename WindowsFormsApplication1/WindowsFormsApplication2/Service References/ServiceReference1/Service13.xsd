@@ -8,7 +8,7 @@
   <xs:element name="ArrayOfEstatisticasWeb" nillable="true" type="tns:ArrayOfEstatisticasWeb" />
   <xs:complexType name="EstatisticasWeb">
     <xs:sequence>
-      <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="valorMax" type="xs:int" />

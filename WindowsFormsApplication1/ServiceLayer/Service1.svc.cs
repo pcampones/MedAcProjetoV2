@@ -191,19 +191,24 @@ namespace ServiceLayer
             List<EstatisticasWeb> lista = _acederBd.getReportsHRbySNS(sns, startDate, endDate, type);
             List<EstatisticasWeb> listaWeb = new List<EstatisticasWeb>();
 
-            foreach (EstatisticasWeb item in lista)
+            if (lista != null)
             {
-                EstatisticasWeb esWeb = new EstatisticasWeb();
-
-                esWeb.ValorMax = item.ValorMax;
-                esWeb.ValorMin = item.ValorMin;
-                esWeb.ValorMed = item.ValorMed;
-                esWeb.StartDate = startDate;
-                esWeb.EndDate = endDate;
-                esWeb.Tipo = type;
                 
+                foreach (EstatisticasWeb item in lista)
+                {
+                    EstatisticasWeb esWeb = new EstatisticasWeb();
 
-                listaWeb.Add(esWeb);
+                    esWeb.ValorMax = item.ValorMax;
+                    esWeb.ValorMin = item.ValorMin;
+                    esWeb.ValorMed = item.ValorMed;
+                    esWeb.StartDate = startDate;
+                    esWeb.EndDate = endDate;
+                    esWeb.Tipo = type;
+
+
+                    listaWeb.Add(esWeb);
+                }
+                
             }
             return listaWeb;
         }
@@ -497,14 +502,18 @@ namespace ServiceLayer
             {
                 List<ValoresWeb> valores = new List<ValoresWeb>();
                 List<Valores> listavalores = _acederBd.getGraphsSNS(sns, dataMax, dataMin);
-                foreach (Valores item in listavalores)
+                if (listavalores != null)
                 {
-                    ValoresWeb va = new ValoresWeb();
-                    va.Value = item.Value;
-                    va.Type = item.Type;
-                    va.DataOfReposit = item.DataOfRegist;
+                    foreach (Valores item in listavalores)
+                    {
+                        ValoresWeb va = new ValoresWeb();
+                        va.Value = item.Value;
+                        va.Type = item.Type;
+                        va.DataOfReposit = item.DataOfRegist;
 
-                    valores.Add(va);
+                        valores.Add(va);
+                    }
+
                 }
 
                 return valores;

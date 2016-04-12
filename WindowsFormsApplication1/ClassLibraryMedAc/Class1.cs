@@ -158,11 +158,34 @@ namespace ClassLibraryMedAc
             }
         }
 
+
+        // Alertas Gerados
         public List<Valores> getDataSPO2(string tipo)
         {
             List<Valores> datas = context.ValoresSet.Where(i => i.Type == "HR").ToList();
             return datas;
         }
+
+        public List<Valores> get30min(string tipo, int sns)
+        {
+            DateTime data = DateTime.Now.AddMinutes(-30);
+            DateTime dataAtual = DateTime.Now;
+            List<Valores> data30min = context.ValoresSet.Where(i => i.DataOfRegist < dataAtual && i.DataOfRegist > data && i.Utente.SNS == sns && tipo == i.Type).ToList();
+
+            return data30min;
+        }
+
+        public List<Valores> get10min(string tipo, int sns)
+        {
+            DateTime data = DateTime.Now.AddMinutes(-10);
+            DateTime dataAtual = DateTime.Now;
+            List<Valores> data30min = context.ValoresSet.Where(i => i.DataOfRegist < dataAtual && i.DataOfRegist > data && i.Utente.SNS == sns && tipo == i.Type).ToList();
+
+            return data30min;
+        }
+
+
+
 
         public List<EstatisticasWeb> getReportsHRbySNS(int sns, DateTime startDate, DateTime endDate, string type)
         {

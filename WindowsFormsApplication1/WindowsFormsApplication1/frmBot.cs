@@ -26,7 +26,7 @@ namespace BOT
         private UtenteWeb u;
         private int sns;
         enum DataType { Normal, Alerts };
-
+        //hahahaha
         bool BLOODPRESSSURE = true;
         bool HEARTRATE = true;
         bool OXIGENSATURATION = true;

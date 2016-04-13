@@ -236,15 +236,13 @@ namespace ServiceLayer
                                     GerarAlertaCriticoInterminente(utente, valores.Type);
 
                                 }
-                                else if (GetLast1Hour(valores.Type, utente.SNS) == true)
+                                 if (GetLast1Hour(valores.Type, utente.SNS) == true)
                                 {
                                     GerarAlertaCriticoContinuo(utente, valores.Type);
                                 }
-                                else if (GetLast30Min(valores.Type, utente.SNS) == true)
-                                {
-                                  
+                                 if (GetLast30Min(valores.Type, utente.SNS) == true)
+                                {                               
                                     GerarAlertaAvisoInterminente(utente, valores.Type);
-
                                 }
                                 else if (GetLast10Min(valores.Type, utente.SNS) == true)
                                 {
@@ -311,7 +309,7 @@ namespace ServiceLayer
 
             }
 
-            if (listaComValores.Count == lista1.Count)
+            if (listaComValores.Count == lista1.Count && lista1.Count != 0 && listaComValores.Count != 0)
             {
                 return true;
             }

@@ -27,9 +27,9 @@ namespace BOT
         private int sns;
         enum DataType { Normal, Alerts };
         //hahahaha ahahahhahah
-        bool BLOODPRESSSURE = true;
-        bool HEARTRATE = true;
-        bool OXIGENSATURATION = true;
+        bool BLOODPRESSSURE = false;
+        bool HEARTRATE = false;
+        bool OXIGENSATURATION = false;
 
         PhysiologicParametersDll.PhysiologicParametersDll dll = null;
 
@@ -201,7 +201,7 @@ namespace BOT
         private void Client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
             string content = e.Result;
-            MessageBox.Show(content);
+            //MessageBox.Show(content);
 
             XmlDocument doc = new XmlDocument();
 
@@ -245,54 +245,87 @@ namespace BOT
 
         private void stop_Click(object sender, EventArgs e)
         {
-            dll.Stop();
+            if (dll != null)
+            {
 
+                dll.Stop();
+
+            }
         }
 
         private void initDLL_Click(object sender, EventArgs e)
         {
+            if (toolStripTextBox1.Text != "")
+            {
 
-            dll = new PhysiologicParametersDll.PhysiologicParametersDll();
+
+                if (BLOODPRESSSURE == true || HEARTRATE == true || OXIGENSATURATION == true)
+                {
+
+                    dll = new PhysiologicParametersDll.PhysiologicParametersDll();
 
 
-            bw.RunWorkerAsync();
+                    bw.RunWorkerAsync();
+                }
+                else
+                {
+                    MessageBox.Show("Please select the CheckBox!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Introduce the patient Ative!","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
         }
 
         private void bloodPreCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (bloodPreCheckBox.Checked)
-            {
-                BLOODPRESSSURE = true;
+           
+                    //  bw.RunWorkerAsync();
 
-            }
-            else
-            {
-                BLOODPRESSSURE = false;
-            }
+
+                    if (bloodPreCheckBox.Checked)
+                    {
+                  
+                        BLOODPRESSSURE = true;
+                        initDLL_Click(sender, e);
+                    }
+                    else
+                    {
+                        BLOODPRESSSURE = false;
+                    }
+              
         }
 
         private void oxigenPressurecheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (oxigenPressurecheckBox.Checked)
-            {
-                OXIGENSATURATION = true;
-            }
-            else
-            {
-                OXIGENSATURATION = false;
-            }
+                    if (oxigenPressurecheckBox.Checked)
+                    {
+                        OXIGENSATURATION = true;
+                        initDLL_Click(sender,e);
+                    }
+                    else
+                    {
+                        OXIGENSATURATION = false;
+                    }
+             
         }
 
         private void heartRateCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (heartRateCheckBox.Checked)
-            {
-                HEARTRATE = true;
-            }
-            else
-            {
-                HEARTRATE = false;
-            }
+           
+                    if (heartRateCheckBox.Checked)
+                    {
+                     
+                        HEARTRATE = true;
+                        initDLL_Click(sender, e);
+                    }
+                    else
+                    {
+                        HEARTRATE = false;
+                    }
+             
         }
 
         private void launchAlertsButton_Click(object sender, EventArgs e)
@@ -309,6 +342,11 @@ namespace BOT
 
             this.BeginInvoke((MethodInvoker)delegate
             {
+
+
+            if (BLOODPRESSSURE == true)
+            {
+
                 if (valor[0].Equals("BP"))
                 {
                     bloodPressureMinLbl.Text = valor[2];
@@ -316,10 +354,14 @@ namespace BOT
 
                     label16.Text = valor[3];
 
-                    serv.AddValues(Settings.Default.SNS, "BP", bloodPressureMaxLbl.Text , DateTime.Parse(label16.Text));
+                    serv.AddValues(Settings.Default.SNS, "BP", bloodPressureMaxLbl.Text, DateTime.Parse(label16.Text));
 
                 }
-                else if (valor[0].Equals("HR"))
+            }
+            if (HEARTRATE == true)
+            {
+
+                if (valor[0].Equals("HR"))
                 {
                     heartRateLbl.Text = valor[1];
                     label15.Text = valor[2];
@@ -327,13 +369,20 @@ namespace BOT
                     serv.AddValues(Settings.Default.SNS, "HR", heartRateLbl.Text, DateTime.Parse(label15.Text));
 
                 }
-                else if (valor[0].Equals("SPO2"))
-                {
-                    oxigenPressureLbl.Text = valor[1];
-                    label17.Text = valor[2];
+            }
 
-                    serv.AddValues(Settings.Default.SNS, "SPO2", oxigenPressureLbl.Text, Convert.ToDateTime(label17.Text));
-                }
+            if (OXIGENSATURATION == true)
+                {
+
+                    if (valor[0].Equals("SPO2"))
+                    {
+                        oxigenPressureLbl.Text = valor[1];
+                        label17.Text = valor[2];
+
+                        serv.AddValues(Settings.Default.SNS, "SPO2", oxigenPressureLbl.Text, Convert.ToDateTime(label17.Text));
+                    }
+
+                }   
             });
         }
         public void doWork(object sender, DoWorkEventArgs e)
@@ -350,57 +399,67 @@ namespace BOT
             string url = Properties.Settings.Default.Medline;
             int retmax = Properties.Settings.Default.Retmax;
             string term = txb_search.Text;
-            string urlComp = url + term + "&retmax=" + retmax;
 
-            var client = new WebClient();
-            client.DownloadStringAsync(new Uri(urlComp));
-            client.DownloadStringCompleted += Client_DownloadStringCompleted;
-
-            HttpWebRequest request = WebRequest.Create(urlComp) as HttpWebRequest;
-            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            if (term != "" )
             {
-                StreamReader reader = new StreamReader(response.GetResponseStream());
-                conteudo = reader.ReadToEnd();
+                dataGridView1.Rows.Clear();
 
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml(conteudo);
-                string refRank = "";
-                XmlNodeList r = doc.SelectNodes("//document/@rank");
-                SearchTerm d = null;
+                string urlComp = url + term + "&retmax=" + retmax;
 
-                foreach (XmlNode nodeR in r)
+                var client = new WebClient();
+                client.DownloadStringAsync(new Uri(urlComp));
+                client.DownloadStringCompleted += Client_DownloadStringCompleted;
+
+                HttpWebRequest request = WebRequest.Create(urlComp) as HttpWebRequest;
+                using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
-                    List<string> listAt = new List<string>();
-                    refRank = nodeR.InnerText;
-                    XmlNodeList t = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='title']");
-                    XmlNodeList o = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='organizationName']");
-                    XmlNodeList s = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='FullSummary']");
-                    XmlNodeList at = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='altTitle']");
+                    StreamReader reader = new StreamReader(response.GetResponseStream());
+                    conteudo = reader.ReadToEnd();
 
-                    foreach (XmlNode nodeT in t)
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(conteudo);
+                    string refRank = "";
+                    XmlNodeList r = doc.SelectNodes("//document/@rank");
+                    SearchTerm d = null;
+
+                    foreach (XmlNode nodeR in r)
                     {
-                        foreach (XmlNode nodeO in o)
+                        List<string> listAt = new List<string>();
+                        refRank = nodeR.InnerText;
+                        XmlNodeList t = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='title']");
+                        XmlNodeList o = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='organizationName']");
+                        XmlNodeList s = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='FullSummary']");
+                        XmlNodeList at = doc.SelectNodes("//document[@rank='" + refRank + "']//content[@name='altTitle']");
+
+                        foreach (XmlNode nodeT in t)
                         {
-                            foreach (XmlNode nodeS in s)
+                            foreach (XmlNode nodeO in o)
                             {
-                                foreach (XmlNode nodeAt in at)
+                                foreach (XmlNode nodeS in s)
                                 {
-                                    listAt.Add(nodeAt.InnerText);
+                                    foreach (XmlNode nodeAt in at)
+                                    {
+                                        listAt.Add(nodeAt.InnerText);
+                                    }
+                                    d = new SearchTerm(int.Parse(nodeR.InnerText), nodeT.InnerText, nodeO.InnerText, listAt, nodeS.InnerText);
+                                    listSearchTerm.Add(d);
+                                    break;
                                 }
-                                d = new SearchTerm(int.Parse(nodeR.InnerText), nodeT.InnerText, nodeO.InnerText, listAt, nodeS.InnerText);
-                                listSearchTerm.Add(d);
                                 break;
                             }
-                            break;
                         }
                     }
-                }
 
-                foreach (SearchTerm item in listSearchTerm)
-                {
+                    foreach (SearchTerm item in listSearchTerm)
+                    {
 
-                    dataGridView1.Rows.Add(item.Rank, item.Title, item.AltTitles, item.FullSummary, item.OrganizationName);
+                        dataGridView1.Rows.Add(item.Rank, item.Title, item.AltTitles, item.FullSummary, item.OrganizationName);
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Enter the word in the Text Box","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
 

@@ -165,6 +165,23 @@ namespace ClassLibraryMedAc
             List<Valores> datas = context.ValoresSet.Where(i => i.Type == "HR").ToList();
             return datas;
         }
+        public List<Valores> get2Hours(string tipo, int sns)
+        {
+            DateTime data = DateTime.Now.AddHours(-2);
+            DateTime dataAtual = DateTime.Now;
+            List<Valores> data2Hours = context.ValoresSet.Where(i => i.DataOfRegist < dataAtual && i.DataOfRegist > data && i.Utente.SNS == sns && tipo == i.Type).ToList();
+
+            return data2Hours;
+        }
+
+        public List<Valores> get1Hours(string tipo, int sns)
+        {
+            DateTime data = DateTime.Now.AddHours(-1);
+            DateTime dataAtual = DateTime.Now;
+            List<Valores> data1Hours = context.ValoresSet.Where(i => i.DataOfRegist < dataAtual && i.DataOfRegist > data && i.Utente.SNS == sns && tipo == i.Type).ToList();
+
+            return data1Hours;
+        }
 
         public List<Valores> get30min(string tipo, int sns)
         {
@@ -179,9 +196,9 @@ namespace ClassLibraryMedAc
         {
             DateTime data = DateTime.Now.AddMinutes(-10);
             DateTime dataAtual = DateTime.Now;
-            List<Valores> data30min = context.ValoresSet.Where(i => i.DataOfRegist < dataAtual && i.DataOfRegist > data && i.Utente.SNS == sns && tipo == i.Type).ToList();
+            List<Valores> data10min = context.ValoresSet.Where(i => i.DataOfRegist < dataAtual && i.DataOfRegist > data && i.Utente.SNS == sns && tipo == i.Type).ToList();
 
-            return data30min;
+            return data10min;
         }
 
 
@@ -279,7 +296,12 @@ namespace ClassLibraryMedAc
         }
 
 
+        public IEnumerable<int> getUtentesAlerts(int sns)
+        {
+            var result = context.AlertasSet.Where(i => i.Utente.SNS.Equals(sns) && i.Read.Equals("Not Read")).Select(i =>i.Utente.SNS).Distinct();
 
+            return result;
+        }
 
         public List<Alertas> getAlertaSns(int sns, DateTime startBegin, DateTime endBegin)
         {

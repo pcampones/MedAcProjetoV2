@@ -122,6 +122,7 @@ namespace BOT
             Properties.Settings.Default.Save();
 
             u = serv.GetUtenteBySNS(int.Parse(toolStripTextBox1.Text));
+
             if (u != null)
             {
                 toolStripLabel2.Text = "Welcome " + u.name;

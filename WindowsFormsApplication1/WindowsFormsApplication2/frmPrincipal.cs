@@ -368,7 +368,7 @@ namespace ClinicalAlert
                 numericUpDown3.Enabled = false;
                 richTextBox1.Text = u.alergies;
                 richTextBox1.Enabled = false;
-                ativeCheckBox.Enabled = false;
+     
                 if (ative == "Ative")
                 {
                     ativeCheckBox.Checked = true;

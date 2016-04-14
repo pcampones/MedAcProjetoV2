@@ -169,7 +169,7 @@ namespace ClassLibraryMedAc
         {
             DateTime data = DateTime.Now.AddHours(-2);
             DateTime dataAtual = DateTime.Now;
-            List<Valores> data2Hours = context.ValoresSet.Where(i => i.DataOfRegist < dataAtual && i.DataOfRegist > data && i.Utente.SNS == sns && tipo == i.Type).ToList();
+            List<Valores> data2Hours = context.ValoresSet.Where(i => i.DataOfRegist <= dataAtual && i.DataOfRegist >= data && i.Utente.SNS == sns && tipo == i.Type).ToList();
 
             return data2Hours;
         }

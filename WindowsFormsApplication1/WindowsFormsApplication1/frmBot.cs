@@ -254,7 +254,7 @@ namespace BOT
         }
 
         private void initDLL_Click(object sender, EventArgs e)
-        {
+        {//aa
             if (toolStripTextBox1.Text != "")
             {
 

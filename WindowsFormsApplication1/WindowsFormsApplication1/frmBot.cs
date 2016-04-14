@@ -26,7 +26,6 @@ namespace BOT
         private UtenteWeb u;
         private int sns;
         enum DataType { Normal, Alerts };
-        //hahahaha ahahahhahah
         bool BLOODPRESSSURE = false;
         bool HEARTRATE = false;
         bool OXIGENSATURATION = false;
@@ -201,7 +200,6 @@ namespace BOT
         private void Client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
             string content = e.Result;
-            //MessageBox.Show(content);
 
             XmlDocument doc = new XmlDocument();
 

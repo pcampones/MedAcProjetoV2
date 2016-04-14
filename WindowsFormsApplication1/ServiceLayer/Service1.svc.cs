@@ -8,7 +8,7 @@ using System.Text;
 using ClassLibraryMedAc;
 namespace ServiceLayer
 {
-    //asss
+    //asssjjjjjjj
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
@@ -236,11 +236,11 @@ namespace ServiceLayer
                                     GerarAlertaCriticoInterminente(utente, valores.Type);
 
                                 }
-                                 if (GetLast1Hour(valores.Type, utente.SNS) == true)
+                                else if (GetLast1Hour(valores.Type, utente.SNS) == true)
                                 {
                                     GerarAlertaCriticoContinuo(utente, valores.Type);
                                 }
-                                 if (GetLast30Min(valores.Type, utente.SNS) == true)
+                                else if (GetLast30Min(valores.Type, utente.SNS) == true)
                                 {                               
                                     GerarAlertaAvisoInterminente(utente, valores.Type);
                                 }
@@ -273,24 +273,80 @@ namespace ServiceLayer
         {
             List<Valores> lista2H = _acederBd.get2Hours(type, sns);
 
-            int soma1 = 0;
+           int soma1 = 0;
 
-            foreach (Valores item in lista2H)
+            //foreach (Valores item in lista2H)
+            //{
+            //    if (VerficaValores(item.Type, item.Value))
+            //    {
+            //         soma1 += item.DataOfRegist.Minute;
+
+            //        if (soma1 >= 60)
+            //        {
+            //            return true;
+
+            //        }
+
+            //    }
+
+            //}
+            int res = 0;
+          //  int valor = 0;
+            List<DateTime> somatorioMin = new List<DateTime>();
+
+             for (int i = 0; i < lista2H.Count; i++)
             {
-                if (VerficaValores(item.Type, item.Value))
+                if (VerficaValores(lista2H[i].Type, lista2H[i].Value))
                 {
-                    soma1 += item.DataOfRegist.Minute;
+                    DateTime min = lista2H[i].DataOfRegist;
 
-                    if (soma1 >= 60)
-                    {
-                        return true;
-
-                    }
+                    somatorioMin.Add(min);
 
                 }
+            }
+            //     int[] MINUTOS = new int[somatorioMin.Count];
+            //for (int i = 0; i < MINUTOS.Length; i++)
+            //{
+            //    valor = MINUTOS[i];
+
+            //}
+            //   valor = somatorioMin.LastOrDefault();
+            // int proximoValor = 0;
+            somatorioMin.Sort((x,y)=> y.Date.CompareTo(x));
+            List<int> inte = new List<int>();
+
+
+            foreach (DateTime item in somatorioMin)
+            {
+                int min = item.Minute;
+                inte.Add(min);
 
             }
+            int dife = 0;
+            for (int i = 0; i < inte.Count; i++)
+            {
+                int minAtual = inte[i];
+                int proximMin = inte[i + 1];
+                 dife = minAtual - proximMin;
 
+            }
+            //var v = 0;
+            // int ultMin = 0;
+            // foreach (var  item in somatorioMin.Select((valor,proximoValor)=> new { valor, proximoValor}))
+            // {
+            //      v = item.valor; 
+            //     //int diferenca = item - proximoValor.;
+
+            //   //  int ultMin = proximoValor;
+            //     //proximoValor = somatorioMin.LastOrDefault();
+            //     //proximoValor = item;
+            //     //proximoValor++;
+            //    // ultMin = item;
+            //     //ultMin++;
+            //    // item = valor;
+            // }
+            return true;
+            //}
             return false;
         }
 
@@ -309,7 +365,7 @@ namespace ServiceLayer
 
             }
 
-            if (listaComValores.Count == lista1.Count && lista1.Count != 0 && listaComValores.Count != 0)
+            if (listaComValores.Count == lista1.Count && listaComValores.Count != 0 && lista1.Count != 0)
             {
                 return true;
             }
@@ -358,7 +414,7 @@ namespace ServiceLayer
 
             }
 
-            if (listaComValores.Count == lista10.Count)
+            if (listaComValores.Count == lista10.Count && listaComValores.Count != 0 && lista10.Count != 0)
             {
                 return true;
             }

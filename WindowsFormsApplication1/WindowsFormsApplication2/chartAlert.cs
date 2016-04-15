@@ -17,11 +17,7 @@ namespace ClinicalAlert
 
         public chartAlert()
         {
-
-
             InitializeComponent();
-
-
 
             // Set the MaximizeBox to false to remove the maximize box.
             this.MaximizeBox = false;

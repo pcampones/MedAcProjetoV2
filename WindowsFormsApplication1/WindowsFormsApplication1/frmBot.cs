@@ -370,8 +370,9 @@ namespace BOT
                     bloodPressureMaxLbl.Text = valor[1];
 
                     label16.Text = valor[3];
+                        string bp = valor[1] + "-" + valor[2];
 
-                    serv.AddValues(Settings.Default.SNS, "BP", bloodPressureMaxLbl.Text, DateTime.Parse(label16.Text));
+                    serv.AddValues(Settings.Default.SNS, "BP", bp, DateTime.Parse(label16.Text));
 
                 }
             }

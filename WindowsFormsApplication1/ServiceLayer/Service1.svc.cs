@@ -275,7 +275,7 @@ namespace ServiceLayer
 
            int soma1 = 0;
 
-            //foreach (Valores item in lista2H)
+            //foreach (Valores item in lista2H) ahah
             //{
             //    if (VerficaValores(item.Type, item.Value))
             //    {

@@ -90,10 +90,24 @@ namespace BOT
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            panelDataAcquisition.Visible = true;
-            panelMe.Visible = false;
-            panelPrincipal.Visible = false;
-            panel1.Visible = false;
+            if (u != null)
+            {
+                if (u.ative == "Ative")
+                {
+                    panelDataAcquisition.Visible = true;
+                    panelMe.Visible = false;
+                    panelPrincipal.Visible = false;
+                    panel1.Visible = false;
+                }
+                else
+                {
+                    panelDataAcquisition.Visible = false;
+                    panelMe.Visible = false;
+                    panelPrincipal.Visible = true;
+                    panel1.Visible = false;
+                    MessageBox.Show("The user must be active", "Confirm", MessageBoxButtons.OK);
+                }
+            }              
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -122,7 +136,7 @@ namespace BOT
 
             u = serv.GetUtenteBySNS(int.Parse(toolStripTextBox1.Text));
 
-            if (u != null)
+            if (u != null && u.ative == "Ative")
             {
                 toolStripLabel2.Text = "Welcome " + u.name;
 
@@ -145,6 +159,11 @@ namespace BOT
                 lbl_sns.Text = "N.D";
                 lbl_surname.Text = "N.D";
                 toolStripLabel2.Text = "N.D";
+
+                panelDataAcquisition.Visible = false;
+                panelMe.Visible = false;
+                panelPrincipal.Visible = true;
+                panel1.Visible = false;
             }
         }
 

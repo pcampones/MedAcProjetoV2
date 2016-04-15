@@ -764,41 +764,7 @@ namespace ClinicalAlert
         }
 
 
-        private void bt_search_Click(object sender, EventArgs e)
-        {
-            DateTime start = dtp_beginAlerts.Value;
-            DateTime end = dtp_EndAlerts.Value;
-
-            if (start <= end)
-            {
-                List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end, sns).ToList();
-                listView2.Items.Clear();
-                foreach (AlertasWeb item in listaWeb)
-                {
-                    if (item.read.Equals("Not Read"))
-                    {
-                        ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
-                        linha.SubItems.Add(item.snsUtente.ToString());
-                        linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
-                        linha.SubItems.Add(item.read);
-                        linha.SubItems.Add(item.tipo);
-                        linha.SubItems.Add(item.dataAlerta.ToShortDateString());
-                        linha.SubItems.Add(item.parametro);
-                        listView2.Items.Add(linha);
-
-                    }
-                }
-
-
-            }
-            else
-            {
-
-                MessageBox.Show("Start Date can not be bigger than End Date!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                //                MessageBox.Show("Data de Inicio nao pode maior que a data de fim!");
-            }
-        }
+      
 
         private void bt_read_Click(object sender, EventArgs e)
         {

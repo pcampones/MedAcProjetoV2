@@ -226,7 +226,7 @@ namespace ServiceLayer
                 {
                     case "BP":
                         {
-                         //   string[] bp = valores.Type.Split('-');
+                            string[] bp = valores.Value.Split('-');
                             if (VerficaValores(valores.Type, valores.Value) == true)
                             {
                                 if (GetLast2Hours(valores.Type, utente.SNS) == true)
@@ -246,7 +246,7 @@ namespace ServiceLayer
                                 {
                                     GerarAlertaAvisoContinuo(utente, valores.Type);
                                 }
-                                else if (Convert.ToInt32(valores.Type) < 60)
+                                else if (Convert.ToInt32(bp[1]) < 60)
                                 {
                                     GerarAlertaAnytime(utente, valores.Type);
                                 }

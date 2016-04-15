@@ -171,7 +171,7 @@ namespace ServiceLayer
 
         public List<ValoresWeb> GetValuesbySNS(int sns, DateTime dataMax, DateTime dataMin)
         {
-            
+
             List<Valores> lista = _acederBd.getValuesbySNS(sns, dataMax, dataMin);
             List<ValoresWeb> listaWeb = new List<ValoresWeb>();
 
@@ -225,36 +225,30 @@ namespace ServiceLayer
                 switch (valores.Type)
                 {
                     case "HR":
-
-                       // if (Convert.ToInt32(valores.Value) < 80)
-                        {
+                        { 
                             if (VerficaValores(valores.Type, valores.Value) == true)
                             {
                                 if (GetLast2Hours(valores.Type, utente.SNS) == true)
                                 {
-                                   
+                                    if (GetLast1Hour(valores.Type, utente.SNS) == true)
+                                    {
+                                        if (GetLast30Min(valores.Type, utente.SNS) == true)
+                                        {
+                                            if (GetLast10Min(valores.Type, utente.SNS) == true)
+                                            {
+                                                GerarAlertaAvisoContinuo(utente, valores.Type);
+                                            }
+                                            GerarAlertaAvisoInterminente(utente, valores.Type);
+                                        }
+                                        GerarAlertaCriticoContinuo(utente, valores.Type);
+                                    }
                                     GerarAlertaCriticoInterminente(utente, valores.Type);
-
-                                }
-                                else if (GetLast1Hour(valores.Type, utente.SNS) == true)
-                                {
-                                    GerarAlertaCriticoContinuo(utente, valores.Type);
-                                }
-                                else if (GetLast30Min(valores.Type, utente.SNS) == true)
-                                {                               
-                                    GerarAlertaAvisoInterminente(utente, valores.Type);
-                                }
-                                else if (GetLast10Min(valores.Type, utente.SNS) == true)
-                                {
-                                    GerarAlertaAvisoContinuo(utente, valores.Type);
                                 }
                                 else if (Convert.ToInt32(valores.Value) < 80)
                                 {
-                                    GerarAlertaAnytime(utente,valores.Type);
+                                    GerarAlertaAnytime(utente, valores.Type);
                                 }
 
-
-                                
                             }
                         }
 
@@ -286,8 +280,8 @@ namespace ServiceLayer
                 }
             }
 
-            List<DateTime> datasOrdenadas = sortDescending(somatorioMin);  
-            
+            List<DateTime> datasOrdenadas = sortDescending(somatorioMin);
+
             foreach (DateTime item in datasOrdenadas)
             {
                 int min = item.Minute;
@@ -295,32 +289,36 @@ namespace ServiceLayer
 
             }
 
-            for (int i = 0; i <= inte.Count(); i++)
+            for (int i = 0; i < inte.Count(); i++)
             {
-                
                 int minAtual = inte[i];
 
-                int proximMin = inte[i+1];
-                
-                dife = Math.Abs(minAtual - proximMin);
+                if (i + 1 < inte.Count())
+                {
 
-                diferencas.Add(dife);
-            
-                
+                    int proximMin = inte[i + 1];
+
+                    dife = Math.Abs(minAtual - proximMin);
+
+                    diferencas.Add(dife);
+                }
+
+
             }
-
-
 
             if (diferencas.Count() != 0)
             {
                 foreach (var item in diferencas)
                 {
                     soma2Horas += item;
-                    if (soma2Horas >= 60)
-                    {
-                        return true;
-                    }
+
                 }
+
+
+            }
+            if (soma2Horas >= 60)
+            {
+                return true;
             }
 
             return false;
@@ -352,24 +350,60 @@ namespace ServiceLayer
 
         public Boolean GetLast30Min(string type, int sns)
         {
-            List<Valores> lista30 = _acederBd.get30min(type, sns);
-            int soma10 = 0;
+            List<Valores> lista30m = _acederBd.get30min(type, sns);
+            List<DateTime> somatorioMin = new List<DateTime>();
+            List<int> inte = new List<int>();
+            List<int> diferencas = new List<int>();
+            int dife = 0, soma10min = 0;
 
-            foreach (Valores item in lista30)
+            for (int i = 0; i < lista30m.Count; i++)
             {
-                if (VerficaValores(item.Type, item.Value))
+                if (VerficaValores(lista30m[i].Type, lista30m[i].Value))
                 {
-                    soma10 += item.DataOfRegist.Minute;
-
-                    if (soma10 >= 10)
-                    {
-                        return true;
-
-                    }
+                    DateTime min = lista30m[i].DataOfRegist;
+                    somatorioMin.Add(min);
 
                 }
+            }
+
+            List<DateTime> datasOrdenadas = sortDescending(somatorioMin);
+
+            foreach (DateTime item in datasOrdenadas)
+            {
+                int min = item.Minute;
+                inte.Add(min);
 
             }
+
+            for (int i = 0; i < inte.Count(); i++)
+            {
+                int minAtual = inte[i];
+
+                if (i + 1 < inte.Count())
+                {
+
+                    int proximMin = inte[i + 1];
+
+                    dife = Math.Abs(minAtual - proximMin);
+
+                    diferencas.Add(dife);
+                }
+
+
+            }
+
+            if (diferencas.Count() != 0)
+            {
+                foreach (var item in diferencas)
+                {
+                    soma10min += item;
+                }
+            }
+            if (soma10min >= 10)
+            {
+                return true;
+            }
+
             return false;
         }
 
@@ -493,7 +527,7 @@ namespace ServiceLayer
 
         List<DateTime> sortDescending(List<DateTime> datas)
         {
-            datas.Sort((b,a)=>a.CompareTo(b));
+            datas.Sort((b, a) => a.CompareTo(b));
             return datas;
         }
         //Fim de Metodos Auxiliares
@@ -594,25 +628,25 @@ namespace ServiceLayer
             try
             {
                 List<ValoresWeb> valores = new List<ValoresWeb>();
-              
-                    List<Valores> listavalores = _acederBd.getGraphsSNS(sns, dataMax, dataMin);
 
-                    if (listavalores != null)
+                List<Valores> listavalores = _acederBd.getGraphsSNS(sns, dataMax, dataMin);
+
+                if (listavalores != null)
+                {
+                    foreach (Valores item in listavalores)
                     {
-                        foreach (Valores item in listavalores)
-                        {
-                            ValoresWeb va = new ValoresWeb();
-                            va.Value = item.Value;
-                            va.Type = item.Type;
-                            va.DataOfReposit = item.DataOfRegist;
+                        ValoresWeb va = new ValoresWeb();
+                        va.Value = item.Value;
+                        va.Type = item.Type;
+                        va.DataOfReposit = item.DataOfRegist;
 
-                            valores.Add(va);
-                        }
-
+                        valores.Add(va);
                     }
 
+                }
 
-                
+
+
                 return valores;
 
             }
@@ -623,5 +657,5 @@ namespace ServiceLayer
             }
         }
     }
-    
+
 }

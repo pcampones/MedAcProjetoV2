@@ -318,6 +318,8 @@ namespace ServiceLayer
                     soma2Horas += item;
                     if (soma2Horas >= 60)
                     {
+
+                        //ce
                         return true;
                     }
                 }

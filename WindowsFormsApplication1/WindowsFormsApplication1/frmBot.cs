@@ -90,6 +90,7 @@ namespace BOT
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
+            //a
             if (u != null)
             {
                 if (u.ative == "Ative")

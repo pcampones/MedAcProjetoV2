@@ -151,6 +151,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="startBegin" type="xs:dateTime" />
         <xs:element minOccurs="0" name="startEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

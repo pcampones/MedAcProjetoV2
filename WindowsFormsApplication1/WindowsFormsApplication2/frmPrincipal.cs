@@ -723,11 +723,28 @@ namespace ClinicalAlert
             panelAlerts.Visible = true;
             panel_Reports.Visible = false;
 
+         
+
+            List<UtenteWeb> listUtente = serv.GetUtentesNotRead().ToList();
+
+            foreach (UtenteWeb item in listUtente)
+            {
+                ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
+                linha.SubItems.Add(item.name + " " + item.surname);
+                listView_ative_alerts.Items.Add(linha);
+            }
+        }
+
+
+        private void listView_ative_alerts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int item2 = Convert.ToInt32(listView_ative_alerts.Items[listView_ative_alerts.FocusedItem.Index].SubItems[0].Text);
+
             DateTime start = DateTime.MinValue;
             DateTime end = DateTime.MaxValue;
 
-
-            List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end).ToList();
+            
+            List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end, item2).ToList();
             listView2.Items.Clear();
             foreach (AlertasWeb item in listaWeb)
             {
@@ -744,7 +761,6 @@ namespace ClinicalAlert
 
                 }
             }
-
         }
 
 
@@ -755,7 +771,7 @@ namespace ClinicalAlert
 
             if (start <= end)
             {
-                List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end).ToList();
+                List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end, sns).ToList();
                 listView2.Items.Clear();
                 foreach (AlertasWeb item in listaWeb)
                 {
@@ -1125,7 +1141,5 @@ namespace ClinicalAlert
 
             
         }
-
-     
     }
 }

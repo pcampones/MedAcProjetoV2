@@ -770,10 +770,10 @@ namespace ClinicalAlert.ServiceReference1 {
         System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetAlertsNotReadAsync(int sns, System.DateTime startBegin, System.DateTime startEnd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertsNotReadDate", ReplyAction="http://tempuri.org/IService1/GetAlertsNotReadDateResponse")]
-        ClinicalAlert.ServiceReference1.AlertasWeb[] GetAlertsNotReadDate(System.DateTime startBegin, System.DateTime startEnd);
+        ClinicalAlert.ServiceReference1.AlertasWeb[] GetAlertsNotReadDate(System.DateTime startBegin, System.DateTime startEnd, int sns);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlertsNotReadDate", ReplyAction="http://tempuri.org/IService1/GetAlertsNotReadDateResponse")]
-        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetAlertsNotReadDateAsync(System.DateTime startBegin, System.DateTime startEnd);
+        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetAlertsNotReadDateAsync(System.DateTime startBegin, System.DateTime startEnd, int sns);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/marcarComoLido", ReplyAction="http://tempuri.org/IService1/marcarComoLidoResponse")]
         void marcarComoLido(ClinicalAlert.ServiceReference1.AlertasWeb alerta, int id);
@@ -889,12 +889,12 @@ namespace ClinicalAlert.ServiceReference1 {
             return base.Channel.GetAlertsNotReadAsync(sns, startBegin, startEnd);
         }
         
-        public ClinicalAlert.ServiceReference1.AlertasWeb[] GetAlertsNotReadDate(System.DateTime startBegin, System.DateTime startEnd) {
-            return base.Channel.GetAlertsNotReadDate(startBegin, startEnd);
+        public ClinicalAlert.ServiceReference1.AlertasWeb[] GetAlertsNotReadDate(System.DateTime startBegin, System.DateTime startEnd, int sns) {
+            return base.Channel.GetAlertsNotReadDate(startBegin, startEnd, sns);
         }
         
-        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetAlertsNotReadDateAsync(System.DateTime startBegin, System.DateTime startEnd) {
-            return base.Channel.GetAlertsNotReadDateAsync(startBegin, startEnd);
+        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.AlertasWeb[]> GetAlertsNotReadDateAsync(System.DateTime startBegin, System.DateTime startEnd, int sns) {
+            return base.Channel.GetAlertsNotReadDateAsync(startBegin, startEnd, sns);
         }
         
         public void marcarComoLido(ClinicalAlert.ServiceReference1.AlertasWeb alerta, int id) {

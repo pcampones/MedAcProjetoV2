@@ -564,11 +564,11 @@ namespace ServiceLayer
             }
         }
 
-        public List<AlertasWeb> GetAlertsNotReadDate(DateTime startBegin, DateTime startEnd)
+        public List<AlertasWeb> GetAlertsNotReadDate(DateTime startBegin, DateTime startEnd, int sns)
         {
             try
             {
-                List<Alertas> lista = _acederBd.getAlertaSns(startBegin, startEnd);
+                List<Alertas> lista = _acederBd.getAlertaSns(sns, startBegin, startEnd);
                 List<AlertasWeb> listaWeb = new List<AlertasWeb>();
 
                 foreach (Alertas item in lista)
@@ -605,15 +605,20 @@ namespace ServiceLayer
         {
             try
             {
-                List<Utente> lista = _acederBd.getUtentesAlertsNotRead();
+                List<Utente> lista = _acederBd.getUtentAlert();
                 List<UtenteWeb> listaWeb = new List<UtenteWeb>();
 
                 foreach (Utente item in lista)
                 {
-                    UtenteWeb alerW = new UtenteWeb();
-                    alerW.Name = item.Name;
-                    alerW.Surname = item.Surname;
-                    listaWeb.Add(alerW);
+                    Utente utente = _acederBd.getUtenteBySNS(item.SNS);
+
+                    UtenteWeb uWeb = new UtenteWeb();
+
+                    uWeb.Sns = utente.SNS;
+                    uWeb.Name = utente.Name;
+                    uWeb.Surname = utente.Surname;
+
+                    listaWeb.Add(uWeb);          
                 }
 
                 return listaWeb;

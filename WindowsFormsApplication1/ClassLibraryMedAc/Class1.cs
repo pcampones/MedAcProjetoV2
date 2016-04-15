@@ -295,12 +295,24 @@ namespace ClassLibraryMedAc
             }
         }
 
-
-        public IEnumerable<int> getUtentesAlerts(int sns)
+        public List<Utente> getUtentAlert()
         {
-            var result = context.AlertasSet.Where(i => i.Utente.SNS.Equals(sns) && i.Read.Equals("Not Read")).Select(i =>i.Utente.SNS).Distinct();
 
-            return result;
+            List<int> resultSNS = context.AlertasSet.Where(i => i.Read.Equals("Not Read")).Select(i => i.Utente.SNS).Distinct().ToList();
+
+
+
+            List<Utente> listUtent = new List<Utente>();
+
+            Utente u = new Utente();
+            foreach (int item in resultSNS)
+            {
+                u.SNS = item;
+
+                listUtent.Add(u);               
+            }
+
+            return listUtent;
         }
 
         public List<Alertas> getAlertaSns(int sns, DateTime startBegin, DateTime endBegin)
@@ -338,33 +350,7 @@ namespace ClassLibraryMedAc
                 throw ex;
             }
         }
-        public List<Utente> getUtentesAlertsNotRead()
-        {
-            try
-            {
-                List<Utente> utentes = new List<Utente>();
-                Utente u = new Utente();
-                var result = from utente in context.UtenteSet
-                             join alerta in context.AlertasSet on
-                             utente.Id equals alerta.Utente.Id
-                             where alerta.Read.Equals("Not Read")
-                             select new { utente };
 
-
-                foreach (var item in result)
-                {
-                    u = item.utente;
-                    utentes.Add(u);
-                }
-                return utentes;
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
 
         public void marcarComoLido(Alertas alerta, int id)
         {

@@ -49,7 +49,7 @@ namespace ServiceLayer
         List<AlertasWeb> GetAlertsNotRead(int sns, DateTime startBegin, DateTime startEnd);
 
         [OperationContract]
-        List<AlertasWeb> GetAlertsNotReadDate(DateTime startBegin, DateTime startEnd);
+        List<AlertasWeb> GetAlertsNotReadDate(DateTime startBegin, DateTime startEnd, int sns);
 
         [OperationContract]
         void marcarComoLido(AlertasWeb alerta, int id);

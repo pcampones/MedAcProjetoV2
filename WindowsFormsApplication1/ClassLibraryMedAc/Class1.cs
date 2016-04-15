@@ -297,10 +297,8 @@ namespace ClassLibraryMedAc
 
         public List<Utente> getUtentAlert()
         {
-
+       
             List<int> resultSNS = context.AlertasSet.Where(i => i.Read.Equals("Not Read")).Select(i => i.Utente.SNS).Distinct().ToList();
-
-
 
             List<Utente> listUtent = new List<Utente>();
 

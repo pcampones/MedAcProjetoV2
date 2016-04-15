@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
@@ -46,7 +46,6 @@
             this.listView_ative_alerts = new System.Windows.Forms.ListView();
             this.columnHeaderSNS = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.bt_read = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -358,7 +357,7 @@
             this.panelAlerts.Controls.Add(this.groupBox7);
             this.panelAlerts.Location = new System.Drawing.Point(0, 26);
             this.panelAlerts.Name = "panelAlerts";
-            this.panelAlerts.Size = new System.Drawing.Size(667, 492);
+            this.panelAlerts.Size = new System.Drawing.Size(667, 495);
             this.panelAlerts.TabIndex = 2;
             // 
             // groupBox17
@@ -366,7 +365,7 @@
             this.groupBox17.Controls.Add(this.listView_ative_alerts);
             this.groupBox17.Location = new System.Drawing.Point(15, 14);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(254, 392);
+            this.groupBox17.Size = new System.Drawing.Size(229, 396);
             this.groupBox17.TabIndex = 6;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Ative Patient";
@@ -375,11 +374,10 @@
             // 
             this.listView_ative_alerts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderSNS,
-            this.columnHeaderName,
-            this.columnHeaderCount});
+            this.columnHeaderName});
             this.listView_ative_alerts.Location = new System.Drawing.Point(12, 18);
             this.listView_ative_alerts.Name = "listView_ative_alerts";
-            this.listView_ative_alerts.Size = new System.Drawing.Size(233, 357);
+            this.listView_ative_alerts.Size = new System.Drawing.Size(195, 357);
             this.listView_ative_alerts.TabIndex = 0;
             this.listView_ative_alerts.UseCompatibleStateImageBehavior = false;
             this.listView_ative_alerts.View = System.Windows.Forms.View.Details;
@@ -388,16 +386,12 @@
             // columnHeaderSNS
             // 
             this.columnHeaderSNS.Text = "SNS";
+            this.columnHeaderSNS.Width = 86;
             // 
             // columnHeaderName
             // 
             this.columnHeaderName.Text = "Name";
-            this.columnHeaderName.Width = 48;
-            // 
-            // columnHeaderCount
-            // 
-            this.columnHeaderCount.Text = "Number of Unread Alerts";
-            this.columnHeaderCount.Width = 150;
+            this.columnHeaderName.Width = 77;
             // 
             // groupBox13
             // 
@@ -422,9 +416,9 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.listView2);
-            this.groupBox7.Location = new System.Drawing.Point(287, 14);
+            this.groupBox7.Location = new System.Drawing.Point(256, 14);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(368, 396);
+            this.groupBox7.Size = new System.Drawing.Size(399, 396);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Unread Alerts";
@@ -439,24 +433,28 @@
             this.columnHeader2});
             this.listView2.Location = new System.Drawing.Point(14, 22);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(347, 358);
+            this.listView2.Size = new System.Drawing.Size(372, 358);
             this.listView2.TabIndex = 1;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.DoubleClick += new System.EventHandler(this.listView2_DoubleClick);
             // 
             // columnId
             // 
             this.columnId.Text = "Id Alerta";
+            this.columnId.Width = 78;
             // 
             // columnHeaderRead
             // 
             this.columnHeaderRead.DisplayIndex = 2;
             this.columnHeaderRead.Text = "Read";
+            this.columnHeaderRead.Width = 63;
             // 
             // columnHeadertype
             // 
             this.columnHeadertype.DisplayIndex = 1;
             this.columnHeadertype.Text = "Type";
+            this.columnHeadertype.Width = 66;
             // 
             // columnHeaderData
             // 
@@ -473,7 +471,7 @@
             this.panelPrincipal.Controls.Add(this.groupBox12);
             this.panelPrincipal.Location = new System.Drawing.Point(0, 26);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(667, 492);
+            this.panelPrincipal.Size = new System.Drawing.Size(667, 495);
             this.panelPrincipal.TabIndex = 41;
             // 
             // pictureBox1
@@ -1282,16 +1280,16 @@
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(7, 20);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(626, 266);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1883,7 +1881,6 @@
         private System.Windows.Forms.ListView listView_ative_alerts;
         private System.Windows.Forms.ColumnHeader columnHeaderSNS;
         private System.Windows.Forms.ColumnHeader columnHeaderName;
-        private System.Windows.Forms.ColumnHeader columnHeaderCount;
     }
 }
 

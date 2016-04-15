@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:4115/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:4115/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:4115/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServiceLayer" />
+      <xsd:import schemaLocation="http://localhost:4115/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ClassLibraryMedAc" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetUtenteBySNS_InputMessage">
@@ -31,11 +32,53 @@
   <wsdl:message name="IService1_GetListaUtentes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetListaUtentesResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetValuesbySNS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetValuesbySNS" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetValuesbySNS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetValuesbySNSResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_AddValues_InputMessage">
     <wsdl:part name="parameters" element="tns:AddValues" />
   </wsdl:message>
   <wsdl:message name="IService1_AddValues_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportsHRbySNS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportsHRbySNS" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportsHRbySNS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportsHRbySNSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUtentesNotRead_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUtentesNotRead" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUtentesNotRead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUtentesNotReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetRegistofGrahp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegistofGrahp" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetRegistofGrahp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegistofGrahpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAlertsNotRead_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlertsNotRead" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAlertsNotRead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlertsNotReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAlertsNotReadDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlertsNotReadDate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAlertsNotReadDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlertsNotReadDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_marcarComoLido_InputMessage">
+    <wsdl:part name="parameters" element="tns:marcarComoLido" />
+  </wsdl:message>
+  <wsdl:message name="IService1_marcarComoLido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:marcarComoLidoResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetUtenteBySNS">
@@ -54,9 +97,37 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetListaUtentes" message="tns:IService1_GetListaUtentes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetListaUtentesResponse" message="tns:IService1_GetListaUtentes_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetValuesbySNS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetValuesbySNS" message="tns:IService1_GetValuesbySNS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetValuesbySNSResponse" message="tns:IService1_GetValuesbySNS_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddValues">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddValues" message="tns:IService1_AddValues_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddValuesResponse" message="tns:IService1_AddValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportsHRbySNS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReportsHRbySNS" message="tns:IService1_GetReportsHRbySNS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReportsHRbySNSResponse" message="tns:IService1_GetReportsHRbySNS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUtentesNotRead">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUtentesNotRead" message="tns:IService1_GetUtentesNotRead_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUtentesNotReadResponse" message="tns:IService1_GetUtentesNotRead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistofGrahp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetRegistofGrahp" message="tns:IService1_GetRegistofGrahp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetRegistofGrahpResponse" message="tns:IService1_GetRegistofGrahp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertsNotRead">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAlertsNotRead" message="tns:IService1_GetAlertsNotRead_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAlertsNotReadResponse" message="tns:IService1_GetAlertsNotRead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertsNotReadDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAlertsNotReadDate" message="tns:IService1_GetAlertsNotReadDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAlertsNotReadDateResponse" message="tns:IService1_GetAlertsNotReadDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="marcarComoLido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/marcarComoLido" message="tns:IService1_marcarComoLido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/marcarComoLidoResponse" message="tns:IService1_marcarComoLido_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -97,8 +168,71 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetValuesbySNS">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetValuesbySNS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddValues">
       <soap:operation soapAction="http://tempuri.org/IService1/AddValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportsHRbySNS">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetReportsHRbySNS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUtentesNotRead">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUtentesNotRead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistofGrahp">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetRegistofGrahp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertsNotRead">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAlertsNotRead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertsNotReadDate">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAlertsNotReadDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="marcarComoLido">
+      <soap:operation soapAction="http://tempuri.org/IService1/marcarComoLido" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

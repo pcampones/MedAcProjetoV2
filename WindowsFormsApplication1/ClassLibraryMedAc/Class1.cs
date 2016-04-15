@@ -8,6 +8,7 @@ namespace ClassLibraryMedAc
 {
     public class Class1
     {
+        //
 
         private ModelMedAcContainer context = new ModelMedAcContainer();
 

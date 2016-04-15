@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
@@ -49,12 +49,6 @@
             this.columnHeaderCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.bt_read = new System.Windows.Forms.Button();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.bt_search = new System.Windows.Forms.Button();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.dtp_beginAlerts = new System.Windows.Forms.DateTimePicker();
-            this.dtp_EndAlerts = new System.Windows.Forms.DateTimePicker();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -199,7 +193,6 @@
             this.panelAlerts.SuspendLayout();
             this.groupBox17.SuspendLayout();
             this.groupBox13.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -245,8 +238,8 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
+            this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
             this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
             this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
             this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
@@ -362,7 +355,6 @@
             // 
             this.panelAlerts.Controls.Add(this.groupBox17);
             this.panelAlerts.Controls.Add(this.groupBox13);
-            this.panelAlerts.Controls.Add(this.groupBox8);
             this.panelAlerts.Controls.Add(this.groupBox7);
             this.panelAlerts.Location = new System.Drawing.Point(0, 26);
             this.panelAlerts.Name = "panelAlerts";
@@ -372,9 +364,9 @@
             // groupBox17
             // 
             this.groupBox17.Controls.Add(this.listView_ative_alerts);
-            this.groupBox17.Location = new System.Drawing.Point(18, 16);
+            this.groupBox17.Location = new System.Drawing.Point(15, 14);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(254, 353);
+            this.groupBox17.Size = new System.Drawing.Size(254, 392);
             this.groupBox17.TabIndex = 6;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Ative Patient";
@@ -387,7 +379,7 @@
             this.columnHeaderCount});
             this.listView_ative_alerts.Location = new System.Drawing.Point(12, 18);
             this.listView_ative_alerts.Name = "listView_ative_alerts";
-            this.listView_ative_alerts.Size = new System.Drawing.Size(233, 323);
+            this.listView_ative_alerts.Size = new System.Drawing.Size(233, 357);
             this.listView_ative_alerts.TabIndex = 0;
             this.listView_ative_alerts.UseCompatibleStateImageBehavior = false;
             this.listView_ative_alerts.View = System.Windows.Forms.View.Details;
@@ -410,16 +402,16 @@
             // groupBox13
             // 
             this.groupBox13.Controls.Add(this.bt_read);
-            this.groupBox13.Location = new System.Drawing.Point(461, 381);
+            this.groupBox13.Location = new System.Drawing.Point(467, 420);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(181, 95);
+            this.groupBox13.Size = new System.Drawing.Size(181, 63);
             this.groupBox13.TabIndex = 5;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Mark as read";
             // 
             // bt_read
             // 
-            this.bt_read.Location = new System.Drawing.Point(53, 37);
+            this.bt_read.Location = new System.Drawing.Point(54, 26);
             this.bt_read.Name = "bt_read";
             this.bt_read.Size = new System.Drawing.Size(75, 23);
             this.bt_read.TabIndex = 3;
@@ -427,68 +419,12 @@
             this.bt_read.UseVisualStyleBackColor = true;
             this.bt_read.Click += new System.EventHandler(this.bt_read_Click);
             // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.bt_search);
-            this.groupBox8.Controls.Add(this.label32);
-            this.groupBox8.Controls.Add(this.label31);
-            this.groupBox8.Controls.Add(this.dtp_beginAlerts);
-            this.groupBox8.Controls.Add(this.dtp_EndAlerts);
-            this.groupBox8.Location = new System.Drawing.Point(23, 381);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(402, 95);
-            this.groupBox8.TabIndex = 4;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Search Alert";
-            // 
-            // bt_search
-            // 
-            this.bt_search.Location = new System.Drawing.Point(300, 37);
-            this.bt_search.Name = "bt_search";
-            this.bt_search.Size = new System.Drawing.Size(75, 23);
-            this.bt_search.TabIndex = 5;
-            this.bt_search.Text = "Search";
-            this.bt_search.UseVisualStyleBackColor = true;
-            this.bt_search.Click += new System.EventHandler(this.bt_search_Click);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(12, 64);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(55, 13);
-            this.label32.TabIndex = 4;
-            this.label32.Text = "End Date:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(12, 24);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(58, 13);
-            this.label31.TabIndex = 3;
-            this.label31.Text = "Start Date:";
-            // 
-            // dtp_beginAlerts
-            // 
-            this.dtp_beginAlerts.Location = new System.Drawing.Point(75, 24);
-            this.dtp_beginAlerts.Name = "dtp_beginAlerts";
-            this.dtp_beginAlerts.Size = new System.Drawing.Size(200, 20);
-            this.dtp_beginAlerts.TabIndex = 1;
-            // 
-            // dtp_EndAlerts
-            // 
-            this.dtp_EndAlerts.Location = new System.Drawing.Point(73, 61);
-            this.dtp_EndAlerts.Name = "dtp_EndAlerts";
-            this.dtp_EndAlerts.Size = new System.Drawing.Size(200, 20);
-            this.dtp_EndAlerts.TabIndex = 2;
-            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.listView2);
-            this.groupBox7.Location = new System.Drawing.Point(287, 12);
+            this.groupBox7.Location = new System.Drawing.Point(287, 14);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(368, 357);
+            this.groupBox7.Size = new System.Drawing.Size(368, 396);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Unread Alerts";
@@ -503,7 +439,7 @@
             this.columnHeader2});
             this.listView2.Location = new System.Drawing.Point(14, 22);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(347, 323);
+            this.listView2.Size = new System.Drawing.Size(347, 358);
             this.listView2.TabIndex = 1;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -537,7 +473,7 @@
             this.panelPrincipal.Controls.Add(this.groupBox12);
             this.panelPrincipal.Location = new System.Drawing.Point(0, 26);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(667, 495);
+            this.panelPrincipal.Size = new System.Drawing.Size(667, 492);
             this.panelPrincipal.TabIndex = 41;
             // 
             // pictureBox1
@@ -1346,16 +1282,16 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(7, 20);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(626, 266);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1749,8 +1685,6 @@
             this.panelAlerts.ResumeLayout(false);
             this.groupBox17.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.panelPrincipal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1911,12 +1845,6 @@
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Button bt_read;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Button bt_search;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.DateTimePicker dtp_beginAlerts;
-        private System.Windows.Forms.DateTimePicker dtp_EndAlerts;
         private System.Windows.Forms.ColumnHeader columnHeaderRead;
         private System.Windows.Forms.ColumnHeader columnHeadertype;
         private System.Windows.Forms.ColumnHeader columnHeaderData;

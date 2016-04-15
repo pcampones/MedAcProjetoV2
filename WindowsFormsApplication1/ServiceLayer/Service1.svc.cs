@@ -272,81 +272,57 @@ namespace ServiceLayer
         public bool GetLast2Hours(string type, int sns)
         {
             List<Valores> lista2H = _acederBd.get2Hours(type, sns);
-
-           int soma1 = 0;
-
-            //foreach (Valores item in lista2H) ahah
-            //{
-            //    if (VerficaValores(item.Type, item.Value))
-            //    {
-            //         soma1 += item.DataOfRegist.Minute;
-
-            //        if (soma1 >= 60)
-            //        {
-            //            return true;
-
-            //        }
-
-            //    }
-
-            //}
-            int res = 0;
-          //  int valor = 0;
             List<DateTime> somatorioMin = new List<DateTime>();
-
-             for (int i = 0; i < lista2H.Count; i++)
+            List<int> inte = new List<int>();
+            List<int> diferencas = new List<int>();
+            int dife = 0, soma2Horas = 0;
+            for (int i = 0; i < lista2H.Count; i++)
             {
                 if (VerficaValores(lista2H[i].Type, lista2H[i].Value))
                 {
                     DateTime min = lista2H[i].DataOfRegist;
-
                     somatorioMin.Add(min);
 
                 }
             }
-            //     int[] MINUTOS = new int[somatorioMin.Count];
-            //for (int i = 0; i < MINUTOS.Length; i++)
-            //{
-            //    valor = MINUTOS[i];
 
-            //}
-            //   valor = somatorioMin.LastOrDefault();
-            // int proximoValor = 0;
-            somatorioMin.Sort((x,y)=> y.Date.CompareTo(x));
-            List<int> inte = new List<int>();
-
-
-            foreach (DateTime item in somatorioMin)
+            List<DateTime> datasOrdenadas = sortDescending(somatorioMin);  
+            
+            foreach (DateTime item in datasOrdenadas)
             {
                 int min = item.Minute;
                 inte.Add(min);
 
             }
-            int dife = 0;
-            for (int i = 0; i < inte.Count; i++)
+
+            for (int i = 0; i <= inte.Count(); i++)
             {
+                
                 int minAtual = inte[i];
-                int proximMin = inte[i + 1];
-                 dife = minAtual - proximMin;
 
+                int proximMin = inte[i+1];
+                
+                dife = Math.Abs(minAtual - proximMin);
+
+                diferencas.Add(dife);
+            
+                
             }
-            //var v = 0;
-            // int ultMin = 0;
-            // foreach (var  item in somatorioMin.Select((valor,proximoValor)=> new { valor, proximoValor}))
-            // {
-            //      v = item.valor; 
-            //     //int diferenca = item - proximoValor.;
 
-            //   //  int ultMin = proximoValor;
-            //     //proximoValor = somatorioMin.LastOrDefault();
-            //     //proximoValor = item;
-            //     //proximoValor++;
-            //    // ultMin = item;
-            //     //ultMin++;
-            //    // item = valor;
-            // }
-            return true;
-            //}
+
+
+            if (diferencas.Count() != 0)
+            {
+                foreach (var item in diferencas)
+                {
+                    soma2Horas += item;
+                    if (soma2Horas >= 60)
+                    {
+                        return true;
+                    }
+                }
+            }
+
             return false;
         }
 
@@ -515,7 +491,11 @@ namespace ServiceLayer
             _acederBd.addValluesAlerts(ale);
         }
 
-        
+        List<DateTime> sortDescending(List<DateTime> datas)
+        {
+            datas.Sort((b,a)=>a.CompareTo(b));
+            return datas;
+        }
         //Fim de Metodos Auxiliares
 
 

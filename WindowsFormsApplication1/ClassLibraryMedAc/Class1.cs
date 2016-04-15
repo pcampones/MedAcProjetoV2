@@ -8,6 +8,7 @@ namespace ClassLibraryMedAc
 {
     public class Class1
     {
+        //
 
         private ModelMedAcContainer context = new ModelMedAcContainer();
 
@@ -200,7 +201,15 @@ namespace ClassLibraryMedAc
 
             return data10min;
         }
+        public List<Valores> get30minGraphs(string tipo, int sns, DateTime data)
+        {
+            DateTime data30 = data.AddMinutes(-30);
+            //DateTime dataAtual = DateTime.Now;
+            List<Valores> data30min = context.ValoresSet.Where(i => i.DataOfRegist <= data &&
+            i.DataOfRegist >= data30 && i.Utente.SNS == sns && tipo == i.Type).ToList();
 
+            return data30min;
+        }
 
 
 
@@ -297,8 +306,10 @@ namespace ClassLibraryMedAc
 
         public List<Utente> getUtentAlert()
         {
-       
+
             List<int> resultSNS = context.AlertasSet.Where(i => i.Read.Equals("Not Read")).Select(i => i.Utente.SNS).Distinct().ToList();
+
+
 
             List<Utente> listUtent = new List<Utente>();
 
@@ -359,6 +370,12 @@ namespace ClassLibraryMedAc
             context.SaveChanges();
         }
 
+        public List<Valores> getValuesAlerts(int sns,DateTime dataRegisto)
+        {
+            List<Valores> lista = context.ValoresSet.Where(i=>i.DataOfRegist == dataRegisto).ToList();
+            
+            return lista;
+        }
 
     }
 }

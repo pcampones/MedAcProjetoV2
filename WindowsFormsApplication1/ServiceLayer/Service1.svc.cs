@@ -690,6 +690,42 @@ namespace ServiceLayer
                 throw ex;
             }
         }
+
+       public List<ValoresWeb> GetValuesAlerts(int sns, string type, string tipo, DateTime data)
+        {
+            try
+            {
+                List<Valores> lista = null;
+                List<ValoresWeb> listaWeb = new List<ValoresWeb>();
+              
+                 if (tipo == "Aviso Continuo")
+                    {
+                        lista = _acederBd.get10min(type, sns);
+                    }
+                else if (tipo == "Aviso Interminente")
+                    {
+                        lista = _acederBd.get30minGraphs(type,sns,data);
+
+                    }
+                
+
+                foreach (Valores item in lista)
+                {
+                    ValoresWeb v = new ValoresWeb();
+
+                    v.DataOfReposit = item.DataOfRegist;
+                    v.Value = item.Value;
+                    listaWeb.Add(v);
+                }
+                
+                return listaWeb;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         public List<ValoresWeb> GetRegistofGrahp(int sns, DateTime dataMax, DateTime dataMin)
         {
             try

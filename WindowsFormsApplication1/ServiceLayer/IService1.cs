@@ -53,6 +53,9 @@ namespace ServiceLayer
 
         [OperationContract]
         void marcarComoLido(AlertasWeb alerta, int id);
+
+        [OperationContract]
+        List<ValoresWeb> GetValuesAlerts(int sns, string type, string tipo, DateTime data);
         // TODO: Add your service operations here
     }
 

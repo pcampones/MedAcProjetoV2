@@ -405,7 +405,7 @@ namespace ClinicalAlert
             chartAlert frmChart = new chartAlert();
             frmChart.ShowDialog();
 
-            int item = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index] .SubItems[1].Text);
+            int item = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index].SubItems[1].Text);
 
             if (item.Equals(""))
             {
@@ -788,27 +788,27 @@ namespace ClinicalAlert
                     linha.SubItems.Add(item.dataAlerta.ToShortDateString());
                     linha.SubItems.Add(item.parametro);
                     listView2.Items.Add(linha);
-
-                    for (int i = 0; i < listView2.Items.Count; i++)
-                    {
-                        if (item.tipo.Equals("Aviso Continuo") || item.tipo.Equals("Aviso Interminente"))
-                        {
-                            listView2.Items[i].BackColor = Color.Yellow;
-                        }
-                        else if (item.tipo.Equals("Critico Continuo") || item.tipo.Equals("Critico Interminente"))
-                        {
-                            listView2.Items[i].BackColor = Color.Red;
-                        }
-                        else
-                        {
-                            listView2.Items[i].BackColor = Color.Orange;
-                        }
-                    }
-
-                   
-
+                    
                 }
+
+                for (int i = 0; i < listView2.Items.Count; i++)
+                {
+                    if (item.tipo.Equals("Aviso Continuo") || item.tipo.Equals("Aviso Interminente"))
+                    {
+                        listView2.Items[i].BackColor = Color.Yellow;
+                    }
+                    else if (item.tipo.Equals("Critico Continuo") || item.tipo.Equals("Critico Interminente"))
+                    {
+                        listView2.Items[i].BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        listView2.Items[i].BackColor = Color.Orange;
+                    }
+                }
+
             }
+
         }
 
 

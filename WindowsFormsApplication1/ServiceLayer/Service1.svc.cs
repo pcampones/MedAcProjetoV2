@@ -230,19 +230,20 @@ namespace ServiceLayer
                             {
                                 if (GetLast2Hours(valores.Type, utente.SNS) == true)
                                 {
-                                    if (GetLast1Hour(valores.Type, utente.SNS) == true)
-                                    {
-                                        if (GetLast30Min(valores.Type, utente.SNS) == true)
-                                        {
-                                            if (GetLast10Min(valores.Type, utente.SNS) == true)
-                                            {
-                                                GerarAlertaAvisoContinuo(utente, valores.Type);
-                                            }
-                                            GerarAlertaAvisoInterminente(utente, valores.Type);
-                                        }
-                                        GerarAlertaCriticoContinuo(utente, valores.Type);
-                                    }
-                                    GerarAlertaCriticoInterminente(utente, valores.Type);
+                                    GerarAlertaCriticoInterminente(utente,valores.Type);
+                                
+                                }
+                                else if (GetLast1Hour(valores.Type, utente.SNS) == true)
+                                {
+                                    GerarAlertaCriticoContinuo(utente,valores.Type);
+                                }
+                                else if (GetLast30Min(valores.Type, utente.SNS) == true)
+                                {
+                                    GerarAlertaAvisoInterminente(utente, valores.Type);
+                                }
+                                else if (GetLast10Min(valores.Type,utente.SNS)== true)
+                                {
+                                    GerarAlertaAvisoContinuo(utente,valores.Type);
                                 }
                                 else if (Convert.ToInt32(valores.Value) < 80)
                                 {
@@ -339,7 +340,7 @@ namespace ServiceLayer
 
             }
 
-            if (listaComValores.Count == lista1.Count && listaComValores.Count != 0 && lista1.Count != 0)
+            if (listaComValores.Count == lista1.Count )
             {
                 return true;
             }
@@ -424,7 +425,7 @@ namespace ServiceLayer
 
             }
 
-            if (listaComValores.Count == lista10.Count && listaComValores.Count != 0 && lista10.Count != 0)
+            if (listaComValores.Count == lista10.Count)
             {
                 return true;
             }

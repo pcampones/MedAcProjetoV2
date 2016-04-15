@@ -515,7 +515,7 @@ namespace ServiceLayer
                 case "BP":
                     string[] valueBP = value.Split('-');
 
-                    if (int.Parse(valueBP[0]) < 90 || int.Parse(valueBP[1]) > 180)
+                    if (int.Parse(valueBP[1]) < 90 || int.Parse(valueBP[0]) > 180)
                     {
                         return true;
                     }

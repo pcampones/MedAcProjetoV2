@@ -700,7 +700,7 @@ namespace ServiceLayer
 
                 if (tipo == "Aviso Continuo")
                 {
-                    lista = _acederBd.get10min(type, sns);
+                    lista = _acederBd.get10minGraphs(type, sns, data);
                 }
                 else if (tipo == "Aviso Interminente")
                 {

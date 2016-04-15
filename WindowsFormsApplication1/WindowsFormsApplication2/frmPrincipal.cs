@@ -405,7 +405,7 @@ namespace ClinicalAlert
             chartAlert frmChart = new chartAlert();
             frmChart.ShowDialog();
 
-            int item = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index].SubItems[1].Text);
+            int item = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index] .SubItems[1].Text);
 
             if (item.Equals(""))
             {

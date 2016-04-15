@@ -224,7 +224,68 @@ namespace ServiceLayer
 
                 switch (valores.Type)
                 {
+                    case "BP":
+                        {
+                         //   string[] bp = valores.Type.Split('-');
+                            if (VerficaValores(valores.Type, valores.Value) == true)
+                            {
+                                if (GetLast2Hours(valores.Type, utente.SNS) == true)
+                                {
+                                    GerarAlertaCriticoInterminente(utente, valores.Type);
+
+                                }
+                                else if (GetLast1Hour(valores.Type, utente.SNS) == true)
+                                {
+                                    GerarAlertaCriticoContinuo(utente, valores.Type);
+                                }
+                                else if (GetLast30Min(valores.Type, utente.SNS) == true)
+                                {
+                                    GerarAlertaAvisoInterminente(utente, valores.Type);
+                                }
+                                else if (GetLast10Min(valores.Type, utente.SNS) == true)
+                                {
+                                    GerarAlertaAvisoContinuo(utente, valores.Type);
+                                }
+                                else if (Convert.ToInt32(valores.Type) < 60)
+                                {
+                                    GerarAlertaAnytime(utente, valores.Type);
+                                }
+
+                            }
+                        }
+
+                        break;
                     case "HR":
+                        {
+                            if (VerficaValores(valores.Type, valores.Value) == true)
+                            {
+                                if (GetLast2Hours(valores.Type, utente.SNS) == true)
+                                {
+                                    GerarAlertaCriticoInterminente(utente, valores.Type);
+
+                                }
+                                else if (GetLast1Hour(valores.Type, utente.SNS) == true)
+                                {
+                                    GerarAlertaCriticoContinuo(utente, valores.Type);
+                                }
+                                else if (GetLast30Min(valores.Type, utente.SNS) == true)
+                                {
+                                    GerarAlertaAvisoInterminente(utente, valores.Type);
+                                }
+                                else if (GetLast10Min(valores.Type, utente.SNS) == true)
+                                {
+                                    GerarAlertaAvisoContinuo(utente, valores.Type);
+                                }
+                                else if (Convert.ToInt32(valores.Value) < 80)
+                                {
+                                    GerarAlertaAnytime(utente, valores.Type);
+                                }
+
+                            }
+                        }
+
+                        break;
+                    case "SPO2":
                         { 
                             if (VerficaValores(valores.Type, valores.Value) == true)
                             {
@@ -245,7 +306,7 @@ namespace ServiceLayer
                                 {
                                     GerarAlertaAvisoContinuo(utente,valores.Type);
                                 }
-                                else if (Convert.ToInt32(valores.Value) < 80)
+                                else if (Convert.ToInt32(valores.Value) < 30 || Convert.ToInt32(valores.Value)>180)
                                 {
                                     GerarAlertaAnytime(utente, valores.Type);
                                 }
@@ -454,7 +515,7 @@ namespace ServiceLayer
                 case "BP":
                     string[] valueBP = value.Split('-');
 
-                    if (int.Parse(valueBP[1]) < 90 || int.Parse(valueBP[1]) > 180)
+                    if (int.Parse(valueBP[0]) < 90 || int.Parse(valueBP[1]) > 180)
                     {
                         return true;
                     }

@@ -694,7 +694,7 @@ namespace ServiceLayer
         public List<ValoresWeb> GetValuesAlerts(int sns, string type, string tipo, DateTime data)
         {
             try
-            {
+            { //// ahhaha
                 List<Valores> lista = null;
                 List<ValoresWeb> listaWeb = new List<ValoresWeb>();
 

@@ -49,6 +49,8 @@ namespace ClinicalAlert
             listView1.FullRowSelect = true;
             listView2.View = View.Details;
             listView2.FullRowSelect = true;
+            listView_ative_alerts.View = View.Details;
+            listView_ative_alerts.FullRowSelect = true;
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
@@ -99,14 +101,18 @@ namespace ClinicalAlert
             bool a = false;
             a = verificaCampos();
 
-            if (a == true)
+            if (a == true && maleRb.Checked || femaleRb.Checked)
             {
+
+                ut.gender = gender;
+
                 ut.name = txb_name.Text;
                 ut.surname = txb_surname.Text;
                 ut.sns = Int32.Parse(txb_sns.Text);
                 ut.mail = txb_email.Text;
                 ut.bi = Convert.ToInt32(txb_bi.Text);
-                ut.gender = gender;
+
+
                 ut.ative = ative;
                 ut.address = txb_morada.Text;
                 ut.birthdate = dtp_utente.Value;
@@ -117,24 +123,20 @@ namespace ClinicalAlert
                 ut.phone = Convert.ToInt32(txb_phone.Text);
                 ut.age = Convert.ToInt32(Age(dtp_utente.Value));
 
-
-
                 DialogResult result = MessageBox.Show("Are you sure you want add the user with the " + txb_name.Text + " ?", "Information",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
                     serv.AddUtente(ut);
                     MessageBox.Show("User successfully added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                {
-
-                }
             }
+
+
             else
             {
-                MessageBox.Show("Fields","Warning",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -185,8 +187,8 @@ namespace ClinicalAlert
                 String.IsNullOrEmpty(txb_phone.Text) || String.IsNullOrWhiteSpace(txb_phone.Text) &&
                 String.IsNullOrEmpty(numericUpDown1.Value.ToString()) || String.IsNullOrWhiteSpace(numericUpDown1.Value.ToString()) &&
                 String.IsNullOrEmpty(numericUpDown2.Value.ToString()) || String.IsNullOrWhiteSpace(numericUpDown2.Value.ToString()) &&
-                String.IsNullOrEmpty(gender) || String.IsNullOrWhiteSpace(gender) &&
-                String.IsNullOrEmpty(rtxb_alergies.Text) || String.IsNullOrWhiteSpace(rtxb_alergies.Text))
+                String.IsNullOrEmpty(rtxb_alergies.Text) || String.IsNullOrWhiteSpace(rtxb_alergies.Text)
+                 )
             {
                 return false;
             }
@@ -320,6 +322,21 @@ namespace ClinicalAlert
             panelDiarioValores.Visible = false;
             panel_Reports.Visible = false;
 
+            listView1.Items.Clear();
+
+            List<UtenteWeb> listaUtente = serv.GetListaUtentes().ToList();
+
+            foreach (UtenteWeb item in listaUtente)
+
+            {
+
+                ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
+                linha.SubItems.Add(item.name + " " + item.surname);
+
+                listView1.Items.Add(linha);
+            }
+
+
         }
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -356,7 +373,7 @@ namespace ClinicalAlert
                 if (u.gender == "Male")
                 {
                     radioButton1.Checked = true;
-                    
+
                 }
                 else
                 {
@@ -368,12 +385,12 @@ namespace ClinicalAlert
                 numericUpDown3.Enabled = false;
                 richTextBox1.Text = u.alergies;
                 richTextBox1.Enabled = false;
-     
+
                 if (ative == "Ative")
                 {
                     ativeCheckBox.Checked = true;
                 }
-               
+
 
 
 
@@ -382,6 +399,20 @@ namespace ClinicalAlert
 
 
         //Graficos
+
+        private void listView2_DoubleClick(object sender, EventArgs e)
+        {
+            chartAlert frmChart = new chartAlert();
+            frmChart.ShowDialog();
+
+            int item = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index].SubItems[1].Text);
+
+            if (item.Equals(""))
+            {
+
+            }
+        }
+
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
@@ -447,7 +478,7 @@ namespace ClinicalAlert
 
         private void cb_hr_CheckedChanged(object sender, EventArgs e)
         {
-            if (verifySns(sns)==false)
+            if (verifySns(sns) == false)
             {
 
                 if (cb_hr.Checked == true)
@@ -479,7 +510,7 @@ namespace ClinicalAlert
 
         private void cb_OS_CheckedChanged(object sender, EventArgs e)
         {
-            if (verifySns(sns)==false)
+            if (verifySns(sns) == false)
             {
                 if (cb_OS.Checked == true)
 
@@ -519,7 +550,7 @@ namespace ClinicalAlert
 
         private void cb_bp_CheckedChanged(object sender, EventArgs e)
         {
-            if (verifySns(sns)==false)
+            if (verifySns(sns) == false)
             {
 
                 if (cb_bp.Checked == true)
@@ -621,7 +652,7 @@ namespace ClinicalAlert
             List<ValoresWeb> valores = null;
             DateTime dataMin = dtp_begin.Value;
             DateTime dataMax = dtp_end.Value;
-            if (verifySns(sns)== false)
+            if (verifySns(sns) == false)
             {
 
                 if (dataMin <= dataMax)
@@ -660,7 +691,7 @@ namespace ClinicalAlert
                             }
 
                         }
-                        
+
                         chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
                         chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
                         chart1.ChartAreas["area"].AxisX.Interval = 1;
@@ -691,11 +722,11 @@ namespace ClinicalAlert
                     }
                     else
                     {
-                        MessageBox.Show("For the dates choosen doesn't have values associated!","Warning",
-                            MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        MessageBox.Show("For the dates choosen doesn't have values associated!", "Warning",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                
+
                 else
                 {
                     MessageBox.Show("The start date can not be bigger than the end date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -723,7 +754,8 @@ namespace ClinicalAlert
             panelAlerts.Visible = true;
             panel_Reports.Visible = false;
 
-         
+            listView2.Items.Clear();
+            listView_ative_alerts.Items.Clear();
 
             List<UtenteWeb> listUtente = serv.GetUtentesNotRead().ToList();
 
@@ -743,28 +775,42 @@ namespace ClinicalAlert
             DateTime start = DateTime.MinValue;
             DateTime end = DateTime.MaxValue;
 
-            
+
             List<AlertasWeb> listaWeb = serv.GetAlertsNotReadDate(start, end, item2).ToList();
-            listView2.Items.Clear();
+
             foreach (AlertasWeb item in listaWeb)
             {
                 if (item.read.Equals("Not Read"))
                 {
                     ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
-                    linha.SubItems.Add(item.snsUtente.ToString());
-                    linha.SubItems.Add(item.nomeUtente + " " + item.sUtente);
                     linha.SubItems.Add(item.read);
                     linha.SubItems.Add(item.tipo);
                     linha.SubItems.Add(item.dataAlerta.ToShortDateString());
                     linha.SubItems.Add(item.parametro);
                     listView2.Items.Add(linha);
-
+                    
                 }
+
+                for (int i = 0; i < listView2.Items.Count; i++)
+                {
+                    if (item.tipo.Equals("Aviso Continuo") || item.tipo.Equals("Aviso Interminente"))
+                    {
+                        listView2.Items[i].BackColor = Color.Yellow;
+                    }
+                    else if (item.tipo.Equals("Critico Continuo") || item.tipo.Equals("Critico Interminente"))
+                    {
+                        listView2.Items[i].BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        listView2.Items[i].BackColor = Color.Orange;
+                    }
+                }
+
             }
+
         }
 
-
-      
 
         private void bt_read_Click(object sender, EventArgs e)
         {
@@ -773,7 +819,7 @@ namespace ClinicalAlert
                 AlertasWeb al = new AlertasWeb();
 
                 ListViewItem item = listView2.SelectedItems[0];
-                if (listView2.SelectedItems[0].SubItems[3].Text.Equals("Not Read"))
+                if (listView2.SelectedItems[0].SubItems[1].Text.Equals("Not Read"))
                 {
                     int id = Convert.ToInt32(listView2.SelectedItems[0].Text);
                     al.read = "Read";
@@ -851,7 +897,7 @@ namespace ClinicalAlert
 
             limpaDataGrid(data_reports);
 
-            if (verifySns(sns)== false)
+            if (verifySns(sns) == false)
             {
                 if (checkBoxHR.Checked == true)
                 {
@@ -865,7 +911,7 @@ namespace ClinicalAlert
                     }
                     else
                     {
-                        
+
                         MessageBox.Show(" The option you choose doesn't have default values in previous 7 days!", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -875,7 +921,7 @@ namespace ClinicalAlert
             else
             {
                 checkBoxHR.Checked = false;
-                   MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -887,7 +933,7 @@ namespace ClinicalAlert
 
             limpaDataGrid(data_reports);
 
-            if (verifySns(sns)==false)
+            if (verifySns(sns) == false)
             {
 
                 if (checkBoxOS.Checked == true)
@@ -903,7 +949,7 @@ namespace ClinicalAlert
                     }
                     else
                     {
-                        
+
                         MessageBox.Show(" The option you choose doesn't have default values in previous 7 days!", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -925,7 +971,7 @@ namespace ClinicalAlert
             DateTime dataMin = DateTime.Now.AddDays(-7);
 
             limpaDataGrid(data_reports);
-            if (verifySns(sns)==false)
+            if (verifySns(sns) == false)
             {
 
                 if (checkBoxBP.Checked == true)
@@ -941,7 +987,7 @@ namespace ClinicalAlert
                     }
                     else
                     {
-                        
+
                         MessageBox.Show(" The option you choose doesn't have default values in previous 7 days!", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -965,7 +1011,7 @@ namespace ClinicalAlert
             limpaDataGrid(data_reports);
 
 
-            if (verifySns(sns)== false)
+            if (verifySns(sns) == false)
             {
                 if (startDate <= endDate)
                 {
@@ -978,22 +1024,22 @@ namespace ClinicalAlert
                     {
                         if (checkBoxBP.Checked == true)
                         {
-                             esta = getEstatisticas(sns, dataMin, dataMax, "BP");
-                            if(esta != null)
+                            esta = getEstatisticas(sns, dataMin, dataMax, "BP");
+                            if (esta != null)
                             {
                                 data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
                             }
                             else
                             {
-                                MessageBox.Show("For the dates selected doesn't have values associated!","Error",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                                MessageBox.Show("For the dates selected doesn't have values associated!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             }
-                            
+
                         }
 
                         if (checkBoxOS.Checked == true)
                         {
 
-                             esta = getEstatisticas(sns, dataMin, dataMax, "SPO2");
+                            esta = getEstatisticas(sns, dataMin, dataMax, "SPO2");
                             if (esta != null)
                             {
                                 data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
@@ -1008,7 +1054,7 @@ namespace ClinicalAlert
                         if (checkBoxHR.Checked == true)
                         {
                             esta = getEstatisticas(sns, startDate, endDate, "HR");
-                           
+
                             if (esta != null)
                             {
                                 data_reports.Rows.Add(esta.valorMed, esta.valorMax, esta.valorMin, esta.tipo, esta.startDate, esta.endDate);
@@ -1025,7 +1071,7 @@ namespace ClinicalAlert
                 else
                 {
 
-                    MessageBox.Show("Start Date can not be bigger than End Date!","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show("Start Date can not be bigger than End Date!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
             }
@@ -1033,7 +1079,7 @@ namespace ClinicalAlert
             {
                 MessageBox.Show("Please Select the Patient!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         //Metodos Auxiliares
@@ -1041,7 +1087,7 @@ namespace ClinicalAlert
         {
             if (sns == 0)
             {
-             
+
                 return true;
             }
             return false;
@@ -1070,7 +1116,7 @@ namespace ClinicalAlert
                     v.dataOfReposit = item.dataOfReposit;
 
                     listaW.Add(v);
-                
+
                 }
                 return listaW;
 
@@ -1080,10 +1126,10 @@ namespace ClinicalAlert
 
         private EstatisticasWeb getEstatisticas(int sns, DateTime start, DateTime end, string type)
         {
-            List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns,start,end,type).ToList();
+            List<EstatisticasWeb> lista = serv.GetReportsHRbySNS(sns, start, end, type).ToList();
 
 
-            if (lista.Count  != 0)
+            if (lista.Count != 0)
             {
                 EstatisticasWeb esta = new EstatisticasWeb();
 
@@ -1100,12 +1146,7 @@ namespace ClinicalAlert
                 }
 
             }
-            
-                
-            return null;    
-            
-
-            
+            return null;
         }
     }
 }

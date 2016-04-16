@@ -211,6 +211,34 @@ namespace ClassLibraryMedAc
             return data30min;
         }
 
+        public List<Valores> get10minGraphs(string tipo, int sns, DateTime data)
+        {
+            DateTime data10 = data.AddMinutes(-10);
+            List<Valores> data10min = context.ValoresSet.Where(i => i.DataOfRegist <= data &&
+            i.DataOfRegist >= data10 && i.Utente.SNS == sns && tipo == i.Type).ToList();
+
+            return data10min;
+        }
+
+        public List<Valores> get1hoursGraphs(string tipo, int sns, DateTime data)
+        {
+            DateTime data1hs = data.AddHours(-1);
+            List<Valores> data1h = context.ValoresSet.Where(i => i.DataOfRegist <= data &&
+            i.DataOfRegist >= data1hs && i.Utente.SNS == sns && tipo == i.Type).ToList();
+
+            return data1h;
+        }
+
+        public List<Valores> get2hoursGraphs(string tipo, int sns, DateTime data)
+        {
+            DateTime data2hs = data.AddHours(-1);
+            List<Valores> data2h = context.ValoresSet.Where(i => i.DataOfRegist <= data &&
+            i.DataOfRegist >= data2hs && i.Utente.SNS == sns && tipo == i.Type).ToList();
+
+            return data2h;
+        }
+
+
 
 
         public List<EstatisticasWeb> getReportsHRbySNS(int sns, DateTime startDate, DateTime endDate, string type)

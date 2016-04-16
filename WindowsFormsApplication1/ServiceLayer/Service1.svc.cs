@@ -286,27 +286,27 @@ namespace ServiceLayer
 
                         break;
                     case "SPO2":
-                        { 
+                        {
                             if (VerficaValores(valores.Type, valores.Value) == true)
                             {
                                 if (GetLast2Hours(valores.Type, utente.SNS) == true)
                                 {
-                                    GerarAlertaCriticoInterminente(utente,valores.Type);
-                                
+                                    GerarAlertaCriticoInterminente(utente, valores.Type);
+
                                 }
                                 else if (GetLast1Hour(valores.Type, utente.SNS) == true)
                                 {
-                                    GerarAlertaCriticoContinuo(utente,valores.Type);
+                                    GerarAlertaCriticoContinuo(utente, valores.Type);
                                 }
                                 else if (GetLast30Min(valores.Type, utente.SNS) == true)
                                 {
                                     GerarAlertaAvisoInterminente(utente, valores.Type);
                                 }
-                                else if (GetLast10Min(valores.Type,utente.SNS)== true)
+                                else if (GetLast10Min(valores.Type, utente.SNS) == true)
                                 {
-                                    GerarAlertaAvisoContinuo(utente,valores.Type);
+                                    GerarAlertaAvisoContinuo(utente, valores.Type);
                                 }
-                                else if (Convert.ToInt32(valores.Value) < 30 || Convert.ToInt32(valores.Value)>180)
+                                else if (Convert.ToInt32(valores.Value) < 30 || Convert.ToInt32(valores.Value) > 180)
                                 {
                                     GerarAlertaAnytime(utente, valores.Type);
                                 }
@@ -401,7 +401,7 @@ namespace ServiceLayer
 
             }
 
-            if (listaComValores.Count == lista1.Count )
+            if (listaComValores.Count == lista1.Count)
             {
                 return true;
             }
@@ -679,7 +679,7 @@ namespace ServiceLayer
                     uWeb.Name = utente.Name;
                     uWeb.Surname = utente.Surname;
 
-                    listaWeb.Add(uWeb);          
+                    listaWeb.Add(uWeb);
                 }
 
                 return listaWeb;
@@ -691,23 +691,33 @@ namespace ServiceLayer
             }
         }
 
-       public List<ValoresWeb> GetValuesAlerts(int sns, string type, string tipo, DateTime data)
+        public List<ValoresWeb> GetValuesAlerts(int sns, string type, string tipo, DateTime data)
         {
             try
-            {
+            { //// ahhaha
                 List<Valores> lista = null;
                 List<ValoresWeb> listaWeb = new List<ValoresWeb>();
-              
-                 if (tipo == "Aviso Continuo")
-                    {
-                        lista = _acederBd.get10min(type, sns);
-                    }
-                else if (tipo == "Aviso Interminente")
-                    {//f
-                        lista = _acederBd.get30minGraphs(type,sns,data);
 
-                    }
-                
+                if (tipo == "Aviso Continuo")
+                {
+                    lista = _acederBd.get10minGraphs(type, sns, data);
+                }
+                else if (tipo == "Aviso Interminente")
+                {
+                    lista = _acederBd.get30minGraphs(type, sns, data);
+                }
+                else if (tipo == "Critico Interminente")
+                {
+                    lista = _acederBd.get2hoursGraphs(type, sns, data);
+                }
+                else if (tipo == "Critio Continuo")
+                {
+                    lista = _acederBd.get1hoursGraphs(type, sns, data);
+                }
+                else if (tipo == "Any Time")
+                {
+                    lista = _acederBd.get30minGraphs(type, sns, data);
+                }
 
                 foreach (Valores item in lista)
                 {
@@ -717,7 +727,7 @@ namespace ServiceLayer
                     v.Value = item.Value;
                     listaWeb.Add(v);
                 }
-                
+
                 return listaWeb;
             }
             catch (Exception ex)

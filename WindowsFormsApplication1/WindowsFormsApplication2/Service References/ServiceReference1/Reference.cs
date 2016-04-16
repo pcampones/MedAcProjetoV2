@@ -780,6 +780,12 @@ namespace ClinicalAlert.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/marcarComoLido", ReplyAction="http://tempuri.org/IService1/marcarComoLidoResponse")]
         System.Threading.Tasks.Task marcarComoLidoAsync(ClinicalAlert.ServiceReference1.AlertasWeb alerta, int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesAlerts", ReplyAction="http://tempuri.org/IService1/GetValuesAlertsResponse")]
+        ClinicalAlert.ServiceReference1.ValoresWeb[] GetValuesAlerts(int sns, string type, string tipo, System.DateTime data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetValuesAlerts", ReplyAction="http://tempuri.org/IService1/GetValuesAlertsResponse")]
+        System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetValuesAlertsAsync(int sns, string type, string tipo, System.DateTime data);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -903,6 +909,14 @@ namespace ClinicalAlert.ServiceReference1 {
         
         public System.Threading.Tasks.Task marcarComoLidoAsync(ClinicalAlert.ServiceReference1.AlertasWeb alerta, int id) {
             return base.Channel.marcarComoLidoAsync(alerta, id);
+        }
+        
+        public ClinicalAlert.ServiceReference1.ValoresWeb[] GetValuesAlerts(int sns, string type, string tipo, System.DateTime data) {
+            return base.Channel.GetValuesAlerts(sns, type, tipo, data);
+        }
+        
+        public System.Threading.Tasks.Task<ClinicalAlert.ServiceReference1.ValoresWeb[]> GetValuesAlertsAsync(int sns, string type, string tipo, System.DateTime data) {
+            return base.Channel.GetValuesAlertsAsync(sns, type, tipo, data);
         }
     }
 }

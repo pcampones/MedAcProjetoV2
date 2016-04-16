@@ -21,6 +21,7 @@ namespace ClinicalAlert
         string gender;
         string ative = "Inative";
         int sns;
+        int item2;
 
         DateTime dataMax = DateTime.Now;
         DateTime dataMin = DateTime.Now.AddDays(-2);
@@ -402,15 +403,22 @@ namespace ClinicalAlert
 
         private void listView2_DoubleClick(object sender, EventArgs e)
         {
-            chartAlert frmChart = new chartAlert();
-            frmChart.ShowDialog();
 
-            int item = Convert.ToInt32(listView1.Items[listView1.FocusedItem.Index].SubItems[1].Text);
+            string tipo = listView2.SelectedItems[0].SubItems[2].Text;
+            string type = listView2.SelectedItems[0].SubItems[4].Text;
+            DateTime data = Convert.ToDateTime(listView2.SelectedItems[0].SubItems[3].Text);
+            List<ValoresWeb> lista = serv.GetValuesAlerts(item2, type, tipo, data).ToList();
 
-            if (item.Equals(""))
+            if (lista != null)
             {
 
+                chartAlert frmChart = new chartAlert(lista);
+                frmChart.ShowDialog();
+
             }
+
+
+
         }
 
 
@@ -447,18 +455,22 @@ namespace ClinicalAlert
             chart1.ChartAreas["area"].AxisX.Title = "Date";
             chart1.ChartAreas["area"].AxisY.Title = "Values";
 
-            chart1.Series.Add("Blood Pressure");
+            chart1.Series.Add("Blood Pressure Diastolic");
+
+            chart1.Series.Add("Blood Pressure Systolic");
             chart1.Series.Add("Heart Rate");
             chart1.Series.Add("Oxygen Saturation");
 
             //definição da cor de cada série
-            chart1.Series["Blood Pressure"].Color = Color.Red;
+            chart1.Series["Blood Pressure Diastolic"].Color = Color.Red;
             chart1.Series["Heart Rate"].Color = Color.Blue;
             chart1.Series["Oxygen Saturation"].Color = Color.Green;
+            chart1.Series["Blood Pressure Systolic"].Color = Color.Yellow;
 
-            chart1.Series["Blood Pressure"].Points.AddXY(dataMin, 0);
+            chart1.Series["Blood Pressure Diastolic"].Points.AddXY(dataMin, 0);
             chart1.Series["Heart Rate"].Points.AddXY(dataMax, 0);
             chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 0);
+            chart1.Series["Blood Pressure Systolic"].Points.AddXY(dataMax, 0);
 
             chart1.ChartAreas["area"].BackColor = Color.White;
             chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
@@ -468,9 +480,10 @@ namespace ClinicalAlert
             chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
             chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
 
-            chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
+            chart1.Series["Blood Pressure Diastolic"].IsValueShownAsLabel = true;
             chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
             chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
+            chart1.Series["Blood Pressure Systolic"].IsValueShownAsLabel = true;
 
 
 
@@ -561,9 +574,11 @@ namespace ClinicalAlert
 
                     foreach (ValoresWeb item in v)
                     {
-                        if (item.type == "BP")
+                        string[] bp = item.valueR.Split('-');
+                         if (item.type == "BP")
                         {
-                            chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+                            chart1.Series["Blood Pressure Systolic"].Points.AddXY(item.dataOfReposit.ToOADate(), bp[0]);
+                            chart1.Series["Blood Pressure Diastolic"].Points.AddXY(item.dataOfReposit.ToOADate(),bp[1]);
                         }
 
                     }
@@ -571,7 +586,8 @@ namespace ClinicalAlert
                 }
                 else
                 {
-                    chart1.Series["Blood Pressure"].Points.Clear();
+                    chart1.Series["Blood Pressure Diastolic"].Points.Clear();
+                    chart1.Series["Blood Pressure Systolic"].Points.Clear();
 
                 }
             }
@@ -589,8 +605,11 @@ namespace ClinicalAlert
             {
                 cb_bars.Checked = false;
                 cb_lines.Checked = false;
-                chart1.Series["Blood Pressure"].ChartType =
+                chart1.Series["Blood Pressure Systolic"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+                chart1.Series["Blood Pressure Diastolic"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+
                 chart1.Series["Oxygen Saturation"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
                 chart1.Series["Heart Rate"].ChartType =
@@ -608,8 +627,12 @@ namespace ClinicalAlert
 
                 cb_collumns.Checked = false;
                 cb_bars.Checked = false;
-                chart1.Series["Blood Pressure"].ChartType =
+
+                chart1.Series["Blood Pressure Systolic"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                chart1.Series["Blood Pressure Diastolic"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+
                 chart1.Series["Oxygen Saturation"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
                 chart1.Series["Heart Rate"].ChartType =
@@ -624,8 +647,11 @@ namespace ClinicalAlert
                 cb_collumns.Checked = false;
                 cb_lines.Checked = false;
                 //definição do tipo de gráficosss
-                chart1.Series["Blood Pressure"].ChartType =
+                chart1.Series["Blood Pressure Systolic"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+                chart1.Series["Blood Pressure Diastolic"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+
                 chart1.Series["Oxygen Saturation"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
                 chart1.Series["Heart Rate"].ChartType =
@@ -642,7 +668,8 @@ namespace ClinicalAlert
 
             //Titulo do gráfico
             chart1.Titles.Add("Chart Values");
-            chart1.Series.Add("Blood Pressure");
+            chart1.Series.Add("Blood Pressure Systolic");
+            chart1.Series.Add("Blood Pressure Diastolic");
             chart1.Series.Add("Heart Rate");
             chart1.Series.Add("Oxygen Saturation");
 
@@ -655,7 +682,7 @@ namespace ClinicalAlert
             if (verifySns(sns) == false)
             {
 
-                if (dataMin <= dataMax)
+                if (dataMin < dataMax)
                 {
                     valores = getValuesGraphs(sns, dataMax, dataMin).ToList();
                     if (valores.Count != 0)
@@ -675,7 +702,9 @@ namespace ClinicalAlert
                             {
                                 if (item.type == "BP")
                                 {
-                                    chart1.Series["Blood Pressure"].Points.AddXY(item.dataOfReposit, item.valueR);
+                                    string[] bp = item.valueR.Split('-');
+                                    chart1.Series["Blood Pressure Systolic"].Points.AddXY(item.dataOfReposit, bp[0]);
+                                    chart1.Series["Blood Pressure Diastolic"].Points.AddXY(item.dataOfReposit, bp[1]);
 
                                 }
 
@@ -703,7 +732,8 @@ namespace ClinicalAlert
 
 
                         //definição da cor de cada série
-                        chart1.Series["Blood Pressure"].Color = Color.Red;
+                        chart1.Series["Blood Pressure Diastolic"].Color = Color.Red;
+                        chart1.Series["Blood Pressure Systolic"].Color = Color.Yellow;
                         chart1.Series["Heart Rate"].Color = Color.Blue;
                         chart1.Series["Oxygen Saturation"].Color = Color.Green;
 
@@ -716,7 +746,10 @@ namespace ClinicalAlert
                         chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
                         chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
 
-                        chart1.Series["Blood Pressure"].IsValueShownAsLabel = true;
+
+                        chart1.Series["Blood Pressure Systolic"].IsValueShownAsLabel = true;
+
+                        chart1.Series["Blood Pressure Diastolic"].IsValueShownAsLabel = true;
                         chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
                         chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
                     }
@@ -766,11 +799,14 @@ namespace ClinicalAlert
                 listView_ative_alerts.Items.Add(linha);
             }
         }
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
 
         private void listView_ative_alerts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int item2 = Convert.ToInt32(listView_ative_alerts.Items[listView_ative_alerts.FocusedItem.Index].SubItems[0].Text);
+             item2 = Convert.ToInt32(listView_ative_alerts.Items[listView_ative_alerts.FocusedItem.Index].SubItems[0].Text);
 
             DateTime start = DateTime.MinValue;
             DateTime end = DateTime.MaxValue;
@@ -785,28 +821,27 @@ namespace ClinicalAlert
                     ListViewItem linha = new ListViewItem(item.sns.ToString(), 0);
                     linha.SubItems.Add(item.read);
                     linha.SubItems.Add(item.tipo);
-                    linha.SubItems.Add(item.dataAlerta.ToShortDateString());
+                    linha.SubItems.Add(item.dataAlerta.ToString());
                     linha.SubItems.Add(item.parametro);
-                    listView2.Items.Add(linha);
-                    
-                }
 
-                for (int i = 0; i < listView2.Items.Count; i++)
-                {
-                    if (item.tipo.Equals("Aviso Continuo") || item.tipo.Equals("Aviso Interminente"))
+                    if (item.tipo.Equals("Aviso Interminente") || item.tipo.Equals("Aviso Continuo"))
                     {
-                        listView2.Items[i].BackColor = Color.Yellow;
+                        linha.BackColor = Color.Yellow;
                     }
-                    else if (item.tipo.Equals("Critico Continuo") || item.tipo.Equals("Critico Interminente"))
+                    else if (item.tipo.Equals("Critico Interminente") || item.tipo.Equals("Critico Continuo"))
                     {
-                        listView2.Items[i].BackColor = Color.Red;
+                        linha.BackColor = Color.Red;
                     }
                     else
                     {
-                        listView2.Items[i].BackColor = Color.Orange;
+                        linha.BackColor = Color.Orange;
                     }
-                }
 
+                    listView2.Items.Add(linha);
+
+                    
+                }
+            
             }
 
         }
@@ -1148,5 +1183,7 @@ namespace ClinicalAlert
             }
             return null;
         }
+
+      
     }
 }

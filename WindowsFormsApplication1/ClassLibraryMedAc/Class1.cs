@@ -201,6 +201,14 @@ namespace ClassLibraryMedAc
 
             return data10min;
         }
+
+        public List<Valores> getAnytime(string tipo, int sns, DateTime data)
+        {
+            List<Valores> dataAnytime = context.ValoresSet.Where(i => i.DataOfRegist <= data 
+            && i.Utente.SNS == sns && tipo == i.Type).ToList();
+
+            return dataAnytime;
+        }
         public List<Valores> get30minGraphs(string tipo, int sns, DateTime data)
         {
             DateTime data30 = data.AddMinutes(-30);
@@ -272,55 +280,7 @@ namespace ClassLibraryMedAc
 
                     return estastisticas;
                 }
-                /*  if (type == "HR")
-                  {
-                       mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
-                       maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
-                       minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
-
-                      es.ValorMax = maxHR;
-                      es.ValorMed = mediaHR;
-                      es.ValorMin = minHR;
-
-                      estastisticas.Add(es);
-
-                  }
-
-                   else if (type == "SPO2")
-                  {
-                      mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
-                      maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
-                      minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
-
-                      es.ValorMax = maxHR;
-                      es.ValorMed = mediaHR;
-                      es.ValorMin = minHR;
-
-                      estastisticas.Add(es);
-                  } 
-                  else if (type == "BP")
-                  {
-                      mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
-                      maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
-                      minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
-
-                      es.ValorMax = maxHR;
-                      es.ValorMed = mediaHR;
-                      es.ValorMin = minHR;
-
-                      estastisticas.Add(es);
-                  }
-                  */
-
-                //SPO2
-                //List<Valores> valoresSPO2 = listaVa.Where(i => i.Type == "SPO2").ToList();
-
-
-                ////BP
-                //List<Valores> valoresBP = listaVa.Where(i => i.Type == "BP").ToList();
-                //double mediaBP = valoresBP.Select(i => int.Parse(i.Value)).Average();
-                //int maxBP = valoresBP.Select(i => int.Parse(i.Value)).Max();
-                //int minBP = valoresBP.Select(i => int.Parse(i.Value)).Min();
+             
 
                 return null;
             }

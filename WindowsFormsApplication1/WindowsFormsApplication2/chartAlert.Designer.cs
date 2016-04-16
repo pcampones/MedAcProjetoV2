@@ -47,19 +47,19 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartAltertes.Series.Add(series1);
-            this.chartAltertes.Size = new System.Drawing.Size(555, 375);
+            this.chartAltertes.Size = new System.Drawing.Size(616, 419);
             this.chartAltertes.TabIndex = 0;
             this.chartAltertes.Text = "chart1";
+            this.chartAltertes.Click += new System.EventHandler(this.chartAltertes_Click);
             // 
             // chartAlert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 399);
+            this.ClientSize = new System.Drawing.Size(655, 482);
             this.Controls.Add(this.chartAltertes);
             this.Name = "chartAlert";
             this.Text = "chartAlert";
-            this.Load += new System.EventHandler(this.chartAlert_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartAltertes)).EndInit();
             this.ResumeLayout(false);
 

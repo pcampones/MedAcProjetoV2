@@ -703,7 +703,7 @@ namespace ServiceLayer
                         lista = _acederBd.get10min(type, sns);
                     }
                 else if (tipo == "Aviso Interminente")
-                    {
+                    {//f
                         lista = _acederBd.get30minGraphs(type,sns,data);
 
                     }

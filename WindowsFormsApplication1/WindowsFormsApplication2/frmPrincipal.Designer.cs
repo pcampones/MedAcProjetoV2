@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Add = new System.Windows.Forms.ToolStripButton();
@@ -50,12 +50,27 @@
             this.diavalores = new System.Windows.Forms.ToolStripButton();
             this.diarioValores = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panelGraficos = new System.Windows.Forms.Panel();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.cb_bp = new System.Windows.Forms.CheckBox();
+            this.cb_hr = new System.Windows.Forms.CheckBox();
+            this.cb_OS = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dtp_end = new System.Windows.Forms.DateTimePicker();
+            this.label28 = new System.Windows.Forms.Label();
+            this.dtp_begin = new System.Windows.Forms.DateTimePicker();
+            this.label27 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cb_bars = new System.Windows.Forms.CheckBox();
+            this.cb_lines = new System.Windows.Forms.CheckBox();
+            this.cb_collumns = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelAlerts = new System.Windows.Forms.Panel();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.listView_ative_alerts = new System.Windows.Forms.ListView();
@@ -187,9 +202,15 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.panelPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox12.SuspendLayout();
+            this.panelGraficos.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panelAlerts.SuspendLayout();
             this.groupBox17.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -232,13 +253,13 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
-            this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
-            this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
-            this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
-            this.splitContainer1.Panel2.Controls.Add(this.panel_Reports);
+            this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
             this.splitContainer1.Panel2.Controls.Add(this.panelDiarioValores);
+            this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
+            this.splitContainer1.Panel2.Controls.Add(this.panel_Reports);
+            this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
+            this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip2);
             this.splitContainer1.Size = new System.Drawing.Size(828, 521);
             this.splitContainer1.SplitterDistance = 157;
@@ -345,54 +366,254 @@
             this.toolStripButton2.Size = new System.Drawing.Size(23, 4);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
-            // panelPrincipal
+            // panelGraficos
             // 
-            this.panelPrincipal.Controls.Add(this.pictureBox1);
-            this.panelPrincipal.Controls.Add(this.groupBox12);
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 26);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(667, 469);
-            this.panelPrincipal.TabIndex = 41;
+            this.panelGraficos.Controls.Add(this.groupBox9);
+            this.panelGraficos.Controls.Add(this.button3);
+            this.panelGraficos.Controls.Add(this.groupBox5);
+            this.panelGraficos.Controls.Add(this.groupBox4);
+            this.panelGraficos.Controls.Add(this.groupBox3);
+            this.panelGraficos.Location = new System.Drawing.Point(0, 26);
+            this.panelGraficos.Name = "panelGraficos";
+            this.panelGraficos.Size = new System.Drawing.Size(667, 495);
+            this.panelGraficos.TabIndex = 56;
             // 
-            // pictureBox1
+            // groupBox9
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(323, 89);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(309, 321);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.groupBox9.Controls.Add(this.checkBox2);
+            this.groupBox9.Controls.Add(this.cb_bp);
+            this.groupBox9.Controls.Add(this.cb_hr);
+            this.groupBox9.Controls.Add(this.cb_OS);
+            this.groupBox9.Location = new System.Drawing.Point(12, 314);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(172, 167);
+            this.groupBox9.TabIndex = 4;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Type of Graph";
             // 
-            // groupBox12
+            // checkBox2
             // 
-            this.groupBox12.Controls.Add(this.listView1);
-            this.groupBox12.Location = new System.Drawing.Point(23, 23);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(249, 446);
-            this.groupBox12.TabIndex = 2;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Active Patients";
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(49, 134);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(46, 17);
+            this.checkBox2.TabIndex = 3;
+            this.checkBox2.Text = "Split";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
-            // listView1
+            // cb_bp
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader1});
-            this.listView1.Location = new System.Drawing.Point(15, 32);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(212, 392);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
+            this.cb_bp.AutoSize = true;
+            this.cb_bp.Location = new System.Drawing.Point(49, 104);
+            this.cb_bp.Name = "cb_bp";
+            this.cb_bp.Size = new System.Drawing.Size(97, 17);
+            this.cb_bp.TabIndex = 2;
+            this.cb_bp.Text = "Blood Pressure";
+            this.cb_bp.UseVisualStyleBackColor = true;
+            this.cb_bp.CheckedChanged += new System.EventHandler(this.cb_bp_CheckedChanged);
             // 
-            // columnHeader3
+            // cb_hr
             // 
-            this.columnHeader3.Text = "SNS";
+            this.cb_hr.AutoSize = true;
+            this.cb_hr.Location = new System.Drawing.Point(49, 61);
+            this.cb_hr.Name = "cb_hr";
+            this.cb_hr.Size = new System.Drawing.Size(78, 17);
+            this.cb_hr.TabIndex = 1;
+            this.cb_hr.Text = "Heart Rate";
+            this.cb_hr.UseVisualStyleBackColor = true;
+            this.cb_hr.CheckedChanged += new System.EventHandler(this.cb_hr_CheckedChanged);
             // 
-            // columnHeader1
+            // cb_OS
             // 
-            this.columnHeader1.Text = "Name";
+            this.cb_OS.AutoSize = true;
+            this.cb_OS.Location = new System.Drawing.Point(49, 24);
+            this.cb_OS.Name = "cb_OS";
+            this.cb_OS.Size = new System.Drawing.Size(113, 17);
+            this.cb_OS.TabIndex = 0;
+            this.cb_OS.Text = "Oxygen Saturation";
+            this.cb_OS.UseVisualStyleBackColor = true;
+            this.cb_OS.CheckedChanged += new System.EventHandler(this.cb_OS_CheckedChanged);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(567, 461);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Confirm";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.dtp_end);
+            this.groupBox5.Controls.Add(this.label28);
+            this.groupBox5.Controls.Add(this.dtp_begin);
+            this.groupBox5.Controls.Add(this.label27);
+            this.groupBox5.Location = new System.Drawing.Point(375, 314);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(267, 133);
+            this.groupBox5.TabIndex = 2;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Date Selected";
+            // 
+            // dtp_end
+            // 
+            this.dtp_end.Location = new System.Drawing.Point(73, 90);
+            this.dtp_end.Name = "dtp_end";
+            this.dtp_end.Size = new System.Drawing.Size(151, 20);
+            this.dtp_end.TabIndex = 3;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(16, 96);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(29, 13);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "End:";
+            // 
+            // dtp_begin
+            // 
+            this.dtp_begin.Location = new System.Drawing.Point(73, 37);
+            this.dtp_begin.Name = "dtp_begin";
+            this.dtp_begin.Size = new System.Drawing.Size(151, 20);
+            this.dtp_begin.TabIndex = 1;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(16, 40);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(37, 13);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Begin:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.cb_bars);
+            this.groupBox4.Controls.Add(this.cb_lines);
+            this.groupBox4.Controls.Add(this.cb_collumns);
+            this.groupBox4.Location = new System.Drawing.Point(213, 314);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(145, 167);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Physiologic Parameters";
+            // 
+            // cb_bars
+            // 
+            this.cb_bars.AutoSize = true;
+            this.cb_bars.Location = new System.Drawing.Point(23, 104);
+            this.cb_bars.Name = "cb_bars";
+            this.cb_bars.Size = new System.Drawing.Size(47, 17);
+            this.cb_bars.TabIndex = 2;
+            this.cb_bars.Text = "Bars";
+            this.cb_bars.UseVisualStyleBackColor = true;
+            this.cb_bars.CheckedChanged += new System.EventHandler(this.cb_bars_CheckedChanged);
+            // 
+            // cb_lines
+            // 
+            this.cb_lines.AutoSize = true;
+            this.cb_lines.Location = new System.Drawing.Point(23, 61);
+            this.cb_lines.Name = "cb_lines";
+            this.cb_lines.Size = new System.Drawing.Size(51, 17);
+            this.cb_lines.TabIndex = 1;
+            this.cb_lines.Text = "Lines";
+            this.cb_lines.UseVisualStyleBackColor = true;
+            this.cb_lines.CheckedChanged += new System.EventHandler(this.cb_lines_CheckedChanged);
+            // 
+            // cb_collumns
+            // 
+            this.cb_collumns.AutoSize = true;
+            this.cb_collumns.Location = new System.Drawing.Point(23, 24);
+            this.cb_collumns.Name = "cb_collumns";
+            this.cb_collumns.Size = new System.Drawing.Size(68, 17);
+            this.cb_collumns.TabIndex = 0;
+            this.cb_collumns.Text = "Collumns";
+            this.cb_collumns.UseVisualStyleBackColor = true;
+            this.cb_collumns.CheckedChanged += new System.EventHandler(this.cb_collumns_CheckedChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.chart4);
+            this.groupBox3.Controls.Add(this.chart3);
+            this.groupBox3.Controls.Add(this.chart2);
+            this.groupBox3.Controls.Add(this.chart1);
+            this.groupBox3.Location = new System.Drawing.Point(12, 11);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(643, 297);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Chart Area";
+            // 
+            // chart4
+            // 
+            chartArea5.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart4.Legends.Add(legend5);
+            this.chart4.Location = new System.Drawing.Point(325, 164);
+            this.chart4.Name = "chart4";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart4.Series.Add(series5);
+            this.chart4.Size = new System.Drawing.Size(300, 126);
+            this.chart4.TabIndex = 3;
+            this.chart4.Text = "chart4";
+            this.chart4.Visible = false;
+            // 
+            // chart3
+            // 
+            chartArea6.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart3.Legends.Add(legend6);
+            this.chart3.Location = new System.Drawing.Point(325, 19);
+            this.chart3.Name = "chart3";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chart3.Series.Add(series6);
+            this.chart3.Size = new System.Drawing.Size(300, 126);
+            this.chart3.TabIndex = 2;
+            this.chart3.Text = "chart3";
+            this.chart3.Visible = false;
+            // 
+            // chart2
+            // 
+            chartArea7.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart2.Legends.Add(legend7);
+            this.chart2.Location = new System.Drawing.Point(6, 164);
+            this.chart2.Name = "chart2";
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.chart2.Series.Add(series7);
+            this.chart2.Size = new System.Drawing.Size(300, 126);
+            this.chart2.TabIndex = 1;
+            this.chart2.Text = "chart2";
+            this.chart2.Visible = false;
+            // 
+            // chart1
+            // 
+            chartArea8.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.chart1.Legends.Add(legend8);
+            this.chart1.Location = new System.Drawing.Point(7, 20);
+            this.chart1.Name = "chart1";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.chart1.Series.Add(series8);
+            this.chart1.Size = new System.Drawing.Size(618, 269);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
             // 
             // panelAlerts
             // 
@@ -401,7 +622,7 @@
             this.panelAlerts.Controls.Add(this.groupBox7);
             this.panelAlerts.Location = new System.Drawing.Point(0, 26);
             this.panelAlerts.Name = "panelAlerts";
-            this.panelAlerts.Size = new System.Drawing.Size(667, 469);
+            this.panelAlerts.Size = new System.Drawing.Size(667, 495);
             this.panelAlerts.TabIndex = 2;
             // 
             // groupBox17
@@ -509,6 +730,55 @@
             // 
             this.columnHeader2.Text = "Parameter";
             this.columnHeader2.Width = 114;
+            // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Controls.Add(this.pictureBox1);
+            this.panelPrincipal.Controls.Add(this.groupBox12);
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 26);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(667, 495);
+            this.panelPrincipal.TabIndex = 41;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(323, 89);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(309, 321);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.listView1);
+            this.groupBox12.Location = new System.Drawing.Point(23, 23);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(249, 446);
+            this.groupBox12.TabIndex = 2;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Active Patients";
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader1});
+            this.listView1.Location = new System.Drawing.Point(15, 32);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(212, 392);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "SNS";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
             // 
             // panel_Adicionar
             // 
@@ -1113,9 +1383,9 @@
             this.panel_Reports.Controls.Add(this.groupBox16);
             this.panel_Reports.Controls.Add(this.groupBox15);
             this.panel_Reports.Controls.Add(this.groupBox14);
-            this.panel_Reports.Location = new System.Drawing.Point(0, 29);
+            this.panel_Reports.Location = new System.Drawing.Point(0, 26);
             this.panel_Reports.Name = "panel_Reports";
-            this.panel_Reports.Size = new System.Drawing.Size(667, 492);
+            this.panel_Reports.Size = new System.Drawing.Size(667, 495);
             this.panel_Reports.TabIndex = 4;
             // 
             // bt_confirm
@@ -1493,9 +1763,18 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panelPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox12.ResumeLayout(false);
+            this.panelGraficos.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panelAlerts.ResumeLayout(false);
             this.groupBox17.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);

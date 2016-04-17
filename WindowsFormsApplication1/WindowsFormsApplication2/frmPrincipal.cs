@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicalAlert.ServiceReference1;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ClinicalAlert
 {
@@ -432,10 +433,17 @@ namespace ClinicalAlert
             panelAlerts.Visible = false;
             panel_Reports.Visible = false;
 
+            
+            chart2.Visible = false;
+            chart3.Visible = false;
+            chart4.Visible = false;
 
             chart1.ChartAreas.Clear();
             chart1.Series.Clear();
             chart1.Titles.Clear();
+
+         //   chart1.Height = 250;
+         //   chart1.Width = 650;
 
             chart1.Titles.Add("Chart Values");
 
@@ -558,6 +566,71 @@ namespace ClinicalAlert
 
 
 
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+            limpaGraficos(chart1);
+            limpaGraficos(chart2);
+            limpaGraficos(chart3);
+            limpaGraficos(chart4);
+
+            chart1.Series.Add("Blood Pressure Diastolic");
+            chart2.Series.Add("Blood Pressure Systolic");
+            chart3.Series.Add("Heart Rate");
+            chart4.Series.Add("Oxygen Saturation");
+
+
+            if (verifySns(sns) == false)
+            {
+
+                if (checkBox2.Checked == true)
+                {
+
+
+                    List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
+
+                    foreach (ValoresWeb item in v)
+                    {   if (item.type == "BP")
+                        {
+
+                            string[] bp = item.valueR.Split('-');
+
+                            chart2.Series["Blood Pressure Systolic"].Points.AddXY(item.dataOfReposit.ToOADate(), bp[0]);
+                            chart1.Series["Blood Pressure Diastolic"].Points.AddXY(item.dataOfReposit.ToOADate(), bp[1]);
+                            
+                        }
+                        else if (item.type == "HR")
+                        {
+                            chart3.Series["Heart Rate"].Points.AddXY(item.dataOfReposit.ToString(),item.valueR);
+                        }
+                        else if (item.type == "SPO2")
+                        {
+
+                            chart4.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit.ToString(), item.valueR);
+
+                        }
+
+                    }
+
+                }
+                else
+                {
+                    chart1.Series["Blood Pressure Diastolic"].Points.Clear();
+                    chart2.Series["Blood Pressure Systolic"].Points.Clear();
+                    chart3.Series["Heart Rate"].Points.Clear();
+                    chart4.Series["Oxygen Saturation"].Points.Clear();
+
+
+                }
+            }
+            else
+            {
+                checkBox2.Checked = false;
+                MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
 
@@ -1037,6 +1110,8 @@ namespace ClinicalAlert
             }
         }
 
+       
+
         private void bt_confirm_Click(object sender, EventArgs e)
         {
             DateTime startDate = dtp_start_reports.Value;
@@ -1184,6 +1259,13 @@ namespace ClinicalAlert
             return null;
         }
 
+
+        private void limpaGraficos(Chart area )
+        {
+            area.Series.Clear();
+            area.Titles.Clear();
+            area.ChartAreas.Clear();
+        }
       
     }
 }

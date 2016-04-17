@@ -80,6 +80,12 @@
   <wsdl:message name="IService1_marcarComoLido_OutputMessage">
     <wsdl:part name="parameters" element="tns:marcarComoLidoResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetValuesAlerts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetValuesAlerts" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetValuesAlerts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetValuesAlertsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetUtenteBySNS">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUtenteBySNS" message="tns:IService1_GetUtenteBySNS_InputMessage" />
@@ -128,6 +134,10 @@
     <wsdl:operation name="marcarComoLido">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/marcarComoLido" message="tns:IService1_marcarComoLido_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/marcarComoLidoResponse" message="tns:IService1_marcarComoLido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetValuesAlerts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetValuesAlerts" message="tns:IService1_GetValuesAlerts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetValuesAlertsResponse" message="tns:IService1_GetValuesAlerts_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -233,6 +243,15 @@
     </wsdl:operation>
     <wsdl:operation name="marcarComoLido">
       <soap:operation soapAction="http://tempuri.org/IService1/marcarComoLido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValuesAlerts">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetValuesAlerts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -710,13 +710,13 @@ namespace ServiceLayer
                 {
                     lista = _acederBd.get2hoursGraphs(type, sns, data);
                 }
-                else if (tipo == "Critio Continuo")
+                else if (tipo == "Critico Continuo")
                 {
                     lista = _acederBd.get1hoursGraphs(type, sns, data);
                 }
-                else if (tipo == "Any Time")
+                else if (tipo == "AnyTime")
                 {
-                    lista = _acederBd.get30minGraphs(type, sns, data);
+                    lista = _acederBd.getAnytime(type, sns, data);
                 }
 
                 foreach (Valores item in lista)
@@ -725,6 +725,7 @@ namespace ServiceLayer
 
                     v.DataOfReposit = item.DataOfRegist;
                     v.Value = item.Value;
+                    v.Type = item.Type;
                     listaWeb.Add(v);
                 }
 

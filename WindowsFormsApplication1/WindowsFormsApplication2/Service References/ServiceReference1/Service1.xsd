@@ -175,4 +175,21 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetValuesAlerts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="data" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetValuesAlertsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetValuesAlertsResult" nillable="true" type="q12:ArrayOfValoresWeb" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

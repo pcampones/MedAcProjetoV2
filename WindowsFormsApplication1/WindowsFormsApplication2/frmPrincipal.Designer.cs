@@ -41,6 +41,12 @@
             this.diavalores = new System.Windows.Forms.ToolStripButton();
             this.diarioValores = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelAlerts = new System.Windows.Forms.Panel();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.listView_ative_alerts = new System.Windows.Forms.ListView();
@@ -55,12 +61,6 @@
             this.columnHeadertype = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel_Adicionar = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -189,13 +189,13 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.panelPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox12.SuspendLayout();
             this.panelAlerts.SuspendLayout();
             this.groupBox17.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.panelPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox12.SuspendLayout();
             this.panel_Adicionar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -237,8 +237,8 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panelAlerts);
+            this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
             this.splitContainer1.Panel2.Controls.Add(this.panel_Adicionar);
             this.splitContainer1.Panel2.Controls.Add(this.panelEdit);
             this.splitContainer1.Panel2.Controls.Add(this.panelGraficos);
@@ -350,12 +350,61 @@
             this.toolStripButton2.Size = new System.Drawing.Size(23, 4);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Controls.Add(this.pictureBox1);
+            this.panelPrincipal.Controls.Add(this.groupBox12);
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 26);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(667, 469);
+            this.panelPrincipal.TabIndex = 41;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(323, 89);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(309, 321);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.listView1);
+            this.groupBox12.Location = new System.Drawing.Point(23, 23);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(249, 446);
+            this.groupBox12.TabIndex = 2;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Active Patients";
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader1});
+            this.listView1.Location = new System.Drawing.Point(15, 32);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(212, 392);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "SNS";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            // 
             // panelAlerts
             // 
             this.panelAlerts.Controls.Add(this.groupBox17);
             this.panelAlerts.Controls.Add(this.groupBox13);
             this.panelAlerts.Controls.Add(this.groupBox7);
-            this.panelAlerts.Location = new System.Drawing.Point(0, 26);
+            this.panelAlerts.Location = new System.Drawing.Point(0, 0);
             this.panelAlerts.Name = "panelAlerts";
             this.panelAlerts.Size = new System.Drawing.Size(667, 469);
             this.panelAlerts.TabIndex = 2;
@@ -437,6 +486,7 @@
             this.listView2.TabIndex = 1;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             this.listView2.DoubleClick += new System.EventHandler(this.listView2_DoubleClick);
             // 
             // columnId
@@ -464,55 +514,6 @@
             // 
             this.columnHeader2.Text = "Parameter";
             this.columnHeader2.Width = 114;
-            // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Controls.Add(this.pictureBox1);
-            this.panelPrincipal.Controls.Add(this.groupBox12);
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 26);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(667, 469);
-            this.panelPrincipal.TabIndex = 41;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(323, 89);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(309, 321);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.listView1);
-            this.groupBox12.Location = new System.Drawing.Point(23, 23);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(249, 446);
-            this.groupBox12.TabIndex = 2;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Active Patients";
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader1});
-            this.listView1.Location = new System.Drawing.Point(15, 32);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(212, 392);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "SNS";
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Name";
             // 
             // panel_Adicionar
             // 
@@ -1680,13 +1681,13 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panelPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox12.ResumeLayout(false);
             this.panelAlerts.ResumeLayout(false);
             this.groupBox17.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
-            this.panelPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox12.ResumeLayout(false);
             this.panel_Adicionar.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

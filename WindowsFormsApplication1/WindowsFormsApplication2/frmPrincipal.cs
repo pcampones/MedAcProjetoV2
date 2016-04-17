@@ -1266,6 +1266,15 @@ namespace ClinicalAlert
             area.Titles.Clear();
             area.ChartAreas.Clear();
         }
-      
+
+        private void insereGraficos(Chart area, string serie, string x, string y, Color cor)
+        {
+            area.Series.Add(serie);
+            area.Series[serie].IsValueShownAsLabel = true;
+            area.Series[serie].Color = cor;
+            area.Series[serie].Points.AddXY(x,y);
+          
+        }
+
     }
 }

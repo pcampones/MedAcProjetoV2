@@ -577,17 +577,33 @@ namespace ClinicalAlert
             limpaGraficos(chart3);
             limpaGraficos(chart4);
 
-            chart1.Series.Add("Blood Pressure Diastolic");
-            chart2.Series.Add("Blood Pressure Systolic");
-            chart3.Series.Add("Heart Rate");
-            chart4.Series.Add("Oxygen Saturation");
 
-
+           
             if (verifySns(sns) == false)
             {
 
                 if (checkBox2.Checked == true)
                 {
+
+
+                    chart1.ChartAreas.Add("bpD");
+                    chart2.ChartAreas.Add("bpS");
+                    chart3.ChartAreas.Add("hr");
+                    chart4.ChartAreas.Add("ox");
+
+                    chart1.ChartAreas["bpD"].AxisX.Minimum = dataMin.ToOADate();
+                    chart1.ChartAreas["bpD"].AxisX.Maximum = dataMax.ToOADate();
+
+                    //chart2.ChartAreas["bpS"].AxisX.Maximum = dataMax.ToOADate();
+
+                    chart1.ChartAreas["area"].AxisX.Interval = 1;
+                    chart1.ChartAreas["area"].AxisY.Minimum = 0;
+                    chart1.ChartAreas["area"].AxisY.Interval = 10;
+
+                    chart1.ChartAreas["area"].AxisX.Title = "Date";
+                    chart1.ChartAreas["area"].AxisY.Title = "Values";
+
+                    chart1.Series.Add("Blood Pressure Diastolic");
 
 
                     List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
@@ -642,15 +658,32 @@ namespace ClinicalAlert
 
                 if (cb_bp.Checked == true)
                 {
+                    checkBox2.Checked = false;
 
+                    limpaGraficos(chart1);
+                    limpaGraficos(chart2);
+                    limpaGraficos(chart3);
+                    limpaGraficos(chart4);
+                    painelVisivel(chart2);
+                    painelVisivel(chart3);
+                    painelVisivel(chart4);
+
+
+                    chart1.ChartAreas.Add("bpD");
+                    chart2.ChartAreas.Add("bpS");
+                    chart3.ChartAreas.Add("hr");
+                    chart4.ChartAreas.Add("ox");
                     
 
                     List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
 
                     foreach (ValoresWeb item in v)
                     {
+                        
+                 
                         string[] bp = item.valueR.Split('-');
-                         if (item.type == "BP")
+
+                        if (item.type == "BP")
                         {
                             chart1.Series["Blood Pressure Systolic"].Points.AddXY(item.dataOfReposit.ToOADate(), bp[0]);
                             chart1.Series["Blood Pressure Diastolic"].Points.AddXY(item.dataOfReposit.ToOADate(),bp[1]);
@@ -1275,17 +1308,7 @@ namespace ClinicalAlert
             area.ChartAreas.Clear();
         }
 
-        private void insereGraficos(Chart area, string serie,
-            string x, string y, Color cor)
-        {
-            area.Series.Add(serie);
-            
-            area.Series[serie].IsValueShownAsLabel = true;
-            area.Series[serie].Color = cor;
-            area.Series[serie].Points.AddXY(x,y);
-          
-        }
-
+       
         private void painelVisivel(Chart area)
         {
             area.Visible = false;

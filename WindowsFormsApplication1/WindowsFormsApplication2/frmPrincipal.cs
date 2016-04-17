@@ -35,7 +35,7 @@ namespace ClinicalAlert
             // Set the MaximizeBox to false to remove the maximize box.
             this.MaximizeBox = false;
 
-            // Set the start position of the form to the center of the screen.
+            // Set the start position of the form to the center of the screen. ajahag
             this.StartPosition = FormStartPosition.CenterScreen;
 
             serv = new Service1Client();

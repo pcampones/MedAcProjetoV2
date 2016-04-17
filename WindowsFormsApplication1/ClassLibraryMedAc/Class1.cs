@@ -254,35 +254,60 @@ namespace ClassLibraryMedAc
             try
             {
 
+                EstatisticasWeb es = new EstatisticasWeb();
+
+                List<EstatisticasWeb> estastisticas = new List<EstatisticasWeb>();
+                double mediaHR = 0;
+                int maxHR = 0;
+                int minHR = 0;
 
                 List<Valores> listaVa = context.ValoresSet.Where(i => i.Utente.SNS.Equals(sns) && i.DataOfRegist >= startDate && 
                 i.DataOfRegist <= endDate && i.Type == type).ToList();
 
                 if (listaVa.Count != 0)
                 {
-                    EstatisticasWeb es = new EstatisticasWeb();
+                    foreach (Valores item in listaVa)
+                    {
+                        if (item.Type == "BP")
+                        {
+  
+                            List<string> valoresBP = new List<string>();
 
-                    List<EstatisticasWeb> estastisticas = new List<EstatisticasWeb>();
-                    double mediaHR = 0;
-                    int maxHR = 0;
-                    int minHR = 0;
+                            string[] array = item.Value.Split('-');
+
+                            valoresBP.Add(array[0]);
+                            valoresBP.Add(array[1]);
+
+                            double mediaSys = valoresBP.Select(i => int.Parse(array[0])).Average();
+                            double mediaDis = valoresBP.Select(i => int.Parse(array[1])).Average();
+
+                            double mediaFinal = mediaSys + mediaDis / 2;
+
+                             maxHR = valoresBP.Select(i => int.Parse(array[0])).Max();
+                             minHR = valoresBP.Select(i => int.Parse(array[1])).Min();
+
+                            es.ValorMax = maxHR;
+                            es.ValorMed = mediaFinal;
+                            es.ValorMin = minHR;
 
 
-                    mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
-                    maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
-                    minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
+                        }
+                        else
+                        {
+                            mediaHR = listaVa.Select(i => int.Parse(i.Value)).Average();
+                            maxHR = listaVa.Select(i => int.Parse(i.Value)).Max();
+                            minHR = listaVa.Select(i => int.Parse(i.Value)).Min();
 
-                    es.ValorMax = maxHR;
-                    es.ValorMed = mediaHR;
-                    es.ValorMin = minHR;
+                            es.ValorMax = maxHR;
+                            es.ValorMed = mediaHR;
+                            es.ValorMin = minHR;
 
-                    estastisticas.Add(es);
-
-                    return estastisticas;
+                        }
+                        estastisticas.Add(es);
+                        return estastisticas;
+                    }                  
                 }
-             
-
-                return null;
+              return null;
             }
             catch (Exception ex)
             {

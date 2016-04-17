@@ -479,7 +479,7 @@ namespace ClinicalAlert
             chart1.Series["Heart Rate"].Points.AddXY(dataMax, 0);
             chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 0);
             chart1.Series["Blood Pressure Systolic"].Points.AddXY(dataMax, 0);
-
+            //a
             chart1.ChartAreas["area"].BackColor = Color.White;
             chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
             chart1.ChartAreas["area"].BackGradientStyle =

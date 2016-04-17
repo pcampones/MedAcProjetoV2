@@ -504,7 +504,7 @@ namespace ClinicalAlert
 
                 if (cb_hr.Checked == true)
                 {
-                    //insereGraficos();
+                    insereGraficos();
                     List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
 
                     foreach (var item in v)

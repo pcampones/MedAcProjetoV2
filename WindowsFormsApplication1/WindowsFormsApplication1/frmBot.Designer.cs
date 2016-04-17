@@ -34,6 +34,9 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,9 +93,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.oxigenPressurecheckBox = new System.Windows.Forms.CheckBox();
             this.heartRateCheckBox = new System.Windows.Forms.CheckBox();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -108,6 +108,8 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.panelPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMe.SuspendLayout();
@@ -117,8 +119,6 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panelPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,9 +134,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panelPrincipal);
+            this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.panelMe);
-            this.splitContainer1.Panel2.Controls.Add(this.panelDataAcquisition);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Size = new System.Drawing.Size(751, 493);
             this.splitContainer1.SplitterDistance = 105;
@@ -198,6 +198,36 @@
             this.toolStripButton3.Text = "Medical Dictionary";
             this.toolStripButton3.ToolTipText = "Medical Dictionary";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Controls.Add(this.pictureBox1);
+            this.panelPrincipal.Controls.Add(this.label11);
+            this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 28);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(642, 477);
+            this.panelPrincipal.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(140, 120);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(337, 295);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe Script", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(183, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(172, 52);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Welcome";
             // 
             // panel1
             // 
@@ -493,7 +523,7 @@
             this.panelDataAcquisition.Controls.Add(this.groupBox1);
             this.panelDataAcquisition.Location = new System.Drawing.Point(0, 28);
             this.panelDataAcquisition.Name = "panelDataAcquisition";
-            this.panelDataAcquisition.Size = new System.Drawing.Size(642, 474);
+            this.panelDataAcquisition.Size = new System.Drawing.Size(642, 465);
             this.panelDataAcquisition.TabIndex = 1;
             this.panelDataAcquisition.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDataAcquisition_Paint);
             // 
@@ -503,6 +533,7 @@
             this.groupBox3.Controls.Add(this.stop);
             this.groupBox3.Controls.Add(this.initDLL);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.Black;
             this.groupBox3.Location = new System.Drawing.Point(9, 315);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(291, 130);
@@ -554,6 +585,7 @@
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(9, 7);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(618, 288);
@@ -564,7 +596,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(279, 48);
+            this.label18.Location = new System.Drawing.Point(223, 50);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(12, 16);
             this.label18.TabIndex = 46;
@@ -575,67 +607,60 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(486, 130);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(37, 16);
+            this.label17.Size = new System.Drawing.Size(0, 16);
             this.label17.TabIndex = 44;
-            this.label17.Text = "Date";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(486, 45);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(37, 16);
+            this.label16.Size = new System.Drawing.Size(0, 16);
             this.label16.TabIndex = 43;
-            this.label16.Text = "Date";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(486, 211);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(37, 16);
+            this.label15.Size = new System.Drawing.Size(0, 16);
             this.label15.TabIndex = 42;
-            this.label15.Text = "Date";
             // 
             // heartRateLbl
             // 
             this.heartRateLbl.AutoSize = true;
-            this.heartRateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heartRateLbl.Location = new System.Drawing.Point(197, 208);
+            this.heartRateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heartRateLbl.Location = new System.Drawing.Point(178, 209);
             this.heartRateLbl.Name = "heartRateLbl";
-            this.heartRateLbl.Size = new System.Drawing.Size(81, 20);
+            this.heartRateLbl.Size = new System.Drawing.Size(0, 25);
             this.heartRateLbl.TabIndex = 41;
-            this.heartRateLbl.Text = "heartRate";
             // 
             // oxigenPressureLbl
             // 
             this.oxigenPressureLbl.AutoSize = true;
-            this.oxigenPressureLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oxigenPressureLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.oxigenPressureLbl.Location = new System.Drawing.Point(178, 127);
             this.oxigenPressureLbl.Name = "oxigenPressureLbl";
-            this.oxigenPressureLbl.Size = new System.Drawing.Size(118, 20);
+            this.oxigenPressureLbl.Size = new System.Drawing.Size(0, 25);
             this.oxigenPressureLbl.TabIndex = 40;
-            this.oxigenPressureLbl.Text = "oxigenPressure";
             // 
             // bloodPressureMinLbl
             // 
             this.bloodPressureMinLbl.AutoSize = true;
-            this.bloodPressureMinLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bloodPressureMinLbl.Location = new System.Drawing.Point(137, 45);
+            this.bloodPressureMinLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bloodPressureMinLbl.Location = new System.Drawing.Point(126, 43);
             this.bloodPressureMinLbl.Name = "bloodPressureMinLbl";
-            this.bloodPressureMinLbl.Size = new System.Drawing.Size(136, 20);
+            this.bloodPressureMinLbl.Size = new System.Drawing.Size(0, 25);
             this.bloodPressureMinLbl.TabIndex = 39;
-            this.bloodPressureMinLbl.Text = "bloodPressureMin";
             // 
             // bloodPressureMaxLbl
             // 
             this.bloodPressureMaxLbl.AutoSize = true;
-            this.bloodPressureMaxLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bloodPressureMaxLbl.Location = new System.Drawing.Point(298, 45);
+            this.bloodPressureMaxLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bloodPressureMaxLbl.Location = new System.Drawing.Point(259, 46);
             this.bloodPressureMaxLbl.Name = "bloodPressureMaxLbl";
-            this.bloodPressureMaxLbl.Size = new System.Drawing.Size(140, 20);
+            this.bloodPressureMaxLbl.Size = new System.Drawing.Size(0, 25);
             this.bloodPressureMaxLbl.TabIndex = 45;
-            this.bloodPressureMaxLbl.Text = "bloodPressureMax";
             // 
             // label14
             // 
@@ -676,6 +701,7 @@
             this.groupBox1.Controls.Add(this.oxigenPressurecheckBox);
             this.groupBox1.Controls.Add(this.heartRateCheckBox);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(332, 315);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(295, 130);
@@ -739,36 +765,6 @@
             this.heartRateCheckBox.TabIndex = 22;
             this.heartRateCheckBox.UseVisualStyleBackColor = true;
             this.heartRateCheckBox.CheckedChanged += new System.EventHandler(this.heartRateCheckBox_CheckedChanged);
-            // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Controls.Add(this.pictureBox1);
-            this.panelPrincipal.Controls.Add(this.label11);
-            this.panelPrincipal.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 28);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(642, 465);
-            this.panelPrincipal.TabIndex = 10;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(140, 120);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(337, 295);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe Script", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(183, 33);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(172, 52);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Welcome";
             // 
             // toolStrip1
             // 
@@ -877,6 +873,9 @@
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.panelPrincipal.ResumeLayout(false);
+            this.panelPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -890,9 +889,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panelPrincipal.ResumeLayout(false);
-            this.panelPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

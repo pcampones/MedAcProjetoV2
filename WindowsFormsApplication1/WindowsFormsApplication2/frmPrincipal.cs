@@ -504,6 +504,7 @@ namespace ClinicalAlert
 
                 if (cb_hr.Checked == true)
                 {
+                    //insereGraficos();
                     List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
 
                     foreach (var item in v)
@@ -642,6 +643,7 @@ namespace ClinicalAlert
                 if (cb_bp.Checked == true)
                 {
 
+                    
 
                     List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
 
@@ -735,9 +737,15 @@ namespace ClinicalAlert
         private void button3_Click(object sender, EventArgs e)
         {
 
-            chart1.ChartAreas.Clear();
-            chart1.Series.Clear();
-            chart1.Titles.Clear();
+            limpaGraficos(chart1);
+
+            limpaGraficos(chart2);
+            limpaGraficos(chart3);
+            limpaGraficos(chart4);
+
+            painelVisivel(chart2);
+            painelVisivel(chart3);
+            painelVisivel(chart4);
 
             //Titulo do gráfico
             chart1.Titles.Add("Chart Values");
@@ -1267,13 +1275,20 @@ namespace ClinicalAlert
             area.ChartAreas.Clear();
         }
 
-        private void insereGraficos(Chart area, string serie, string x, string y, Color cor)
+        private void insereGraficos(Chart area, string serie,
+            string x, string y, Color cor)
         {
             area.Series.Add(serie);
+            
             area.Series[serie].IsValueShownAsLabel = true;
             area.Series[serie].Color = cor;
             area.Series[serie].Points.AddXY(x,y);
           
+        }
+
+        private void painelVisivel(Chart area)
+        {
+            area.Visible = false;
         }
 
     }

@@ -442,8 +442,8 @@ namespace ClinicalAlert
             chart1.Series.Clear();
             chart1.Titles.Clear();
 
-         //   chart1.Height = 250;
-         //   chart1.Width = 650;
+            chart1.Height = 250;
+            chart1.Width = 650;
 
             chart1.Titles.Add("Chart Values");
 
@@ -479,7 +479,7 @@ namespace ClinicalAlert
             chart1.Series["Heart Rate"].Points.AddXY(dataMax, 0);
             chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 0);
             chart1.Series["Blood Pressure Systolic"].Points.AddXY(dataMax, 0);
-
+            //a
             chart1.ChartAreas["area"].BackColor = Color.White;
             chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
             chart1.ChartAreas["area"].BackGradientStyle =
@@ -504,7 +504,52 @@ namespace ClinicalAlert
 
                 if (cb_hr.Checked == true)
                 {
-                    //insereGraficos();
+                    checkBox2.Checked = false;
+                    cb_bp.Checked = false;
+                    cb_OS.Checked = false;
+
+                    limpaGraficos(chart1);
+                    limpaGraficos(chart2);
+                    limpaGraficos(chart3);
+                    limpaGraficos(chart4);
+
+                    painelVisivelFalse(chart2);
+                    painelVisivelFalse(chart3);
+                    painelVisivelFalse(chart4);
+
+                    chart1.Height = 250;
+                    chart1.Width = 650;
+
+                    chart1.ChartAreas.Add("area");
+                    chart1.Series.Add("Heart Rate");
+
+
+                    chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
+                    chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
+
+                    chart1.ChartAreas["area"].AxisX.Interval = 1;
+                    chart1.ChartAreas["area"].AxisY.Minimum = 0;
+                    chart1.ChartAreas["area"].AxisY.Interval = 10;
+
+                    chart1.ChartAreas["area"].AxisX.Title = "Date";
+                    chart1.ChartAreas["area"].AxisY.Title = "Values";
+
+                    chart1.Series["Heart Rate"].Color = Color.Yellow;
+
+                    chart1.Series["Heart Rate"].Points.AddXY(dataMin, 0);
+                    chart1.Series["Heart Rate"].Points.AddXY(dataMax, 0);
+
+
+
+                    chart1.ChartAreas["area"].BackColor = Color.White;
+                    chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
+                    chart1.ChartAreas["area"].BackGradientStyle =
+                    System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+                    chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+                    chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+                    chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
                     List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
 
                     foreach (var item in v)
@@ -517,11 +562,7 @@ namespace ClinicalAlert
                     }
 
                 }
-                else
-                {
-                    chart1.Series["Heart Rate"].Points.Clear();
-
-                }
+            
             }
             else
             {
@@ -535,8 +576,53 @@ namespace ClinicalAlert
             if (verifySns(sns) == false)
             {
                 if (cb_OS.Checked == true)
-
                 {
+                    checkBox2.Checked = false;
+                    cb_bp.Checked = false;
+                    cb_hr.Checked = false;
+                    limpaGraficos(chart1);
+                    limpaGraficos(chart2);
+                    limpaGraficos(chart3);
+                    limpaGraficos(chart4);
+
+                    painelVisivelFalse(chart2);
+                    painelVisivelFalse(chart3);
+                    painelVisivelFalse(chart4);
+
+                    chart1.Height = 250;
+                    chart1.Width = 650;
+
+                    chart1.ChartAreas.Add("area");
+                    chart1.Series.Add("Oxygen Saturation");
+
+
+                    chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
+                    chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
+
+                    chart1.ChartAreas["area"].AxisX.Interval = 1;
+                    chart1.ChartAreas["area"].AxisY.Minimum = 0;
+                    chart1.ChartAreas["area"].AxisY.Interval = 10;
+
+                    chart1.ChartAreas["area"].AxisX.Title = "Date";
+                    chart1.ChartAreas["area"].AxisY.Title = "Values";
+
+                    chart1.Series["Oxygen Saturation"].Color = Color.Yellow;
+
+                    chart1.Series["Oxygen Saturation"].Points.AddXY(dataMin, 0);
+                    chart1.Series["Oxygen Saturation"].Points.AddXY(dataMax, 0);
+
+
+
+                    chart1.ChartAreas["area"].BackColor = Color.White;
+                    chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
+                    chart1.ChartAreas["area"].BackGradientStyle =
+                    System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+                    chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+                    chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+                    chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
+
                     List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
 
                     foreach (ValoresWeb item in v)
@@ -549,12 +635,12 @@ namespace ClinicalAlert
                     }
 
                 }
-                else
+               /* else
                 {
                     chart1.Series["Oxygen Saturation"].Points.Clear();
 
                 }
-
+                */
             }
 
             else
@@ -568,7 +654,6 @@ namespace ClinicalAlert
 
 
         }
-
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
         
@@ -592,6 +677,10 @@ namespace ClinicalAlert
                     cb_bp.Checked = false;
                     cb_hr.Checked = false;
                     cb_OS.Checked = false;
+
+
+                    chart1.Height = 126;
+                    chart1.Width = 300;
 
                     chart1.ChartAreas.Add("bpD");
                     chart2.ChartAreas.Add("bpS");
@@ -738,15 +827,15 @@ namespace ClinicalAlert
                     }
 
                 }
-                else
-                {
+               // else
+             /*   {
                  //   chart1.Series["Blood Pressure Diastolic"].Points.Clear();
                     chart2.Series["Blood Pressure Systolic"].Points.Clear();
                     chart3.Series["Heart Rate"].Points.Clear();
                     chart4.Series["Oxygen Saturation"].Points.Clear();
 
 
-                }
+                }*/
             }
             else
             {
@@ -765,6 +854,9 @@ namespace ClinicalAlert
                 if (cb_bp.Checked == true)
                 {
                     checkBox2.Checked = false;
+                    cb_hr.Checked = false;
+                    cb_OS.Checked = false;
+
 
                     limpaGraficos(chart1);
                     limpaGraficos(chart2);
@@ -775,9 +867,45 @@ namespace ClinicalAlert
                     painelVisivelFalse(chart3);
                     painelVisivelFalse(chart4);
 
+                    chart1.Height = 250;
+                    chart1.Width = 650;
+
+                    chart1.ChartAreas.Add("area");
                     chart1.Series.Add("Blood Pressure Systolic");
                     chart1.Series.Add("Blood Pressure Diastolic");
 
+                    
+                    chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
+                    chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
+
+                    chart1.ChartAreas["area"].AxisX.Interval = 1;
+                    chart1.ChartAreas["area"].AxisY.Minimum = 0;
+                    chart1.ChartAreas["area"].AxisY.Interval = 10;
+
+                    chart1.ChartAreas["area"].AxisX.Title = "Date";
+                    chart1.ChartAreas["area"].AxisY.Title = "Values";
+
+                    
+                    chart1.Series["Blood Pressure Diastolic"].Color = Color.Red;
+                    chart1.Series["Blood Pressure Systolic"].Color = Color.Yellow;
+
+                    chart1.Series["Blood Pressure Diastolic"].Points.AddXY(dataMin, 0);
+                    chart1.Series["Blood Pressure Systolic"].Points.AddXY(dataMax, 0);
+
+
+
+                    chart1.ChartAreas["area"].BackColor = Color.White;
+                    chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
+                    chart1.ChartAreas["area"].BackGradientStyle =
+                    System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+                    chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+                    chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+                    chart1.Series["Blood Pressure Diastolic"].IsValueShownAsLabel = true;
+
+                    chart1.Series["Blood Pressure Systolic"].IsValueShownAsLabel = true;
+                    
                     List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
 
                     foreach (ValoresWeb item in v)
@@ -795,12 +923,12 @@ namespace ClinicalAlert
                     }
 
                 }
-                else
-                {
-                    chart1.Series["Blood Pressure Diastolic"].Points.Clear();
-                    chart1.Series["Blood Pressure Systolic"].Points.Clear();
+                //else
+                //{
+                //    chart1.Series["Blood Pressure Diastolic"].Points.Clear();
+                //    chart1.Series["Blood Pressure Systolic"].Points.Clear();
 
-                }
+                //}
             }
             else
             {
@@ -821,15 +949,12 @@ namespace ClinicalAlert
 
                     cb_bars.Checked = false;
                     cb_lines.Checked = false;
-                    chart1.Series["Blood Pressure Systolic"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-                    chart1.Series["Blood Pressure Diastolic"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
 
-                    chart1.Series["Oxygen Saturation"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-                    chart1.Series["Heart Rate"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+
+                    foreach (Series item in chart1.Series)
+                    {
+                        item.ChartType = SeriesChartType.Column;
+                    }
                 }
             }
             else
@@ -862,15 +987,11 @@ namespace ClinicalAlert
                     cb_collumns.Checked = false;
                     cb_bars.Checked = false;
 
-                    chart1.Series["Blood Pressure Systolic"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-                    chart1.Series["Blood Pressure Diastolic"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
-                    chart1.Series["Oxygen Saturation"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-                    chart1.Series["Heart Rate"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                    foreach (Series item in chart1.Series)
+                    {
+                        item.ChartType = SeriesChartType.Line; 
+                    }
                 }
             }
             else
@@ -879,7 +1000,7 @@ namespace ClinicalAlert
                 cb_bars.Checked = false;
 
                 chart2.Series["Blood Pressure Systolic"].ChartType =
-               System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
                 chart1.Series["Blood Pressure Diastolic"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
@@ -901,15 +1022,11 @@ namespace ClinicalAlert
                     cb_collumns.Checked = false;
                     cb_lines.Checked = false;
                     //definição do tipo de gráficosss
-                    chart1.Series["Blood Pressure Systolic"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-                    chart1.Series["Blood Pressure Diastolic"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
 
-                    chart1.Series["Oxygen Saturation"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-                    chart1.Series["Heart Rate"].ChartType =
-                    System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+                    foreach (Series item in chart1.Series)
+                    {
+                        item.ChartType = SeriesChartType.Bar;
+                    }
                 }
             }
             else
@@ -932,122 +1049,310 @@ namespace ClinicalAlert
         private void button3_Click(object sender, EventArgs e)
         {
 
-            limpaGraficos(chart1);
-
-            limpaGraficos(chart2);
-            limpaGraficos(chart3);
-            limpaGraficos(chart4);
-
-            painelVisivel(chart2);
-            painelVisivel(chart3);
-            painelVisivel(chart4);
-
-            //Titulo do gráfico
-            chart1.Titles.Add("Chart Values");
-            chart1.Series.Add("Blood Pressure Systolic");
-            chart1.Series.Add("Blood Pressure Diastolic");
-            chart1.Series.Add("Heart Rate");
-            chart1.Series.Add("Oxygen Saturation");
-
-            //Construção da àrea do gráfico
-            chart1.ChartAreas.Add("area");
-
-            List<ValoresWeb> valores = null;
             DateTime dataMin = dtp_begin.Value;
             DateTime dataMax = dtp_end.Value;
-            if (verifySns(sns) == false)
+            if (checkBox2.Checked == false)
             {
 
-                if (dataMin < dataMax)
+                limpaGraficos(chart1);
+
+                limpaGraficos(chart2);
+                limpaGraficos(chart3);
+                limpaGraficos(chart4);
+
+                painelVisivelFalse(chart2);
+                painelVisivelFalse(chart3);
+                painelVisivelFalse(chart4);
+
+                //Titulo do gráfico
+                chart1.Titles.Add("Chart Values");
+                chart1.Series.Add("Blood Pressure Systolic");
+                chart1.Series.Add("Blood Pressure Diastolic");
+                chart1.Series.Add("Heart Rate");
+                chart1.Series.Add("Oxygen Saturation");
+
+
+                chart1.Height = 250;
+                chart1.Width = 650;
+
+                //Construção da àrea do gráfico
+                chart1.ChartAreas.Add("area");
+
+                List<ValoresWeb> valores = null;
+    
+                if (verifySns(sns) == false)
                 {
-                    valores = getValuesGraphs(sns, dataMax, dataMin).ToList();
-                    if (valores.Count != 0)
+
+                    if (dataMin < dataMax)
                     {
-
-                        foreach (var item in valores)
+                        valores = getValuesGraphs(sns, dataMax, dataMin).ToList();
+                        if (valores.Count != 0)
                         {
-                            if (cb_hr.Checked == true)
+
+                            foreach (var item in valores)
                             {
-                                if (item.type == "HR")
+                                if (cb_hr.Checked == true)
                                 {
-                                    chart1.Series["Heart Rate"].Points.AddXY(item.dataOfReposit, item.valueR);
+                                    if (item.type == "HR")
+                                    {
+                                        chart1.Series["Heart Rate"].Points.AddXY(item.dataOfReposit, item.valueR);
+
+                                    }
+                                }
+                                if (cb_bp.Checked == true)
+                                {
+                                    if (item.type == "BP")
+                                    {
+                                        string[] bp = item.valueR.Split('-');
+                                        chart1.Series["Blood Pressure Systolic"].Points.AddXY(item.dataOfReposit, bp[0]);
+                                        chart1.Series["Blood Pressure Diastolic"].Points.AddXY(item.dataOfReposit, bp[1]);
+
+                                    }
 
                                 }
-                            }
-                            if (cb_bp.Checked == true)
-                            {
-                                if (item.type == "BP")
-                                {
-                                    string[] bp = item.valueR.Split('-');
-                                    chart1.Series["Blood Pressure Systolic"].Points.AddXY(item.dataOfReposit, bp[0]);
-                                    chart1.Series["Blood Pressure Diastolic"].Points.AddXY(item.dataOfReposit, bp[1]);
 
+                                if (cb_OS.Checked == true)
+                                {
+                                    if (item.type == "SPO2")
+                                    {
+                                        chart1.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit, item.valueR);
+
+                                    }
                                 }
 
                             }
 
-                            if (cb_OS.Checked == true)
-                            {
-                                if (item.type == "SPO2")
-                                {
-                                    chart1.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit, item.valueR);
+                            chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
+                            chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
+                            chart1.ChartAreas["area"].AxisX.Interval = 1;
+                            chart1.ChartAreas["area"].AxisY.Minimum = 0;
+                            chart1.ChartAreas["area"].AxisY.Interval = 10;
 
-                                }
-                            }
+                            chart1.ChartAreas["area"].AxisX.Title = "Date";
+                            chart1.ChartAreas["area"].AxisY.Title = "Values";
 
+
+                            //definição da cor de cada série
+                            chart1.Series["Blood Pressure Diastolic"].Color = Color.Red;
+                            chart1.Series["Blood Pressure Systolic"].Color = Color.Yellow;
+                            chart1.Series["Heart Rate"].Color = Color.Blue;
+                            chart1.Series["Oxygen Saturation"].Color = Color.Green;
+
+
+                            chart1.ChartAreas["area"].BackColor = Color.White;
+                            chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
+                            chart1.ChartAreas["area"].BackGradientStyle =
+                            System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+                            chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+                            chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+
+                            chart1.Series["Blood Pressure Systolic"].IsValueShownAsLabel = true;
+
+                            chart1.Series["Blood Pressure Diastolic"].IsValueShownAsLabel = true;
+                            chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
+                            chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
                         }
-
-                        chart1.ChartAreas["area"].AxisX.Minimum = dataMin.ToOADate();
-                        chart1.ChartAreas["area"].AxisX.Maximum = dataMax.ToOADate();
-                        chart1.ChartAreas["area"].AxisX.Interval = 1;
-                        chart1.ChartAreas["area"].AxisY.Minimum = 0;
-                        chart1.ChartAreas["area"].AxisY.Interval = 10;
-
-                        chart1.ChartAreas["area"].AxisX.Title = "Date";
-                        chart1.ChartAreas["area"].AxisY.Title = "Values";
-
-
-                        //definição da cor de cada série
-                        chart1.Series["Blood Pressure Diastolic"].Color = Color.Red;
-                        chart1.Series["Blood Pressure Systolic"].Color = Color.Yellow;
-                        chart1.Series["Heart Rate"].Color = Color.Blue;
-                        chart1.Series["Oxygen Saturation"].Color = Color.Green;
-
-
-                        chart1.ChartAreas["area"].BackColor = Color.White;
-                        chart1.ChartAreas["area"].BackSecondaryColor = Color.LightBlue;
-                        chart1.ChartAreas["area"].BackGradientStyle =
-                        System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
-
-                        chart1.ChartAreas["area"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
-                        chart1.ChartAreas["area"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
-
-
-                        chart1.Series["Blood Pressure Systolic"].IsValueShownAsLabel = true;
-
-                        chart1.Series["Blood Pressure Diastolic"].IsValueShownAsLabel = true;
-                        chart1.Series["Heart Rate"].IsValueShownAsLabel = true;
-                        chart1.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
+                        else
+                        {
+                            MessageBox.Show("For the dates choosen doesn't have values associated!", "Warning",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
+
                     else
                     {
-                        MessageBox.Show("For the dates choosen doesn't have values associated!", "Warning",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("The start date can not be bigger than the end date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
 
+                }
                 else
                 {
-                    MessageBox.Show("The start date can not be bigger than the end date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
 
             }
             else
             {
-                MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                if (verifySns(sns) == false)
+                {
+
+                    limpaGraficos(chart1);
+                    limpaGraficos(chart2);
+                    limpaGraficos(chart3);
+                    limpaGraficos(chart4);
+                    painelVisivel(chart2);
+                    painelVisivel(chart3);
+                    painelVisivel(chart4);
+                    cb_bp.Checked = false;
+                        cb_hr.Checked = false;
+                        cb_OS.Checked = false;
+
+
+                        chart1.Height = 126;
+                        chart1.Width = 300;
+
+                        chart1.ChartAreas.Add("bpD");
+                        chart2.ChartAreas.Add("bpS");
+                        chart3.ChartAreas.Add("hr");
+                        chart4.ChartAreas.Add("ox");
+
+                        chart1.ChartAreas["bpD"].AxisX.Minimum = dataMin.ToOADate();
+                        chart1.ChartAreas["bpD"].AxisX.Maximum = dataMax.ToOADate();
+
+                        chart1.ChartAreas["bpD"].AxisX.Interval = 1;
+                        chart1.ChartAreas["bpD"].AxisY.Minimum = 0;
+                        chart1.ChartAreas["bpD"].AxisY.Interval = 10;
+
+                        chart1.ChartAreas["bpD"].AxisX.Title = "Date";
+                        chart1.ChartAreas["bpD"].AxisY.Title = "Values";
+
+                        chart1.Series.Add("Blood Pressure Diastolic");
+
+                        chart1.Series["Blood Pressure Diastolic"].Color = Color.Red;
+
+                        chart1.Series["Blood Pressure Diastolic"].Points.AddXY(dataMin, 0);
+                        chart1.Series["Blood Pressure Diastolic"].Points.AddXY(dataMax, 0);
+
+                        chart1.ChartAreas["bpD"].BackColor = Color.White;
+                        chart1.ChartAreas["bpD"].BackSecondaryColor = Color.LightBlue;
+                        chart1.ChartAreas["bpD"].BackGradientStyle =
+                        System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+                        chart1.ChartAreas["bpD"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+                        chart1.ChartAreas["bpD"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+                        chart1.Series["Blood Pressure Diastolic"].IsValueShownAsLabel = true;
+
+                        ////////////////////////////////////
+                        chart2.ChartAreas["bpS"].AxisX.Minimum = dataMin.ToOADate();
+                        chart2.ChartAreas["bpS"].AxisX.Maximum = dataMax.ToOADate();
+
+                        chart2.ChartAreas["bpS"].AxisX.Interval = 1;
+                        chart2.ChartAreas["bpS"].AxisY.Minimum = 0;
+                        chart2.ChartAreas["bpS"].AxisY.Interval = 10;
+
+                        chart2.ChartAreas["bpS"].AxisX.Title = "Date";
+                        chart2.ChartAreas["bpS"].AxisY.Title = "Values";
+
+                        chart2.Series.Add("Blood Pressure Systolic");
+
+                        chart2.Series["Blood Pressure Systolic"].Color = Color.Red;
+
+                        chart2.Series["Blood Pressure Systolic"].Points.AddXY(dataMin, 0);
+                        chart2.Series["Blood Pressure Systolic"].Points.AddXY(dataMax, 0);
+
+                        chart2.ChartAreas["bpS"].BackColor = Color.White;
+                        chart2.ChartAreas["bpS"].BackSecondaryColor = Color.LightBlue;
+                        chart2.ChartAreas["bpS"].BackGradientStyle =
+                        System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+                        chart2.ChartAreas["bpS"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+                        chart2.ChartAreas["bpS"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+                        chart2.Series["Blood Pressure Systolic"].IsValueShownAsLabel = true;
+
+                        ////////////////////////////////////////
+
+                        chart3.ChartAreas["hr"].AxisX.Minimum = dataMin.ToOADate();
+                        chart3.ChartAreas["hr"].AxisX.Maximum = dataMax.ToOADate();
+
+                        chart3.ChartAreas["hr"].AxisX.Interval = 1;
+                        chart3.ChartAreas["hr"].AxisY.Minimum = 0;
+                        chart3.ChartAreas["hr"].AxisY.Interval = 10;
+
+                        chart3.ChartAreas["hr"].AxisX.Title = "Date";
+                        chart3.ChartAreas["hr"].AxisY.Title = "Values";
+
+                        chart3.Series.Add("Heart Rate");
+
+                        chart3.Series["Heart Rate"].Color = Color.Red;
+
+                        chart3.Series["Heart Rate"].Points.AddXY(dataMin, 0);
+                        chart3.Series["Heart Rate"].Points.AddXY(dataMax, 0);
+
+                        chart3.ChartAreas["hr"].BackColor = Color.White;
+                        chart3.ChartAreas["hr"].BackSecondaryColor = Color.LightBlue;
+                        chart3.ChartAreas["hr"].BackGradientStyle =
+                        System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+                        chart3.ChartAreas["hr"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+                        chart3.ChartAreas["hr"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+                        chart3.Series["Heart Rate"].IsValueShownAsLabel = true;
+
+                        ////////////////////////////////////////7
+
+                        chart4.ChartAreas["ox"].AxisX.Minimum = dataMin.ToOADate();
+                        chart4.ChartAreas["ox"].AxisX.Maximum = dataMax.ToOADate();
+
+                        chart4.ChartAreas["ox"].AxisX.Interval = 1;
+                        chart4.ChartAreas["ox"].AxisY.Minimum = 0;
+                        chart4.ChartAreas["ox"].AxisY.Interval = 10;
+
+                        chart4.ChartAreas["ox"].AxisX.Title = "Date";
+                        chart4.ChartAreas["ox"].AxisY.Title = "Values";
+
+                        chart4.Series.Add("Oxygen Saturation");
+
+                        chart4.Series["Oxygen Saturation"].Color = Color.Red;
+
+                        chart4.Series["Oxygen Saturation"].Points.AddXY(dataMin, 0);
+                        chart4.Series["Oxygen Saturation"].Points.AddXY(dataMax, 0);
+
+                        chart4.ChartAreas["ox"].BackColor = Color.White;
+                        chart4.ChartAreas["ox"].BackSecondaryColor = Color.LightBlue;
+                        chart4.ChartAreas["ox"].BackGradientStyle =
+                        System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+
+                        chart4.ChartAreas["ox"].AxisX.MajorGrid.LineColor = Color.LightSlateGray;
+                        chart4.ChartAreas["ox"].AxisY.MajorGrid.LineColor = Color.LightSteelBlue;
+
+                        chart4.Series["Oxygen Saturation"].IsValueShownAsLabel = true;
+
+
+                        List<ValoresWeb> v = getValuesGraphs(sns, dataMax, dataMin).ToList();
+
+                        foreach (ValoresWeb item in v)
+                        {
+                            if (item.type == "BP")
+                            {
+
+                                string[] bp = item.valueR.Split('-');
+
+                                chart2.Series["Blood Pressure Systolic"].Points.AddXY(item.dataOfReposit.ToOADate(), bp[0]);
+                                chart1.Series["Blood Pressure Diastolic"].Points.AddXY(item.dataOfReposit.ToOADate(), bp[1]);
+
+                            }
+                            else if (item.type == "HR")
+                            {
+                                chart3.Series["Heart Rate"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+                            }
+                            else if (item.type == "SPO2")
+                            {
+
+                                chart4.Series["Oxygen Saturation"].Points.AddXY(item.dataOfReposit.ToOADate(), item.valueR);
+
+                            }
+
+                        }
+
+                    }
+                
+                else
+                {
+                    checkBox2.Checked = false;
+                    MessageBox.Show("Please Select the Patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+
 
             }
-
         }
 
 
@@ -1478,7 +1783,7 @@ namespace ClinicalAlert
 
         private void painelVisivelFalse(Chart area)
         {
-            area.Visible = true;
+            area.Visible = false;
         }
 
 
